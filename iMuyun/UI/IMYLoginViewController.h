@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <OpenTok/Opentok.h>
 
 @interface IMYLoginViewController : UIViewController
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF17D9C715B94E8B000DF07C /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF17D9C615B94E8B000DF07C /* Opentok.framework */; };
 		BF25D20715B2AAEE00411924 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF25D20615B2AAEE00411924 /* UIKit.framework */; };
 		BF25D20915B2AAEE00411924 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF25D20815B2AAEE00411924 /* Foundation.framework */; };
 		BF25D20B15B2AAEE00411924 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF25D20A15B2AAEE00411924 /* CoreGraphics.framework */; };
@@ -44,9 +45,7 @@
 		BFC893B015B8EFB80095F8BA /* index.md in Resources */ = {isa = PBXBuildFile; fileRef = BFC8939915B8EFB80095F8BA /* index.md */; };
 		BFC893B115B8EFB80095F8BA /* Using_iOS-template.md in Resources */ = {isa = PBXBuildFile; fileRef = BFC8939A15B8EFB80095F8BA /* Using_iOS-template.md */; };
 		BFC893B215B8EFB80095F8BA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = BFC8939B15B8EFB80095F8BA /* LICENSE.txt */; };
-		BFC893B315B8EFB80095F8BA /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC8939C15B8EFB80095F8BA /* Opentok.framework */; };
 		BFC893B415B8EFB80095F8BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BFC8939D15B8EFB80095F8BA /* README.md */; };
-		BFC893B515B8EFB80095F8BA /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC8939E15B8EFB80095F8BA /* Opentok.framework */; };
 		BFC893B715B8EFE40095F8BA /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BFC893B615B8EFE40095F8BA /* opentok.bundle */; };
 		BFC893CF15B8F0630095F8BA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893BD15B8F0630095F8BA /* CoreTelephony.framework */; };
 		BFC893D015B8F0630095F8BA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893BE15B8F0630095F8BA /* MobileCoreServices.framework */; };
@@ -77,6 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF17D9C615B94E8B000DF07C /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk/Opentok.framework"; sourceTree = "<group>"; };
 		BF25D20215B2AAEE00411924 /* iMuyun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMuyun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF25D20615B2AAEE00411924 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BF25D20815B2AAEE00411924 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,7 +128,6 @@
 		BFC8939B15B8EFB80095F8BA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		BFC8939C15B8EFB80095F8BA /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
 		BFC8939D15B8EFB80095F8BA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		BFC8939E15B8EFB80095F8BA /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "opentok-ios-sdk/Opentok.framework"; sourceTree = "<group>"; };
 		BFC893B615B8EFE40095F8BA /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = opentok.bundle; path = Opentok.framework/Versions/A/Resources/opentok.bundle; sourceTree = "<group>"; };
 		BFC893BD15B8F0630095F8BA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		BFC893BE15B8F0630095F8BA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -182,8 +181,6 @@
 				BF25D20715B2AAEE00411924 /* UIKit.framework in Frameworks */,
 				BF25D20915B2AAEE00411924 /* Foundation.framework in Frameworks */,
 				BF25D20B15B2AAEE00411924 /* CoreGraphics.framework in Frameworks */,
-				BFC893B315B8EFB80095F8BA /* Opentok.framework in Frameworks */,
-				BFC893B515B8EFB80095F8BA /* Opentok.framework in Frameworks */,
 				BFC893CF15B8F0630095F8BA /* CoreTelephony.framework in Frameworks */,
 				BFC893D015B8F0630095F8BA /* MobileCoreServices.framework in Frameworks */,
 				BFC893D115B8F0630095F8BA /* CFNetwork.framework in Frameworks */,
@@ -200,6 +197,7 @@
 				BFC893DC15B8F0630095F8BA /* AVFoundation.framework in Frameworks */,
 				BFC893DE15B8F0630095F8BA /* Foundation.framework in Frameworks */,
 				BFC893DF15B8F0630095F8BA /* CoreGraphics.framework in Frameworks */,
+				BF17D9C715B94E8B000DF07C /* Opentok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +225,7 @@
 		BF25D20515B2AAEE00411924 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF17D9C615B94E8B000DF07C /* Opentok.framework */,
 				BFA9D02515B30A0400D1083F /* AddressBook.framework */,
 				BFA9D02715B30A0900D1083F /* AddressBookUI.framework */,
 				BFC893C315B8F0630095F8BA /* AudioToolbox.framework */,
@@ -243,7 +242,6 @@
 				BFD9DC0315B322F30008A6D8 /* MessageUI.framework */,
 				BFC893BE15B8F0630095F8BA /* MobileCoreServices.framework */,
 				BFC893C615B8F0630095F8BA /* OpenGLES.framework */,
-				BFC8939E15B8EFB80095F8BA /* Opentok.framework */,
 				BFC893C915B8F0630095F8BA /* QuartzCore.framework */,
 				BFC893C215B8F0630095F8BA /* Security.framework */,
 				BFC893C015B8F0630095F8BA /* SystemConfiguration.framework */,
@@ -620,6 +618,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/opentok-ios-sdk\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iMuyun/iMuyun-Prefix.pch";
@@ -636,6 +635,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/opentok-ios-sdk\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iMuyun/iMuyun-Prefix.pch";
