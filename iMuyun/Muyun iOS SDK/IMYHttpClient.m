@@ -11,6 +11,8 @@
 @implementation IMYHttpClient
 //@synthesize delegate = _delegate;
 
+static NSString* const kHost = @"http://omegaga.net/bc";
+static NSString* const kLogin = @"/login.php";
 
 + (IMYHttpClient *)shareClient
 {
@@ -21,6 +23,15 @@
         }   
     }
     return client;
+}
+
+- (void)requestLoginWithUsername:(NSString *) username password:(NSString*) password delegate:(id)delegate
+{
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingString:kLogin]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:password forKey:@"password"];
+    [request startAsynchronous];
 }
 
 @end

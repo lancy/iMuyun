@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMYHttpClient.h"
 
-@interface IMYLoginViewController : UIViewController
+@interface IMYLoginViewController : UIViewController<ASIHTTPRequestDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+- (IBAction)tapTheLoginButton:(id)sender;
 @end

@@ -17,7 +17,6 @@
 		BF25D21A15B2AAEE00411924 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25D21815B2AAEE00411924 /* MainStoryboard.storyboard */; };
 		BF25D23015B2AB9000411924 /* IMYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */; };
 		BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */; };
-		BFA9D01715B306CD00D1083F /* IMYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01615B306CD00D1083F /* IMYContactsViewController.m */; };
 		BFA9D01A15B306E000D1083F /* IMYRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */; };
 		BFA9D01D15B306F900D1083F /* IMYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01C15B306F900D1083F /* IMYSettingViewController.m */; };
 		BFA9D02015B3071000D1083F /* IMYFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01F15B3071000D1083F /* IMYFirstViewController.m */; };
@@ -73,6 +72,10 @@
 		BFC893FE15B8F5820095F8BA /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC893F315B8F5820095F8BA /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFC893FF15B8F5820095F8BA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC893F615B8F5820095F8BA /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFD9DC0415B322F30008A6D8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD9DC0315B322F30008A6D8 /* MessageUI.framework */; };
+		BFDD054E15BA609E005B30E4 /* IMYContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */; };
+		BFDD055415BA6109005B30E4 /* IMYContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055115BA6109005B30E4 /* IMYContactCell.m */; };
+		BFDD055515BA6109005B30E4 /* IMYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */; };
+		BFDD055815BA64E0005B30E4 /* IMYDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055715BA64E0005B30E4 /* IMYDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,8 +95,6 @@
 		BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYLoginViewController.m; path = UI/IMYLoginViewController.m; sourceTree = "<group>"; };
 		BF741AE415B3F5BB009C9E6F /* IMYHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYHttpClient.h; path = "Muyun iOS SDK/IMYHttpClient.h"; sourceTree = "<group>"; };
 		BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYHttpClient.m; path = "Muyun iOS SDK/IMYHttpClient.m"; sourceTree = "<group>"; };
-		BFA9D01515B306CD00D1083F /* IMYContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYContactsViewController.h; path = "UI/Tab View Controller/IMYContactsViewController.h"; sourceTree = "<group>"; };
-		BFA9D01615B306CD00D1083F /* IMYContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactsViewController.m; path = "UI/Tab View Controller/IMYContactsViewController.m"; sourceTree = "<group>"; };
 		BFA9D01815B306E000D1083F /* IMYRecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRecentsViewController.h; path = "UI/Tab View Controller/IMYRecentsViewController.h"; sourceTree = "<group>"; };
 		BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecentsViewController.m; path = "UI/Tab View Controller/IMYRecentsViewController.m"; sourceTree = "<group>"; };
 		BFA9D01B15B306F800D1083F /* IMYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYSettingViewController.h; path = "UI/Tab View Controller/IMYSettingViewController.h"; sourceTree = "<group>"; };
@@ -168,6 +169,14 @@
 		BFC893F515B8F5820095F8BA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		BFC893F615B8F5820095F8BA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		BFD9DC0315B322F30008A6D8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BFDD054C15BA609E005B30E4 /* IMYContactDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYContactDetailViewController.h; path = UI/Contacts/IMYContactDetailViewController.h; sourceTree = "<group>"; };
+		BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactDetailViewController.m; path = UI/Contacts/IMYContactDetailViewController.m; sourceTree = "<group>"; };
+		BFDD055015BA6109005B30E4 /* IMYContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYContactCell.h; path = UI/Contacts/IMYContactCell.h; sourceTree = "<group>"; };
+		BFDD055115BA6109005B30E4 /* IMYContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactCell.m; path = UI/Contacts/IMYContactCell.m; sourceTree = "<group>"; };
+		BFDD055215BA6109005B30E4 /* IMYContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYContactsViewController.h; path = UI/Contacts/IMYContactsViewController.h; sourceTree = "<group>"; };
+		BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactsViewController.m; path = UI/Contacts/IMYContactsViewController.m; sourceTree = "<group>"; };
+		BFDD055615BA64E0005B30E4 /* IMYDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYDataManager.h; path = "Muyun iOS SDK/IMYDataManager.h"; sourceTree = "<group>"; };
+		BFDD055715BA64E0005B30E4 /* IMYDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYDataManager.m; path = "Muyun iOS SDK/IMYDataManager.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +272,7 @@
 				BF741AE815B3F5BF009C9E6F /* Muyun SDK */,
 				BFC8934115B8ED5F0095F8BA /* Call View Controller */,
 				BFA9D02115B3071600D1083F /* Tab View Controller */,
+				BFDD054F15BA60A8005B30E4 /* Contacts */,
 				BF25D20D15B2AAEE00411924 /* Supporting Files */,
 			);
 			path = iMuyun;
@@ -284,6 +294,8 @@
 			children = (
 				BF741AE415B3F5BB009C9E6F /* IMYHttpClient.h */,
 				BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */,
+				BFDD055615BA64E0005B30E4 /* IMYDataManager.h */,
+				BFDD055715BA64E0005B30E4 /* IMYDataManager.m */,
 			);
 			name = "Muyun SDK";
 			sourceTree = "<group>";
@@ -293,8 +305,6 @@
 			children = (
 				BFA9D01E15B3071000D1083F /* IMYFirstViewController.h */,
 				BFA9D01F15B3071000D1083F /* IMYFirstViewController.m */,
-				BFA9D01515B306CD00D1083F /* IMYContactsViewController.h */,
-				BFA9D01615B306CD00D1083F /* IMYContactsViewController.m */,
 				BFA9D01815B306E000D1083F /* IMYRecentsViewController.h */,
 				BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */,
 				BFA9D02215B3099700D1083F /* IMYMessagesViewController.h */,
@@ -438,6 +448,19 @@
 			name = "Third Library";
 			sourceTree = "<group>";
 		};
+		BFDD054F15BA60A8005B30E4 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				BFDD055015BA6109005B30E4 /* IMYContactCell.h */,
+				BFDD055115BA6109005B30E4 /* IMYContactCell.m */,
+				BFDD055215BA6109005B30E4 /* IMYContactsViewController.h */,
+				BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */,
+				BFDD054C15BA609E005B30E4 /* IMYContactDetailViewController.h */,
+				BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -526,7 +549,6 @@
 				BF25D21315B2AAEE00411924 /* main.m in Sources */,
 				BF25D21715B2AAEE00411924 /* IMYAppDelegate.m in Sources */,
 				BF25D23015B2AB9000411924 /* IMYLoginViewController.m in Sources */,
-				BFA9D01715B306CD00D1083F /* IMYContactsViewController.m in Sources */,
 				BFA9D01A15B306E000D1083F /* IMYRecentsViewController.m in Sources */,
 				BFA9D01D15B306F900D1083F /* IMYSettingViewController.m in Sources */,
 				BFA9D02015B3071000D1083F /* IMYFirstViewController.m in Sources */,
@@ -542,6 +564,10 @@
 				BFC893FD15B8F5820095F8BA /* ASIInputStream.m in Sources */,
 				BFC893FE15B8F5820095F8BA /* ASINetworkQueue.m in Sources */,
 				BFC893FF15B8F5820095F8BA /* Reachability.m in Sources */,
+				BFDD054E15BA609E005B30E4 /* IMYContactDetailViewController.m in Sources */,
+				BFDD055415BA6109005B30E4 /* IMYContactCell.m in Sources */,
+				BFDD055515BA6109005B30E4 /* IMYContactsViewController.m in Sources */,
+				BFDD055815BA64E0005B30E4 /* IMYDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

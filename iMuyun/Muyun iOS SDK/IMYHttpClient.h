@@ -7,16 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "IMYHttpRequestDelegate.h"
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @interface IMYHttpClient : NSObject
 
-//@property (nonatomic, weak) id<IMYHttpRequestDelegate> delegate;
+
+
 
 
 + (IMYHttpClient *)shareClient;
 
 //api
-
+- (void)requestLoginWithUsername:(NSString *) username password:(NSString*) password delegate:(id)delegate;
 
 @end
