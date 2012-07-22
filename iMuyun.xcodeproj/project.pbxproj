@@ -19,7 +19,7 @@
 		BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */; };
 		BFA9D01A15B306E000D1083F /* IMYRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */; };
 		BFA9D01D15B306F900D1083F /* IMYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01C15B306F900D1083F /* IMYSettingViewController.m */; };
-		BFA9D02015B3071000D1083F /* IMYFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01F15B3071000D1083F /* IMYFirstViewController.m */; };
+		BFA9D02015B3071000D1083F /* IMYMuyunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01F15B3071000D1083F /* IMYMuyunViewController.m */; };
 		BFA9D02415B3099700D1083F /* IMYMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D02315B3099700D1083F /* IMYMessagesViewController.m */; };
 		BFA9D02615B30A0400D1083F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02515B30A0400D1083F /* AddressBook.framework */; };
 		BFA9D02815B30A0900D1083F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02715B30A0900D1083F /* AddressBookUI.framework */; };
@@ -99,8 +99,8 @@
 		BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecentsViewController.m; path = "UI/Tab View Controller/IMYRecentsViewController.m"; sourceTree = "<group>"; };
 		BFA9D01B15B306F800D1083F /* IMYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYSettingViewController.h; path = "UI/Tab View Controller/IMYSettingViewController.h"; sourceTree = "<group>"; };
 		BFA9D01C15B306F900D1083F /* IMYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYSettingViewController.m; path = "UI/Tab View Controller/IMYSettingViewController.m"; sourceTree = "<group>"; };
-		BFA9D01E15B3071000D1083F /* IMYFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYFirstViewController.h; path = "UI/Tab View Controller/IMYFirstViewController.h"; sourceTree = "<group>"; };
-		BFA9D01F15B3071000D1083F /* IMYFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYFirstViewController.m; path = "UI/Tab View Controller/IMYFirstViewController.m"; sourceTree = "<group>"; };
+		BFA9D01E15B3071000D1083F /* IMYMuyunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYMuyunViewController.h; path = "UI/Tab View Controller/IMYMuyunViewController.h"; sourceTree = "<group>"; };
+		BFA9D01F15B3071000D1083F /* IMYMuyunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYMuyunViewController.m; path = "UI/Tab View Controller/IMYMuyunViewController.m"; sourceTree = "<group>"; };
 		BFA9D02215B3099700D1083F /* IMYMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYMessagesViewController.h; path = "UI/Tab View Controller/IMYMessagesViewController.h"; sourceTree = "<group>"; };
 		BFA9D02315B3099700D1083F /* IMYMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYMessagesViewController.m; path = "UI/Tab View Controller/IMYMessagesViewController.m"; sourceTree = "<group>"; };
 		BFA9D02515B30A0400D1083F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -303,8 +303,6 @@
 		BFA9D02115B3071600D1083F /* Tab View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BFA9D01E15B3071000D1083F /* IMYFirstViewController.h */,
-				BFA9D01F15B3071000D1083F /* IMYFirstViewController.m */,
 				BFA9D01815B306E000D1083F /* IMYRecentsViewController.h */,
 				BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */,
 				BFA9D02215B3099700D1083F /* IMYMessagesViewController.h */,
@@ -451,6 +449,8 @@
 		BFDD054F15BA60A8005B30E4 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				BFA9D01E15B3071000D1083F /* IMYMuyunViewController.h */,
+				BFA9D01F15B3071000D1083F /* IMYMuyunViewController.m */,
 				BFDD055015BA6109005B30E4 /* IMYContactCell.h */,
 				BFDD055115BA6109005B30E4 /* IMYContactCell.m */,
 				BFDD055215BA6109005B30E4 /* IMYContactsViewController.h */,
@@ -551,7 +551,7 @@
 				BF25D23015B2AB9000411924 /* IMYLoginViewController.m in Sources */,
 				BFA9D01A15B306E000D1083F /* IMYRecentsViewController.m in Sources */,
 				BFA9D01D15B306F900D1083F /* IMYSettingViewController.m in Sources */,
-				BFA9D02015B3071000D1083F /* IMYFirstViewController.m in Sources */,
+				BFA9D02015B3071000D1083F /* IMYMuyunViewController.m in Sources */,
 				BFA9D02415B3099700D1083F /* IMYMessagesViewController.m in Sources */,
 				BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */,
 				BFC8933F15B8ED530095F8BA /* IMYViedoCallViewController.m in Sources */,

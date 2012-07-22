@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Xmu-Ig-htJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bZD-qI-PRk">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -80,10 +79,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2e6-0m-FVY" kind="relationship" relationship="viewControllers" id="O8Z-xz-jUv"/>
                         <segue destination="Ztl-So-aQg" kind="relationship" relationship="viewControllers" id="oHi-SZ-WI4"/>
                         <segue destination="0HD-hW-eW5" kind="relationship" relationship="viewControllers" id="cuA-IZ-The"/>
-                        <segue destination="ERg-EG-kdE" kind="relationship" relationship="viewControllers" id="mKm-Xr-E0J"/>
                         <segue destination="vsn-Ff-59m" kind="relationship" relationship="viewControllers" id="a1h-jz-se6"/>
                     </connections>
                 </tabBarController>
@@ -104,7 +101,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="632" y="1425"/>
+            <point key="canvasLocation" x="646" y="3363"/>
         </scene>
         <!--MessagesViewController-->
         <scene sceneID="eGs-mV-4Jk">
@@ -112,7 +109,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ni-VC-TEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="oXz-G1-27T" userLabel="MessagesViewController" customClass="IMYMessagesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="c2o-dV-aDJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -145,7 +142,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1193" y="1425"/>
+            <point key="canvasLocation" x="1207" y="3363"/>
         </scene>
         <!--SettingViewController-->
         <scene sceneID="5ct-Lh-vwa">
@@ -177,7 +174,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1193" y="2057"/>
+            <point key="canvasLocation" x="1193" y="1415"/>
         </scene>
         <!--Navigation Controller - Setting-->
         <scene sceneID="fLD-UL-ch8">
@@ -193,7 +190,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="632" y="2057"/>
+            <point key="canvasLocation" x="632" y="1415"/>
         </scene>
         <!--Navigation Controller - Recents-->
         <scene sceneID="UFT-Gq-qB2">
@@ -370,7 +367,7 @@
                                 <rect key="frame" x="20" y="135" width="291" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Add some note here Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Add some note here Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -390,7 +387,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pPN-gx-S9L">
-                                <rect key="frame" x="20" y="358" width="280" height="37"/>
+                                <rect key="frame" x="20" y="298" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Audio Call">
@@ -404,23 +401,8 @@
                                     <action selector="tapAudioCallButton:" destination="0u0-7n-dyM" eventType="touchUpInside" id="KDV-QI-wlG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DLM-fl-5FR">
-                                <rect key="frame" x="20" y="313" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Send Message">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapMessageButton:" destination="0u0-7n-dyM" eventType="touchUpInside" id="9OL-dj-fwn"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4mG-Ad-xah">
-                                <rect key="frame" x="20" y="403" width="280" height="37"/>
+                                <rect key="frame" x="20" y="356" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Video Call">
@@ -560,33 +542,17 @@
             </objects>
             <point key="canvasLocation" x="1193" y="801"/>
         </scene>
-        <!--Navigation Controller - iMuyun-->
-        <scene sceneID="eB7-ii-Gto">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kdP-TW-Zmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="2e6-0m-FVY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="iMuyun" id="Oq5-OI-Dwr"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="pfO-El-ESa">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="TVc-9K-uGL" kind="relationship" relationship="rootViewController" id="meD-aW-dqv"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="632" y="-430"/>
-        </scene>
         <!--FirstViewController-->
         <scene sceneID="ZI1-VJ-4up">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akY-48-XA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="FirstViewController" id="TVc-9K-uGL" userLabel="FirstViewController" customClass="IMYFirstViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" id="TVc-9K-uGL" userLabel="FirstViewController" customClass="IMYMuyunViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y9D-4L-0Ko">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="52p-Gp-PvI">
-                                <rect key="frame" x="20" y="310" width="280" height="37"/>
+                                <rect key="frame" x="20" y="277" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Video Call">
@@ -598,22 +564,10 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vvf-XQ-84P">
-                                <rect key="frame" x="20" y="265" width="280" height="37"/>
+                                <rect key="frame" x="20" y="221" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Audio Call">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wDb-re-OJn">
-                                <rect key="frame" x="20" y="220" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Send Message">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -670,9 +624,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="iMuyun" id="Z4m-Fh-dL7"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1187" y="-430"/>
+            <point key="canvasLocation" x="1725" y="-408"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

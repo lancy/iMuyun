@@ -13,6 +13,11 @@
 
 + (IMYDataManager *)shareManager;
 
+@property (nonatomic, strong) NSArray *muyunContacts;
+@property (nonatomic, strong) NSArray *favoriteContacts;
+
+@property (nonatomic, strong) NSArray *recentCall;
+@property (nonatomic, strong) NSArray *missedCall;
 
 
 @end

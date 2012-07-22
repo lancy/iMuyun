@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IMYFirstViewController : UIViewController
+@interface IMYMuyunViewController : UIViewController
 
 @end

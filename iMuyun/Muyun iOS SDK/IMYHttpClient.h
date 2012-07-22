@@ -19,6 +19,15 @@
 + (IMYHttpClient *)shareClient;
 
 //api
-- (void)requestLoginWithUsername:(NSString *) username password:(NSString*) password delegate:(id)delegate;
+- (void)requestLoginWithUsername:(NSString *)username password:(NSString*) password delegate:(id)delegate;
+- (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate;
+- (void)requestFavoriteContactsWithUsername:(NSString *)username delegate:(id)delegate;
+- (void)requestRecentsWithUsername:(NSString *)username delegate:(id)delegate;
+- (void)requestMissedWithUsername:(NSString *)username delegate:(id)delegate;
+
+- (void)requestVideoCallWithUsername:(NSString *)username callToUsername:(NSString *)callToUsername delegate:(id)delegate;
+- (void)answerVideoCallWithUsername:(NSString *)username answerMessage:(NSString *)message delegate:(id)delegate;
+- (void)requestEndVideoCallWithUsername:(NSString *)username delegate:(id)delegate;
+
 
 @end

@@ -7,8 +7,19 @@
 //
 
 #import "IMYDataManager.h"
+#import "IMYHttpClient.h"
+
+
+@interface IMYDataManager()
+
+@end;
 
 @implementation IMYDataManager
+@synthesize muyunContacts = _muyunContacts;
+@synthesize favoriteContacts = _favoriteContacts;
+@synthesize recentCall = _recentCall;
+@synthesize missedCall = _missedCall;
+
 
 + (IMYDataManager *)shareManager
 {

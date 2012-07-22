@@ -6,13 +6,13 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "IMYFirstViewController.h"
+#import "IMYMuyunViewController.h"
 
-@interface IMYFirstViewController ()
+@interface IMYMuyunViewController ()
 
 @end
 
-@implementation IMYFirstViewController
+@implementation IMYMuyunViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
