@@ -7,6 +7,7 @@
 //
 
 #import "IMYAppDelegate.h"
+#import "IMYVideoCallViewController.h"
 
 @implementation IMYAppDelegate
 
@@ -68,6 +69,12 @@
     NSLog(@"userInfo = %@", userInfo);
     if ([[userInfo valueForKey:@"callType"] isEqualToString:@"videoCall"]) {
         NSLog(@"Recieve video call");
+        IMYVideoCallViewController *videoCallVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
+        [videoCallVC setVideoCallState:IMYVideoCallStateCallIn];
+
+        NSLog(@"%@", self.window.rootViewController);
+        [self.window.rootViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+        [self.window.rootViewController presentModalViewController:videoCallVC animated:YES];
     }   
 }
 

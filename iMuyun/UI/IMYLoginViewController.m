@@ -7,6 +7,7 @@
 //
 
 #import "IMYLoginViewController.h"
+#import "MBProgressHUD.h"
 
 @interface IMYLoginViewController ()
 
@@ -49,14 +50,23 @@
     [[IMYHttpClient shareClient] requestLoginWithUsername:self.usernameTextField.text 
                                                  password:self.passwordTextField.text 
                                                  delegate:self];
+    MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hub.labelText = @"Login...";
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    NSString *resultString = [request responseString];
-    NSLog(@"%@", resultString);
-//    NSError *error;
-//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSError *error;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"%@", result);
+    if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
+        if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self performSegueWithIdentifier:@"login" sender:self];
+        } else {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    }
 }
 
 @end

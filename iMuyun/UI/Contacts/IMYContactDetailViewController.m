@@ -18,6 +18,7 @@
 @synthesize companyLabel;
 @synthesize noteTextView;
 @synthesize favoriteButton;
+@synthesize contact = _contact;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +33,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // init ui
+    [self.nameLabel setText:[self.contact valueForKey:@"name"]];
+    [self.companyLabel setText:[self.contact valueForKey:@"company"]];
+    
 }
 
 - (void)viewDidUnload

@@ -7,8 +7,16 @@
 //
 
 #import "IMYContactsViewController.h"
+#import "IMYHttpClient.h"
+#import "IMYContactCell.h"
+#import "IMYContactDetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface IMYContactsViewController ()
+
+// muyun contacts and favoirte contacts
+@property (strong, nonatomic) NSArray *muyunContacts;
+@property (strong, nonatomic) NSArray *favoriteContacts;
 
 // selected contact full name phones and emails array;
 @property (strong, nonatomic) NSString *fullName;
@@ -17,9 +25,12 @@
 @end
 
 @implementation IMYContactsViewController
+@synthesize contactsTypeSegment = _contactsTypeSegment;
 @synthesize fullName = _fullName;
 @synthesize phonesArray = _phonesArray;
 @synthesize emailsArray = _emailsArray;
+@synthesize muyunContacts = _muyunContacts;
+@synthesize favoriteContacts = _favoriteContacts;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,9 +54,18 @@
 
 - (void)viewDidUnload
 {
+    [self setContactsTypeSegment:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[IMYHttpClient shareClient] requestContactsWithUsername:@"lancy" delegate:self];
+    [[IMYHttpClient shareClient] requestFavoriteContactsWithUsername:@"lancy" delegate:self];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -53,29 +73,66 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - contacts methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"%@", result);
+    if ([[result valueForKey:@"requestType"] isEqualToString:@"contacts"] ) {
+        if (![self.muyunContacts isEqualToArray:[result valueForKey:@"contacts"]]) {
+            self.muyunContacts = [result valueForKey:@"contacts"];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+        }
+    } else if ([[result valueForKey:@"requestType"] isEqualToString:@"favoriteContacts"] ) {
+        if (![self.favoriteContacts isEqualToArray:[result valueForKey:@"contacts"]]) {
+            self.favoriteContacts = [result valueForKey:@"contacts"];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+        }
+    }
+}
+
+- (IBAction)changeContactTypeSegmentValue:(id)sender {
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
+        return [self.muyunContacts count];
+    } else {
+        return [self.favoriteContacts count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"contactCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    IMYContactCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
+    NSDictionary *contact;
+    if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
+        contact = [self.muyunContacts objectAtIndex:indexPath.row];
+    } else {
+        contact = [self.favoriteContacts objectAtIndex:indexPath.row];
+    }
+    [cell.nameLabel setText:[contact valueForKey:@"name"]];
+    [cell.companyLabel setText:[contact valueForKey:@"company"]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];
+
     return cell;
 }
 
@@ -123,12 +180,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    IMYContactDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactDetail"];
+    // ...
+    // Pass the selected object to the new view controller.
+    NSDictionary *contact;
+    if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
+        contact = [self.muyunContacts objectAtIndex:indexPath.row];
+    } else {
+        contact = [self.favoriteContacts objectAtIndex:indexPath.row];
+    }
+    
+    [detailViewController setContact:contact];
+
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
 }
 
 #pragma mark - Invited Methods

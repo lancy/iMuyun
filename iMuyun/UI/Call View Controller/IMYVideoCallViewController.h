@@ -9,12 +9,31 @@
 #import <UIKit/UIKit.h>
 #import <Opentok/Opentok.h>
 
+typedef enum{
+    IMYVideoCallStateNomal,
+    IMYVideoCallStateCallOut,
+    IMYVideoCallStateCallIn
+} IMYVideoCallState;
 
 
-@interface IMYViedoCallViewController : UIViewController<OTSessionDelegate, OTPublisherDelegate, OTSubscriberDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-- (IBAction)pressConnectButton:(id)sender;
-- (IBAction)pressDropButton:(id)sender;
+@interface IMYVideoCallViewController : UIViewController<OTSessionDelegate, OTPublisherDelegate, OTSubscriberDelegate>
+
+// video call target
+@property (strong, nonatomic) NSDictionary * 
+targetContact;
+@property IMYVideoCallState videoCallState;
+
+//UI
+@property (weak, nonatomic) IBOutlet UIButton *acceptButton;
+@property (weak, nonatomic) IBOutlet UIButton *rejectButton;
+@property (weak, nonatomic) IBOutlet UIButton *endButton;
+@property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
+@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
+
+- (IBAction)tapAceptButton:(id)sender;
+- (IBAction)tapRejectButton:(id)sender;
+- (IBAction)tapEndButton:(id)sender;
+
 
 
 @end

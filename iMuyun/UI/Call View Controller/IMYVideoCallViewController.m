@@ -6,9 +6,9 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "IMYViedoCallViewController.h"
+#import "IMYVideoCallViewController.h"
 
-@interface IMYViedoCallViewController ()
+@interface IMYVideoCallViewController ()
 
 @property (nonatomic, strong) OTSession *session;
 @property (nonatomic, strong) OTPublisher *publisher;
@@ -26,11 +26,19 @@
 - (void)showAlert:(NSString*)string;
 - (void)updateSubscriber;
 
+- (void)updateUserInterface;
+- (void)showAnswerButton:(BOOL)toggle;
+- (void)showEndButton:(BOOL)toogle;
+
 
 @end
 
-@implementation IMYViedoCallViewController
-@synthesize nameTextField = _nameTextField;
+@implementation IMYVideoCallViewController
+@synthesize acceptButton = _aceptButton;
+@synthesize rejectButton = _rejectButton;
+@synthesize endButton = _endButton;
+@synthesize portraitImageView = _portraitImageView;
+@synthesize stateLabel = _stateLabel;
 @synthesize session = _session;
 @synthesize publisher = _publisher;
 @synthesize subscriber = _subscriber;
@@ -39,17 +47,27 @@
 @synthesize token = _token;
 @synthesize sessionId = _sessionId;
 @synthesize userName = _userName;
+@synthesize targetContact = _targetContact; 
+@synthesize videoCallState = _videoCallState;
 
 
 static double widgetHeight = 240;
 static double widgetWidth = 320;
+static double stateViewHeight = 100;
 
 static NSString* const kApiKey = @"16638031";
 static NSString* const kToken = @"devtoken";
 static NSString* const kSessionId = @"1_MX4wfn4yMDEyLTA3LTE1IDA2OjMzOjQzLjEzMzU1OSswMDowMH4wLjY0MjU1Mjg1MjU2NH4";
 static NSString* const kUserName = @"lancy";
 
-
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // custom
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,17 +83,20 @@ static NSString* const kUserName = @"lancy";
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.apiKey = kApiKey;
-    self.token = kToken;
-    self.sessionId = kSessionId;
+    [self updateUserInterface];
     
+        
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 - (void)viewDidUnload
 {
-    [self setNameTextField:nil];
+    [self setAcceptButton:nil];
+    [self setRejectButton:nil];
+    [self setPortraitImageView:nil];
+    [self setStateLabel:nil];
+    [self setEndButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -84,6 +105,58 @@ static NSString* const kUserName = @"lancy";
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+#pragma mark - UI methods
+
+- (void)updateUserInterface
+{
+    switch (self.videoCallState) {
+        case IMYVideoCallStateNomal:
+            [self showEndButton:NO];
+            break;
+        case IMYVideoCallStateCallIn:
+            [self showAnswerButton:YES];
+            [self showEndButton:NO];
+            break;
+        case IMYVideoCallStateCallOut:
+            [self showAnswerButton:NO];
+            [self showEndButton:YES];
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)showAnswerButton:(BOOL)toggle
+{
+    [self.acceptButton setHidden:!toggle];
+    [self.rejectButton setHidden:!toggle];
+}
+
+- (void)showEndButton:(BOOL)toogle
+{
+    [self.endButton setHidden:!toogle];
+}
+
+- (IBAction)tapAceptButton:(id)sender {
+    self.apiKey = kApiKey;
+    self.token = kToken;
+    self.sessionId = kSessionId;
+    self.userName = [NSString stringWithFormat:@"%d", arc4random()];
+
+    [self initSessionAndBeginConnecting];
+}
+
+- (IBAction)tapRejectButton:(id)sender {
+}
+
+- (IBAction)tapEndButton:(id)sender {
+    [self.session disconnect];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 #pragma mark - Connecting methods
 - (void)initSessionAndBeginConnecting
@@ -111,7 +184,7 @@ static NSString* const kUserName = @"lancy";
     NSLog(@"publisher begin publish");
     self.publisher = [[OTPublisher alloc] initWithDelegate:self name:self.userName];
     [self.session publish:self.publisher];
-    [self.publisher.view setFrame:CGRectMake(0, widgetHeight, widgetWidth / 2, widgetHeight / 2)];
+    [self.publisher.view setFrame:CGRectMake(0, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
     [self.view addSubview:self.publisher.view];
 }
 
@@ -133,11 +206,11 @@ static NSString* const kUserName = @"lancy";
 {
     NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
     if ([subscriber isEqual:self.subscriber]) {
-        [subscriber.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight)];
+        [subscriber.view setFrame:CGRectMake(0, stateViewHeight, widgetWidth, widgetHeight)];
         [self.view addSubview:subscriber.view];
         [self.view sendSubviewToBack:subscriber.view];
     } else {
-        [subscriber.view setFrame:CGRectMake(widgetWidth / 2, widgetHeight, widgetWidth / 2, widgetHeight / 2)];
+        [subscriber.view setFrame:CGRectMake(widgetWidth / 2, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
         [self.view addSubview:subscriber.view];
     }
 
@@ -182,16 +255,6 @@ static NSString* const kUserName = @"lancy";
     [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
 }
 
-- (IBAction)pressEnd:(id)sender {
-    [self resignFirstResponder];
-}
 
-- (IBAction)pressConnectButton:(id)sender {
-    self.userName = self.nameTextField.text;
-    [self initSessionAndBeginConnecting];
-}
 
-- (IBAction)pressDropButton:(id)sender {
-    [self.session disconnect];
-}
 @end

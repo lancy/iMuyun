@@ -12,7 +12,7 @@
 @implementation IMYHttpClient
 //@synthesize delegate = _delegate;
 
-static NSString* const kHost = @"http://omegaga.net/bc/";
+static NSString* const kHost = @"http://222.200.181.42/";
 static NSString* const kLogin = @"login";
 static NSString* const kContacts = @"contacts";
 static NSString* const kFavoriteContacts = @"favoriteContacts";

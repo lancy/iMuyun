@@ -10,6 +10,8 @@
 
 @interface IMYContactDetailViewController : UIViewController
 
+@property (strong, nonatomic) NSDictionary* contact;
+
 @property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;

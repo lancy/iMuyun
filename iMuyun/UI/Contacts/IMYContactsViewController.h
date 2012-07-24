@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
+#import "IMYHttpClient.h"
 
-@interface IMYContactsViewController : UITableViewController<ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+@interface IMYContactsViewController : UITableViewController<ASIHTTPRequestDelegate,ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *contactsTypeSegment;
+
+- (IBAction)changeContactTypeSegmentValue:(id)sender;
 - (IBAction)tapInvitedButton:(id)sender;
 
 @end
