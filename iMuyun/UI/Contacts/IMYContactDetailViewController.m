@@ -7,6 +7,7 @@
 //
 
 #import "IMYContactDetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface IMYContactDetailViewController ()
 
@@ -37,6 +38,8 @@
     // init ui
     [self.nameLabel setText:[self.contact valueForKey:@"name"]];
     [self.companyLabel setText:[self.contact valueForKey:@"company"]];
+    [self.portraitImageView setImageWithURL:[self.contact valueForKey:@"portraitUrl"] placeholderImage:nil];
+    [self.navigationItem setTitle:[self.contact valueForKey:@"name"]];
     
 }
 

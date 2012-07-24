@@ -27,6 +27,11 @@
 		BF8D4F1B15BE87AE00161E3C /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4F1315BE87AE00161E3C /* UIImageView+WebCache.m */; };
 		BF8D4F1D15BE893E00161E3C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D4F1C15BE893E00161E3C /* ImageIO.framework */; };
 		BF8D4F1F15BE895400161E3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D4F1E15BE895300161E3C /* MapKit.framework */; };
+		BF8D4F2415BE8FB000161E3C /* icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BF8D4F2115BE8FB000161E3C /* icon.jpeg */; };
+		BF8D4F2515BE8FB000161E3C /* icon1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BF8D4F2215BE8FB000161E3C /* icon1.jpeg */; };
+		BF8D4F2615BE8FB000161E3C /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8D4F2315BE8FB000161E3C /* login.png */; };
+		BF8D4F2915BE953700161E3C /* IMYMuyunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4F2815BE953700161E3C /* IMYMuyunViewController.m */; };
+		BF8D4F2B15BE9BBA00161E3C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8D4F2A15BE9BB900161E3C /* icon.png */; };
 		BFA9D01A15B306E000D1083F /* IMYRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */; };
 		BFA9D01D15B306F900D1083F /* IMYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01C15B306F900D1083F /* IMYSettingViewController.m */; };
 		BFA9D02415B3099700D1083F /* IMYMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D02315B3099700D1083F /* IMYMessagesViewController.m */; };
@@ -128,6 +133,12 @@
 		BF8D4F1315BE87AE00161E3C /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		BF8D4F1C15BE893E00161E3C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		BF8D4F1E15BE895300161E3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BF8D4F2115BE8FB000161E3C /* icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpeg; sourceTree = "<group>"; };
+		BF8D4F2215BE8FB000161E3C /* icon1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon1.jpeg; sourceTree = "<group>"; };
+		BF8D4F2315BE8FB000161E3C /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		BF8D4F2715BE953700161E3C /* IMYMuyunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYMuyunViewController.h; path = UI/Contacts/IMYMuyunViewController.h; sourceTree = "<group>"; };
+		BF8D4F2815BE953700161E3C /* IMYMuyunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYMuyunViewController.m; path = UI/Contacts/IMYMuyunViewController.m; sourceTree = "<group>"; };
+		BF8D4F2A15BE9BB900161E3C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		BFA9D01815B306E000D1083F /* IMYRecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRecentsViewController.h; path = "UI/Tab View Controller/IMYRecentsViewController.h"; sourceTree = "<group>"; };
 		BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecentsViewController.m; path = "UI/Tab View Controller/IMYRecentsViewController.m"; sourceTree = "<group>"; };
 		BFA9D01B15B306F800D1083F /* IMYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYSettingViewController.h; path = "UI/Tab View Controller/IMYSettingViewController.h"; sourceTree = "<group>"; };
@@ -249,6 +260,7 @@
 		BF25D1F715B2AAEE00411924 = {
 			isa = PBXGroup;
 			children = (
+				BF8D4F2A15BE9BB900161E3C /* icon.png */,
 				BFC8940015B8F5E70095F8BA /* Third Library */,
 				BF25D20C15B2AAEE00411924 /* iMuyun */,
 				BF25D20515B2AAEE00411924 /* Frameworks */,
@@ -316,6 +328,7 @@
 		BF25D20D15B2AAEE00411924 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF8D4F2015BE8FB000161E3C /* image */,
 				BF25D20E15B2AAEE00411924 /* iMuyun-Info.plist */,
 				BF25D20F15B2AAEE00411924 /* InfoPlist.strings */,
 				BF25D21215B2AAEE00411924 /* main.m */,
@@ -369,6 +382,16 @@
 				BF8D4F1315BE87AE00161E3C /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		BF8D4F2015BE8FB000161E3C /* image */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D4F2115BE8FB000161E3C /* icon.jpeg */,
+				BF8D4F2215BE8FB000161E3C /* icon1.jpeg */,
+				BF8D4F2315BE8FB000161E3C /* login.png */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 		BFA9D02115B3071600D1083F /* Tab View Controller */ = {
@@ -528,6 +551,8 @@
 				BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */,
 				BFDD054C15BA609E005B30E4 /* IMYContactDetailViewController.h */,
 				BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */,
+				BF8D4F2715BE953700161E3C /* IMYMuyunViewController.h */,
+				BF8D4F2815BE953700161E3C /* IMYMuyunViewController.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -607,6 +632,10 @@
 				BFC893B215B8EFB80095F8BA /* LICENSE.txt in Resources */,
 				BFC893B415B8EFB80095F8BA /* README.md in Resources */,
 				BFC893B715B8EFE40095F8BA /* opentok.bundle in Resources */,
+				BF8D4F2415BE8FB000161E3C /* icon.jpeg in Resources */,
+				BF8D4F2515BE8FB000161E3C /* icon1.jpeg in Resources */,
+				BF8D4F2615BE8FB000161E3C /* login.png in Resources */,
+				BF8D4F2B15BE9BBA00161E3C /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +676,7 @@
 				BF8D4F1915BE87AE00161E3C /* SDWebImagePrefetcher.m in Sources */,
 				BF8D4F1A15BE87AE00161E3C /* UIButton+WebCache.m in Sources */,
 				BF8D4F1B15BE87AE00161E3C /* UIImageView+WebCache.m in Sources */,
+				BF8D4F2915BE953700161E3C /* IMYMuyunViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

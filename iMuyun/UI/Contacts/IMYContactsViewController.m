@@ -11,12 +11,14 @@
 #import "IMYContactCell.h"
 #import "IMYContactDetailViewController.h"
 #import "UIImageView+WebCache.h"
+#import "IMYMuyunViewController.h"
 
 @interface IMYContactsViewController ()
 
 // muyun contacts and favoirte contacts
 @property (strong, nonatomic) NSArray *muyunContacts;
 @property (strong, nonatomic) NSArray *favoriteContacts;
+
 
 // selected contact full name phones and emails array;
 @property (strong, nonatomic) NSString *fullName;
@@ -44,6 +46,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,18 +87,18 @@
     if ([[result valueForKey:@"requestType"] isEqualToString:@"contacts"] ) {
         if (![self.muyunContacts isEqualToArray:[result valueForKey:@"contacts"]]) {
             self.muyunContacts = [result valueForKey:@"contacts"];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
         }
     } else if ([[result valueForKey:@"requestType"] isEqualToString:@"favoriteContacts"] ) {
         if (![self.favoriteContacts isEqualToArray:[result valueForKey:@"contacts"]]) {
             self.favoriteContacts = [result valueForKey:@"contacts"];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
         }
     }
 }
 
 - (IBAction)changeContactTypeSegmentValue:(id)sender {
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 
@@ -104,16 +108,20 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
-        return [self.muyunContacts count];
+    if (section == 0) {
+        return 1; 
     } else {
-        return [self.favoriteContacts count];
+        if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
+            return [self.muyunContacts count];
+        } else {
+            return [self.favoriteContacts count];
+        }
     }
 }
 
@@ -123,16 +131,22 @@
     IMYContactCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    NSDictionary *contact;
-    if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
-        contact = [self.muyunContacts objectAtIndex:indexPath.row];
+    if (indexPath.section == 0) {
+        [cell.nameLabel setText:@"Muyun Interpreter"];
+        [cell.companyLabel setText:@"Muyun Company"];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://www.imuyun.com/themes/classic/img/favicon.ico"] placeholderImage:nil];
     } else {
-        contact = [self.favoriteContacts objectAtIndex:indexPath.row];
+        NSDictionary *contact;
+        if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
+            contact = [self.muyunContacts objectAtIndex:indexPath.row];
+        } else {
+            contact = [self.favoriteContacts objectAtIndex:indexPath.row];
+        }
+        [cell.nameLabel setText:[contact valueForKey:@"name"]];
+        [cell.companyLabel setText:[contact valueForKey:@"company"]];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];
     }
-    [cell.nameLabel setText:[contact valueForKey:@"name"]];
-    [cell.companyLabel setText:[contact valueForKey:@"company"]];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];
-
+    
     return cell;
 }
 
@@ -181,19 +195,25 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
-    IMYContactDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactDetail"];
-    // ...
-    // Pass the selected object to the new view controller.
-    NSDictionary *contact;
-    if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
-        contact = [self.muyunContacts objectAtIndex:indexPath.row];
+    if (indexPath.section == 0) {
+        IMYMuyunViewController *muyunVC = [self.storyboard instantiateViewControllerWithIdentifier:@"muyunVC"];
+        [self.navigationController pushViewController:muyunVC animated:YES];
     } else {
-        contact = [self.favoriteContacts objectAtIndex:indexPath.row];
-    }
-    
-    [detailViewController setContact:contact];
+        IMYContactDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactDetail"];
+        // ...
+        // Pass the selected object to the new view controller.
+        NSDictionary *contact;
+        if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
+            contact = [self.muyunContacts objectAtIndex:indexPath.row];
+        } else {
+            contact = [self.favoriteContacts objectAtIndex:indexPath.row];
+        }
+        
+        [detailViewController setContact:contact];
+        
+        [self.navigationController pushViewController:detailViewController animated:YES];
 
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    }
     
 }
 
