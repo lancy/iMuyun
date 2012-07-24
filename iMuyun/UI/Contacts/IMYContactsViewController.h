@@ -14,6 +14,7 @@
 @interface IMYContactsViewController : UITableViewController<UISearchBarDelegate, UISearchDisplayDelegate, ASIHTTPRequestDelegate,ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *contactsTypeSegment;
 
+
 - (IBAction)changeContactTypeSegmentValue:(id)sender;
 - (IBAction)tapInvitedButton:(id)sender;
 

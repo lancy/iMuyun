@@ -24,6 +24,15 @@
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSMutableArray *phonesArray;
 @property (strong, nonatomic) NSMutableArray *emailsArray;
+
+// search property
+@property (strong, nonatomic) NSMutableArray *searchResults;
+
+- (void)handleSearchForTerm:(NSString *)searchTerm;
+
+- (void)initSearchBar;
+
+
 @end
 
 @implementation IMYContactsViewController
@@ -33,6 +42,7 @@
 @synthesize emailsArray = _emailsArray;
 @synthesize muyunContacts = _muyunContacts;
 @synthesize favoriteContacts = _favoriteContacts;
+@synthesize searchResults = _searchResults;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -47,7 +57,6 @@
 {
     [super viewDidLoad];
     
-    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -59,6 +68,7 @@
 - (void)viewDidUnload
 {
     [self setContactsTypeSegment:nil];
+    [self setSearchResults:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -75,6 +85,47 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - search methods
+
+- (void)handleSearchForTerm:(NSString *)searchTerm
+{	
+    if ([self searchResults] == nil)
+    {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        [self setSearchResults:array];
+    }
+	
+    [[self searchResults] removeAllObjects];
+	
+    if ([searchTerm length] != 0)
+    {
+        for (NSDictionary *contact in [self muyunContacts])
+        {
+            if ([[contact valueForKey:@"name"] rangeOfString:searchTerm options:NSCaseInsensitiveSearch].location != NSNotFound
+            || [[contact valueForKey:@"company"] rangeOfString:searchTerm options:NSCaseInsensitiveSearch].location != NSNotFound
+                )
+            {
+                [[self searchResults] addObject:contact];
+            }
+        }
+    }
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    if ([searchString length] > 0) {
+        [self handleSearchForTerm:searchString];
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    return NO;
 }
 
 #pragma mark - contacts methods
@@ -108,12 +159,23 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    if ([self.searchDisplayController isActive]) {
+        return 1;
+    } else
+        return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if ([self.searchDisplayController isActive]) {
+        if (self.searchResults) {
+            NSLog(@"%d", self.searchResults.count);
+            return [self.searchResults count];
+        } else {
+            return 0;
+        }
+    } else
     if (section == 0) {
         return 1; 
     } else {
@@ -128,9 +190,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"contactCell";
-    IMYContactCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    IMYContactCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSLog(@"%@", cell);
     
     // Configure the cell...
+    if ([self.searchDisplayController isActive]) {
+        NSDictionary *contact;
+        if (self.searchResults) {
+            contact = [self.searchResults objectAtIndex:indexPath.row];
+            [cell.nameLabel setText:[contact valueForKey:@"name"]];
+            [cell.companyLabel setText:[contact valueForKey:@"company"]];
+            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];        
+
+        }
+    } else
+
     if (indexPath.section == 0) {
         [cell.nameLabel setText:@"Muyun Interpreter"];
         [cell.companyLabel setText:@"Muyun Company"];
@@ -191,10 +265,25 @@
 
 #pragma mark - Table view delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  
+{
+    return 66;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    
+    if ([self.searchDisplayController isActive]) {
+        IMYContactDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactDetail"];
+        // ...
+        // Pass the selected object to the new view controller.
+        NSDictionary *contact;
+        contact = [self.searchResults objectAtIndex:indexPath.row];
+        
+        [detailViewController setContact:contact];
+        
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    } else 
     if (indexPath.section == 0) {
         IMYMuyunViewController *muyunVC = [self.storyboard instantiateViewControllerWithIdentifier:@"muyunVC"];
         [self.navigationController pushViewController:muyunVC animated:YES];

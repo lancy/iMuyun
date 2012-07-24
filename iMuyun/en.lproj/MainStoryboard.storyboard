@@ -225,12 +225,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="aR2-1g-e96">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="aPI-42-Qum">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="7nA-km-y6A" id="k93-vq-LbK"/>
+                                <outlet property="delegate" destination="7nA-km-y6A" id="uw0-aZ-wKh"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -310,16 +310,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contactsTypeSegment" destination="xjq-AK-PQ2" id="r44-Wd-zfy"/>
-                        <outlet property="searchDisplayController" destination="L2z-IH-G5E" id="LWA-7e-ZVc"/>
+                        <outlet property="searchDisplayController" destination="bl6-Nu-3r9" id="cil-qm-2Fd"/>
                     </connections>
                 </tableViewController>
-                <searchDisplayController id="L2z-IH-G5E">
+                <searchDisplayController id="bl6-Nu-3r9">
                     <connections>
-                        <outlet property="delegate" destination="7nA-km-y6A" id="Ks5-yF-F1K"/>
-                        <outlet property="searchBar" destination="aR2-1g-e96" id="oFO-Tj-drT"/>
-                        <outlet property="searchContentsController" destination="7nA-km-y6A" id="tGz-oV-Aab"/>
-                        <outlet property="searchResultsDataSource" destination="7nA-km-y6A" id="269-ek-kRp"/>
-                        <outlet property="searchResultsDelegate" destination="7nA-km-y6A" id="OhQ-T6-0pB"/>
+                        <outlet property="delegate" destination="7nA-km-y6A" id="GPV-8p-EZg"/>
+                        <outlet property="searchBar" destination="aPI-42-Qum" id="QJ7-yA-HPY"/>
+                        <outlet property="searchContentsController" destination="7nA-km-y6A" id="KF3-DI-mJx"/>
+                        <outlet property="searchResultsDataSource" destination="7nA-km-y6A" id="TBr-bA-c8T"/>
+                        <outlet property="searchResultsDelegate" destination="7nA-km-y6A" id="q3z-Fj-9AT"/>
                     </connections>
                 </searchDisplayController>
             </objects>
