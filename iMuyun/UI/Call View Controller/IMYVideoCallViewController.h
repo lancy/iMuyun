@@ -8,18 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <Opentok/Opentok.h>
+#import "IMYHttpClient.h"
 
 typedef enum{
-    IMYVideoCallStateNomal,
+    IMYVideoCallStateNormal,
     IMYVideoCallStateCallOut,
     IMYVideoCallStateCallIn
 } IMYVideoCallState;
 
 
-@interface IMYVideoCallViewController : UIViewController<OTSessionDelegate, OTPublisherDelegate, OTSubscriberDelegate>
+@interface IMYVideoCallViewController : UIViewController<ASIHTTPRequestDelegate, OTSessionDelegate, OTPublisherDelegate, OTSubscriberDelegate>
 
 // video call target
-@property (strong, nonatomic) NSDictionary * 
+@property (weak, nonatomic) NSDictionary * 
 targetContact;
 @property IMYVideoCallState videoCallState;
 

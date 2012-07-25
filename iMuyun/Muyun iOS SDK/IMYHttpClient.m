@@ -12,14 +12,17 @@
 @implementation IMYHttpClient
 //@synthesize delegate = _delegate;
 
+// http://222.200.181.42/
+// http://omegaga.net:8000/
+
 static NSString* const kHost = @"http://222.200.181.42/";
-static NSString* const kLogin = @"login";
+static NSString* const kLogin = @"login/";
 static NSString* const kContacts = @"contacts";
 static NSString* const kFavoriteContacts = @"favoriteContacts";
 static NSString* const kRecents = @"recents";
 static NSString* const kMissed = @"missed";
 static NSString* const kVideoCallTo = @"videoCallTo";
-static NSString* const kAnswerVideoCall = @"answerViedoCall";
+static NSString* const kAnswerVideoCall = @"answerVideoCall";
 static NSString* const kEndVideoCall = @"endVideoCall";
 
 + (IMYHttpClient *)shareClient

@@ -8,6 +8,7 @@
 
 #import "IMYContactDetailViewController.h"
 #import "UIImageView+WebCache.h"
+#import "IMYVideoCallViewController.h"
 
 @interface IMYContactDetailViewController ()
 
@@ -73,5 +74,9 @@
 
 - (IBAction)tapVideoCallButton:(id)sender {
     NSLog(@"tap video call button");
+    IMYVideoCallViewController *videoCallViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
+    [videoCallViewController setTargetContact:self.contact];
+    [videoCallViewController setVideoCallState:IMYVideoCallStateCallOut];
+    [self presentModalViewController:videoCallViewController animated:YES];
 }
 @end

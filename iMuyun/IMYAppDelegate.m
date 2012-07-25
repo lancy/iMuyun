@@ -109,7 +109,6 @@
         [videoCallVC setVideoCallState:IMYVideoCallStateCallIn];
 
         NSLog(@"%@", self.window.rootViewController);
-        [self.window.rootViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
         [self.window.rootViewController presentModalViewController:videoCallVC animated:YES];
     }   
 }

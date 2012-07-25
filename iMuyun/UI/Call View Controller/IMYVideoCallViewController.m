@@ -15,11 +15,11 @@
 @property (nonatomic, strong) OTSubscriber *subscriber;
 @property (nonatomic, strong) OTSubscriber *interpreterSubscriber;
 
-@property (nonatomic, strong) NSString* apiKey;
-@property (nonatomic, strong) NSString* token;
-@property (nonatomic, strong) NSString* sessionId;
+@property (nonatomic, weak) NSString* apiKey;
+@property (nonatomic, weak) NSString* token;
+@property (nonatomic, weak) NSString* sessionId;
 
-@property (nonatomic, strong) NSString* userName;
+@property (nonatomic, weak) NSString* userName;
 
 - (void)initSessionAndBeginConnecting;
 - (void)initPublisherAndBeginPublish;
@@ -82,12 +82,7 @@ static NSString* const kUserName = @"lancy";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    [self updateUserInterface];
-    
-        
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+
 }
 
 - (void)viewDidUnload
@@ -101,6 +96,20 @@ static NSString* const kUserName = @"lancy";
     // Release any retained subviews of the main view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    [self updateUserInterface];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -112,16 +121,24 @@ static NSString* const kUserName = @"lancy";
 - (void)updateUserInterface
 {
     switch (self.videoCallState) {
-        case IMYVideoCallStateNomal:
+        case IMYVideoCallStateNormal:
+            [self showAnswerButton:YES];
             [self showEndButton:NO];
+            [self.stateLabel setText:[NSString stringWithFormat:@"Comunication with %@", [self.targetContact valueForKey:@"name"]]];    
             break;
         case IMYVideoCallStateCallIn:
             [self showAnswerButton:YES];
             [self showEndButton:NO];
+            [self.stateLabel setText:[NSString stringWithFormat:@"%@ is calling you", [self.targetContact valueForKey:@"name"]]];
             break;
         case IMYVideoCallStateCallOut:
             [self showAnswerButton:NO];
             [self showEndButton:YES];
+            [self.stateLabel setText:[NSString stringWithFormat:@"Calling %@", [self.targetContact valueForKey:@"name"]]];
+            
+            // request video call
+            [[IMYHttpClient shareClient] requestVideoCallWithUsername:[[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"] callToUsername:[self.targetContact valueForKey:@"username"] delegate:self];
+
             break;
         default:
             break;
@@ -140,14 +157,12 @@ static NSString* const kUserName = @"lancy";
     [self.endButton setHidden:!toogle];
 }
 
-- (IBAction)tapAceptButton:(id)sender {
-    self.apiKey = kApiKey;
-    self.token = kToken;
-    self.sessionId = kSessionId;
-    self.userName = [NSString stringWithFormat:@"%d", arc4random()];
-
-    [self initSessionAndBeginConnecting];
+- (IBAction)tapAceptButton:(id)toogle
+{
+    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient] answerVideoCallWithUsername:username answerMessage:@"accept" delegate:self];
 }
+
 
 - (IBAction)tapRejectButton:(id)sender {
 }
@@ -155,6 +170,29 @@ static NSString* const kUserName = @"lancy";
 - (IBAction)tapEndButton:(id)sender {
     [self.session disconnect];
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - http methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"%@", result);
+    if ([[result valueForKey:@"requestType"] isEqualToString:@"videoCall"]
+        || [[result valueForKey:@"requestType"] isEqualToString:@"answerVideoCall"]) {
+        if ([[result valueForKey:@"message"] isEqualToString:@"accept"]) {
+            NSLog(@"target accept video call.");
+            self.sessionId = [result valueForKey:@"sessionId"];
+            self.token = [result valueForKey:@"token"];
+            self.userName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+            self.videoCallState = IMYVideoCallStateNormal;
+            [self updateUserInterface];
+            [self initSessionAndBeginConnecting];
+        } else {
+            NSLog(@"target reject video call.");
+        }
+    }    
 }
 
 
