@@ -1,18 +1,18 @@
 //
-//  IMYMessagesViewController.m
+//  IMYSettingViewController.m
 //  iMuyun
 //
 //  Created by lancy on 12-7-15.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "IMYMessagesViewController.h"
+#import "IMYSettingViewController.h"
 
-@interface IMYMessagesViewController ()
+@interface IMYSettingViewController ()
 
 @end
 
-@implementation IMYMessagesViewController
+@implementation IMYSettingViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -124,4 +124,17 @@
      */
 }
 
+#pragma mark - View methods
+
+- (IBAction)tapLogoutButton:(UIBarButtonItem *)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Logout" message:@"Do you want to logout your account?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex  
+{
+    if (buttonIndex == 1) {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+}
 @end

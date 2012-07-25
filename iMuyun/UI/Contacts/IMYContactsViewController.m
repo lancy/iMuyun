@@ -78,7 +78,6 @@
 {
     [super viewWillAppear:animated];
     [[IMYHttpClient shareClient] requestContactsWithUsername:@"lancy" delegate:self];
-    [[IMYHttpClient shareClient] requestFavoriteContactsWithUsername:@"lancy" delegate:self];
     
 }
 
@@ -130,6 +129,19 @@
 
 #pragma mark - contacts methods
 
+- (void)getFavoriteContactsFromMuyunContacts
+{
+    NSMutableArray *favorite = [[NSMutableArray alloc] init];
+    for (NSDictionary *contact in self.muyunContacts) {
+        if ([[contact valueForKey:@"isFavorite"] isEqualToString:@"Yes"]){
+            [favorite addObject:contact];
+        }
+    }
+    self.favoriteContacts = favorite;
+    
+}
+
+
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSError *error;
@@ -138,14 +150,10 @@
     if ([[result valueForKey:@"requestType"] isEqualToString:@"contacts"] ) {
         if (![self.muyunContacts isEqualToArray:[result valueForKey:@"contacts"]]) {
             self.muyunContacts = [result valueForKey:@"contacts"];
+            [self getFavoriteContactsFromMuyunContacts];
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
         }
-    } else if ([[result valueForKey:@"requestType"] isEqualToString:@"favoriteContacts"] ) {
-        if (![self.favoriteContacts isEqualToArray:[result valueForKey:@"contacts"]]) {
-            self.favoriteContacts = [result valueForKey:@"contacts"];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
-        }
-    }
+    } 
 }
 
 - (IBAction)changeContactTypeSegmentValue:(id)sender {

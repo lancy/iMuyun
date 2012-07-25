@@ -32,11 +32,17 @@
 		BF8D4F2615BE8FB000161E3C /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8D4F2315BE8FB000161E3C /* login.png */; };
 		BF8D4F2915BE953700161E3C /* IMYMuyunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4F2815BE953700161E3C /* IMYMuyunViewController.m */; };
 		BF8D4F2B15BE9BBA00161E3C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8D4F2A15BE9BB900161E3C /* icon.png */; };
-		BFA9D01A15B306E000D1083F /* IMYRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */; };
-		BFA9D01D15B306F900D1083F /* IMYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D01C15B306F900D1083F /* IMYSettingViewController.m */; };
-		BFA9D02415B3099700D1083F /* IMYMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA9D02315B3099700D1083F /* IMYMessagesViewController.m */; };
 		BFA9D02615B30A0400D1083F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02515B30A0400D1083F /* AddressBook.framework */; };
 		BFA9D02815B30A0900D1083F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02715B30A0900D1083F /* AddressBookUI.framework */; };
+		BFABD98D15BFBB8E0096C911 /* callIn.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD98715BFBB8E0096C911 /* callIn.png */; };
+		BFABD98E15BFBB8E0096C911 /* callOut.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD98815BFBB8E0096C911 /* callOut.png */; };
+		BFABD98F15BFBB8E0096C911 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD98915BFBB8E0096C911 /* icon.png */; };
+		BFABD99015BFBB8E0096C911 /* missed.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD98A15BFBB8E0096C911 /* missed.png */; };
+		BFABD99115BFBB8E0096C911 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD98B15BFBB8E0096C911 /* phone.png */; };
+		BFABD99215BFBB8E0096C911 /* video.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD98C15BFBB8E0096C911 /* video.png */; };
+		BFABD99615BFBC240096C911 /* IMYRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99515BFBC240096C911 /* IMYRecordCell.m */; };
+		BFABD99A15BFBC7E0096C911 /* IMYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */; };
+		BFABD99D15BFBC860096C911 /* IMYRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99C15BFBC860096C911 /* IMYRecentsViewController.m */; };
 		BFC8933F15B8ED530095F8BA /* IMYVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC8933E15B8ED530095F8BA /* IMYVideoCallViewController.m */; };
 		BFC8939F15B8EFB80095F8BA /* ACKNOWLEDGEMENTS.txt in Resources */ = {isa = PBXBuildFile; fileRef = BFC8938115B8EFB80095F8BA /* ACKNOWLEDGEMENTS.txt */; };
 		BFC893A015B8EFB80095F8BA /* OTConnection.html in Resources */ = {isa = PBXBuildFile; fileRef = BFC8938515B8EFB80095F8BA /* OTConnection.html */; };
@@ -139,14 +145,20 @@
 		BF8D4F2715BE953700161E3C /* IMYMuyunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYMuyunViewController.h; path = UI/Contacts/IMYMuyunViewController.h; sourceTree = "<group>"; };
 		BF8D4F2815BE953700161E3C /* IMYMuyunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYMuyunViewController.m; path = UI/Contacts/IMYMuyunViewController.m; sourceTree = "<group>"; };
 		BF8D4F2A15BE9BB900161E3C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		BFA9D01815B306E000D1083F /* IMYRecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRecentsViewController.h; path = "UI/Tab View Controller/IMYRecentsViewController.h"; sourceTree = "<group>"; };
-		BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecentsViewController.m; path = "UI/Tab View Controller/IMYRecentsViewController.m"; sourceTree = "<group>"; };
-		BFA9D01B15B306F800D1083F /* IMYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYSettingViewController.h; path = "UI/Tab View Controller/IMYSettingViewController.h"; sourceTree = "<group>"; };
-		BFA9D01C15B306F900D1083F /* IMYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYSettingViewController.m; path = "UI/Tab View Controller/IMYSettingViewController.m"; sourceTree = "<group>"; };
-		BFA9D02215B3099700D1083F /* IMYMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYMessagesViewController.h; path = "UI/Tab View Controller/IMYMessagesViewController.h"; sourceTree = "<group>"; };
-		BFA9D02315B3099700D1083F /* IMYMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYMessagesViewController.m; path = "UI/Tab View Controller/IMYMessagesViewController.m"; sourceTree = "<group>"; };
 		BFA9D02515B30A0400D1083F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BFA9D02715B30A0900D1083F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		BFABD98715BFBB8E0096C911 /* callIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callIn.png; sourceTree = "<group>"; };
+		BFABD98815BFBB8E0096C911 /* callOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callOut.png; sourceTree = "<group>"; };
+		BFABD98915BFBB8E0096C911 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		BFABD98A15BFBB8E0096C911 /* missed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missed.png; sourceTree = "<group>"; };
+		BFABD98B15BFBB8E0096C911 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		BFABD98C15BFBB8E0096C911 /* video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video.png; sourceTree = "<group>"; };
+		BFABD99415BFBC240096C911 /* IMYRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRecordCell.h; path = UI/Recents/IMYRecordCell.h; sourceTree = "<group>"; };
+		BFABD99515BFBC240096C911 /* IMYRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecordCell.m; path = UI/Recents/IMYRecordCell.m; sourceTree = "<group>"; };
+		BFABD99815BFBC7E0096C911 /* IMYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYSettingViewController.h; path = UI/Setting/IMYSettingViewController.h; sourceTree = "<group>"; };
+		BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYSettingViewController.m; path = UI/Setting/IMYSettingViewController.m; sourceTree = "<group>"; };
+		BFABD99B15BFBC860096C911 /* IMYRecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRecentsViewController.h; path = UI/Recents/IMYRecentsViewController.h; sourceTree = "<group>"; };
+		BFABD99C15BFBC860096C911 /* IMYRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecentsViewController.m; path = UI/Recents/IMYRecentsViewController.m; sourceTree = "<group>"; };
 		BFC8933D15B8ED530095F8BA /* IMYVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYVideoCallViewController.h; path = "UI/Call View Controller/IMYVideoCallViewController.h"; sourceTree = "<group>"; };
 		BFC8933E15B8ED530095F8BA /* IMYVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYVideoCallViewController.m; path = "UI/Call View Controller/IMYVideoCallViewController.m"; sourceTree = "<group>"; };
 		BFC8938115B8EFB80095F8BA /* ACKNOWLEDGEMENTS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ACKNOWLEDGEMENTS.txt; sourceTree = "<group>"; };
@@ -318,7 +330,8 @@
 				BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */,
 				BF741AE815B3F5BF009C9E6F /* Muyun SDK */,
 				BFC8934115B8ED5F0095F8BA /* Call View Controller */,
-				BFA9D02115B3071600D1083F /* Tab View Controller */,
+				BFABD99715BFBC370096C911 /* Recents */,
+				BFA9D02115B3071600D1083F /* Setting */,
 				BFDD054F15BA60A8005B30E4 /* Contacts */,
 				BF25D20D15B2AAEE00411924 /* Supporting Files */,
 			);
@@ -387,6 +400,12 @@
 		BF8D4F2015BE8FB000161E3C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				BFABD98715BFBB8E0096C911 /* callIn.png */,
+				BFABD98815BFBB8E0096C911 /* callOut.png */,
+				BFABD98915BFBB8E0096C911 /* icon.png */,
+				BFABD98A15BFBB8E0096C911 /* missed.png */,
+				BFABD98B15BFBB8E0096C911 /* phone.png */,
+				BFABD98C15BFBB8E0096C911 /* video.png */,
 				BF8D4F2115BE8FB000161E3C /* icon.jpeg */,
 				BF8D4F2215BE8FB000161E3C /* icon1.jpeg */,
 				BF8D4F2315BE8FB000161E3C /* login.png */,
@@ -394,17 +413,24 @@
 			path = image;
 			sourceTree = "<group>";
 		};
-		BFA9D02115B3071600D1083F /* Tab View Controller */ = {
+		BFA9D02115B3071600D1083F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				BFA9D01815B306E000D1083F /* IMYRecentsViewController.h */,
-				BFA9D01915B306E000D1083F /* IMYRecentsViewController.m */,
-				BFA9D02215B3099700D1083F /* IMYMessagesViewController.h */,
-				BFA9D02315B3099700D1083F /* IMYMessagesViewController.m */,
-				BFA9D01B15B306F800D1083F /* IMYSettingViewController.h */,
-				BFA9D01C15B306F900D1083F /* IMYSettingViewController.m */,
+				BFABD99815BFBC7E0096C911 /* IMYSettingViewController.h */,
+				BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */,
 			);
-			name = "Tab View Controller";
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		BFABD99715BFBC370096C911 /* Recents */ = {
+			isa = PBXGroup;
+			children = (
+				BFABD99B15BFBC860096C911 /* IMYRecentsViewController.h */,
+				BFABD99C15BFBC860096C911 /* IMYRecentsViewController.m */,
+				BFABD99415BFBC240096C911 /* IMYRecordCell.h */,
+				BFABD99515BFBC240096C911 /* IMYRecordCell.m */,
+			);
+			name = Recents;
 			sourceTree = "<group>";
 		};
 		BFC8934115B8ED5F0095F8BA /* Call View Controller */ = {
@@ -636,6 +662,12 @@
 				BF8D4F2515BE8FB000161E3C /* icon1.jpeg in Resources */,
 				BF8D4F2615BE8FB000161E3C /* login.png in Resources */,
 				BF8D4F2B15BE9BBA00161E3C /* icon.png in Resources */,
+				BFABD98D15BFBB8E0096C911 /* callIn.png in Resources */,
+				BFABD98E15BFBB8E0096C911 /* callOut.png in Resources */,
+				BFABD98F15BFBB8E0096C911 /* icon.png in Resources */,
+				BFABD99015BFBB8E0096C911 /* missed.png in Resources */,
+				BFABD99115BFBB8E0096C911 /* phone.png in Resources */,
+				BFABD99215BFBB8E0096C911 /* video.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,9 +682,6 @@
 				BF25D21315B2AAEE00411924 /* main.m in Sources */,
 				BF25D21715B2AAEE00411924 /* IMYAppDelegate.m in Sources */,
 				BF25D23015B2AB9000411924 /* IMYLoginViewController.m in Sources */,
-				BFA9D01A15B306E000D1083F /* IMYRecentsViewController.m in Sources */,
-				BFA9D01D15B306F900D1083F /* IMYSettingViewController.m in Sources */,
-				BFA9D02415B3099700D1083F /* IMYMessagesViewController.m in Sources */,
 				BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */,
 				BFC8933F15B8ED530095F8BA /* IMYVideoCallViewController.m in Sources */,
 				BFC893F715B8F5820095F8BA /* ASIAuthenticationDialog.m in Sources */,
@@ -677,6 +706,9 @@
 				BF8D4F1A15BE87AE00161E3C /* UIButton+WebCache.m in Sources */,
 				BF8D4F1B15BE87AE00161E3C /* UIImageView+WebCache.m in Sources */,
 				BF8D4F2915BE953700161E3C /* IMYMuyunViewController.m in Sources */,
+				BFABD99615BFBC240096C911 /* IMYRecordCell.m in Sources */,
+				BFABD99A15BFBC7E0096C911 /* IMYSettingViewController.m in Sources */,
+				BFABD99D15BFBC860096C911 /* IMYRecentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
