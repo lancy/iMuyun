@@ -9,6 +9,7 @@
 #import "IMYRecentsViewController.h"
 #import "IMYHttpClient.h"
 #import "IMYRecordCell.h"
+#import "IMYContactDetailViewController.h"
 
 @interface IMYRecentsViewController ()
 
@@ -185,5 +186,26 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    IMYContactDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactDetail"];
+    // ...
+    // Pass the selected object to the new view controller.
+    NSDictionary *contact;
+    if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
+        contact = [[self.allRecents objectAtIndex:indexPath.row] valueForKey:@"contact"];
+    } else {
+        contact = [[self.missedRecents objectAtIndex:indexPath.row] valueForKey:@"contact"];
+    }
+    
+    [detailViewController setContact:contact];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+
+    
+}
+
 
 @end
