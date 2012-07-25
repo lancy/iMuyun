@@ -61,6 +61,8 @@
     NSLog(@"%@", result);
     if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
         if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
+            [[NSUserDefaults standardUserDefaults] setValue:[result valueForKey:@"myInfo"] forKey:@"myInfo"];
+            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self performSegueWithIdentifier:@"login" sender:self];
         } else {

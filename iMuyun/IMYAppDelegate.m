@@ -16,30 +16,34 @@
 - (void)customizeAppearance
 {
     // Create resizable images
-    UIImage *gradientImage44 = [[UIImage imageNamed:@"surf_gradient_textured_44"] 
-                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    UIImage *gradientImage32 = [[UIImage imageNamed:@"surf_gradient_textured_32"] 
-                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *green1 = [UIImage imageNamed:@"green1"];
+    UIImage *green2 = [UIImage imageNamed:@"green2"];
+    UIImage *red1 = [UIImage imageNamed:@"red1"];
+    UIImage *blue1 = [UIImage imageNamed:@"blue1"];
+//    UIImage *gradientImage32 = [[UIImage imageNamed:@"surf_gradient_textured_32"] 
+//                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     
     // Set the background image for *all* UINavigationBars
-    [[UINavigationBar appearance] setBackgroundImage:gradientImage44 
-                                       forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setBackgroundImage:gradientImage32 
-                                       forBarMetrics:UIBarMetricsLandscapePhone];
+//    [[UINavigationBar appearance] setBackgroundImage:green1
+//                                       forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBackgroundImage:green1 
+//                                       forBarMetrics:UIBarMetricsLandscapePhone];
+//    [[UISearchBar appearance] setBackgroundImage:green2];
+//    [[UISegmentedControl appearance] setTintColor:[UIColor colorWithPatternImage:green1]];
     
     // Customize the title text for *all* UINavigationBars
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], 
-      UITextAttributeTextColor, 
-      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8], 
-      UITextAttributeTextShadowColor, 
-      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], 
-      UITextAttributeTextShadowOffset, 
-      [UIFont fontWithName:@"Arial-Bold" size:0.0], 
-      UITextAttributeFont, 
-      nil]];
+//    [[UINavigationBar appearance] setTitleTextAttributes:
+//     [NSDictionary dictionaryWithObjectsAndKeys:
+//      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], 
+//      UITextAttributeTextColor, 
+//      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8], 
+//      UITextAttributeTextShadowColor, 
+//      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], 
+//      UITextAttributeTextShadowOffset, 
+//      [UIFont fontWithName:@"Arial-Bold" size:0.0], 
+//      UITextAttributeFont, 
+//      nil]];
     
 }
 

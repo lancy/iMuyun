@@ -43,6 +43,10 @@
 		BFABD99615BFBC240096C911 /* IMYRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99515BFBC240096C911 /* IMYRecordCell.m */; };
 		BFABD99A15BFBC7E0096C911 /* IMYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */; };
 		BFABD99D15BFBC860096C911 /* IMYRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99C15BFBC860096C911 /* IMYRecentsViewController.m */; };
+		BFABD99F15BFD5180096C911 /* green1.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD99E15BFD5180096C911 /* green1.png */; };
+		BFABD9A315BFD6600096C911 /* green2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD9A015BFD6600096C911 /* green2.png */; };
+		BFABD9A415BFD6600096C911 /* red1.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD9A115BFD6600096C911 /* red1.png */; };
+		BFABD9A515BFD6600096C911 /* blue2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD9A215BFD6600096C911 /* blue2.png */; };
 		BFC8933F15B8ED530095F8BA /* IMYVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC8933E15B8ED530095F8BA /* IMYVideoCallViewController.m */; };
 		BFC8939F15B8EFB80095F8BA /* ACKNOWLEDGEMENTS.txt in Resources */ = {isa = PBXBuildFile; fileRef = BFC8938115B8EFB80095F8BA /* ACKNOWLEDGEMENTS.txt */; };
 		BFC893A015B8EFB80095F8BA /* OTConnection.html in Resources */ = {isa = PBXBuildFile; fileRef = BFC8938515B8EFB80095F8BA /* OTConnection.html */; };
@@ -159,6 +163,10 @@
 		BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYSettingViewController.m; path = UI/Setting/IMYSettingViewController.m; sourceTree = "<group>"; };
 		BFABD99B15BFBC860096C911 /* IMYRecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRecentsViewController.h; path = UI/Recents/IMYRecentsViewController.h; sourceTree = "<group>"; };
 		BFABD99C15BFBC860096C911 /* IMYRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecentsViewController.m; path = UI/Recents/IMYRecentsViewController.m; sourceTree = "<group>"; };
+		BFABD99E15BFD5180096C911 /* green1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green1.png; sourceTree = "<group>"; };
+		BFABD9A015BFD6600096C911 /* green2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green2.png; sourceTree = "<group>"; };
+		BFABD9A115BFD6600096C911 /* red1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red1.png; sourceTree = "<group>"; };
+		BFABD9A215BFD6600096C911 /* blue2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue2.png; sourceTree = "<group>"; };
 		BFC8933D15B8ED530095F8BA /* IMYVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYVideoCallViewController.h; path = "UI/Call View Controller/IMYVideoCallViewController.h"; sourceTree = "<group>"; };
 		BFC8933E15B8ED530095F8BA /* IMYVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYVideoCallViewController.m; path = "UI/Call View Controller/IMYVideoCallViewController.m"; sourceTree = "<group>"; };
 		BFC8938115B8EFB80095F8BA /* ACKNOWLEDGEMENTS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ACKNOWLEDGEMENTS.txt; sourceTree = "<group>"; };
@@ -400,6 +408,10 @@
 		BF8D4F2015BE8FB000161E3C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				BFABD9A015BFD6600096C911 /* green2.png */,
+				BFABD9A115BFD6600096C911 /* red1.png */,
+				BFABD9A215BFD6600096C911 /* blue2.png */,
+				BFABD99E15BFD5180096C911 /* green1.png */,
 				BFABD98715BFBB8E0096C911 /* callIn.png */,
 				BFABD98815BFBB8E0096C911 /* callOut.png */,
 				BFABD98915BFBB8E0096C911 /* icon.png */,
@@ -668,6 +680,10 @@
 				BFABD99015BFBB8E0096C911 /* missed.png in Resources */,
 				BFABD99115BFBB8E0096C911 /* phone.png in Resources */,
 				BFABD99215BFBB8E0096C911 /* video.png in Resources */,
+				BFABD99F15BFD5180096C911 /* green1.png in Resources */,
+				BFABD9A315BFD6600096C911 /* green2.png in Resources */,
+				BFABD9A415BFD6600096C911 /* red1.png in Resources */,
+				BFABD9A515BFD6600096C911 /* blue2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

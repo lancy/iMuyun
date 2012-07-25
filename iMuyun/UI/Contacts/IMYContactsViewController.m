@@ -57,7 +57,10 @@
 {
     [super viewDidLoad];
     
+    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient] requestContactsWithUsername:myUserName delegate:self];
 
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -77,7 +80,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[IMYHttpClient shareClient] requestContactsWithUsername:@"lancy" delegate:self];
     
 }
 
@@ -178,7 +180,6 @@
     // Return the number of rows in the section.
     if ([self.searchDisplayController isActive]) {
         if (self.searchResults) {
-            NSLog(@"%d", self.searchResults.count);
             return [self.searchResults count];
         } else {
             return 0;
@@ -199,7 +200,6 @@
 {
     static NSString *CellIdentifier = @"contactCell";
     IMYContactCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSLog(@"%@", cell);
     
     // Configure the cell...
     if ([self.searchDisplayController isActive]) {

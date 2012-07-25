@@ -36,6 +36,10 @@
 {
     [super viewDidLoad];
     
+    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
+
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -55,7 +59,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[IMYHttpClient shareClient] requestRecentsWithUsername:@"lancy" delegate:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
