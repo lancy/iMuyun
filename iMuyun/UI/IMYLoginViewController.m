@@ -18,6 +18,21 @@
 //@synthesize usernameTextField;
 //@synthesize passwordTextField;
 
+- (void)autoLogin
+{
+    NSLog(@"Begin auto login");
+    NSLog(@"my info = %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"]);
+    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    if (username) {
+        NSError *error;
+        NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:@"iMuyun" error:&error];
+        [[IMYHttpClient shareClient] requestLoginWithUsername:username password:password delegate:self];
+    } else {
+    }
+}
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,9 +42,10 @@
     return self;
 }
 
-- (void)viewDidLoadt
+- (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self autoLogin];
 	// Do any additional setup after loading the view.
 }
 
@@ -41,6 +57,14 @@
     // Release any retained subviews of the main view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [self.usernameTextField setText:username];
+
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -48,12 +72,21 @@
 
 
 - (IBAction)tapTheLoginButton:(id)sender {
+    [self.passwordTextField resignFirstResponder];
+    
     [[IMYHttpClient shareClient] requestLoginWithUsername:self.usernameTextField.text 
                                                  password:self.passwordTextField.text 
                                                  delegate:self];
     MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hub.labelText = @"Login...";
 }
+
+- (IBAction)didEndEditUsername:(id)sender {
+    [self.passwordTextField becomeFirstResponder];
+}
+
+
+#pragma mark - http methods;
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
@@ -71,8 +104,8 @@
             [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"iMuyun" updateExisting:TRUE error:&error];
             
             
-//            [self performSegueWithIdentifier:@"login" sender:self];
-            [self dismissModalViewControllerAnimated:YES];
+            [self performSegueWithIdentifier:@"login" sender:self];
+//            [self dismissModalViewControllerAnimated:YES];
         } else {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }

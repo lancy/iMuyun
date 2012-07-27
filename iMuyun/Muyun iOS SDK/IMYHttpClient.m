@@ -42,6 +42,7 @@ static NSString* const kEndVideoCall = @"endVideoCall/";
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
     [request setPostValue:password forKey:@"password"];
+    [request setPostValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"myToken"] forKey:@"pushToken"];
     [request startAsynchronous];
 }
 

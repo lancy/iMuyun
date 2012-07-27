@@ -7,6 +7,7 @@
 //
 
 #import "IMYVideoCallViewController.h"
+#import "IMYAppDelegate.h"
 
 @interface IMYVideoCallViewController ()
 
@@ -103,12 +104,18 @@ static NSString* const kUserName = @"lancy";
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
+    IMYAppDelegate *delegate =  (IMYAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [delegate setIsInCall:YES];
     [self updateUserInterface];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    IMYAppDelegate *delegate =  (IMYAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [delegate setIsInCall:NO];
+
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 

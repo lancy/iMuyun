@@ -13,5 +13,6 @@
 @interface IMYAppDelegate : UIResponder <ASIHTTPRequestDelegate ,UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property BOOL isInCall;
 
 @end

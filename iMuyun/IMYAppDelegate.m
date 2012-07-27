@@ -48,40 +48,38 @@
     
 }
 
-- (void)autoLogin
-{
-    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-    if (username) {
-        NSError *error;
-        NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:@"iMuyun" error:&error];
-        [[IMYHttpClient shareClient] requestLoginWithUsername:username password:password delegate:self];
-    } else {
-        IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
-        [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
-    }
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    NSError *error;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"%@", result);
-    if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
-        if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
-            NSLog(@"auto login success");
-        } else {
-            IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
-            [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
-        }
-    }
-
-    
-}
+//- (void)autoLogin
+//{
+//    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+//    if (username) {
+//        NSError *error;
+//        NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:@"iMuyun" error:&error];
+//        [[IMYHttpClient shareClient] requestLoginWithUsername:username password:password delegate:self];
+//    } else {
+//        IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+//        [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
+//    }
+//}
+//
+//- (void)requestFinished:(ASIHTTPRequest *)request
+//{
+//    NSError *error;
+//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+//    NSLog(@"%@", result);
+//    if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
+//        if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
+//            NSLog(@"auto login success");
+//        } else {
+//            IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+//            [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
+//        }
+//    }
+//}
 
 
 - (UIViewController *)getCurrentViewController
 {
-    UITabBarController *tabBarVC = (UITabBarController *)[self.window rootViewController];
+    UITabBarController *tabBarVC = (UITabBarController *)[[self.window rootViewController] presentedViewController];
     UINavigationController *currentNav = (UINavigationController *)[tabBarVC selectedViewController];
     UIViewController *currentVC = [currentNav visibleViewController];
     return currentVC;
@@ -90,7 +88,7 @@
 - (void)handleRemoteNotificaton:(NSDictionary *)userInfo
 {
     
-    if ([[userInfo valueForKey:@"callType"] isEqualToString:@"videoCall"]) {
+    if ([[userInfo valueForKey:@"callType"] isEqualToString:@"videoCall"] && ![self isInCall] ) {
         NSLog(@"Recieve video call");
         IMYVideoCallViewController *videoCallVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
         [videoCallVC setVideoCallState:IMYVideoCallStateCallIn];
@@ -106,6 +104,8 @@
 {
     // Override point for customization after application launch.
     
+    [self setIsInCall:NO];
+    
     [self customizeAppearance];
     
     NSLog(@"launch Options = %@", launchOptions);
@@ -114,7 +114,6 @@
         [self performSelector:@selector(handleRemoteNotificaton:) withObject:[launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] afterDelay:1];
     }
     
-    [self autoLogin];
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
@@ -156,6 +155,8 @@
 	NSString* newToken = [deviceToken description];
 	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 	newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:newToken forKey:@"myToken"];
     
 	NSLog(@"My token is: %@", newToken);    
 }
