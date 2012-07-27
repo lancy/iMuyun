@@ -7,7 +7,8 @@
 //
 
 #import "IMYAppDelegate.h"
-#import "IMYVideoCallViewController.h"
+#import "IMYLoginViewController.h"
+#import "SFHFKeychainUtils.h"
 
 @implementation IMYAppDelegate
 
@@ -47,15 +48,79 @@
     
 }
 
+- (void)autoLogin
+{
+    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    if (username) {
+        NSError *error;
+        NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:@"iMuyun" error:&error];
+        [[IMYHttpClient shareClient] requestLoginWithUsername:username password:password delegate:self];
+    } else {
+        IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+        [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
+    }
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"%@", result);
+    if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
+        if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"auto login success");
+        } else {
+            IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+            [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
+        }
+    }
+
+    
+}
+
+
+- (UIViewController *)getCurrentViewController
+{
+    UITabBarController *tabBarVC = (UITabBarController *)[self.window rootViewController];
+    UINavigationController *currentNav = (UINavigationController *)[tabBarVC selectedViewController];
+    UIViewController *currentVC = [currentNav visibleViewController];
+    return currentVC;
+}
+
+- (void)handleRemoteNotificaton:(NSDictionary *)userInfo
+{
+    
+    if ([[userInfo valueForKey:@"callType"] isEqualToString:@"videoCall"]) {
+        NSLog(@"Recieve video call");
+        IMYVideoCallViewController *videoCallVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
+        [videoCallVC setVideoCallState:IMYVideoCallStateCallIn];
+        [videoCallVC setTargetContact:[userInfo valueForKey:@"callContact"]];
+        
+        
+        [[self getCurrentViewController] presentModalViewController:videoCallVC animated:YES];
+    }
+
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     
     [self customizeAppearance];
     
+    NSLog(@"launch Options = %@", launchOptions);
+    
+    if ([launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] != nil) {
+        [self performSelector:@selector(handleRemoteNotificaton:) withObject:[launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] afterDelay:1];
+    }
+    
+    [self autoLogin];
+    
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-
+    
+    
+    
     return YES;
 }
 							
@@ -100,17 +165,15 @@
 	NSLog(@"Failed to get token, error: %@", error);
 }
 
-- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"userInfo = %@", userInfo);
-    if ([[userInfo valueForKey:@"callType"] isEqualToString:@"videoCall"]) {
-        NSLog(@"Recieve video call");
-        IMYVideoCallViewController *videoCallVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
-        [videoCallVC setVideoCallState:IMYVideoCallStateCallIn];
+    [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:1];
 
-        NSLog(@"%@", self.window.rootViewController);
-        [self.window.rootViewController presentModalViewController:videoCallVC animated:YES];
-    }   
 }
+
+
+
+
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHttpRequest.h"
+#import "IMYVideoCallViewController.h"
 
-@interface IMYAppDelegate : UIResponder <UIApplicationDelegate>
+@interface IMYAppDelegate : UIResponder <ASIHTTPRequestDelegate ,UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

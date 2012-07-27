@@ -19,7 +19,7 @@
 @property (nonatomic, weak) NSString* token;
 @property (nonatomic, weak) NSString* sessionId;
 
-@property (nonatomic, weak) NSString* userName;
+@property (nonatomic, strong) NSString* userName;
 
 - (void)initSessionAndBeginConnecting;
 - (void)initPublisherAndBeginPublish;
@@ -80,6 +80,7 @@ static NSString* const kUserName = @"lancy";
 
 - (void)viewDidLoad
 {
+    NSLog(@"Video Call Controller did load");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
@@ -87,6 +88,7 @@ static NSString* const kUserName = @"lancy";
 
 - (void)viewDidUnload
 {
+    NSLog(@"Video Call Controller did unload");
     [self setAcceptButton:nil];
     [self setRejectButton:nil];
     [self setPortraitImageView:nil];
@@ -122,8 +124,8 @@ static NSString* const kUserName = @"lancy";
 {
     switch (self.videoCallState) {
         case IMYVideoCallStateNormal:
-            [self showAnswerButton:YES];
-            [self showEndButton:NO];
+            [self showAnswerButton:NO];
+            [self showEndButton:YES];
             [self.stateLabel setText:[NSString stringWithFormat:@"Comunication with %@", [self.targetContact valueForKey:@"name"]]];    
             break;
         case IMYVideoCallStateCallIn:
@@ -165,10 +167,14 @@ static NSString* const kUserName = @"lancy";
 
 
 - (IBAction)tapRejectButton:(id)sender {
+    NSLog(@"tap reject buutton");
+//    [self.view removeFromSuperview];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)tapEndButton:(id)sender {
     [self.session disconnect];
+//    [self.view removeFromSuperview];
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -185,7 +191,8 @@ static NSString* const kUserName = @"lancy";
             NSLog(@"target accept video call.");
             self.sessionId = [result valueForKey:@"sessionId"];
             self.token = [result valueForKey:@"token"];
-            self.userName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+//            self.userName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+            self.userName = [NSString stringWithFormat:@"%d", arc4random()];
             self.videoCallState = IMYVideoCallStateNormal;
             [self updateUserInterface];
             [self initSessionAndBeginConnecting];

@@ -20,7 +20,7 @@ typedef enum{
 @interface IMYVideoCallViewController : UIViewController<ASIHTTPRequestDelegate, OTSessionDelegate, OTPublisherDelegate, OTSubscriberDelegate>
 
 // video call target
-@property (weak, nonatomic) NSDictionary * 
+@property (strong, nonatomic) NSDictionary *
 targetContact;
 @property IMYVideoCallState videoCallState;
 

@@ -15,6 +15,7 @@
 		BF25D21715B2AAEE00411924 /* IMYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */; };
 		BF25D21A15B2AAEE00411924 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25D21815B2AAEE00411924 /* MainStoryboard.storyboard */; };
 		BF25D23015B2AB9000411924 /* IMYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */; };
+		BF49FD7215C26EE400A8A3DA /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BF49FD7115C26EE400A8A3DA /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */; };
 		BF8D4EFE15BE71F700161E3C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4EF815BE6E6F00161E3C /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF8D4F1415BE87AE00161E3C /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4F0115BE87AE00161E3C /* MKAnnotationView+WebCache.m */; };
@@ -117,6 +118,8 @@
 		BF25D21915B2AAEE00411924 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BF25D22E15B2AB9000411924 /* IMYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYLoginViewController.h; path = UI/IMYLoginViewController.h; sourceTree = "<group>"; };
 		BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYLoginViewController.m; path = UI/IMYLoginViewController.m; sourceTree = "<group>"; };
+		BF49FD7015C26EE400A8A3DA /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		BF49FD7115C26EE400A8A3DA /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		BF741AE415B3F5BB009C9E6F /* IMYHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYHttpClient.h; path = "Muyun iOS SDK/IMYHttpClient.h"; sourceTree = "<group>"; };
 		BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYHttpClient.m; path = "Muyun iOS SDK/IMYHttpClient.m"; sourceTree = "<group>"; };
 		BF8D4EF715BE6E6F00161E3C /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC893D415B8F0630095F8BA /* Security.framework in Frameworks */,
 				BF8D4F1F15BE895400161E3C /* MapKit.framework in Frameworks */,
 				BF8D4F1D15BE893E00161E3C /* ImageIO.framework in Frameworks */,
 				BFC893DF15B8F0630095F8BA /* CoreGraphics.framework in Frameworks */,
@@ -259,7 +263,6 @@
 				BFC893D115B8F0630095F8BA /* CFNetwork.framework in Frameworks */,
 				BFC893D215B8F0630095F8BA /* SystemConfiguration.framework in Frameworks */,
 				BFC893D315B8F0630095F8BA /* CoreMedia.framework in Frameworks */,
-				BFC893D415B8F0630095F8BA /* Security.framework in Frameworks */,
 				BFC893D515B8F0630095F8BA /* AudioToolbox.framework in Frameworks */,
 				BFC893D615B8F0630095F8BA /* CoreAudio.framework in Frameworks */,
 				BFC893D715B8F0630095F8BA /* CoreVideo.framework in Frameworks */,
@@ -356,6 +359,15 @@
 				BF25D21415B2AAEE00411924 /* iMuyun-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF49FD6F15C26EE400A8A3DA /* security */ = {
+			isa = PBXGroup;
+			children = (
+				BF49FD7015C26EE400A8A3DA /* SFHFKeychainUtils.h */,
+				BF49FD7115C26EE400A8A3DA /* SFHFKeychainUtils.m */,
+			);
+			path = security;
 			sourceTree = "<group>";
 		};
 		BF741AE815B3F5BF009C9E6F /* Muyun SDK */ = {
@@ -572,6 +584,7 @@
 		BFC8940015B8F5E70095F8BA /* Third Library */ = {
 			isa = PBXGroup;
 			children = (
+				BF49FD6F15C26EE400A8A3DA /* security */,
 				BF8D4EFF15BE87AE00161E3C /* SDWebImage */,
 				BF8D4EFA15BE6E7300161E3C /* MBProgressHub */,
 				BFC893E015B8F5820095F8BA /* ASIHttpRequest */,
@@ -725,6 +738,7 @@
 				BFABD99615BFBC240096C911 /* IMYRecordCell.m in Sources */,
 				BFABD99A15BFBC7E0096C911 /* IMYSettingViewController.m in Sources */,
 				BFABD99D15BFBC860096C911 /* IMYRecentsViewController.m in Sources */,
+				BF49FD7215C26EE400A8A3DA /* SFHFKeychainUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

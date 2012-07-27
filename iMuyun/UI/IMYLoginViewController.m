@@ -8,14 +8,15 @@
 
 #import "IMYLoginViewController.h"
 #import "MBProgressHUD.h"
+#import "SFHFKeychainUtils.h"
 
 @interface IMYLoginViewController ()
 
 @end
 
 @implementation IMYLoginViewController
-@synthesize usernameTextField;
-@synthesize passwordTextField;
+//@synthesize usernameTextField;
+//@synthesize passwordTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +27,7 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewDidLoadt
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -64,7 +65,14 @@
             [[NSUserDefaults standardUserDefaults] setValue:[result valueForKey:@"myInfo"] forKey:@"myInfo"];
             
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [self performSegueWithIdentifier:@"login" sender:self];
+            NSString *username = self.usernameTextField.text;
+            NSString *password = self.passwordTextField.text;
+            NSError *error;
+            [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"iMuyun" updateExisting:TRUE error:&error];
+            
+            
+//            [self performSegueWithIdentifier:@"login" sender:self];
+            [self dismissModalViewControllerAnimated:YES];
         } else {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
