@@ -12,6 +12,7 @@
 #import "IMYContactDetailViewController.h"
 #import "UIImageView+WebCache.h"
 #import "IMYMuyunViewController.h"
+#import "IMYVideoCallViewController.h"
 
 @interface IMYContactsViewController ()
 
@@ -59,6 +60,7 @@
     
     NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient] requestContactsWithUsername:myUserName delegate:self];
+    
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -208,7 +210,8 @@
             contact = [self.searchResults objectAtIndex:indexPath.row];
             [cell.nameLabel setText:[contact valueForKey:@"name"]];
             [cell.companyLabel setText:[contact valueForKey:@"company"]];
-            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];        
+            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];
+            
 
         }
     } else
@@ -227,6 +230,8 @@
         [cell.nameLabel setText:[contact valueForKey:@"name"]];
         [cell.companyLabel setText:[contact valueForKey:@"company"]];
         [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];
+        
+        
     }
     
     return cell;
@@ -311,8 +316,49 @@
         [self.navigationController pushViewController:detailViewController animated:YES];
 
     }
+}
+
+
+- (IBAction)phoneButtonTapped:(id)sender forEvent:(UIEvent *)event
+{
+    UITableView *tableView;
+    if ([self.searchDisplayController isActive]) {
+        tableView = self.searchDisplayController.searchResultsTableView;
+    } else
+    {
+        tableView = self.tableView;
+    }
+    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:[[[event touchesForView:sender] anyObject] locationInView:tableView]];
+    NSLog(@"phone button tapped, index path = %@", indexPath);
+    
+    
+    
+    
+    IMYVideoCallViewController *videoCallViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
+    
+    NSDictionary *contact;
+    if ([self.searchDisplayController isActive]) {
+        contact = [self.searchResults objectAtIndex:indexPath.row];
+    }
+    else if (indexPath.section == 0) {
+    }
+    else if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
+        contact = [self.muyunContacts objectAtIndex:indexPath.row];
+    } else {
+        contact = [self.favoriteContacts objectAtIndex:indexPath.row];
+    }
+
+    [videoCallViewController setTargetContact:contact];
+    [videoCallViewController setVideoCallState:IMYVideoCallStateCallOut];
+    [self presentModalViewController:videoCallViewController animated:YES];
+
     
 }
+
+//- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"accessory button tap");
+//}
 
 #pragma mark - Invited Methods
 
@@ -332,7 +378,13 @@
     //get the person name
     NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     NSString *lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
-    self.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    self.fullName = @"";
+    if (firstName != nil) {
+        self.fullName = [self.fullName stringByAppendingString:firstName];
+    }
+    if (lastName != nil) {
+        self.fullName = [self.fullName stringByAppendingString:lastName];
+    }
     
     //get the phone number array
     self.phonesArray = [[NSMutableArray alloc] init];
@@ -389,7 +441,7 @@
         
         [mailVC setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         if (mailVC) {      
-            [self presentModalViewController:mailVC animated:YES];
+            [self.presentedViewController presentModalViewController:mailVC animated:YES];
         }
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Your device can not send email now." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
@@ -409,7 +461,7 @@
         [messageVC setBody:@"Click the follow link to join in us right now"];
         [messageVC setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         
-        [self presentModalViewController:messageVC animated:YES];
+        [self.presentedViewController presentModalViewController:messageVC animated:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Your device can not send message now." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
         [alert show];
@@ -428,7 +480,12 @@
  */
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
-    
+    [controller dismissModalViewControllerAnimated:YES];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissModalViewControllerAnimated:YES];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

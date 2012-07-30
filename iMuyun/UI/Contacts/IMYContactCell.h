@@ -13,7 +13,8 @@
 @property (nonatomic, weak) IBOutlet UILabel* nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* companyLabel;
 @property (nonatomic, weak) IBOutlet UIImageView* portraitImageView;
+@property (weak, nonatomic) IBOutlet UIButton *callButton;
 
-- (IBAction)tapTheCallButton:(id)sender;
+//- (IBAction)tapTheCallButton:(id)sender;
 
 @end

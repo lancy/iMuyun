@@ -269,7 +269,7 @@ static NSString* const kUserName = @"lancy";
 {
     NSString* alertMessage = [NSString stringWithFormat:@"Session disconnected: (%@)", session.sessionId];
     NSLog(@"sessionDidDisconnect (%@)", alertMessage);
-    [self showAlert:alertMessage];
+//    [self showAlert:alertMessage];
 }
 
 - (void)initPublisherAndBeginPublish
@@ -340,18 +340,18 @@ static NSString* const kUserName = @"lancy";
 
 - (void)publisher:(OTPublisher*)publisher didFailWithError:(OTError*) error {
     NSLog(@"publisher didFailWithError %@", error);
-    [self showAlert:[NSString stringWithFormat:@"There was an error publishing."]];
+//    [self showAlert:[NSString stringWithFormat:@"There was an error publishing."]];
 }
 
 - (void)subscriber:(OTSubscriber*)subscriber didFailWithError:(OTError*)error
 {
     NSLog(@"subscriber %@ didFailWithError %@", subscriber.stream.streamId, error);
-    [self showAlert:[NSString stringWithFormat:@"There was an error subscribing to stream %@", subscriber.stream.streamId]];
+//    [self showAlert:[NSString stringWithFormat:@"There was an error subscribing to stream %@", subscriber.stream.streamId]];
 }
 
 - (void)session:(OTSession*)session didFailWithError:(OTError*)error {
     NSLog(@"sessionDidFail");
-    [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
+//    [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
 }
 
 

@@ -10,11 +10,12 @@
 #import "IMYHttpClient.h"
 #import "IMYRecordCell.h"
 #import "IMYContactDetailViewController.h"
+#import "IMYVideoCallViewController.h"
 
 @interface IMYRecentsViewController ()
 
-@property (nonatomic, strong) NSArray* allRecents;
-@property (nonatomic, strong) NSArray* missedRecents;
+@property (nonatomic, strong) NSMutableArray* allRecents;
+@property (nonatomic, strong) NSMutableArray* missedRecents;
 
 @end
 
@@ -39,6 +40,7 @@
     NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
 
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -86,7 +88,7 @@
     NSLog(@"%@", result);
     if ([[result valueForKey:@"requestType"] isEqualToString:@"recents"] ) {
         if (![self.allRecents isEqualToArray:[result valueForKey:@"records"]]) {
-            self.allRecents = [result valueForKey:@"records"];
+            self.allRecents = [NSMutableArray arrayWithArray:[result valueForKey:@"records"]];
             [self getMissedResultFromAllRecents];
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
         }
@@ -98,6 +100,27 @@
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+#pragma mark - transform methods
+- (NSString *)dateStringFromNSDate:(NSDate *)date
+{
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc]init];
+    [dayFormatter setLocale:[NSLocale currentLocale]];
+    [dayFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dayFormatter setDoesRelativeDateFormatting:YES];
+    
+    return [dayFormatter stringFromDate:date];
+}
+
+
+- (NSString *)timeStringFromNSDate:(NSDate *)date
+{
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc]init];
+    [dayFormatter setLocale:[NSLocale currentLocale]];
+    [dayFormatter setDateStyle:NSDateFormatterFullStyle];
+    [dayFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dayFormatter setDoesRelativeDateFormatting:YES];
+    return [dayFormatter stringFromDate:date];
+}
 
 #pragma mark - Table view data source
 
@@ -132,9 +155,14 @@
     
     UIImage *typeImage = [UIImage imageNamed:[record valueForKey:@"type"]];
     [cell.typeImageView setImage:typeImage];
-    [cell.nameLabel setText:[[record valueForKey:@"contact"] valueForKey:@"name"]]; 
-    [cell.infoLabel setText:[record valueForKey:@"startTime"]];
+    [cell.nameLabel setText:[[record valueForKey:@"contact"] valueForKey:@"name"]];
     
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+    
+    NSDate *date = [dateFormat dateFromString:[record valueForKey:@"startTime"]];
+    [cell.infoLabel setText:[self timeStringFromNSDate:date]];
+        
     return cell;
 }
 
@@ -181,17 +209,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    IMYVideoCallViewController *videoCallViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
+    NSDictionary *contact;
+    if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
+        contact = [[self.allRecents objectAtIndex:indexPath.row] valueForKey:@"contact"];
+    } else {
+        contact = [[self.missedRecents objectAtIndex:indexPath.row] valueForKey:@"contact"];
+    }
+    [videoCallViewController setTargetContact:contact];
+    [videoCallViewController setVideoCallState:IMYVideoCallStateCallOut];
+    [self presentModalViewController:videoCallViewController animated:YES];
+    
+    
 }
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+- (IBAction)accessoryButtonTapped:(id)sender forEvent:(UIEvent *)event
 {
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[[[event touchesForView:sender] anyObject] locationInView:self.tableView]];
+    NSLog(@"accessory button tapped, index path = %@", indexPath);
+    
+    
+    
     IMYContactDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactDetail"];
     // ...
     // Pass the selected object to the new view controller.
@@ -206,9 +243,56 @@
     
     [self.navigationController pushViewController:detailViewController animated:YES];
     
-
-    
 }
+
+//- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+//{
+//    IMYContactDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contactDetail"];
+//    // ...
+//    // Pass the selected object to the new view controller.
+//    NSDictionary *contact;
+//    if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
+//        contact = [[self.allRecents objectAtIndex:indexPath.row] valueForKey:@"contact"];
+//    } else {
+//        contact = [[self.missedRecents objectAtIndex:indexPath.row] valueForKey:@"contact"];
+//    }
+//    
+//    [detailViewController setContact:contact];
+//    
+//    [self.navigationController pushViewController:detailViewController animated:YES];
+//    
+//
+//}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
+            [self.allRecents removeObjectAtIndex:indexPath.row];
+            [self getMissedResultFromAllRecents];
+        } else {
+            NSDictionary *contact = [self.missedRecents objectAtIndex:indexPath.row];
+            for (NSInteger i = 0; i < self.allRecents.count; i++) {
+                if ([[self.allRecents objectAtIndex:i] isEqual:contact]) {
+                    [self.allRecents removeObjectAtIndex:i];
+                    [self getMissedResultFromAllRecents];
+                    break;
+                }
+            }
+        }
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+#warning need a http methods
+        // request to delegate
+    }
+}
+
 
 
 @end

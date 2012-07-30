@@ -8,6 +8,8 @@
 
 #import "IMYAppDelegate.h"
 #import "IMYLoginViewController.h"
+#import "IMYContactsViewController.h"
+#import "IMYRecentsViewController.h"
 #import "SFHFKeychainUtils.h"
 
 @implementation IMYAppDelegate
@@ -21,6 +23,7 @@
     UIImage *green2 = [UIImage imageNamed:@"green2"];
     UIImage *red1 = [UIImage imageNamed:@"red1"];
     UIImage *blue1 = [UIImage imageNamed:@"blue1"];
+    UIImage *background = [UIImage imageNamed:@"background"];
 //    UIImage *gradientImage32 = [[UIImage imageNamed:@"surf_gradient_textured_32"] 
 //                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
@@ -32,6 +35,18 @@
 //                                       forBarMetrics:UIBarMetricsLandscapePhone];
 //    [[UISearchBar appearance] setBackgroundImage:green2];
 //    [[UISegmentedControl appearance] setTintColor:[UIColor colorWithPatternImage:green1]];
+    
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
+    [[UISearchBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+
+    [[UITableView appearanceWhenContainedIn:[IMYContactsViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
+    [[UITableView appearanceWhenContainedIn:[IMYRecentsViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
+    
+    [[UIApplication sharedApplication]
+     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+
+    
+    
     
     // Customize the title text for *all* UINavigationBars
 //    [[UINavigationBar appearance] setTitleTextAttributes:

@@ -12,6 +12,7 @@
 @synthesize nameLabel = _nameLabel;
 @synthesize companyLabel = _companyLabel;
 @synthesize portraitImageView = _portraitImageView;
+@synthesize callButton = _callButton;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -29,11 +30,11 @@
 
     // Configure the view for the selected state
 }
-
-- (IBAction)tapTheCallButton:(id)sender
-{
-    NSLog(@"tap the call button to call someone");
-
-}
+//
+//- (IBAction)tapTheCallButton:(id)sender
+//{
+//    NSLog(@"tap the call button to call someone");
+//    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:[[[event touchesForView:sender] anyObject] locationInView:tableView]];
+//}
 
 @end
