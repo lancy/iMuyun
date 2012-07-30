@@ -11,7 +11,7 @@
 
 @implementation IMYHttpClient
 //@synthesize delegate = _delegate;
-
+ 
 // http://222.200.181.42/
 // http://omegaga.net:8000/
 

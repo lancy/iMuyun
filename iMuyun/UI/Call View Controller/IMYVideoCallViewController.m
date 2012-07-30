@@ -40,6 +40,10 @@
 @synthesize endButton = _endButton;
 @synthesize portraitImageView = _portraitImageView;
 @synthesize stateLabel = _stateLabel;
+@synthesize stateView = _stateView;
+@synthesize targetVideoView = _targetVideoView;
+@synthesize myVideoView = _myVideoView;
+@synthesize interpreterVideoView = _interpreterVideoView;
 @synthesize session = _session;
 @synthesize publisher = _publisher;
 @synthesize subscriber = _subscriber;
@@ -95,6 +99,10 @@ static NSString* const kUserName = @"lancy";
     [self setPortraitImageView:nil];
     [self setStateLabel:nil];
     [self setEndButton:nil];
+    [self setTargetVideoView:nil];
+    [self setMyVideoView:nil];
+    [self setInterpreterVideoView:nil];
+    [self setStateView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -119,9 +127,42 @@ static NSString* const kUserName = @"lancy";
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
+#pragma mark - rotate interface
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if ([self.session connectionCount] > 1) {
+        return YES;
+    } else
+        return NO;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [UIView animateWithDuration:duration animations:^{
+        if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+            [self.targetVideoView setFrame:CGRectMake(0, 100, widgetWidth, widgetHeight)];
+            [self.subscriber.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight)];
+            
+            [self.interpreterVideoView setFrame:CGRectMake(widgetWidth / 2, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
+            
+            [self.myVideoView setFrame:CGRectMake(0, 340, 160, 120)];
+            [self.publisher.view setFrame:CGRectMake(0, 0, 160, 120)];
+
+            
+        } else
+        {
+            [self.targetVideoView setFrame:CGRectMake(200, 0, widgetWidth * 1.25, widgetHeight * 1.25)];
+            [self.subscriber.view setFrame:CGRectMake(-60, 0, widgetWidth * 1.25, widgetHeight * 1.25)];
+            
+            [self.interpreterVideoView setFrame:CGRectMake(0, 0, 200, 150)];
+            [self.interpreterSubscriber.view setFrame:CGRectMake(0, 0, 200, 150)];
+            
+            [self.myVideoView setFrame:CGRectMake(0, 150, 200, 150)];
+            [self.publisher.view setFrame:CGRectMake(0, 0, 200, 150)];
+        }
+    }];
 }
 
 
@@ -236,8 +277,10 @@ static NSString* const kUserName = @"lancy";
     NSLog(@"publisher begin publish");
     self.publisher = [[OTPublisher alloc] initWithDelegate:self name:self.userName];
     [self.session publish:self.publisher];
-    [self.publisher.view setFrame:CGRectMake(0, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
-    [self.view addSubview:self.publisher.view];
+//    [self.publisher.view setFrame:CGRectMake(0, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
+//    [self.view addSubview:self.publisher.view];
+    [self.publisher.view setFrame:CGRectMake(0, 0, widgetWidth / 2, widgetHeight / 2)];
+    [self.myVideoView addSubview:self.publisher.view];
 }
 
 - (void)session:(OTSession *)session didReceiveStream:(OTStream *)stream
@@ -258,12 +301,16 @@ static NSString* const kUserName = @"lancy";
 {
     NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
     if ([subscriber isEqual:self.subscriber]) {
-        [subscriber.view setFrame:CGRectMake(0, stateViewHeight, widgetWidth, widgetHeight)];
-        [self.view addSubview:subscriber.view];
-        [self.view sendSubviewToBack:subscriber.view];
+//        [subscriber.view setFrame:CGRectMake(0, stateViewHeight, widgetWidth, widgetHeight)];
+//        [self.view addSubview:subscriber.view];
+//        [self.view sendSubviewToBack:subscriber.view];
+        [subscriber.view setFrame:CGRectMake(0, 0, widgetWidth, widgetHeight)];
+        [self.targetVideoView addSubview:subscriber.view];
     } else {
-        [subscriber.view setFrame:CGRectMake(widgetWidth / 2, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
-        [self.view addSubview:subscriber.view];
+//        [subscriber.view setFrame:CGRectMake(widgetWidth / 2, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
+//        [self.view addSubview:subscriber.view];
+        [subscriber.view setFrame:CGRectMake(0, 0, widgetWidth / 2, widgetHeight / 2)];
+        [self.interpreterVideoView addSubview:subscriber.view];
     }
 
 }

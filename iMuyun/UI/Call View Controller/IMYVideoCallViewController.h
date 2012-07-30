@@ -30,6 +30,11 @@ targetContact;
 @property (weak, nonatomic) IBOutlet UIButton *endButton;
 @property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
+@property (weak, nonatomic) IBOutlet UIView *stateView;
+
+@property (weak, nonatomic) IBOutlet UIView *targetVideoView;
+@property (weak, nonatomic) IBOutlet UIView *myVideoView;
+@property (weak, nonatomic) IBOutlet UIView *interpreterVideoView;
 
 - (IBAction)tapAceptButton:(id)sender;
 - (IBAction)tapRejectButton:(id)sender;
