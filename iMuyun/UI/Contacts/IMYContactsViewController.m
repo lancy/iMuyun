@@ -54,6 +54,13 @@
     NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient] requestContactsWithUsername:myUserName delegate:self];
     
+    // add observer
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults addObserver:self forKeyPath:@"muyunContacts" options:NSKeyValueObservingOptionNew context:NULL];
+    
+    // init data
+    self.muyunContacts = [[NSMutableArray alloc] initWithArray:[defaults valueForKey:@"muyunContacts"]];
+    [self getFavoriteContactsFromMuyunContacts];
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -147,16 +154,39 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSError *error;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"%@", result);
-    if ([[result valueForKey:@"requestType"] isEqualToString:@"contacts"] ) {
-        if (![self.muyunContacts isEqualToArray:[result valueForKey:@"contacts"]]) {
-            self.muyunContacts = [result valueForKey:@"contacts"];
-            [self getFavoriteContactsFromMuyunContacts];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"%@", results);
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"contacts"] ) {
+        if (![self.muyunContacts isEqualToArray:[results valueForKey:@"contacts"]]) {
+            
+            [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"contacts"] forKey:@"muyunContacts"];
         }
     } 
 }
+
+#pragma mark - Observer methods
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqual:@"muyunContacts"]) {
+        NSLog(@"oberser that all recents change = %@", [change objectForKey:NSKeyValueChangeNewKey]);
+        if (![self.muyunContacts isEqual:[change objectForKey:NSKeyValueChangeNewKey]]) {
+            self.muyunContacts = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
+            [self getFavoriteContactsFromMuyunContacts];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
+    
+    /*
+     Be sure to call the superclass's implementation *if it implements it*.
+     NSObject does not implement the method.
+     */
+    //    [super observeValueForKeyPath:keyPath
+    //                         ofObject:object
+    //                           change:change
+    //                          context:context];
+}
+
 
 - (IBAction)changeContactTypeSegmentValue:(id)sender
 {
