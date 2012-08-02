@@ -24,6 +24,10 @@ static NSString* const kMissed = @"missed/";
 static NSString* const kVideoCallTo = @"videoCallTo/";
 static NSString* const kAnswerVideoCall = @"answerVideoCall/";
 static NSString* const kEndVideoCall = @"endVideoCall/";
+static NSString* const kAddFavorite = @"addFavorite/";
+static NSString* const kDeleteRecent = @"deleteRecent/";
+static NSString* const kClearRecent = @"clearRecent/";
+static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 
 + (IMYHttpClient *)shareClient
 {
@@ -89,7 +93,7 @@ static NSString* const kEndVideoCall = @"endVideoCall/";
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kVideoCallTo]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
-    [request setPostValue:callToUsername forKey:@"callToUserName"];
+    [request setPostValue:callToUsername forKey:@"callToUsername"];
     [request startAsynchronous];
 }
 - (void)answerVideoCallWithUsername:(NSString *) username answerMessage:(NSString *) message delegate:(id)delegate
@@ -108,6 +112,40 @@ static NSString* const kEndVideoCall = @"endVideoCall/";
     [request startAsynchronous];
 }
 
+- (void)requestAddFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername delegate:(id)delegate
+{
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kAddFavorite]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:favoriteUsername forKey:@"favoriteUsername"];
+    [request startAsynchronous];
+}
+
+- (void)requestDeleteRecentWithUsername:(NSString *)username recentUID:(NSString *)recentUid delegate:(id)delegate
+{
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kDeleteRecent]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:recentUid forKey:@"recentUid"];
+    [request startAsynchronous];
+}
+
+- (void)requestClearRecentsWithUsername:(NSString *)username delegate:(id)delegate
+{
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kClearRecent]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request startAsynchronous];
+}
+
+- (void)requestUpdateMyInfoWithUsername:(NSString *)username myInfo:(NSDictionary *)myInfo delegate:(id)delegate
+{
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUpdateMyInfo]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:myInfo forKey:@"myInfo"];
+    [request startAsynchronous];
+}
 
 
 @end

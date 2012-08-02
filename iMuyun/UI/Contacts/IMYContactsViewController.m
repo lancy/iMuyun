@@ -144,7 +144,7 @@
     self.favoriteContacts = favorite;
     
 }
-
+ß
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {

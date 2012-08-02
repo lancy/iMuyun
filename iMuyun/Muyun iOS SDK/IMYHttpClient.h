@@ -29,5 +29,10 @@
 - (void)answerVideoCallWithUsername:(NSString *)username answerMessage:(NSString *)message delegate:(id)delegate;
 - (void)requestEndVideoCallWithUsername:(NSString *)username delegate:(id)delegate;
 
+- (void)requestAddFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername delegate:(id)delegate;
+- (void)requestDeleteRecentWithUsername:(NSString *)username recentUID:(NSString *)recentUid delegate:(id)delegate;
+- (void)requestClearRecentsWithUsername:(NSString *)username delegate:(id)delegate;
+- (void)requestUpdateMyInfoWithUsername:(NSString *)username myInfo:(NSDictionary *)myInfo delegate:(id)delegate;
+
 
 @end

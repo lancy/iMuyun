@@ -35,6 +35,7 @@
 		BF8D4F2B15BE9BBA00161E3C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8D4F2A15BE9BB900161E3C /* icon.png */; };
 		BF8F7E1815C634BC0005D9F9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8F7E1715C634BC0005D9F9 /* background.png */; };
 		BF8F7E2315C669280005D9F9 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8F7E2215C669280005D9F9 /* next.png */; };
+		BFA9A82D15C6EE0200E4D43E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CD15B8F0630095F8BA /* CoreGraphics.framework */; };
 		BFA9D02615B30A0400D1083F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02515B30A0400D1083F /* AddressBook.framework */; };
 		BFA9D02815B30A0900D1083F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02715B30A0900D1083F /* AddressBookUI.framework */; };
 		BFABD98D15BFBB8E0096C911 /* callIn.png in Resources */ = {isa = PBXBuildFile; fileRef = BFABD98715BFBB8E0096C911 /* callIn.png */; };
@@ -87,8 +88,6 @@
 		BFC893DA15B8F0630095F8BA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893C815B8F0630095F8BA /* libstdc++.dylib */; };
 		BFC893DB15B8F0630095F8BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893C915B8F0630095F8BA /* QuartzCore.framework */; };
 		BFC893DC15B8F0630095F8BA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CA15B8F0630095F8BA /* AVFoundation.framework */; };
-		BFC893DE15B8F0630095F8BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CC15B8F0630095F8BA /* Foundation.framework */; };
-		BFC893DF15B8F0630095F8BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CD15B8F0630095F8BA /* CoreGraphics.framework */; };
 		BFC893F715B8F5820095F8BA /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC893E215B8F5820095F8BA /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFC893F815B8F5820095F8BA /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC893E515B8F5820095F8BA /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFC893F915B8F5820095F8BA /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC893E715B8F5820095F8BA /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -256,7 +255,7 @@
 				BFC893D415B8F0630095F8BA /* Security.framework in Frameworks */,
 				BF8D4F1F15BE895400161E3C /* MapKit.framework in Frameworks */,
 				BF8D4F1D15BE893E00161E3C /* ImageIO.framework in Frameworks */,
-				BFC893DF15B8F0630095F8BA /* CoreGraphics.framework in Frameworks */,
+				BFA9A82D15C6EE0200E4D43E /* CoreGraphics.framework in Frameworks */,
 				BFD9DC0415B322F30008A6D8 /* MessageUI.framework in Frameworks */,
 				BFA9D02815B30A0900D1083F /* AddressBookUI.framework in Frameworks */,
 				BFA9D02615B30A0400D1083F /* AddressBook.framework in Frameworks */,
@@ -275,8 +274,6 @@
 				BFC893DA15B8F0630095F8BA /* libstdc++.dylib in Frameworks */,
 				BFC893DB15B8F0630095F8BA /* QuartzCore.framework in Frameworks */,
 				BFC893DC15B8F0630095F8BA /* AVFoundation.framework in Frameworks */,
-				BFC893DE15B8F0630095F8BA /* Foundation.framework in Frameworks */,
-				BFC893DF15B8F0630095F8BA /* CoreGraphics.framework in Frameworks */,
 				BF17D9C715B94E8B000DF07C /* Opentok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,7 +638,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = IMY;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = BF25D1FC15B2AAEE00411924 /* Build configuration list for PBXProject "iMuyun" */;
 			compatibilityVersion = "Xcode 3.2";
