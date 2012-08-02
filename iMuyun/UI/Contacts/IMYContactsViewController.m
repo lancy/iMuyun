@@ -150,16 +150,18 @@
     
 }
 
+#pragma mark - Http request methods
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSError *error;
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"%@", results);
+    NSLog(@"Request finished, results: %@", results);
     if ([[results valueForKey:@"requestType"] isEqualToString:@"contacts"] ) {
         if (![self.muyunContacts isEqualToArray:[results valueForKey:@"contacts"]]) {
-            
+            NSLog(@"Results are different, will write to userdefaults buffer muyunContacts.");
             [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"contacts"] forKey:@"muyunContacts"];
+            NSLog(@"Did write to user defaults buffer muyunContacts.");
         }
     } 
 }
@@ -167,7 +169,7 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     NSError *error = [request error];
-    NSLog(@"Request Failed, %@", error);
+    NSLog(@"Request failed, %@", error);
 }
 
 
@@ -176,11 +178,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqual:@"muyunContacts"]) {
-        NSLog(@"oberser that all recents change = %@", [change objectForKey:NSKeyValueChangeNewKey]);
+        NSLog(@"Observe that userdefaults buffer muyunContacts change to: %@", [change objectForKey:NSKeyValueChangeNewKey]);
         if (![self.muyunContacts isEqual:[change objectForKey:NSKeyValueChangeNewKey]]) {
+            NSLog(@"Change are different, will modify self.muyunContacts and self.favoriteContacts");
             self.muyunContacts = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
             [self getFavoriteContactsFromMuyunContacts];
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+            NSLog(@"Did modified self.muyunContacts and self.favoriteContacts. Reload tableview.");
         }
     }
     
@@ -198,6 +202,7 @@
 - (IBAction)changeContactTypeSegmentValue:(id)sender
 {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSLog(@"Did changed contact type segment controller");
 }
 
 
@@ -246,7 +251,10 @@
             contact = [self.searchResults objectAtIndex:indexPath.row];
             [cell.nameLabel setText:[contact valueForKey:@"name"]];
             [cell.companyLabel setText:[contact valueForKey:@"company"]];
-            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];
+            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil success:^(UIImage *image){
+                [cell.imageView setImage:image];
+            }
+            failure:nil];
             
 
         }
@@ -366,9 +374,6 @@
     }
     NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:[[[event touchesForView:sender] anyObject] locationInView:tableView]];
     NSLog(@"phone button tapped, index path = %@", indexPath);
-    
-    
-    
     
     IMYVideoCallViewController *videoCallViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
     

@@ -118,12 +118,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSLog(@"iMuyun did finish launching. launch Options = %@", launchOptions);
+
     
     [self setIsInCall:NO];
     
     [self customizeAppearance];
     
-    NSLog(@"launch Options = %@", launchOptions);
     
     if ([launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] != nil) {
         [self performSelector:@selector(handleRemoteNotificaton:) withObject:[launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] afterDelay:1];
@@ -174,7 +175,7 @@
     
     [[NSUserDefaults standardUserDefaults] setValue:newToken forKey:@"myToken"];
     
-	NSLog(@"My token is: %@", newToken);    
+	NSLog(@"Success to get push token, my token is: %@", newToken);
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
@@ -184,7 +185,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSLog(@"userInfo = %@", userInfo);
+    NSLog(@"Did receive remote notification, userInfo = %@", userInfo);
     [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:1];
 
 }

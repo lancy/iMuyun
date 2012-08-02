@@ -97,10 +97,12 @@
 {
     NSError *error;
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"%@", results);
+    NSLog(@"Request finished, results: %@", results);
     if ([[results valueForKey:@"requestType"] isEqualToString:@"recents"] ) {
         if (![self.allRecents isEqualToArray:[results valueForKey:@"records"]]) {
+            NSLog(@"Results are different, will write to userdefaults buffer allRecents.");
             [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"records"] forKey:@"allRecents"];
+            NSLog(@"Did write to user defaults buffer muyunContacts.");
         }
     }
 }
@@ -117,11 +119,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqual:@"allRecents"]) {
-        NSLog(@"oberser that all recents change = %@", [change objectForKey:NSKeyValueChangeNewKey]);
+        NSLog(@"Observe that userdefaults buffer allRecents change to: %@", [change objectForKey:NSKeyValueChangeNewKey]);
         if (![self.allRecents isEqual:[change objectForKey:NSKeyValueChangeNewKey]]) {
+            NSLog(@"Change are different, will modify self.allRecents and self.missedRecents");
             self.allRecents = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
             [self getMissedResultFromAllRecents];
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            NSLog(@"Did modify self.allRecents and self.missedRecents. Reload tableview.");
         }
     }
     
@@ -138,6 +142,7 @@
 #pragma mark - UI methods
 - (IBAction)changeRecentsTypeSegmentValue:(id)sender {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSLog(@"Did changed recents type segment controller");
 }
 
 #pragma mark - transform methods

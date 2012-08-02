@@ -15,7 +15,7 @@
 // http://222.200.181.42/
 // http://omegaga.net:8000/
 
-static NSString* const kHost = @"http://omegaga.net:8000/";
+static NSString* const kHost = @"http://222.200.181.42/";
 static NSString* const kLogin = @"login/";
 static NSString* const kContacts = @"contacts/";
 static NSString* const kFavoriteContacts = @"favoriteContacts/";
@@ -43,6 +43,7 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 
 - (void)requestLoginWithUsername:(NSString *) username password:(NSString*) password delegate:(id)delegate
 {
+    NSLog(@"Begin request login with username: %@ and push token: %@", username, [[NSUserDefaults standardUserDefaults] valueForKey:@"myToken"]);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingString:kLogin]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
@@ -53,6 +54,7 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 
 - (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate
 {
+    NSLog(@"Begin request contacts with username: %@", username);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kContacts]]];
     [request setDownloadCache:[ASIDownloadCache sharedCache]];
     [request setDelegate:delegate];
@@ -60,17 +62,18 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request startAsynchronous];
 }
 
-- (void)requestFavoriteContactsWithUsername:(NSString *)username delegate:(id)delegate
-{
-    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kFavoriteContacts]]];
-    [request setDownloadCache:[ASIDownloadCache sharedCache]];
-    [request setDelegate:delegate];
-    [request setPostValue:username forKey:@"username"];
-    [request startAsynchronous];    
-}
+//- (void)requestFavoriteContactsWithUsername:(NSString *)username delegate:(id)delegate
+//{
+//    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kFavoriteContacts]]];
+//    [request setDownloadCache:[ASIDownloadCache sharedCache]];
+//    [request setDelegate:delegate];
+//    [request setPostValue:username forKey:@"username"];
+//    [request startAsynchronous];    
+//}
 
 - (void)requestRecentsWithUsername:(NSString *)username delegate:(id)delegate
 {
+    NSLog(@"Begin request recents with username: %@", username);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kRecents]]];
     [request setDownloadCache:[ASIDownloadCache sharedCache]];
     [request setDelegate:delegate];
@@ -78,19 +81,20 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request startAsynchronous];
 }
 
-- (void)requestMissedWithUsername:(NSString *)username delegate:(id)delegate
-{
-    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kMissed]]];
-    [request setDownloadCache:[ASIDownloadCache sharedCache]];
-    [request setDelegate:delegate];
-    [request setPostValue:username forKey:@"username"];
-    [request startAsynchronous];
-}
+//- (void)requestMissedWithUsername:(NSString *)username delegate:(id)delegate
+//{
+//    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kMissed]]];
+//    [request setDownloadCache:[ASIDownloadCache sharedCache]];
+//    [request setDelegate:delegate];
+//    [request setPostValue:username forKey:@"username"];
+//    [request startAsynchronous];
+//}
 
 
 
 - (void)requestVideoCallWithUsername:(NSString *) username callToUsername:(NSString *) callToUsername delegate:(id)delegate
 {
+    NSLog(@"Begin request video call with username: %@ to another usernmae: %@", username, callToUsername);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kVideoCallTo]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
@@ -99,14 +103,17 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 }
 - (void)answerVideoCallWithUsername:(NSString *) username answerMessage:(NSString *) message delegate:(id)delegate
 {
+    NSLog(@"Begin answer video with username: %@ and message: %@", username, message);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kAnswerVideoCall]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
     [request setPostValue:message forKey:@"message"];
     [request startAsynchronous];
+
 }
 - (void)requestEndVideoCallWithUsername:(NSString *) username delegate:(id)delegate
 {
+    NSLog(@"begin request end video call with username: %@", username);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kEndVideoCall]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
@@ -115,6 +122,7 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 
 - (void)requestAddFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername delegate:(id)delegate
 {
+    NSLog(@"Begin request add favorite with username: %@ to another usernmae: %@", username, favoriteUsername);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kAddFavorite]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
@@ -122,8 +130,9 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request startAsynchronous];
 }
 
-- (void)requestDeleteRecentWithUsername:(NSString *)username recentUID:(NSString *)recentUid delegate:(id)delegate
+- (void)requestDeleteRecentWithUsername:(NSString *)username recentUid:(NSString *)recentUid delegate:(id)delegate
 {
+    NSLog(@"Begin request delete recent with username: %@ and recentUid: %@", username, recentUid);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kDeleteRecent]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
@@ -133,6 +142,7 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 
 - (void)requestClearRecentsWithUsername:(NSString *)username delegate:(id)delegate
 {
+    NSLog(@"Begin request clear recents with username: %@", username);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kClearRecent]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
@@ -141,6 +151,7 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 
 - (void)requestUpdateMyInfoWithUsername:(NSString *)username myInfo:(NSDictionary *)myInfo delegate:(id)delegate
 {
+    NSLog(@"Begin request update my info with username: %@ and my info: %@", username, myInfo);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUpdateMyInfo]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
