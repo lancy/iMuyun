@@ -251,19 +251,14 @@
             contact = [self.searchResults objectAtIndex:indexPath.row];
             [cell.nameLabel setText:[contact valueForKey:@"name"]];
             [cell.companyLabel setText:[contact valueForKey:@"company"]];
-            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil success:^(UIImage *image){
-                [cell.imageView setImage:image];
-            }
-            failure:nil];
-            
-
+            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
         }
     } else
 
     if (indexPath.section == 0) {
         [cell.nameLabel setText:@"Muyun Interpreter"];
         [cell.companyLabel setText:@"Muyun Company"];
-        [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://www.imuyun.com/themes/classic/img/favicon.ico"] placeholderImage:nil];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://www.imuyun.com/themes/classic/img/favicon.ico"] placeholderImage:[UIImage imageNamed:@"avatar"]];
     } else {
         NSDictionary *contact;
         if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
@@ -273,7 +268,7 @@
         }
         [cell.nameLabel setText:[contact valueForKey:@"name"]];
         [cell.companyLabel setText:[contact valueForKey:@"company"]];
-        [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:nil];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
         
         
     }

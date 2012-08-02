@@ -45,6 +45,11 @@
     self.allRecents = [[NSMutableArray alloc] initWithArray:[defaults valueForKey:@"allRecents"]];
     [self getMissedResultFromAllRecents];
     
+    // request recents
+    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
+
+    
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -69,9 +74,6 @@
 {
     [super viewWillAppear:animated];
     
-    // request recents
-    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-    [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
 
 }
 
@@ -321,12 +323,14 @@
         if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
             [self.allRecents removeObjectAtIndex:indexPath.row];
             [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
+            [self getMissedResultFromAllRecents];
         } else {
             NSDictionary *contact = [self.missedRecents objectAtIndex:indexPath.row];
             for (NSInteger i = 0; i < self.allRecents.count; i++) {
                 if ([[self.allRecents objectAtIndex:i] isEqual:contact]) {
                     [self.allRecents removeObjectAtIndex:i];
                     [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
+                    [self getMissedResultFromAllRecents];
                     break;
                 }
             }

@@ -20,7 +20,7 @@
 @property (nonatomic, weak) NSString* token;
 @property (nonatomic, weak) NSString* sessionId;
 
-@property (nonatomic, strong) NSString* userName;
+@property (nonatomic, strong) NSString* username;
 
 - (void)initSessionAndBeginConnecting;
 - (void)initPublisherAndBeginPublish;
@@ -51,7 +51,7 @@
 @synthesize apiKey = _apiKey;
 @synthesize token = _token;
 @synthesize sessionId = _sessionId;
-@synthesize userName = _userName;
+@synthesize username = _userName;
 @synthesize targetContact = _targetContact; 
 @synthesize videoCallState = _videoCallState;
 
@@ -215,14 +215,13 @@ static NSString* const kUserName = @"lancy";
 
 
 - (IBAction)tapRejectButton:(id)sender {
-    NSLog(@"tap reject buutton");
-//    [self.view removeFromSuperview];
+    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient] answerVideoCallWithUsername:username answerMessage:@"reject" delegate:self];
     [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)tapEndButton:(id)sender {
     [self.session disconnect];
-//    [self.view removeFromSuperview];
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -232,22 +231,28 @@ static NSString* const kUserName = @"lancy";
 {
     NSError *error;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"%@", result);
+    NSLog(@"Request finished, results: %@", result);
     if ([[result valueForKey:@"requestType"] isEqualToString:@"videoCall"]
         || [[result valueForKey:@"requestType"] isEqualToString:@"answerVideoCall"]) {
         if ([[result valueForKey:@"message"] isEqualToString:@"accept"]) {
-            NSLog(@"target accept video call.");
+            NSLog(@"Target accept video call.");
             self.sessionId = [result valueForKey:@"sessionId"];
             self.token = [result valueForKey:@"token"];
 //            self.userName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-            self.userName = [NSString stringWithFormat:@"%d", arc4random()];
+            self.username = [NSString stringWithFormat:@"%d", arc4random()];
             self.videoCallState = IMYVideoCallStateNormal;
             [self updateUserInterface];
             [self initSessionAndBeginConnecting];
         } else {
-            NSLog(@"target reject video call.");
+            NSLog(@"Target reject video call.");
         }
     }    
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request failed, %@", error);
 }
 
 
@@ -275,7 +280,7 @@ static NSString* const kUserName = @"lancy";
 - (void)initPublisherAndBeginPublish
 {
     NSLog(@"publisher begin publish");
-    self.publisher = [[OTPublisher alloc] initWithDelegate:self name:self.userName];
+    self.publisher = [[OTPublisher alloc] initWithDelegate:self name:self.username];
     [self.session publish:self.publisher];
 //    [self.publisher.view setFrame:CGRectMake(0, widgetHeight + stateViewHeight, widgetWidth / 2, widgetHeight / 2)];
 //    [self.view addSubview:self.publisher.view];

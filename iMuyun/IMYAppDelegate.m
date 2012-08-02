@@ -10,6 +10,7 @@
 #import "IMYLoginViewController.h"
 #import "IMYContactsViewController.h"
 #import "IMYRecentsViewController.h"
+#import "IMYSettingViewController.h"
 #import "SFHFKeychainUtils.h"
 
 @implementation IMYAppDelegate
@@ -41,6 +42,8 @@
 
     [[UITableView appearanceWhenContainedIn:[IMYContactsViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
     [[UITableView appearanceWhenContainedIn:[IMYRecentsViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
+    [[UITableViewCell appearanceWhenContainedIn:[IMYSettingViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
+
     
     [[UIApplication sharedApplication]
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];

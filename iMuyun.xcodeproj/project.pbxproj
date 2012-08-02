@@ -16,6 +16,7 @@
 		BF25D21A15B2AAEE00411924 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25D21815B2AAEE00411924 /* MainStoryboard.storyboard */; };
 		BF25D23015B2AB9000411924 /* IMYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */; };
 		BF49FD7215C26EE400A8A3DA /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BF49FD7115C26EE400A8A3DA /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF6003A315CAC013005C9206 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6003A215CAC012005C9206 /* avatar.png */; };
 		BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */; };
 		BF8D4EFE15BE71F700161E3C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4EF815BE6E6F00161E3C /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF8D4F1415BE87AE00161E3C /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4F0115BE87AE00161E3C /* MKAnnotationView+WebCache.m */; };
@@ -121,6 +122,7 @@
 		BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYLoginViewController.m; path = UI/IMYLoginViewController.m; sourceTree = "<group>"; };
 		BF49FD7015C26EE400A8A3DA /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		BF49FD7115C26EE400A8A3DA /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		BF6003A215CAC012005C9206 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		BF741AE415B3F5BB009C9E6F /* IMYHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYHttpClient.h; path = "Muyun iOS SDK/IMYHttpClient.h"; sourceTree = "<group>"; };
 		BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYHttpClient.m; path = "Muyun iOS SDK/IMYHttpClient.m"; sourceTree = "<group>"; };
 		BF8D4EF715BE6E6F00161E3C /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 		BF8D4F2015BE8FB000161E3C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				BF6003A215CAC012005C9206 /* avatar.png */,
 				BF8F7E2215C669280005D9F9 /* next.png */,
 				BF8F7E1715C634BC0005D9F9 /* background.png */,
 				BFABD9A015BFD6600096C911 /* green2.png */,
@@ -702,6 +705,7 @@
 				BFABD9A515BFD6600096C911 /* blue2.png in Resources */,
 				BF8F7E1815C634BC0005D9F9 /* background.png in Resources */,
 				BF8F7E2315C669280005D9F9 /* next.png in Resources */,
+				BF6003A315CAC013005C9206 /* avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
