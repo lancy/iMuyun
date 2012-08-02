@@ -19,10 +19,10 @@
 - (void)customizeAppearance
 {
     // Create resizable images
-    UIImage *green1 = [UIImage imageNamed:@"green1"];
-    UIImage *green2 = [UIImage imageNamed:@"green2"];
-    UIImage *red1 = [UIImage imageNamed:@"red1"];
-    UIImage *blue1 = [UIImage imageNamed:@"blue1"];
+//    UIImage *green1 = [UIImage imageNamed:@"green1"];
+//    UIImage *green2 = [UIImage imageNamed:@"green2"];
+//    UIImage *red1 = [UIImage imageNamed:@"red1"];
+//    UIImage *blue1 = [UIImage imageNamed:@"blue1"];
     UIImage *background = [UIImage imageNamed:@"background"];
 //    UIImage *gradientImage32 = [[UIImage imageNamed:@"surf_gradient_textured_32"] 
 //                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];

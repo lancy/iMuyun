@@ -17,8 +17,8 @@
 @interface IMYContactsViewController ()
 
 // muyun contacts and favoirte contacts
-@property (strong, nonatomic) NSArray *muyunContacts;
-@property (strong, nonatomic) NSArray *favoriteContacts;
+@property (strong, nonatomic) NSMutableArray *muyunContacts;
+@property (strong, nonatomic) NSMutableArray *favoriteContacts;
 
 
 // selected contact full name phones and emails array;
@@ -37,13 +37,6 @@
 @end
 
 @implementation IMYContactsViewController
-@synthesize contactsTypeSegment = _contactsTypeSegment;
-@synthesize fullName = _fullName;
-@synthesize phonesArray = _phonesArray;
-@synthesize emailsArray = _emailsArray;
-@synthesize muyunContacts = _muyunContacts;
-@synthesize favoriteContacts = _favoriteContacts;
-@synthesize searchResults = _searchResults;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -72,11 +65,16 @@
 
 - (void)viewDidUnload
 {
-    [self setContactsTypeSegment:nil];
-    [self setSearchResults:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [self setContactsTypeSegment:nil];
+    [self setSearchResults:nil];
+    [self setEmailsArray:nil];
+    [self setPhonesArray:nil];
+    [self setFullName:nil];
+    [self setMuyunContacts:nil];
+    [self setFavoriteContacts:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -144,7 +142,7 @@
     self.favoriteContacts = favorite;
     
 }
-ß
+
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
@@ -160,8 +158,9 @@
     } 
 }
 
-- (IBAction)changeContactTypeSegmentValue:(id)sender {
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+- (IBAction)changeContactTypeSegmentValue:(id)sender
+{
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 

@@ -20,9 +20,6 @@
 @end
 
 @implementation IMYRecentsViewController
-@synthesize recentsTypeSegment = _recentsTypeSegment;
-@synthesize allRecents = _allRecents;
-@synthesize missedRecents = _missedRecents;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,11 +33,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-    [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
+        
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // add observer
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults addObserver:self forKeyPath:@"allRecents" options:NSKeyValueObservingOptionNew context:NULL];
+    
+    // init data
+    self.allRecents = [[NSMutableArray alloc] initWithArray:[defaults valueForKey:@"allRecents"]];
+    [self getMissedResultFromAllRecents];
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -56,11 +61,18 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [self setAllRecents:nil];
+    [self setMissedRecents:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // request recents
+    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -84,20 +96,41 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSError *error;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"%@", result);
-    if ([[result valueForKey:@"requestType"] isEqualToString:@"recents"] ) {
-        if (![self.allRecents isEqualToArray:[result valueForKey:@"records"]]) {
-            self.allRecents = [NSMutableArray arrayWithArray:[result valueForKey:@"records"]];
-            [self getMissedResultFromAllRecents];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"%@", results);
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"recents"] ) {
+        if (![self.allRecents isEqualToArray:[results valueForKey:@"records"]]) {
+            [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"records"] forKey:@"allRecents"];
         }
     }
 }
 
+#pragma mark - Observer methods
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqual:@"allRecents"]) {
+        NSLog(@"oberser that all recents change = %@", [change objectForKey:NSKeyValueChangeNewKey]);
+        if (![self.allRecents isEqual:[change objectForKey:NSKeyValueChangeNewKey]]) {
+            self.allRecents = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
+            [self getMissedResultFromAllRecents];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
+    
+    /*
+     Be sure to call the superclass's implementation *if it implements it*.
+     NSObject does not implement the method.
+     */
+//    [super observeValueForKeyPath:keyPath
+//                         ofObject:object
+//                           change:change
+//                          context:context];
+}
+
 #pragma mark - UI methods
 - (IBAction)changeRecentsTypeSegmentValue:(id)sender {
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - transform methods
@@ -275,19 +308,20 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
             [self.allRecents removeObjectAtIndex:indexPath.row];
-            [self getMissedResultFromAllRecents];
+            [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
         } else {
             NSDictionary *contact = [self.missedRecents objectAtIndex:indexPath.row];
             for (NSInteger i = 0; i < self.allRecents.count; i++) {
                 if ([[self.allRecents objectAtIndex:i] isEqual:contact]) {
                     [self.allRecents removeObjectAtIndex:i];
-                    [self getMissedResultFromAllRecents];
+                    [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
                     break;
                 }
             }
         }
-        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+
 #warning need a http methods
         // request to delegate
     }
