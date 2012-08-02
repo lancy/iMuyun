@@ -936,6 +936,7 @@
         <class className="IMYRecentsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecentsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="accessoryButtonTapped:forEvent:"/>
                 <relationship kind="action" name="changeRecentsTypeSegmentValue:"/>
                 <relationship kind="outlet" name="recentsTypeSegment" candidateClass="UISegmentedControl"/>
             </relationships>

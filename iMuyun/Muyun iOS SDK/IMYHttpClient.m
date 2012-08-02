@@ -15,7 +15,7 @@
 // http://222.200.181.42/
 // http://omegaga.net:8000/
 
-static NSString* const kHost = @"http://222.200.181.42/";
+static NSString* const kHost = @"http://omegaga.net:8000/";
 static NSString* const kLogin = @"login/";
 static NSString* const kContacts = @"contacts/";
 static NSString* const kFavoriteContacts = @"favoriteContacts/";
@@ -35,6 +35,7 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     @synchronized(self) {
         if(!client) {
             client = [[IMYHttpClient alloc] init];
+            [ASIHTTPRequest setDefaultTimeOutSeconds:20];
         }   
     }
     return client;

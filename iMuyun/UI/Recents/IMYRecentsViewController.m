@@ -105,6 +105,13 @@
     }
 }
 
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request Failed, %@", error);
+}
+
+
 #pragma mark - Observer methods
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

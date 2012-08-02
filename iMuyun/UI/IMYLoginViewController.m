@@ -20,8 +20,7 @@
 
 - (void)autoLogin
 {
-    NSLog(@"Begin auto login");
-    NSLog(@"my info = %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"]);
+    NSLog(@"Begin auto login. \n my info = %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"]);
     NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     if (username) {
         NSError *error;
@@ -110,6 +109,13 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+   NSError *error = [request error];
+    NSLog(@"Request Failed, %@", error);
+    [MBProgressHUD hideHUDForView:self.view animated:YES];    
 }
 
 @end
