@@ -10,6 +10,7 @@
 #import "ASIHTTPRequest.h"
 
 @interface IMYRecentsViewController : UITableViewController<ASIHTTPRequestDelegate>
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *recentsTypeSegment;
 - (IBAction)changeRecentsTypeSegmentValue:(id)sender;
 

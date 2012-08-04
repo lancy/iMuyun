@@ -94,20 +94,23 @@
     NSLog(@"%@", result);
     if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
         if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
-            [[NSUserDefaults standardUserDefaults] setValue:[result valueForKey:@"myInfo"] forKey:@"myInfo"];
-            
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
             NSString *username = self.usernameTextField.text;
             NSString *password = self.passwordTextField.text;
             NSError *error;
             [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"iMuyun" updateExisting:TRUE error:&error];
             
+            [[IMYHttpClient shareClient] requestUserInfoWithUsername:username delegate:self];
             
-            [self performSegueWithIdentifier:@"login" sender:self];
-//            [self dismissModalViewControllerAnimated:YES];
+            
         } else {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
+    }
+    else if ([[result valueForKey:@"requestType"] isEqualToString:@"userInfo"])
+    {
+        [[NSUserDefaults standardUserDefaults] setValue:[result valueForKey:@"userInfo"] forKey:@"myInfo"];
+        [self performSegueWithIdentifier:@"login" sender:self];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }
 }
 

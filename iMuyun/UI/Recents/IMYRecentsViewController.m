@@ -17,6 +17,9 @@
 @property (nonatomic, strong) NSMutableArray* allRecents;
 @property (nonatomic, strong) NSMutableArray* missedRecents;
 
+- (void)tapEditButton;
+- (void)tapClearButton;
+
 @end
 
 @implementation IMYRecentsViewController
@@ -30,12 +33,15 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
         
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.editButtonItem setAction:@selector(tapEditButton)];
+
     
     // add observer
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -48,8 +54,7 @@
     // request recents
     NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
-
-    
+        
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -74,7 +79,6 @@
 {
     [super viewWillAppear:animated];
     
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -104,9 +108,31 @@
         if (![self.allRecents isEqualToArray:[results valueForKey:@"records"]]) {
             NSLog(@"Results are different, will write to userdefaults buffer allRecents.");
             [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"records"] forKey:@"allRecents"];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             NSLog(@"Did write to user defaults buffer muyunContacts.");
         }
     }
+    else if([[results valueForKey:@"requestType"] isEqualToString:@"deleteRecent"])
+    {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Delete recents success");
+        }
+        else
+        {
+            NSLog(@"Delete recents fail");
+        }
+    }
+    else if([[results valueForKey:@"requestType"] isEqualToString:@"clearRecent"])
+    {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Clear recents success");
+        }
+        else
+        {
+            NSLog(@"Clear recents fail");
+        }
+    }
+
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
@@ -124,11 +150,20 @@
         NSLog(@"Observe that userdefaults buffer allRecents change to: %@", [change objectForKey:NSKeyValueChangeNewKey]);
         if (![self.allRecents isEqual:[change objectForKey:NSKeyValueChangeNewKey]]) {
             NSLog(@"Change are different, will modify self.allRecents and self.missedRecents");
-            self.allRecents = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
-            [self getMissedResultFromAllRecents];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-            NSLog(@"Did modify self.allRecents and self.missedRecents. Reload tableview.");
+            
+            if ([[change objectForKey:NSKeyValueChangeNewKey] isKindOfClass:[NSArray class]]) {
+                self.allRecents = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
+                [self getMissedResultFromAllRecents];
+
+            } else
+            {
+                self.allRecents = nil;
+                self.missedRecents = nil;
+            }
+            NSLog(@"Did modify self.allRecents and self.missedRecents.");
+
         }
+        
     }
     
     /*
@@ -146,6 +181,43 @@
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     NSLog(@"Did changed recents type segment controller");
 }
+
+- (void)tapClearButton
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *myUserName = [[defaults valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient] requestClearRecentsWithUsername:myUserName delegate:self];
+    // clear user defaults buffer allRecents and reload table view
+    [defaults setValue:nil forKey:@"allRecents"];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+}
+
+- (void)tapEditButton
+{
+    BOOL isEditing = [self.tableView isEditing];
+    if (!isEditing) {
+        NSLog(@"Table view will begin editing");
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:self action:@selector(tapClearButton)];
+        [self.navigationItem.leftBarButtonItem setTintColor:[UIColor redColor]];
+        
+        [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStyleDone];
+        
+    } else
+    {
+        NSLog(@"Table view did end editing");
+        self.navigationItem.leftBarButtonItem = nil;
+        
+        [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStyleBordered];
+        
+    }
+    [self.tableView setEditing:!isEditing animated:YES];
+    
+    
+}
+
 
 #pragma mark - transform methods
 - (NSString *)dateStringFromNSDate:(NSDate *)date
@@ -321,16 +393,32 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
+            // request to delete recent
+            NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+            NSString *recentUid = [[self.allRecents objectAtIndex:indexPath.row] valueForKey:@"Uid"];
+            [[IMYHttpClient shareClient] requestDeleteRecentWithUsername:myUserName recentUid:recentUid delegate:self];
+            
+            // delete recent local
             [self.allRecents removeObjectAtIndex:indexPath.row];
             [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
             [self getMissedResultFromAllRecents];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
         } else {
-            NSDictionary *contact = [self.missedRecents objectAtIndex:indexPath.row];
+            // request to delete recent
+            NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+            NSDictionary *recent = [self.missedRecents objectAtIndex:indexPath.row];
+            NSString *recentUid = [recent valueForKey:@"Uid"];
+            [[IMYHttpClient shareClient] requestDeleteRecentWithUsername:myUserName recentUid:recentUid delegate:self];
+
+            // delete recent local
             for (NSInteger i = 0; i < self.allRecents.count; i++) {
-                if ([[self.allRecents objectAtIndex:i] isEqual:contact]) {
+                if ([[self.allRecents objectAtIndex:i] isEqual:recent]) {
                     [self.allRecents removeObjectAtIndex:i];
                     [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
                     [self getMissedResultFromAllRecents];
+                    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
                     break;
                 }
             }
@@ -338,10 +426,10 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 //        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
 
-#warning need a http methods
-        // request to delegate
     }
 }
+
+
 
 
 

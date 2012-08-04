@@ -159,8 +159,9 @@
     NSLog(@"Request finished, results: %@", results);
     if ([[results valueForKey:@"requestType"] isEqualToString:@"contacts"] ) {
         if (![self.muyunContacts isEqualToArray:[results valueForKey:@"contacts"]]) {
-            NSLog(@"Results are different, will write to userdefaults buffer muyunContacts.");
+            NSLog(@"Results are different, will write to userdefaults buffer muyunContacts."); 
             [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"contacts"] forKey:@"muyunContacts"];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
             NSLog(@"Did write to user defaults buffer muyunContacts.");
         }
     } 
@@ -179,12 +180,18 @@
 {
     if ([keyPath isEqual:@"muyunContacts"]) {
         NSLog(@"Observe that userdefaults buffer muyunContacts change to: %@", [change objectForKey:NSKeyValueChangeNewKey]);
-        if (![self.muyunContacts isEqual:[change objectForKey:NSKeyValueChangeNewKey]]) {
+        if (![self.muyunContacts isEqual:[change objectForKey:NSKeyValueChangeNewKey]]){
             NSLog(@"Change are different, will modify self.muyunContacts and self.favoriteContacts");
-            self.muyunContacts = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
-            [self getFavoriteContactsFromMuyunContacts];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
-            NSLog(@"Did modified self.muyunContacts and self.favoriteContacts. Reload tableview.");
+            if ([[change objectForKey:NSKeyValueChangeNewKey] isKindOfClass:[NSArray class]]) {
+                self.muyunContacts = [[NSMutableArray alloc] initWithArray:[change objectForKey:NSKeyValueChangeNewKey]];
+                [self getFavoriteContactsFromMuyunContacts];
+                
+            } else
+            {
+                self.muyunContacts = nil;
+                self.favoriteContacts = nil;
+            }
+            NSLog(@"Did modified self.muyunContacts and self.favoriteContacts.");
         }
     }
     

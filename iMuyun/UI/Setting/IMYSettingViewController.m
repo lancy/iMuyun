@@ -134,6 +134,17 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex  
 {
     if (buttonIndex == 1) {
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+//        [defaults removePersistentDomainForName:appDomain];
+        
+        [NSUserDefaults resetStandardUserDefaults];
+        
+//        [defaults setValue:[[NSArray alloc] init] forKey:@"muyunContacts"];
+//        [defaults setValue:[[NSArray alloc] init] forKey:@"allRecents"];
+//        [defaults setValue:[[NSArray alloc] init] forKey:@"myInfo"];
+
+        
         [self dismissModalViewControllerAnimated:YES];
     }
 }

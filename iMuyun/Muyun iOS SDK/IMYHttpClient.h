@@ -20,6 +20,8 @@
 
 //api
 - (void)requestLoginWithUsername:(NSString *)username password:(NSString*) password delegate:(id)delegate;
+- (void)requestUserInfoWithUsername:(NSString *)username delegate:(id)delegate;
+
 - (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate;
 //- (void)requestFavoriteContactsWithUsername:(NSString *)username delegate:(id)delegate;
 - (void)requestRecentsWithUsername:(NSString *)username delegate:(id)delegate;

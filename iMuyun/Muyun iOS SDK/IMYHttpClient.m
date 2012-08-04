@@ -18,6 +18,7 @@
 static NSString* const kHost = @"http://222.200.181.42/";
 //static NSString* const kHost = @"http://omegaga.net:8000/";
 static NSString* const kLogin = @"login/";
+static NSString* const kUserInfo = @"userInfo/";
 static NSString* const kContacts = @"contacts/";
 static NSString* const kFavoriteContacts = @"favoriteContacts/";
 static NSString* const kRecents = @"recents/";
@@ -52,6 +53,16 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request setPostValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"myToken"] forKey:@"pushToken"];
     [request startAsynchronous];
 }
+
+- (void)requestUserInfoWithUsername:(NSString *)username delegate:(id)delegate
+{
+    NSLog(@"Begin request userInfo with username: %@", username);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingString:kUserInfo]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request startAsynchronous];
+}
+
 
 - (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate
 {
