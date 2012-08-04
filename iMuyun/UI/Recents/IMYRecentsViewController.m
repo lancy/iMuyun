@@ -402,7 +402,6 @@
             [self.allRecents removeObjectAtIndex:indexPath.row];
             [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
             [self getMissedResultFromAllRecents];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 
         } else {
             // request to delete recent
@@ -417,8 +416,6 @@
                     [self.allRecents removeObjectAtIndex:i];
                     [[NSUserDefaults standardUserDefaults] setValue:self.allRecents forKey:@"allRecents"];
                     [self getMissedResultFromAllRecents];
-                    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-
                     break;
                 }
             }

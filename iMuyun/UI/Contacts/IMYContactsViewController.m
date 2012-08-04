@@ -205,6 +205,7 @@
     //                          context:context];
 }
 
+#pragma mark - UI methods
 
 - (IBAction)changeContactTypeSegmentValue:(id)sender
 {

@@ -103,6 +103,8 @@
 		BFDD055415BA6109005B30E4 /* IMYContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055115BA6109005B30E4 /* IMYContactCell.m */; };
 		BFDD055515BA6109005B30E4 /* IMYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */; };
 		BFDD055815BA64E0005B30E4 /* IMYDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055715BA64E0005B30E4 /* IMYDataManager.m */; };
+		BFE7D2AC15CD1EBC0045BA53 /* blackHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE7D2AA15CD1EBB0045BA53 /* blackHeart.png */; };
+		BFE7D2AD15CD1EBC0045BA53 /* whiteHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE7D2AB15CD1EBB0045BA53 /* whiteHeart.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +249,8 @@
 		BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactsViewController.m; path = UI/Contacts/IMYContactsViewController.m; sourceTree = "<group>"; };
 		BFDD055615BA64E0005B30E4 /* IMYDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYDataManager.h; path = "Muyun iOS SDK/IMYDataManager.h"; sourceTree = "<group>"; };
 		BFDD055715BA64E0005B30E4 /* IMYDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYDataManager.m; path = "Muyun iOS SDK/IMYDataManager.m"; sourceTree = "<group>"; };
+		BFE7D2AA15CD1EBB0045BA53 /* blackHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackHeart.png; sourceTree = "<group>"; };
+		BFE7D2AB15CD1EBB0045BA53 /* whiteHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteHeart.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,9 +348,9 @@
 				BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */,
 				BF741AE815B3F5BF009C9E6F /* Muyun SDK */,
 				BFC8934115B8ED5F0095F8BA /* Call View Controller */,
+				BFDD054F15BA60A8005B30E4 /* Contacts */,
 				BFABD99715BFBC370096C911 /* Recents */,
 				BFA9D02115B3071600D1083F /* Setting */,
-				BFDD054F15BA60A8005B30E4 /* Contacts */,
 				BF25D20D15B2AAEE00411924 /* Supporting Files */,
 			);
 			path = iMuyun;
@@ -423,6 +427,8 @@
 		BF8D4F2015BE8FB000161E3C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				BFE7D2AA15CD1EBB0045BA53 /* blackHeart.png */,
+				BFE7D2AB15CD1EBB0045BA53 /* whiteHeart.png */,
 				BF6003A215CAC012005C9206 /* avatar.png */,
 				BF8F7E2215C669280005D9F9 /* next.png */,
 				BF8F7E1715C634BC0005D9F9 /* background.png */,
@@ -706,6 +712,8 @@
 				BF8F7E1815C634BC0005D9F9 /* background.png in Resources */,
 				BF8F7E2315C669280005D9F9 /* next.png in Resources */,
 				BF6003A315CAC013005C9206 /* avatar.png in Resources */,
+				BFE7D2AC15CD1EBC0045BA53 /* blackHeart.png in Resources */,
+				BFE7D2AD15CD1EBC0045BA53 /* whiteHeart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
