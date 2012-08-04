@@ -73,6 +73,9 @@
     // e.g. self.myOutlet = nil;
     [self setAllRecents:nil];
     [self setMissedRecents:nil];
+    
+    [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:@"allRecents"];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

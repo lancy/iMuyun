@@ -42,6 +42,13 @@
     [self.portraitImageView setImageWithURL:[self.contact valueForKey:@"portraitUrl"] placeholderImage:nil];
     [self.navigationItem setTitle:[self.contact valueForKey:@"name"]];
     
+    if ([[self.contact valueForKey:@"isFavorite"] isEqualToString:@"Yes"]){
+        [self.favoriteButton setSelected:YES];
+    } else {
+        [self.favoriteButton setSelected:NO];
+    }
+
+    
 }
 
 - (void)viewDidUnload
@@ -62,6 +69,34 @@
 
 - (IBAction)tapFavoriteButton:(id)sender {
     NSLog(@"tap favorite button");
+    BOOL toggle;
+    NSString *stringToggle;
+    if ([[self.contact valueForKey:@"isFavorite"] isEqualToString:@"Yes"]){
+        toggle = NO;
+        stringToggle = @"No";
+    } else {
+        toggle = YES;
+        stringToggle = @"Yes";
+    }
+    
+    // set favorite to !toggle
+    
+    NSMutableArray *contactsArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] valueForKey:@"muyunContacts"]];
+    for (NSInteger i = 0; i < [contactsArray count]; i++) {
+        if ([self.contact isEqualToDictionary:[contactsArray objectAtIndex:i]]) {
+            NSMutableDictionary *newContact = [NSMutableDictionary dictionaryWithDictionary:[contactsArray objectAtIndex:i]];
+            [newContact setValue:stringToggle forKey:@"isFavorite"];
+            [contactsArray replaceObjectAtIndex:i withObject:newContact];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:contactsArray forKey:@"muyunContacts"];
+            break;
+        }
+
+    }
+    
+    
+    [self.favoriteButton setSelected:toggle];
+
 }
 
 - (IBAction)tapMessageButton:(id)sender {

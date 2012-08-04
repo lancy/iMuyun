@@ -58,6 +58,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults addObserver:self forKeyPath:@"muyunContacts" options:NSKeyValueObservingOptionNew context:NULL];
     
+    
     // init data
     self.muyunContacts = [[NSMutableArray alloc] initWithArray:[defaults valueForKey:@"muyunContacts"]];
     [self getFavoriteContactsFromMuyunContacts];
@@ -82,11 +83,16 @@
     [self setFullName:nil];
     [self setMuyunContacts:nil];
     [self setFavoriteContacts:nil];
+    
+    [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:@"muyunContacts"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+
     
 }
 
@@ -147,7 +153,6 @@
         }
     }
     self.favoriteContacts = favorite;
-    
 }
 
 #pragma mark - Http request methods
