@@ -67,6 +67,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - UI methods
+
 - (IBAction)tapFavoriteButton:(id)sender {
     NSLog(@"tap favorite button");
     BOOL toggle;
@@ -93,10 +95,10 @@
         }
 
     }
-    
-    
     [self.favoriteButton setSelected:toggle];
-
+    
+    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [[IMYHttpClient shareClient]requestSetFavoriteWithUsername:myUserName favoriteUsername:[self.contact valueForKey:@"username"] toggle:stringToggle delegate:self];
 }
 
 - (IBAction)tapMessageButton:(id)sender {
@@ -113,5 +115,31 @@
     [videoCallViewController setTargetContact:self.contact];
     [videoCallViewController setVideoCallState:IMYVideoCallStateCallOut];
     [self presentModalViewController:videoCallViewController animated:YES];
+}
+
+#pragma mark - Http methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"Request finished, results: %@", results);
+    if([[results valueForKey:@"requestType"] isEqualToString:@"setFavorite"])
+    {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Set favorite success");
+        }
+        else
+        {
+            NSLog(@"Set favorite fail");
+        }
+    }
+
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request failed, %@", error);
 }
 @end

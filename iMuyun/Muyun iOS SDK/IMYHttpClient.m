@@ -26,7 +26,7 @@ static NSString* const kMissed = @"missed/";
 static NSString* const kVideoCallTo = @"videoCallTo/";
 static NSString* const kAnswerVideoCall = @"answerVideoCall/";
 static NSString* const kEndVideoCall = @"endVideoCall/";
-static NSString* const kAddFavorite = @"addFavorite/";
+static NSString* const kAddFavorite = @"setFavorite/";
 static NSString* const kDeleteRecent = @"deleteRecent/";
 static NSString* const kClearRecent = @"clearRecent/";
 static NSString* const kUpdateMyInfo = @"updateMyInfo/";
@@ -132,13 +132,16 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request startAsynchronous];
 }
 
-- (void)requestAddFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername delegate:(id)delegate
+//- (void)requestFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername delegate:(id)delegate
+
+- (void)requestSetFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername toggle:(NSString *)toggle delegate:(id)delegate
 {
-    NSLog(@"Begin request add favorite with username: %@ to another usernmae: %@", username, favoriteUsername);
+    NSLog(@"Begin request set favorite with username: %@, favorite usernmae: %@ and toggle: %@", username, favoriteUsername, toggle);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kAddFavorite]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
     [request setPostValue:favoriteUsername forKey:@"favoriteUsername"];
+    [request setPostValue:toggle forKey:@"toggle"];
     [request startAsynchronous];
 }
 

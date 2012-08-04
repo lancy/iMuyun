@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMYHttpClient.h"
+#import "ASIHttpRequest.h"
 
-@interface IMYContactDetailViewController : UIViewController
+
+@interface IMYContactDetailViewController : UIViewController <ASIHTTPRequestDelegate>
 
 @property (weak, nonatomic) NSDictionary* contact;
 

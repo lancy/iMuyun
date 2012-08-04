@@ -138,11 +138,11 @@
 //        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //        [defaults removePersistentDomainForName:appDomain];
         
-//        [NSUserDefaults resetStandardUserDefaults];
+        [NSUserDefaults resetStandardUserDefaults];
         
-        [defaults removeObjectForKey:@"muyunContacts"];
-        [defaults removeObjectForKey:@"allRecents"];
-        [defaults removeObjectForKey:@"myInfo"];
+//        [defaults removeObjectForKey:@"muyunContacts"];
+//        [defaults removeObjectForKey:@"allRecents"];
+//        [defaults removeObjectForKey:@"myInfo"];
 
         
         [self dismissModalViewControllerAnimated:YES];
