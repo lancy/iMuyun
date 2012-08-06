@@ -60,7 +60,7 @@ static double widgetHeight = 240;
 static double widgetWidth = 320;
 static double stateViewHeight = 100;
 
-static NSString* const kApiKey = @"16638031";
+static NSString* const kApiKey = @"16937882";
 static NSString* const kToken = @"devtoken";
 static NSString* const kSessionId = @"1_MX4wfn4yMDEyLTA3LTE1IDA2OjMzOjQzLjEzMzU1OSswMDowMH4wLjY0MjU1Mjg1MjU2NH4";
 static NSString* const kUserName = @"lancy";

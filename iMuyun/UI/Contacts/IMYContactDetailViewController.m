@@ -99,6 +99,7 @@
     
     NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient]requestSetFavoriteWithUsername:myUserName favoriteUsername:[self.contact valueForKey:@"username"] toggle:stringToggle delegate:self];
+    
 }
 
 - (IBAction)tapMessageButton:(id)sender {
