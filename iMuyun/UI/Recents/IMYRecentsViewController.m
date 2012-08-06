@@ -200,9 +200,9 @@
 {
     BOOL isEditing = [self.tableView isEditing];
     if (!isEditing) {
-        NSLog(@"Table view will begin editing");
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:self action:@selector(tapClearButton)];
-        [self.navigationItem.leftBarButtonItem setTintColor:[UIColor redColor]];
+        NSLog(@"Table view will begin editing");        
+        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:self action:@selector(tapClearButton)] animated:YES];
+//        [self.navigationItem.leftBarButtonItem setTintColor:[UIColor redColor]];
         
         [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
         [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStyleDone];
@@ -210,7 +210,7 @@
     } else
     {
         NSLog(@"Table view did end editing");
-        self.navigationItem.leftBarButtonItem = nil;
+        [self.navigationItem setLeftBarButtonItem:nil animated:YES];
         
         [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
         [self.navigationItem.rightBarButtonItem setStyle:UIBarButtonItemStyleBordered];
