@@ -9,6 +9,7 @@
 #import "IMYLoginViewController.h"
 #import "MBProgressHUD.h"
 #import "SFHFKeychainUtils.h"
+#import "IMYAppDelegate.h"
 
 @interface IMYLoginViewController ()
 
@@ -119,6 +120,14 @@
    NSError *error = [request error];
     NSLog(@"Request Failed, %@", error);
     [MBProgressHUD hideHUDForView:self.view animated:YES];    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"login"]) {
+        IMYAppDelegate *delegate =  (IMYAppDelegate *)[[UIApplication sharedApplication] delegate];
+        delegate.tabBarController = segue.destinationViewController;
+    }
 }
 
 @end

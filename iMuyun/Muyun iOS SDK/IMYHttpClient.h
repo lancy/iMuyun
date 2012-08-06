@@ -20,12 +20,11 @@
 
 //api
 - (void)requestLoginWithUsername:(NSString *)username password:(NSString*) password delegate:(id)delegate;
+- (void)requestRegisterWithUsername:(NSString *)username password:(NSString*) password delegate:(id)delegate;
 - (void)requestUserInfoWithUsername:(NSString *)username delegate:(id)delegate;
 
 - (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate;
-//- (void)requestFavoriteContactsWithUsername:(NSString *)username delegate:(id)delegate;
 - (void)requestRecentsWithUsername:(NSString *)username delegate:(id)delegate;
-//- (void)requestMissedWithUsername:(NSString *)username delegate:(id)delegate;
 
 - (void)requestVideoCallWithUsername:(NSString *)username callToUsername:(NSString *)callToUsername delegate:(id)delegate;
 - (void)answerVideoCallWithUsername:(NSString *)username answerMessage:(NSString *)message delegate:(id)delegate;
@@ -35,6 +34,8 @@
 - (void)requestDeleteRecentWithUsername:(NSString *)username recentUid:(NSString *)recentUid delegate:(id)delegate;
 - (void)requestClearRecentsWithUsername:(NSString *)username delegate:(id)delegate;
 - (void)requestUpdateMyInfoWithUsername:(NSString *)username myInfo:(NSDictionary *)myInfo delegate:(id)delegate;
+
+
 
 
 @end

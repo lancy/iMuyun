@@ -18,6 +18,7 @@
 static NSString* const kHost = @"http://222.200.181.42/";
 //static NSString* const kHost = @"http://omegaga.net:8000/";
 static NSString* const kLogin = @"login/";
+static NSString* const kRegister = @"register/";
 static NSString* const kUserInfo = @"userInfo/";
 static NSString* const kContacts = @"contacts/";
 static NSString* const kFavoriteContacts = @"favoriteContacts/";
@@ -74,14 +75,6 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request startAsynchronous];
 }
 
-//- (void)requestFavoriteContactsWithUsername:(NSString *)username delegate:(id)delegate
-//{
-//    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kFavoriteContacts]]];
-//    [request setDownloadCache:[ASIDownloadCache sharedCache]];
-//    [request setDelegate:delegate];
-//    [request setPostValue:username forKey:@"username"];
-//    [request startAsynchronous];    
-//}
 
 - (void)requestRecentsWithUsername:(NSString *)username delegate:(id)delegate
 {
@@ -92,16 +85,6 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request setPostValue:username forKey:@"username"];
     [request startAsynchronous];
 }
-
-//- (void)requestMissedWithUsername:(NSString *)username delegate:(id)delegate
-//{
-//    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kMissed]]];
-//    [request setDownloadCache:[ASIDownloadCache sharedCache]];
-//    [request setDelegate:delegate];
-//    [request setPostValue:username forKey:@"username"];
-//    [request startAsynchronous];
-//}
-
 
 
 - (void)requestVideoCallWithUsername:(NSString *) username callToUsername:(NSString *) callToUsername delegate:(id)delegate
@@ -172,6 +155,17 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request setPostValue:username forKey:@"username"];
     [request setPostValue:myInfo forKey:@"myInfo"];
     [request startAsynchronous];
+}
+
+- (void)requestRegisterWithUsername:(NSString *)username password:(NSString *)password delegate:(id)delegate
+{
+    NSLog(@"Begin request register with username: %@ and password: %@", username, password);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kRegister]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:password forKey:@"password"];
+    [request startAsynchronous];
+
 }
 
 

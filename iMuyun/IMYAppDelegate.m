@@ -97,7 +97,8 @@
 
 - (UIViewController *)getCurrentViewController
 {
-    UITabBarController *tabBarVC = (UITabBarController *)[[self.window rootViewController] presentedViewController];
+//    UITabBarController *tabBarVC = (UITabBarController *)[[self.window rootViewController] presentedViewController];
+    UITabBarController *tabBarVC = self.tabBarController;
     UINavigationController *currentNav = (UINavigationController *)[tabBarVC selectedViewController];
     UIViewController *currentVC = [currentNav visibleViewController];
     return currentVC;

@@ -13,6 +13,7 @@
 @interface IMYAppDelegate : UIResponder <ASIHTTPRequestDelegate ,UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UITabBarController *tabBarController;
 @property BOOL isInCall;
 
 @end
