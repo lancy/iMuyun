@@ -221,6 +221,7 @@ static NSString* const kUserName = @"lancy";
 }
 
 - (IBAction)tapEndButton:(id)sender {
+    [[IMYHttpClient shareClient] requestEndVideoCallWithUsername:self.username delegate:self];
     [self.session disconnect];
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -238,15 +239,26 @@ static NSString* const kUserName = @"lancy";
             NSLog(@"Target accept video call.");
             self.sessionId = [result valueForKey:@"sessionId"];
             self.token = [result valueForKey:@"token"];
-//            self.userName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-            self.username = [NSString stringWithFormat:@"%d", arc4random()];
+            self.username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+//            self.username = [NSString stringWithFormat:@"%d", arc4random()];
             self.videoCallState = IMYVideoCallStateNormal;
             [self updateUserInterface];
             [self initSessionAndBeginConnecting];
         } else {
             NSLog(@"Target reject video call.");
         }
-    }    
+    }
+    else if ([[result valueForKey:@"requestType"] isEqualToString:@"endVideoCall"])
+    {
+        if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Request End video call success");
+        }
+        else
+        {
+            NSLog(@"Request End video call fail");
+            
+        }
+    }
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
