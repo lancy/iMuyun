@@ -45,6 +45,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    [self.usernameTextField setText:username];
+
     [self autoLogin];
 	// Do any additional setup after loading the view.
 }
@@ -60,8 +63,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-    [self.usernameTextField setText:username];
 
 }
 
@@ -91,14 +92,15 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSError *error;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"%@", result);
-    if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
-        if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"Request finished, results: %@", results);
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"login"]) {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
             NSString *username = self.usernameTextField.text;
             NSString *password = self.passwordTextField.text;
             NSError *error;
             [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"iMuyun" updateExisting:TRUE error:&error];
+            NSLog(@"Did store username: %@ and password: %@", username, password);
             
             [[IMYHttpClient shareClient] requestUserInfoWithUsername:username delegate:self];
             
@@ -107,9 +109,9 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     }
-    else if ([[result valueForKey:@"requestType"] isEqualToString:@"userInfo"])
+    else if ([[results valueForKey:@"requestType"] isEqualToString:@"userInfo"])
     {
-        [[NSUserDefaults standardUserDefaults] setValue:[result valueForKey:@"userInfo"] forKey:@"myInfo"];
+        [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"userInfo"] forKey:@"myInfo"];
         [self performSegueWithIdentifier:@"login" sender:self];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }

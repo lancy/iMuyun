@@ -105,6 +105,7 @@
 		BFDD055815BA64E0005B30E4 /* IMYDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055715BA64E0005B30E4 /* IMYDataManager.m */; };
 		BFE7D2AC15CD1EBC0045BA53 /* blackHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE7D2AA15CD1EBB0045BA53 /* blackHeart.png */; };
 		BFE7D2AD15CD1EBC0045BA53 /* whiteHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE7D2AB15CD1EBB0045BA53 /* whiteHeart.png */; };
+		BFFAB83715D0ADE40005194C /* IMYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFAB83615D0ADE40005194C /* IMYRegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -251,6 +252,8 @@
 		BFDD055715BA64E0005B30E4 /* IMYDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYDataManager.m; path = "Muyun iOS SDK/IMYDataManager.m"; sourceTree = "<group>"; };
 		BFE7D2AA15CD1EBB0045BA53 /* blackHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackHeart.png; sourceTree = "<group>"; };
 		BFE7D2AB15CD1EBB0045BA53 /* whiteHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteHeart.png; sourceTree = "<group>"; };
+		BFFAB83515D0ADE40005194C /* IMYRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRegisterViewController.h; path = ../IMYRegisterViewController.h; sourceTree = "<group>"; };
+		BFFAB83615D0ADE40005194C /* IMYRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRegisterViewController.m; path = ../IMYRegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +349,8 @@
 				BF25D21815B2AAEE00411924 /* MainStoryboard.storyboard */,
 				BF25D22E15B2AB9000411924 /* IMYLoginViewController.h */,
 				BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */,
+				BFFAB83515D0ADE40005194C /* IMYRegisterViewController.h */,
+				BFFAB83615D0ADE40005194C /* IMYRegisterViewController.m */,
 				BF741AE815B3F5BF009C9E6F /* Muyun SDK */,
 				BFC8934115B8ED5F0095F8BA /* Call View Controller */,
 				BFDD054F15BA60A8005B30E4 /* Contacts */,
@@ -756,6 +761,7 @@
 				BFABD99A15BFBC7E0096C911 /* IMYSettingViewController.m in Sources */,
 				BFABD99D15BFBC860096C911 /* IMYRecentsViewController.m in Sources */,
 				BF49FD7215C26EE400A8A3DA /* SFHFKeychainUtils.m in Sources */,
+				BFFAB83715D0ADE40005194C /* IMYRegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
