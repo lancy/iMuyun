@@ -47,6 +47,10 @@
 }
 
 #pragma mark - UI Methods
+- (IBAction)tapBackButton:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (IBAction)tapSignUpButton:(id)sender {
     MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hub.labelText = @"Sign up...";
