@@ -35,7 +35,6 @@
 - (void)requestClearRecentsWithUsername:(NSString *)username delegate:(id)delegate;
 - (void)requestUpdateMyInfoWithUsername:(NSString *)username myInfo:(NSDictionary *)myInfo delegate:(id)delegate;
 
-
-
+- (void)requestInterpreterVideoCallWithUsername:(NSString *)username myLanguage:(NSString *)myLanguage targetLanguage:(NSString *)targetLanguage delegate:(id)delegate;
 
 @end

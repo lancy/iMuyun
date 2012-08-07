@@ -7,6 +7,7 @@
 //
 
 #import "IMYMuyunViewController.h"
+#import "IMYInterpreterVideoCallViewController.h"
 
 @interface IMYMuyunViewController ()
 
@@ -40,4 +41,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)tapVideoCallButton:(id)sender {
+    IMYInterpreterVideoCallViewController *interpreterVideoCallVC = [self.storyboard instantiateViewControllerWithIdentifier:@"interpreterVideoCallViewController"];
+    
+    [interpreterVideoCallVC setMyLanguage:@"english"];
+    [interpreterVideoCallVC setTargetLanguage:@"chinese"];
+    [interpreterVideoCallVC setVideoCallState:IMYVideoCallStateCallOut];
+    
+    [self presentViewController:interpreterVideoCallVC animated:YES completion:nil];
+
+}
 @end

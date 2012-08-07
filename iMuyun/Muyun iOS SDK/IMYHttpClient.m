@@ -31,6 +31,7 @@ static NSString* const kAddFavorite = @"setFavorite/";
 static NSString* const kDeleteRecent = @"deleteRecent/";
 static NSString* const kClearRecent = @"clearRecent/";
 static NSString* const kUpdateMyInfo = @"updateMyInfo/";
+static NSString* const kInterpreterVideoCall = @"interpreterVideoCall/";
 
 + (IMYHttpClient *)shareClient
 {
@@ -166,6 +167,17 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
     [request setPostValue:password forKey:@"password"];
     [request startAsynchronous];
 
+}
+
+- (void)requestInterpreterVideoCallWithUsername:(NSString *)username myLanguage:(NSString *)myLanguage targetLanguage:(NSString *)targetLanguage delegate:(id)delegate
+{
+    NSLog(@"begin request interpreter video call with username: %@, my language: %@, target language: %@", username, myLanguage, targetLanguage);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kInterpreterVideoCall]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:myLanguage forKey:@"myLanguage"];
+    [request setPostValue:targetLanguage forKey:@"targetLanguage"];
+    [request startAsynchronous];
 }
 
 

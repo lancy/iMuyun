@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "IMYMuyunViewController.h"
 #import "IMYVideoCallViewController.h"
+#import "IMYInterpreterVideoCallViewController.h"
 
 @interface IMYContactsViewController ()
 
@@ -169,7 +170,8 @@
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
             NSLog(@"Did write to user defaults buffer muyunContacts.");
         }
-    } 
+    }
+    
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
@@ -383,19 +385,30 @@
     NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:[[[event touchesForView:sender] anyObject] locationInView:tableView]];
     NSLog(@"phone button tapped, index path = %@", indexPath);
     
-    IMYVideoCallViewController *videoCallViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
-    
     NSDictionary *contact;
     if ([self.searchDisplayController isActive]) {
         contact = [self.searchResults objectAtIndex:indexPath.row];
     }
     else if (indexPath.section == 0) {
+        IMYInterpreterVideoCallViewController *interpreterVideoCallVC = [self.storyboard instantiateViewControllerWithIdentifier:@"interpreterVideoCallViewController"];
+        
+        [interpreterVideoCallVC setMyLanguage:@"english"];
+        [interpreterVideoCallVC setTargetLanguage:@"chinese"];
+        [interpreterVideoCallVC setVideoCallState:IMYVideoCallStateCallOut];
+        
+        [self presentViewController:interpreterVideoCallVC animated:YES completion:nil];
+
+        return;
     }
     else if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
         contact = [self.muyunContacts objectAtIndex:indexPath.row];
     } else {
         contact = [self.favoriteContacts objectAtIndex:indexPath.row];
     }
+    
+    IMYVideoCallViewController *videoCallViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
+    
+
 
     [videoCallViewController setTargetContact:contact];
     [videoCallViewController setVideoCallState:IMYVideoCallStateCallOut];

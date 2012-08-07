@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iMuyun/UI/Contacts/IMYContactsViewController.m"
-         timestampString = "365789787.856533"
+         timestampString = "366025206.406282"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>

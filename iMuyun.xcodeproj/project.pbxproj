@@ -18,6 +18,7 @@
 		BF49FD7215C26EE400A8A3DA /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BF49FD7115C26EE400A8A3DA /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF6003A315CAC013005C9206 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6003A215CAC012005C9206 /* avatar.png */; };
 		BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */; };
+		BF7BD54C15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BD54B15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m */; };
 		BF8D4EFE15BE71F700161E3C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4EF815BE6E6F00161E3C /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF8D4F1415BE87AE00161E3C /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4F0115BE87AE00161E3C /* MKAnnotationView+WebCache.m */; };
 		BF8D4F1515BE87AE00161E3C /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D4F0315BE87AE00161E3C /* SDImageCache.m */; };
@@ -128,6 +129,8 @@
 		BF6003A215CAC012005C9206 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		BF741AE415B3F5BB009C9E6F /* IMYHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYHttpClient.h; path = "Muyun iOS SDK/IMYHttpClient.h"; sourceTree = "<group>"; };
 		BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYHttpClient.m; path = "Muyun iOS SDK/IMYHttpClient.m"; sourceTree = "<group>"; };
+		BF7BD54A15D10E7900B91150 /* IMYInterpreterVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYInterpreterVideoCallViewController.h; path = "UI/Call View Controller/IMYInterpreterVideoCallViewController.h"; sourceTree = "<group>"; };
+		BF7BD54B15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYInterpreterVideoCallViewController.m; path = "UI/Call View Controller/IMYInterpreterVideoCallViewController.m"; sourceTree = "<group>"; };
 		BF8D4EF715BE6E6F00161E3C /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		BF8D4EF815BE6E6F00161E3C /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BF8D4F0015BE87AE00161E3C /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -347,11 +350,8 @@
 				BF25D21515B2AAEE00411924 /* IMYAppDelegate.h */,
 				BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */,
 				BF25D21815B2AAEE00411924 /* MainStoryboard.storyboard */,
-				BF25D22E15B2AB9000411924 /* IMYLoginViewController.h */,
-				BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */,
-				BFFAB83515D0ADE40005194C /* IMYRegisterViewController.h */,
-				BFFAB83615D0ADE40005194C /* IMYRegisterViewController.m */,
 				BF741AE815B3F5BF009C9E6F /* Muyun SDK */,
+				BFF1A58415D0F534003BC9E1 /* Login & Register */,
 				BFC8934115B8ED5F0095F8BA /* Call View Controller */,
 				BFDD054F15BA60A8005B30E4 /* Contacts */,
 				BFABD99715BFBC370096C911 /* Recents */,
@@ -477,6 +477,8 @@
 		BFC8934115B8ED5F0095F8BA /* Call View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BF7BD54A15D10E7900B91150 /* IMYInterpreterVideoCallViewController.h */,
+				BF7BD54B15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m */,
 				BFC8933D15B8ED530095F8BA /* IMYVideoCallViewController.h */,
 				BFC8933E15B8ED530095F8BA /* IMYVideoCallViewController.m */,
 			);
@@ -625,6 +627,17 @@
 			name = Contacts;
 			sourceTree = "<group>";
 		};
+		BFF1A58415D0F534003BC9E1 /* Login & Register */ = {
+			isa = PBXGroup;
+			children = (
+				BF25D22E15B2AB9000411924 /* IMYLoginViewController.h */,
+				BF25D22F15B2AB9000411924 /* IMYLoginViewController.m */,
+				BFFAB83515D0ADE40005194C /* IMYRegisterViewController.h */,
+				BFFAB83615D0ADE40005194C /* IMYRegisterViewController.m */,
+			);
+			name = "Login & Register";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -762,6 +775,7 @@
 				BFABD99D15BFBC860096C911 /* IMYRecentsViewController.m in Sources */,
 				BF49FD7215C26EE400A8A3DA /* SFHFKeychainUtils.m in Sources */,
 				BFFAB83715D0ADE40005194C /* IMYRegisterViewController.m in Sources */,
+				BF7BD54C15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,7 +860,7 @@
 				INFOPLIST_FILE = "iMuyun/iMuyun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3F9082CA-291F-474B-806B-7D73F8FA725F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D90DE20-D652-4703-95ED-8497ABB2171A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -865,7 +879,7 @@
 				INFOPLIST_FILE = "iMuyun/iMuyun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3F9082CA-291F-474B-806B-7D73F8FA725F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D90DE20-D652-4703-95ED-8497ABB2171A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

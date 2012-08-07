@@ -10,4 +10,5 @@
 
 @interface IMYMuyunViewController : UIViewController
 
+- (IBAction)tapVideoCallButton:(id)sender;
 @end
