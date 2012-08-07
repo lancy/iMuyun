@@ -35,25 +35,25 @@
 @end
 
 @implementation IMYVideoCallViewController
-@synthesize acceptButton = _aceptButton;
-@synthesize rejectButton = _rejectButton;
-@synthesize endButton = _endButton;
-@synthesize portraitImageView = _portraitImageView;
-@synthesize stateLabel = _stateLabel;
-@synthesize stateView = _stateView;
-@synthesize targetVideoView = _targetVideoView;
-@synthesize myVideoView = _myVideoView;
-@synthesize interpreterVideoView = _interpreterVideoView;
-@synthesize session = _session;
-@synthesize publisher = _publisher;
-@synthesize subscriber = _subscriber;
-@synthesize interpreterSubscriber = _interpreterSubscriber;
-@synthesize apiKey = _apiKey;
-@synthesize token = _token;
-@synthesize sessionId = _sessionId;
-@synthesize username = _userName;
-@synthesize targetContact = _targetContact; 
-@synthesize videoCallState = _videoCallState;
+//@synthesize acceptButton = _aceptButton;
+//@synthesize rejectButton = _rejectButton;
+//@synthesize endButton = _endButton;
+//@synthesize portraitImageView = _portraitImageView;
+//@synthesize stateLabel = _stateLabel;
+//@synthesize stateView = _stateView;
+//@synthesize targetVideoView = _targetVideoView;
+//@synthesize myVideoView = _myVideoView;
+//@synthesize interpreterVideoView = _interpreterVideoView;
+//@synthesize session = _session;
+//@synthesize publisher = _publisher;
+//@synthesize subscriber = _subscriber;
+//@synthesize interpreterSubscriber = _interpreterSubscriber;
+//@synthesize apiKey = _apiKey;
+//@synthesize token = _token;
+//@synthesize sessionId = _sessionId;
+//@synthesize username = _userName;
+//@synthesize targetContact = _targetContact; 
+//@synthesize videoCallState = _videoCallState;
 
 
 static double widgetHeight = 240;
@@ -132,7 +132,7 @@ static NSString* const kUserName = @"lancy";
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    if ([self.session connectionCount] > 1) {
+    if ([self.session connectionCount] > 1 && interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown) {
         return YES;
     } else
         return NO;
