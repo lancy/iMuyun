@@ -82,7 +82,7 @@
     }
     
     // set favorite to !toggle
-    
+#warning a bug when add favorite via recents detail
     NSMutableArray *contactsArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] valueForKey:@"muyunContacts"]];
     for (NSInteger i = 0; i < [contactsArray count]; i++) {
         if ([self.contact isEqualToDictionary:[contactsArray objectAtIndex:i]]) {
