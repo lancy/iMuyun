@@ -470,10 +470,7 @@
                             <outlet property="delegate" destination="7cQ-Hk-nfl" id="kNM-31-0Cc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Profile" id="mGM-O5-SzS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lwm-Li-B5x"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gv1-91-Irl"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Profile" id="mGM-O5-SzS"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="photoImageView" destination="Dg6-18-d7m" id="x6M-st-47C"/>
@@ -1212,6 +1209,7 @@
         <class className="IMYProfileViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYProfileViewController.h"/>
             <relationships>
+                <relationship kind="action" name="tapPortraitButton:"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
