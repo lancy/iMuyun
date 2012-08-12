@@ -324,11 +324,11 @@
             </objects>
             <point key="canvasLocation" x="1193" y="1415"/>
         </scene>
-        <!--View Controller - My Profile-->
+        <!--Profile View Controller - My Profile-->
         <scene sceneID="h6k-Md-Oqw">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84K-Jy-WvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController hidesBottomBarWhenPushed="YES" id="hQY-zi-phw" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="hQY-zi-phw" customClass="IMYProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncF-hv-zC5">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -344,6 +344,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tapPortraitButton:" destination="hQY-zi-phw" eventType="touchUpInside" id="0zG-lL-Yqq"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" id="IuL-Zb-HJJ">
                                 <rect key="frame" x="128" y="30" width="172" height="31"/>
@@ -400,6 +403,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="aC6-2b-XUU"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="companyTextField" destination="C7H-kN-reE" id="gp6-R7-8Tx"/>
+                        <outlet property="nameTextField" destination="IuL-Zb-HJJ" id="Sfn-Mr-Vrq"/>
+                        <outlet property="portraitButton" destination="VPO-by-cde" id="G2k-NA-53i"/>
+                        <outlet property="tapProtraitButton" destination="VPO-by-cde" id="UfH-8u-iIS"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1725" y="1415"/>
@@ -1099,6 +1108,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYContactsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="changeContactTypeSegmentValue:"/>
+                <relationship kind="action" name="phoneButtonTapped:forEvent:"/>
                 <relationship kind="action" name="tapInvitedButton:"/>
                 <relationship kind="outlet" name="contactsTypeSegment" candidateClass="UISegmentedControl"/>
             </relationships>
@@ -1128,6 +1138,15 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYMuyunViewController.h"/>
             <relationships>
                 <relationship kind="action" name="tapVideoCallButton:"/>
+            </relationships>
+        </class>
+        <class className="IMYProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tapPortraitButton:"/>
+                <relationship kind="outlet" name="companyTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="protraitButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="IMYRecentsViewController" superclassName="UITableViewController">

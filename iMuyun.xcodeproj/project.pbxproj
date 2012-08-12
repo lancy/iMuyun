@@ -104,6 +104,7 @@
 		BFDD055415BA6109005B30E4 /* IMYContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055115BA6109005B30E4 /* IMYContactCell.m */; };
 		BFDD055515BA6109005B30E4 /* IMYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */; };
 		BFDD055815BA64E0005B30E4 /* IMYDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055715BA64E0005B30E4 /* IMYDataManager.m */; };
+		BFE65E7815D78B1100355C07 /* IMYProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */; };
 		BFE7D2AC15CD1EBC0045BA53 /* blackHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE7D2AA15CD1EBB0045BA53 /* blackHeart.png */; };
 		BFE7D2AD15CD1EBC0045BA53 /* whiteHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE7D2AB15CD1EBB0045BA53 /* whiteHeart.png */; };
 		BFFAB83715D0ADE40005194C /* IMYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFAB83615D0ADE40005194C /* IMYRegisterViewController.m */; };
@@ -253,6 +254,8 @@
 		BFDD055315BA6109005B30E4 /* IMYContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactsViewController.m; path = UI/Contacts/IMYContactsViewController.m; sourceTree = "<group>"; };
 		BFDD055615BA64E0005B30E4 /* IMYDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYDataManager.h; path = "Muyun iOS SDK/IMYDataManager.h"; sourceTree = "<group>"; };
 		BFDD055715BA64E0005B30E4 /* IMYDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYDataManager.m; path = "Muyun iOS SDK/IMYDataManager.m"; sourceTree = "<group>"; };
+		BFE65E7615D78B1100355C07 /* IMYProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYProfileViewController.h; path = UI/Setting/IMYProfileViewController.h; sourceTree = "<group>"; };
+		BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYProfileViewController.m; path = UI/Setting/IMYProfileViewController.m; sourceTree = "<group>"; };
 		BFE7D2AA15CD1EBB0045BA53 /* blackHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackHeart.png; sourceTree = "<group>"; };
 		BFE7D2AB15CD1EBB0045BA53 /* whiteHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteHeart.png; sourceTree = "<group>"; };
 		BFFAB83515D0ADE40005194C /* IMYRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRegisterViewController.h; path = ../IMYRegisterViewController.h; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 			children = (
 				BFABD99815BFBC7E0096C911 /* IMYSettingViewController.h */,
 				BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */,
+				BFE65E7615D78B1100355C07 /* IMYProfileViewController.h */,
+				BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -776,6 +781,7 @@
 				BF49FD7215C26EE400A8A3DA /* SFHFKeychainUtils.m in Sources */,
 				BFFAB83715D0ADE40005194C /* IMYRegisterViewController.m in Sources */,
 				BF7BD54C15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m in Sources */,
+				BFE65E7815D78B1100355C07 /* IMYProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
