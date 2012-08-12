@@ -10,9 +10,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface IMYProfileViewController : UITableViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *portraitButton;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *companyTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
-- (IBAction)tapPortraitButton:(id)sender;
 @end

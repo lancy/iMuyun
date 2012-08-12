@@ -15,9 +15,7 @@
 @end
 
 @implementation IMYProfileViewController
-@synthesize portraitButton;
-@synthesize nameTextField;
-@synthesize companyTextField;
+@synthesize photoImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,9 +34,7 @@
 
 - (void)viewDidUnload
 {
-    [self setPortraitButton:nil];
-    [self setNameTextField:nil];
-    [self setCompanyTextField:nil];
+    [self setPhotoImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -48,11 +44,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - TableView delegate
+// use static table view
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancle" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Existing", nil];
+        [actionSheet showInView:self.view];
+    }
+}
+
 #pragma mark - UI Methods
 
 - (IBAction)tapPortraitButton:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancle" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Existing", nil];
-    [actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -112,7 +117,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         UIImage *image = [info
                           objectForKey:UIImagePickerControllerEditedImage];
         
-        [self.portraitButton setImage:image forState:UIControlStateNormal];
+        [self.photoImageView setImage:image];
         if (self.newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,
