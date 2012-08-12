@@ -15,8 +15,8 @@
 // http://222.200.181.42/
 // http://omegaga.net:8000/
 
-static NSString* const kHost = @"http://222.200.181.42/";
-//static NSString* const kHost = @"http://omegaga.net:8000/";
+//static NSString* const kHost = @"http://222.200.181.42/";
+static NSString* const kHost = @"http://omegaga.net:8000/";
 static NSString* const kLogin = @"login/";
 static NSString* const kRegister = @"register/";
 static NSString* const kUserInfo = @"userInfo/";
@@ -32,6 +32,7 @@ static NSString* const kDeleteRecent = @"deleteRecent/";
 static NSString* const kClearRecent = @"clearRecent/";
 static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 static NSString* const kInterpreterVideoCall = @"interpreterVideoCall/";
+static NSString* const kUploadPortrait = @"uploadPortrait/";
 
 + (IMYHttpClient *)shareClient
 {
@@ -177,6 +178,16 @@ static NSString* const kInterpreterVideoCall = @"interpreterVideoCall/";
     [request setPostValue:username forKey:@"username"];
     [request setPostValue:myLanguage forKey:@"myLanguage"];
     [request setPostValue:targetLanguage forKey:@"targetLanguage"];
+    [request startAsynchronous];
+}
+
+- (void)requestUploadPortraitWithUsername:(NSString *)username portraitImage:(UIImage *)portraitImage delegate:(id)delegate
+{
+    NSLog(@"begin request upload portrait with username: %@", username);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUploadPortrait]]];
+    [request setDelegate:delegate];
+    NSData *imageDate = UIImagePNGRepresentation(portraitImage);
+    [request setData:imageDate withFileName:@"portrait.png" andContentType:@"image/png" forKey:@"portrait"];
     [request startAsynchronous];
 }
 
