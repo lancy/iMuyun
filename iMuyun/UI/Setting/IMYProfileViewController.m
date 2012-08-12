@@ -140,10 +140,12 @@
 - (IBAction)nameTextFieldEditingDidEnd:(id)sender {
     [self.myInfo setValue:self.nameTextField.text forKey:@"name"];
     [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"username"] myInfo:self.myInfo delegate:self];
+    [[NSUserDefaults standardUserDefaults] setValue:self.myInfo forKey:@"myInfo"];
 }
 - (IBAction)companyTextFieldEditingDidEnd:(id)sender {
     [self.myInfo setValue:self.companyTextField.text forKey:@"company"];
     [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"company"]  myInfo:self.myInfo delegate:self];
+    [[NSUserDefaults standardUserDefaults] setValue:self.myInfo forKey:@"myInfo"];
 }
 
 #pragma mark - image picker controller delegate
