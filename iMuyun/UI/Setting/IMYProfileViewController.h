@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IMYProfileViewController : UIViewController
+@interface IMYProfileViewController : UIViewController <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *portraitButton;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *companyTextField;

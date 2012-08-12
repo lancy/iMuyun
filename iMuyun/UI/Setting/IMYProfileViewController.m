@@ -49,5 +49,8 @@
 #pragma mark - UI Methods
 
 - (IBAction)tapPortraitButton:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancle" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Existing", nil];
+    [actionSheet showInView:self.view];
 }
+
 @end
