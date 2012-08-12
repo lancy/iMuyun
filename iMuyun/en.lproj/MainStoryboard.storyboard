@@ -376,7 +376,7 @@
                                                     <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Name" minimumFontSize="17" id="KD8-yy-ZYP">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Name" minimumFontSize="17" clearButtonMode="whileEditing" id="KD8-yy-ZYP">
                                                     <rect key="frame" x="88" y="6" width="192" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -400,7 +400,7 @@
                                                     <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Company" minimumFontSize="17" id="gNT-jv-wWY">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Company" minimumFontSize="17" clearButtonMode="whileEditing" id="gNT-jv-wWY">
                                                     <rect key="frame" x="88" y="6" width="192" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -476,6 +476,9 @@
                     <navigationItem key="navigationItem" title="My Profile" id="mGM-O5-SzS"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="companyTextField" destination="gNT-jv-wWY" id="LD6-6g-F91"/>
+                        <outlet property="languageTextField" destination="OhB-9l-NlH" id="0yr-Qm-KJW"/>
+                        <outlet property="nameTextField" destination="KD8-yy-ZYP" id="lW0-Sk-UYB"/>
                         <outlet property="photoImageView" destination="Dg6-18-d7m" id="x6M-st-47C"/>
                     </connections>
                 </tableViewController>
@@ -1197,6 +1200,7 @@
         <class className="IMYLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYLoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="didEndEditUsername:"/>
                 <relationship kind="action" name="tapTheLoginButton:"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
@@ -1211,12 +1215,16 @@
         <class className="IMYProfileViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYProfileViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="companyTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="languageTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="IMYRecentsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecentsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="accessoryButtonTapped:forEvent:"/>
                 <relationship kind="action" name="changeRecentsTypeSegmentValue:"/>
                 <relationship kind="outlet" name="recentsTypeSegment" candidateClass="UISegmentedControl"/>
             </relationships>

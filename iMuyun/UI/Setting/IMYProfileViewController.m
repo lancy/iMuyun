@@ -18,6 +18,9 @@
 
 @implementation IMYProfileViewController
 @synthesize photoImageView;
+@synthesize nameTextField;
+@synthesize companyTextField;
+@synthesize languageTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +41,9 @@
 - (void)viewDidUnload
 {
     [self setPhotoImageView:nil];
+    [self setNameTextField:nil];
+    [self setCompanyTextField:nil];
+    [self setLanguageTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -64,8 +70,9 @@
 - (void)initMyProfile
 {
     NSDictionary *myInfo = [[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"];
-    
-
+    [self.nameTextField setText:[myInfo valueForKey:@"name"]];
+    [self.companyTextField setText:[myInfo valueForKey:@"company"]];
+    [self.languageTextField setText:[myInfo valueForKey:@"language"]];
     
 }
 
