@@ -137,6 +137,10 @@
 - (IBAction)textfieldDidEndOnExit:(id)sender {
     [sender resignFirstResponder];
 }
+- (IBAction)nameTextFieldEditingDidEnd:(id)sender {
+    [self.myInfo setValue:self.nameTextField.text forKey:@"name"];
+    [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"username"] myInfo:self.myInfo delegate:self];
+}
 
 #pragma mark - image picker controller delegate
 
