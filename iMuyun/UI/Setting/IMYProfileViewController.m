@@ -187,10 +187,11 @@
         if (textField.inputView == nil) {
             textField.inputView = self.languagePickerView;
         }
-    }
-    if (textField.inputAccessoryView == nil)
-    {
-        textField.inputAccessoryView = self.languageInputAccessoryView;
+        if (textField.inputAccessoryView == nil)
+        {
+            textField.inputAccessoryView = self.languageInputAccessoryView;
+        }
+
     }
     return YES;
 }
