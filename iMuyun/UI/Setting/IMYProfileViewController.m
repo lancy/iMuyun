@@ -12,6 +12,8 @@
 
 @property BOOL newMedia;
 
+- (void)initMyProfile;
+
 @end
 
 @implementation IMYProfileViewController
@@ -29,7 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.    
+	// Do any additional setup after loading the view.
+    [self initMyProfile];
 }
 
 - (void)viewDidUnload
@@ -49,6 +52,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancle" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Existing", nil];
         [actionSheet showInView:self.view];
@@ -57,8 +61,14 @@
 
 #pragma mark - UI Methods
 
-- (IBAction)tapPortraitButton:(id)sender {
+- (void)initMyProfile
+{
+    NSDictionary *myInfo = [[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"];
+    
+
+    
 }
+
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
