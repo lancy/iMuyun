@@ -324,7 +324,7 @@
             </objects>
             <point key="canvasLocation" x="1193" y="1415"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile View Controller - My Profile-->
         <scene sceneID="bNl-bW-jfN">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nz4-6e-Ih8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,7 +470,10 @@
                             <outlet property="delegate" destination="7cQ-Hk-nfl" id="kNM-31-0Cc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mGM-O5-SzS"/>
+                    <navigationItem key="navigationItem" title="My Profile" id="mGM-O5-SzS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lwm-Li-B5x"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gv1-91-Irl"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="photoImageView" destination="Dg6-18-d7m" id="x6M-st-47C"/>
@@ -1209,7 +1212,6 @@
         <class className="IMYProfileViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYProfileViewController.h"/>
             <relationships>
-                <relationship kind="action" name="tapPortraitButton:"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
