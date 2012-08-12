@@ -55,7 +55,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -135,6 +134,10 @@
     }
 }
 
+- (IBAction)textfieldDidEndOnExit:(id)sender {
+    [sender resignFirstResponder];
+}
+
 #pragma mark - image picker controller delegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker
@@ -190,6 +193,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
             NSLog(@"Upload portrait success");
             [self.myInfo setValue:[results valueForKey:@"portraitUrl"] forKey:@"portraitUrl"];
+            
         } else {
             NSLog(@"Upload portrait fail");
         }
@@ -202,6 +206,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSError *error = [request error];
     NSLog(@"Request Failed, %@", error);
 }
+
 
 
 

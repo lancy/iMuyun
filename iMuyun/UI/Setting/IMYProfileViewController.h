@@ -10,10 +10,12 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "IMYHttpClient.h"
 
-@interface IMYProfileViewController : UITableViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ASIHTTPRequestDelegate>
+@interface IMYProfileViewController : UITableViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ASIHTTPRequestDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *companyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *languageTextField;
+
+- (IBAction)textfieldDidEndOnExit:(id)sender;
 
 @end

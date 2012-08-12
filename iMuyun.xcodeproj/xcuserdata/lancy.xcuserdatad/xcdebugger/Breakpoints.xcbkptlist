@@ -7,13 +7,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iMuyun/UI/Contacts/IMYContactsViewController.m"
-         timestampString = "366025206.406282"
+         filePath = "iMuyun/Muyun iOS SDK/IMYHttpClient.m"
+         timestampString = "366469410.724137"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
-         landmarkName = "-viewDidUnload"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
+         landmarkName = "-requestUpdateMyInfoWithUsername:myInfo:delegate:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
