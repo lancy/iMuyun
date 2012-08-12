@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *myInfo;
 @property BOOL newMedia;
+@property (nonatomic, strong) NSArray *languageArray;
 
 - (void)initMyProfile;
 
@@ -23,6 +24,8 @@
 @synthesize nameTextField;
 @synthesize companyTextField;
 @synthesize languageTextField;
+@synthesize languagePickerView;
+@synthesize languageInputAccessoryView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +41,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self initMyProfile];
+    
+    self.languageArray = [NSArray arrayWithObjects:@"Chinese", @"Engilish", nil];
 }
 
 - (void)viewDidUnload
@@ -46,6 +51,8 @@
     [self setNameTextField:nil];
     [self setCompanyTextField:nil];
     [self setLanguageTextField:nil];
+    [self setLanguagePickerView:nil];
+    [self setLanguageInputAccessoryView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
@@ -146,6 +153,40 @@
     [self.myInfo setValue:self.companyTextField.text forKey:@"company"];
     [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"company"]  myInfo:self.myInfo delegate:self];
     [[NSUserDefaults standardUserDefaults] setValue:self.myInfo forKey:@"myInfo"];
+}
+- (IBAction)languagePickerTapDoneButton:(id)sender {
+    [self.languageTextField resignFirstResponder];
+}
+
+#pragma mark - language picker delegate methods
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [self.languageArray count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [self.languageArray objectAtIndex:row];
+}
+
+#pragma mark - textfield delegate methods
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == self.languageTextField) {
+        if (textField.inputView == nil) {
+            textField.inputView = self.languagePickerView;
+        }
+    }
+    if (textField.inputAccessoryView == nil)
+    {
+        textField.inputAccessoryView = self.languageInputAccessoryView;
+    }
+    return YES;
 }
 
 #pragma mark - image picker controller delegate

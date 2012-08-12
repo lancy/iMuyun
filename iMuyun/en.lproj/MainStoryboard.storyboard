@@ -490,11 +490,40 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="companyTextField" destination="gNT-jv-wWY" id="LD6-6g-F91"/>
+                        <outlet property="languageInputAccessoryView" destination="CIh-0H-eT8" id="6Za-nj-mb9"/>
+                        <outlet property="languagePickerView" destination="0pU-Jo-FUk" id="fgs-yR-XSc"/>
                         <outlet property="languageTextField" destination="OhB-9l-NlH" id="0yr-Qm-KJW"/>
                         <outlet property="nameTextField" destination="KD8-yy-ZYP" id="lW0-Sk-UYB"/>
                         <outlet property="photoImageView" destination="Dg6-18-d7m" id="x6M-st-47C"/>
                     </connections>
                 </tableViewController>
+                <view contentMode="scaleToFill" id="CIh-0H-eT8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="uNr-cP-e4J">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="Zsb-2G-rGF"/>
+                                <barButtonItem systemItem="done" id="wFn-pc-lyr">
+                                    <connections>
+                                        <action selector="languagePickerTapDoneButton:" destination="7cQ-Hk-nfl" id="6gB-N6-Fyw"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <pickerView contentMode="scaleToFill" id="0pU-Jo-FUk">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="7cQ-Hk-nfl" id="bfg-cg-CC1"/>
+                        <outlet property="delegate" destination="7cQ-Hk-nfl" id="o1O-uk-ksW"/>
+                    </connections>
+                </pickerView>
             </objects>
             <point key="canvasLocation" x="1696" y="1415"/>
         </scene>
@@ -1213,7 +1242,6 @@
         <class className="IMYLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYLoginViewController.h"/>
             <relationships>
-                <relationship kind="action" name="didEndEditUsername:"/>
                 <relationship kind="action" name="tapTheLoginButton:"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
@@ -1228,10 +1256,12 @@
         <class className="IMYProfileViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYProfileViewController.h"/>
             <relationships>
-                <relationship kind="action" name="companyTextFieldEditingDidEnd:"/>
+                <relationship kind="action" name="languagePickerTapDoneButton:"/>
                 <relationship kind="action" name="nameTextFieldEditingDidEnd:"/>
                 <relationship kind="action" name="textfieldDidEndOnExit:"/>
                 <relationship kind="outlet" name="companyTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="languageInputAccessoryView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="languagePickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="languageTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
@@ -1240,7 +1270,6 @@
         <class className="IMYRecentsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecentsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="accessoryButtonTapped:forEvent:"/>
                 <relationship kind="action" name="changeRecentsTypeSegmentValue:"/>
                 <relationship kind="outlet" name="recentsTypeSegment" candidateClass="UISegmentedControl"/>
             </relationships>
