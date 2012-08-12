@@ -118,29 +118,29 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                           objectForKey:UIImagePickerControllerEditedImage];
         
         [self.photoImageView setImage:image];
-        if (self.newMedia)
-            UIImageWriteToSavedPhotosAlbum(image,
-                                           self,
-                                           @selector(image:finishedSavingWithError:contextInfo:),
-                                           nil);
+//        if (self.newMedia)
+//            UIImageWriteToSavedPhotosAlbum(image,
+//                                           self,
+//                                           @selector(image:finishedSavingWithError:contextInfo:),
+//                                           nil);
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
     {
 		// Code here to support video if enabled
 	}
 }
--(void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Save failed"
-                              message: @"Failed to save image"\
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-    }
-}
+//-(void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+//{
+//    if (error) {
+//        UIAlertView *alert = [[UIAlertView alloc]
+//                              initWithTitle: @"Save failed"
+//                              message: @"Failed to save image"\
+//                              delegate: nil
+//                              cancelButtonTitle:@"OK"
+//                              otherButtonTitles:nil];
+//        [alert show];
+//    }
+//}
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
