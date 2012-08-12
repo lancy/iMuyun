@@ -151,10 +151,16 @@
 }
 - (IBAction)companyTextFieldEditingDidEnd:(id)sender {
     [self.myInfo setValue:self.companyTextField.text forKey:@"company"];
-    [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"company"]  myInfo:self.myInfo delegate:self];
+    [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"username"]  myInfo:self.myInfo delegate:self];
     [[NSUserDefaults standardUserDefaults] setValue:self.myInfo forKey:@"myInfo"];
 }
 - (IBAction)languagePickerTapDoneButton:(id)sender {
+    NSString *language = [self.languageArray objectAtIndex:[self.languagePickerView selectedRowInComponent:0]];
+    
+    [self.myInfo setValue:language forKey:@"language"];
+    [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"username"]  myInfo:self.myInfo delegate:self];
+    [[NSUserDefaults standardUserDefaults] setValue:self.myInfo forKey:@"myInfo"];
+    [self.languageTextField setText:language];
     [self.languageTextField resignFirstResponder];
 }
 
