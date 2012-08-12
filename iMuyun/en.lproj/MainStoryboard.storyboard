@@ -207,9 +207,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <connections>
-                                            <segue destination="hQY-zi-phw" kind="push" id="GjQ-nQ-2Sv"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ICd-wD-bYD" style="IBUITableViewCellStyleDefault" id="IHL-C2-HFw">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
@@ -330,7 +327,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84K-Jy-WvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="hQY-zi-phw" customClass="IMYProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncF-hv-zC5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VPO-by-cde">
@@ -401,7 +398,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Profile" id="aC6-2b-XUU"/>
+                    <navigationItem key="navigationItem" title="My Profile" id="aC6-2b-XUU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="P3v-HU-lUC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TCD-16-bpO"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="companyTextField" destination="C7H-kN-reE" id="gp6-R7-8Tx"/>
@@ -410,7 +410,36 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1725" y="1415"/>
+            <point key="canvasLocation" x="2125" y="1429"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="bNl-bW-jfN">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nz4-6e-Ih8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="7cQ-Hk-nfl" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Ct-S5-E1O">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="q0M-Jr-bip">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7cQ-Hk-nfl" id="hMo-5w-bJ0"/>
+                            <outlet property="delegate" destination="7cQ-Hk-nfl" id="kNM-31-0Cc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1696" y="1415"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fLD-UL-ch8">
@@ -1079,123 +1108,6 @@
         <image name="phone.png" width="48" height="48"/>
         <image name="red1.png" width="12" height="12"/>
     </resources>
-    <classes>
-        <class className="IMYContactCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYContactCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="callButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="companyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="portraitImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="IMYContactDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYContactDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapAudioCallButton:"/>
-                <relationship kind="action" name="tapFavoriteButton:"/>
-                <relationship kind="action" name="tapMessageButton:"/>
-                <relationship kind="action" name="tapVideoCallButton:"/>
-                <relationship kind="outlet" name="companyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="favoriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noteTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="portraitImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="IMYContactsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYContactsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeContactTypeSegmentValue:"/>
-                <relationship kind="action" name="phoneButtonTapped:forEvent:"/>
-                <relationship kind="action" name="tapInvitedButton:"/>
-                <relationship kind="outlet" name="contactsTypeSegment" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="IMYInterpreterVideoCallViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYInterpreterVideoCallViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapEndButton:"/>
-                <relationship kind="outlet" name="endButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="interpreterVideoView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myVideoView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="portraitImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="stateView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="IMYLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapTheLoginButton:"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="IMYMuyunViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYMuyunViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapVideoCallButton:"/>
-            </relationships>
-        </class>
-        <class className="IMYProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapPortraitButton:"/>
-                <relationship kind="outlet" name="companyTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="portraitButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="IMYRecentsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecentsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="accessoryButtonTapped:forEvent:"/>
-                <relationship kind="action" name="changeRecentsTypeSegmentValue:"/>
-                <relationship kind="outlet" name="recentsTypeSegment" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="IMYRecordCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecordCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="typeImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="IMYRegisterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRegisterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapBackButton:"/>
-                <relationship kind="action" name="tapSignUpButton:"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="IMYSettingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYSettingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapLogoutButton:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="IMYVideoCallViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYVideoCallViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tapAceptButton:"/>
-                <relationship kind="action" name="tapEndButton:"/>
-                <relationship kind="action" name="tapRejectButton:"/>
-                <relationship kind="outlet" name="acceptButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="endButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="interpreterVideoView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myVideoView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="portraitImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="rejectButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="stateView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="targetVideoView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
