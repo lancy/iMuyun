@@ -377,7 +377,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Name" minimumFontSize="17" clearButtonMode="whileEditing" id="KD8-yy-ZYP">
-                                                    <rect key="frame" x="88" y="6" width="192" height="31"/>
+                                                    <rect key="frame" x="88" y="0.0" width="212" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -406,7 +406,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Company" minimumFontSize="17" clearButtonMode="whileEditing" id="gNT-jv-wWY">
-                                                    <rect key="frame" x="88" y="6" width="192" height="31"/>
+                                                    <rect key="frame" x="88" y="0.0" width="212" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -435,7 +435,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Your Language" minimumFontSize="17" id="OhB-9l-NlH">
-                                                    <rect key="frame" x="88" y="6" width="192" height="31"/>
+                                                    <rect key="frame" x="88" y="0.0" width="212" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1240,6 +1240,7 @@
         <class className="IMYRecentsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecentsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="accessoryButtonTapped:forEvent:"/>
                 <relationship kind="action" name="changeRecentsTypeSegmentValue:"/>
                 <relationship kind="outlet" name="recentsTypeSegment" candidateClass="UISegmentedControl"/>
             </relationships>
