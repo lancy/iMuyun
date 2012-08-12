@@ -207,8 +207,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         } else {
             NSLog(@"Upload portrait fail");
         }
-        
+
+    } else if ([[results valueForKey:@"requestType"] isEqualToString:@"updateMyInfo"])
+    {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"update my info success");
+        } else {
+            NSLog(@"Update my info fail");
+        }
     }
+
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
