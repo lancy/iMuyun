@@ -11,6 +11,7 @@
 
 @interface IMYProfileViewController ()
 
+@property (nonatomic, strong) NSMutableDictionary *myInfo;
 @property BOOL newMedia;
 
 - (void)initMyProfile;
@@ -47,6 +48,14 @@
     [self setLanguageTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    
+    [self setMyInfo:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -77,6 +86,7 @@
     
     [self.photoImageView setImageWithURL:[NSURL URLWithString:[myInfo valueForKey:@"portraitUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
     
+    self.myInfo = [myInfo mutableCopy];
 }
 
 
@@ -138,6 +148,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                           objectForKey:UIImagePickerControllerEditedImage];
         
         [self.photoImageView setImage:image];
+        
+        [[IMYHttpClient shareClient] requestUploadPortraitWithUsername:[self.myInfo valueForKey:@"username"] portraitImage:image delegate:self];
 //        if (self.newMedia)
 //            UIImageWriteToSavedPhotosAlbum(image,
 //                                           self,
@@ -166,5 +178,31 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self dismissModalViewControllerAnimated:YES];
 }
+
+#pragma mark - HTTP methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"Request finished, results: %@", results);
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"uploadPortrait"] ) {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Upload portrait success");
+            [self.myInfo setValue:[results valueForKey:@"portraitUrl"] forKey:@"portraitUrl"];
+        } else {
+            NSLog(@"Upload portrait fail");
+        }
+        
+    }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request Failed, %@", error);
+}
+
+
 
 @end
