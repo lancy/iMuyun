@@ -139,7 +139,7 @@
 //        [defaults removePersistentDomainForName:appDomain];
         
         [NSUserDefaults resetStandardUserDefaults];
-        
+#warning Observation info was leaked, and may even become mistakenly attached to some other object
 //        [defaults removeObjectForKey:@"muyunContacts"];
 //        [defaults removeObjectForKey:@"allRecents"];
 //        [defaults removeObjectForKey:@"myInfo"];
