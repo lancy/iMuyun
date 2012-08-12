@@ -141,6 +141,10 @@
     [self.myInfo setValue:self.nameTextField.text forKey:@"name"];
     [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"username"] myInfo:self.myInfo delegate:self];
 }
+- (IBAction)companyTextFieldEditingDidEnd:(id)sender {
+    [self.myInfo setValue:self.companyTextField.text forKey:@"company"];
+    [[IMYHttpClient shareClient] requestUpdateMyInfoWithUsername:[self.myInfo valueForKey:@"company"]  myInfo:self.myInfo delegate:self];
+}
 
 #pragma mark - image picker controller delegate
 
