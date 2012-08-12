@@ -7,6 +7,7 @@
 //
 
 #import "IMYProfileViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface IMYProfileViewController ()
 
@@ -73,6 +74,8 @@
     [self.nameTextField setText:[myInfo valueForKey:@"name"]];
     [self.companyTextField setText:[myInfo valueForKey:@"company"]];
     [self.languageTextField setText:[myInfo valueForKey:@"language"]];
+    
+    [self.photoImageView setImageWithURL:[NSURL URLWithString:[myInfo valueForKey:@"portraitUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
     
 }
 
