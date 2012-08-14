@@ -13,6 +13,8 @@
 #import "IMYSettingViewController.h"
 #import "SFHFKeychainUtils.h"
 
+
+
 @implementation IMYAppDelegate
 
 @synthesize window = _window;
@@ -20,79 +22,72 @@
 - (void)customizeAppearance
 {
     // Create resizable images
-//    UIImage *green1 = [UIImage imageNamed:@"green1"];
-//    UIImage *green2 = [UIImage imageNamed:@"green2"];
-//    UIImage *red1 = [UIImage imageNamed:@"red1"];
-//    UIImage *blue1 = [UIImage imageNamed:@"blue1"];
-    UIImage *background = [UIImage imageNamed:@"background"];
-//    UIImage *gradientImage32 = [[UIImage imageNamed:@"surf_gradient_textured_32"] 
-//                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    
+    UIImage *gradientImage44 = [[UIImage imageNamed:@"surf_gradient_textured_44"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *gradientImage32 = [[UIImage imageNamed:@"surf_gradient_textured_32"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     // Set the background image for *all* UINavigationBars
-//    [[UINavigationBar appearance] setBackgroundImage:green1
-//                                       forBarMetrics:UIBarMetricsDefault];
-//    [[UINavigationBar appearance] setBackgroundImage:green1 
-//                                       forBarMetrics:UIBarMetricsLandscapePhone];
-//    [[UISearchBar appearance] setBackgroundImage:green2];
-//    [[UISegmentedControl appearance] setTintColor:[UIColor colorWithPatternImage:green1]];
-    
-    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
-    [[UISearchBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
-
-    [[UITableView appearanceWhenContainedIn:[IMYContactsViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
-    [[UITableView appearanceWhenContainedIn:[IMYRecentsViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
-    [[UITableViewCell appearanceWhenContainedIn:[IMYSettingViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:background]];
-
-    
-    [[UIApplication sharedApplication]
-     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
-
-    
-    
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage44
+                                       forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage32
+                                       forBarMetrics:UIBarMetricsLandscapePhone];
     
     // Customize the title text for *all* UINavigationBars
 //    [[UINavigationBar appearance] setTitleTextAttributes:
 //     [NSDictionary dictionaryWithObjectsAndKeys:
-//      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], 
-//      UITextAttributeTextColor, 
-//      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8], 
-//      UITextAttributeTextShadowColor, 
-//      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], 
-//      UITextAttributeTextShadowOffset, 
-//      [UIFont fontWithName:@"Arial-Bold" size:0.0], 
-//      UITextAttributeFont, 
+//      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
+//      UITextAttributeTextColor,
+//      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
+//      UITextAttributeTextShadowColor,
+//      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
+//      UITextAttributeTextShadowOffset,
+//      [UIFont fontWithName:@"Arial-Bold" size:0.0],
+//      UITextAttributeFont,
 //      nil]];
+    
+    // Customize UIBarButtonItems
+    UIImage *button30 = [[UIImage imageNamed:@"button_textured_30"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    UIImage *button24 = [[UIImage imageNamed:@"button_textured_24"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:button30 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackgroundImage:button24 forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:220.0/255.0 green:104.0/255.0 blue:1.0/255.0 alpha:1.0], UITextAttributeTextColor, [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0], UITextAttributeTextShadowColor, [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset, [UIFont fontWithName:@"AmericanTypewriter" size:0.0], UITextAttributeFont, nil] forState:UIControlStateNormal];
+    
+    // Customize back button items differently
+    UIImage *buttonBack30 = [[UIImage imageNamed:@"button_back_textured_30"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 5)];
+    UIImage *buttonBack24 = [[UIImage imageNamed:@"button_back_textured_24"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 5)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack30 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack24 forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+    
+    UIImage *tabBackground = [[UIImage imageNamed:@"tab_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UITabBar appearance] setBackgroundImage:tabBackground];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tab_select_indicator"]];
+    
+    UIImage *minImage = [[UIImage imageNamed:@"slider_minimum.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
+    UIImage *maxImage = [[UIImage imageNamed:@"slider_maximum.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
+    UIImage *thumbImage = [UIImage imageNamed:@"thumb.png"];
+    
+    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
+    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
+    
+    UIImage *segmentSelected = [[UIImage imageNamed:@"segcontrol_sel.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 15)];
+    UIImage *segmentUnselected = [[UIImage imageNamed:@"segcontrol_uns.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 15)];
+    UIImage *segmentSelectedUnselected = [UIImage imageNamed:@"segcontrol_sel-uns.png"];
+    UIImage *segUnselectedSelected = [UIImage imageNamed:@"segcontrol_uns-sel.png"];
+    UIImage *segmentUnselectedUnselected = [UIImage imageNamed:@"segcontrol_uns-uns.png"];
+    
+    [[UISegmentedControl appearance] setBackgroundImage:segmentUnselected forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setBackgroundImage:segmentSelected forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    
+    [[UISegmentedControl appearance] setDividerImage:segmentUnselectedUnselected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:segmentSelectedUnselected forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:segUnselectedSelected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
     
 }
 
-//- (void)autoLogin
-//{
-//    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-//    if (username) {
-//        NSError *error;
-//        NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:@"iMuyun" error:&error];
-//        [[IMYHttpClient shareClient] requestLoginWithUsername:username password:password delegate:self];
-//    } else {
-//        IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
-//        [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
-//    }
-//}
-//
-//- (void)requestFinished:(ASIHTTPRequest *)request
-//{
-//    NSError *error;
-//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-//    NSLog(@"%@", result);
-//    if ([[result valueForKey:@"requestType"] isEqualToString:@"login"]) {
-//        if ([[result valueForKey:@"message"] isEqualToString:@"success"]) {
-//            NSLog(@"auto login success");
-//        } else {
-//            IMYLoginViewController *loginVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
-//            [[self getCurrentViewController] presentModalViewController:loginVC animated:YES];
-//        }
-//    }
-//}
+
 
 
 - (UIViewController *)getCurrentViewController
@@ -127,7 +122,7 @@
     
     [self setIsInCall:NO];
     
-    [self customizeAppearance];
+//    [self customizeAppearance];
     
     
     if ([launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] != nil) {
@@ -198,4 +193,11 @@
 
 
 
+@end
+
+
+@implementation UINavigationBar (UINavigationBarCategory)
+- (void)drawRect:(CGRect)rect {
+    
+}
 @end

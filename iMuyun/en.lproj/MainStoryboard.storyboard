@@ -233,29 +233,11 @@
                             </tableViewSection>
                             <tableViewSection id="BU6-u7-KuZ">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="tff-Nr-uha" style="IBUITableViewCellStyleDefault" id="SRg-zU-yWA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TTo-mI-kq5" style="IBUITableViewCellStyleDefault" id="RJg-uQ-fMC">
                                         <rect key="frame" x="0.0" y="119" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Complaints" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tff-Nr-uha">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TTo-mI-kq5" style="IBUITableViewCellStyleDefault" id="RJg-uQ-fMC">
-                                        <rect key="frame" x="0.0" y="164" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TTo-mI-kq5">
@@ -274,7 +256,7 @@
                             <tableViewSection id="pea-r2-t1A">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="2fa-ci-yY4" style="IBUITableViewCellStyleDefault" id="6aB-va-eaX">
-                                        <rect key="frame" x="0.0" y="228" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="184" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -292,7 +274,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yLm-xe-lhA" style="IBUITableViewCellStyleDefault" id="vgH-b0-Y1M">
-                                        <rect key="frame" x="0.0" y="273" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="229" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -587,7 +569,6 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" text="" placeholder="Search" id="aPI-42-Qum">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="7nA-km-y6A" id="uw0-aZ-wKh"/>
@@ -1099,7 +1080,7 @@
         <scene sceneID="ZI1-VJ-4up">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akY-48-XA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="muyunVC" id="TVc-9K-uGL" userLabel="FirstViewController" customClass="IMYMuyunViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="muyunVC" hidesBottomBarWhenPushed="YES" id="TVc-9K-uGL" userLabel="FirstViewController" customClass="IMYMuyunViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y9D-4L-0Ko">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1256,8 +1237,6 @@
         <class className="IMYProfileViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYProfileViewController.h"/>
             <relationships>
-                <relationship kind="action" name="languagePickerTapDoneButton:"/>
-                <relationship kind="action" name="nameTextFieldEditingDidEnd:"/>
                 <relationship kind="action" name="textfieldDidEndOnExit:"/>
                 <relationship kind="outlet" name="companyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="languageInputAccessoryView" candidateClass="UIView"/>
