@@ -22,6 +22,7 @@
 - (void)requestLoginWithUsername:(NSString *)username password:(NSString*) password delegate:(id)delegate;
 - (void)requestRegisterWithUsername:(NSString *)username password:(NSString*) password delegate:(id)delegate;
 - (void)requestUserInfoWithUsername:(NSString *)username delegate:(id)delegate;
+- (void)requestAddContactWithUsername:(NSString *)username targetUsername:(NSString *)targetUsername delegate:(id)delegate;
 
 - (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate;
 - (void)requestRecentsWithUsername:(NSString *)username delegate:(id)delegate;

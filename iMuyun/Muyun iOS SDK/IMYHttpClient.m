@@ -16,7 +16,7 @@
 // http://omegaga.net:8000/
 
 //static NSString* const kHost = @"http://222.200.181.42/";
-static NSString* const kHost = @"http://omegaga.net:8000/";
+static NSString* const kHost = @"http://omegaga.net/imuyun/";
 static NSString* const kLogin = @"login/";
 static NSString* const kRegister = @"register/";
 static NSString* const kUserInfo = @"userInfo/";
@@ -33,6 +33,7 @@ static NSString* const kClearRecent = @"clearRecent/";
 static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 static NSString* const kInterpreterVideoCall = @"interpreterVideoCall/";
 static NSString* const kUploadPortrait = @"uploadPortrait/";
+static NSString* const kAddContact = @"addContact/";
 
 + (IMYHttpClient *)shareClient
 {
@@ -65,6 +66,18 @@ static NSString* const kUploadPortrait = @"uploadPortrait/";
     [request setPostValue:username forKey:@"username"];
     [request startAsynchronous];
 }
+
+- (void)requestAddContactWithUsername:(NSString *)username targetUsername:(NSString *)targetUsername delegate:(id)delegate
+{
+    NSLog(@"Begin request add contact with username: %@ and target usernmae: %@", username, targetUsername);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kVideoCallTo]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:targetUsername forKey:@"targetUsername"];
+    [request startAsynchronous];
+    
+}
+
 
 
 - (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate
@@ -117,7 +130,6 @@ static NSString* const kUploadPortrait = @"uploadPortrait/";
     [request startAsynchronous];
 }
 
-//- (void)requestFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername delegate:(id)delegate
 
 - (void)requestSetFavoriteWithUsername:(NSString *)username favoriteUsername:(NSString *)favoriteUsername toggle:(NSString *)toggle delegate:(id)delegate
 {
