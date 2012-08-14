@@ -22,6 +22,8 @@
 @property (strong, nonatomic) NSMutableArray *favoriteContacts;
 
 
+// add contact property
+
 // selected contact full name phones and emails array;
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSMutableArray *phonesArray;
@@ -422,6 +424,39 @@
 //{
 //    NSLog(@"accessory button tap");
 //}
+#pragma mark - add contact methods
+
+- (IBAction)tapAddContactButton:(id)sender {
+    NSLog(@"Tap add contact button.");
+    UIAlertView* dialog = [[UIAlertView alloc] init];
+    [dialog setDelegate:self];
+    [dialog setTitle:@"Enter Email To Add Contact"];
+    [dialog setMessage:@" "];
+    [dialog addButtonWithTitle:@"Cancel"];
+    [dialog addButtonWithTitle:@"OK"];
+    
+    
+    UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(20.0, 45.0, 245.0, 25.0)];
+    [nameField setBackgroundColor:[UIColor whiteColor]];
+    [nameField setTag:101];
+    [dialog addSubview:nameField];
+    [dialog setTag:100];
+    [dialog show];
+    [nameField becomeFirstResponder];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 100) {
+        for (UITextField *nameField in alertView.subviews) {
+            if (nameField.tag == 101) {
+                NSLog(@"User enter email:%@",nameField.text);
+            }
+        }
+    }
+    
+}
 
 #pragma mark - Invited Methods
 
@@ -430,6 +465,7 @@
     peoplePicker.peoplePickerDelegate = self;
     [self presentModalViewController:peoplePicker animated:YES];
 }
+
 
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
 {
