@@ -75,7 +75,7 @@ static NSString* const kUserName = @"lancy";
 - (void)viewDidUnload
 {
     NSLog(@"Interpreter Video Call Controller did unload");
-    [self setPortraitImageView:nil];
+    [self setAvatarImageView:nil];
     [self setStateLabel:nil];
     [self setEndButton:nil];
     [self setMyVideoView:nil];

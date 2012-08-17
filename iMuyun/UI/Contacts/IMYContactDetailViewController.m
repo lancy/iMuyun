@@ -15,7 +15,7 @@
 @end
 
 @implementation IMYContactDetailViewController
-@synthesize portraitImageView;
+@synthesize avatarImageView;
 @synthesize nameLabel;
 @synthesize companyLabel;
 @synthesize noteTextView;
@@ -39,7 +39,7 @@
     // init ui
     [self.nameLabel setText:[self.contact valueForKey:@"name"]];
     [self.companyLabel setText:[self.contact valueForKey:@"company"]];
-    [self.portraitImageView setImageWithURL:[self.contact valueForKey:@"portraitUrl"] placeholderImage:nil];
+    [self.avatarImageView setImageWithURL:[self.contact valueForKey:@"avatarUrl"] placeholderImage:nil];
     [self.navigationItem setTitle:[self.contact valueForKey:@"name"]];
     
     if ([[self.contact valueForKey:@"isFavorite"] isEqualToString:@"Yes"]){
@@ -53,7 +53,7 @@
 
 - (void)viewDidUnload
 {
-    [self setPortraitImageView:nil];
+    [self setAvatarImageView:nil];
     [self setNameLabel:nil];
     [self setCompanyLabel:nil];
     [self setNoteTextView:nil];

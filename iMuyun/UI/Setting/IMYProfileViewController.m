@@ -90,7 +90,7 @@
     [self.companyTextField setText:[myInfo valueForKey:@"company"]];
     [self.languageTextField setText:[myInfo valueForKey:@"language"]];
     
-    [self.photoImageView setImageWithURL:[NSURL URLWithString:[myInfo valueForKey:@"portraitUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
+    [self.photoImageView setImageWithURL:[NSURL URLWithString:[myInfo valueForKey:@"avatarUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
     
     self.myInfo = [myInfo mutableCopy];
 }
@@ -247,13 +247,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSError *error;
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
     NSLog(@"Request finished, results: %@", results);
-    if ([[results valueForKey:@"requestType"] isEqualToString:@"uploadPortrait"] ) {
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"uploadAvatar"] ) {
         if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
-            NSLog(@"Upload portrait success");
-            [self.myInfo setValue:[results valueForKey:@"portraitUrl"] forKey:@"portraitUrl"];
+            NSLog(@"Upload avatar success");
+            [self.myInfo setValue:[results valueForKey:@"avatarUrl"] forKey:@"avatarUrl"];
             
         } else {
-            NSLog(@"Upload portrait fail");
+            NSLog(@"Upload avatar fail");
         }
 
     } else if ([[results valueForKey:@"requestType"] isEqualToString:@"updateMyInfo"])

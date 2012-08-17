@@ -619,10 +619,10 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
+                                    <outlet property="avatarImageView" destination="Spn-bn-z6r" id="UZW-Nc-HtG"/>
                                     <outlet property="callButton" destination="DBr-1e-O2C" id="x7q-vc-azm"/>
                                     <outlet property="companyLabel" destination="VWv-sT-9sU" id="N87-eM-OSN"/>
                                     <outlet property="nameLabel" destination="29P-yV-feL" id="0qi-AT-ge6"/>
-                                    <outlet property="portraitImageView" destination="Spn-bn-z6r" id="Hfz-4c-UEo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -749,10 +749,10 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="lzi-Ac-9f1" id="lof-6S-WVl"/>
                         <outlet property="companyLabel" destination="beO-Go-v39" id="blF-j3-TAj"/>
                         <outlet property="favoriteButton" destination="kha-As-htd" id="GLW-js-ZCT"/>
                         <outlet property="nameLabel" destination="hEs-c5-afz" id="LaZ-3j-yrb"/>
-                        <outlet property="portraitImageView" destination="lzi-Ac-9f1" id="fhl-MR-YW7"/>
                     </connections>
                 </viewController>
             </objects>
@@ -900,10 +900,10 @@
                     </view>
                     <connections>
                         <outlet property="acceptButton" destination="Icz-KO-qcP" id="mHw-Th-8ON"/>
+                        <outlet property="avatarImageView" destination="pwK-fE-63a" id="LXZ-0N-xzG"/>
                         <outlet property="endButton" destination="A5i-q0-TDO" id="COb-re-1MG"/>
                         <outlet property="interpreterVideoView" destination="v8a-ZW-HIy" id="Yyu-Id-V5O"/>
                         <outlet property="myVideoView" destination="gtU-Gf-4LG" id="Fsc-Yh-lV1"/>
-                        <outlet property="portraitImageView" destination="pwK-fE-63a" id="GS0-51-76R"/>
                         <outlet property="rejectButton" destination="dkB-5W-AWU" id="U8U-rL-Xkw"/>
                         <outlet property="stateLabel" destination="MVQ-EE-qN7" id="gln-kd-IkE"/>
                         <outlet property="stateView" destination="g8q-qF-JmA" id="qm7-99-T5Y"/>
@@ -969,10 +969,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="avatarImageView" destination="g6j-kY-hb0" id="ssM-kZ-8en"/>
                         <outlet property="endButton" destination="32v-Fk-RUS" id="zCp-cw-8OH"/>
                         <outlet property="interpreterVideoView" destination="gVw-Fz-Gys" id="6qb-0N-RyX"/>
                         <outlet property="myVideoView" destination="bgP-1E-xzB" id="OpX-Vg-4KV"/>
-                        <outlet property="portraitImageView" destination="g6j-kY-hb0" id="3fi-O4-j2a"/>
                         <outlet property="stateLabel" destination="EPJ-f5-sgT" id="MJG-IG-wCr"/>
                         <outlet property="stateView" destination="xuE-ub-VO8" id="pNa-lm-MkT"/>
                     </connections>

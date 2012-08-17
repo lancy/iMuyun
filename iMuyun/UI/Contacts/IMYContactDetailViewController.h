@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) NSDictionary* contact;
 
-@property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;

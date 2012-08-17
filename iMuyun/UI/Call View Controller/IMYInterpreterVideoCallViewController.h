@@ -28,7 +28,7 @@
 
 //UI
 @property (weak, nonatomic) IBOutlet UIButton *endButton;
-@property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UIView *stateView;
 

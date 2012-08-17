@@ -291,7 +291,7 @@
             contact = [self.searchResults objectAtIndex:indexPath.row];
             [cell.nameLabel setText:[contact valueForKey:@"name"]];
             [cell.companyLabel setText:[contact valueForKey:@"company"]];
-            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
+            [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"avatarUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
         }
     } else
 
@@ -308,7 +308,7 @@
         }
         [cell.nameLabel setText:[contact valueForKey:@"name"]];
         [cell.companyLabel setText:[contact valueForKey:@"company"]];
-        [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"portraitUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"avatarUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
         
         
     }

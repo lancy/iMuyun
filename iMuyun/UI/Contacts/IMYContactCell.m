@@ -11,7 +11,7 @@
 @implementation IMYContactCell
 @synthesize nameLabel = _nameLabel;
 @synthesize companyLabel = _companyLabel;
-@synthesize portraitImageView = _portraitImageView;
+@synthesize avatarImageView = _avatarImageView;
 @synthesize callButton = _callButton;
 
 
