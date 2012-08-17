@@ -32,7 +32,7 @@ static NSString* const kDeleteRecent = @"deleteRecent/";
 static NSString* const kClearRecent = @"clearRecent/";
 static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 static NSString* const kInterpreterVideoCall = @"interpreterVideoCallTo/";
-static NSString* const kUploadPortrait = @"uploadPortrait/";
+static NSString* const kUploadAvatar = @"uploadAvatar/";
 static NSString* const kAddContact = @"addContact/";
 
 + (IMYHttpClient *)shareClient
@@ -193,13 +193,13 @@ static NSString* const kAddContact = @"addContact/";
     [request startAsynchronous];
 }
 
-- (void)requestUploadPortraitWithUsername:(NSString *)username portraitImage:(UIImage *)portraitImage delegate:(id)delegate
+- (void)requestUploadAvatarWithUsername:(NSString *)username avatarImage:(UIImage *)avatarImage delegate:(id)delegate
 {
-    NSLog(@"begin request upload portrait with username: %@", username);
-    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUploadPortrait]]];
+    NSLog(@"begin request upload avatar with username: %@", username);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUploadAvatar]]];
     [request setDelegate:delegate];
-    NSData *imageDate = UIImagePNGRepresentation(portraitImage);
-    [request setData:imageDate withFileName:@"portrait.png" andContentType:@"image/png" forKey:@"portrait"];
+    NSData *imageDate = UIImagePNGRepresentation(avatarImage);
+    [request setData:imageDate withFileName:@"avatar.png" andContentType:@"image/png" forKey:@"avatar"];
     [request startAsynchronous];
 }
 

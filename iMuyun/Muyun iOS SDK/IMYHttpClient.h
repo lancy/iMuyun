@@ -38,6 +38,6 @@
 
 - (void)requestInterpreterVideoCallWithUsername:(NSString *)username myLanguage:(NSString *)myLanguage targetLanguage:(NSString *)targetLanguage delegate:(id)delegate;
 
-- (void)requestUploadPortraitWithUsername:(NSString *)username portraitImage:(UIImage *)portraitImage delegate:(id)delegate;
+- (void)requestUploadAvatarWithUsername:(NSString *)username avatarImage:(UIImage *)avatarImage delegate:(id)delegate;
 
 @end

@@ -210,7 +210,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         [self.photoImageView setImage:image];
         
-        [[IMYHttpClient shareClient] requestUploadPortraitWithUsername:[self.myInfo valueForKey:@"username"] portraitImage:image delegate:self];
+        [[IMYHttpClient shareClient] requestUploadAvatarWithUsername:[self.myInfo valueForKey:@"username"] avatarImage:image delegate:self];
 //        if (self.newMedia)
 //            UIImageWriteToSavedPhotosAlbum(image,
 //                                           self,
