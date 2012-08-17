@@ -36,7 +36,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    // init ui
+    // init datas
     [self.nameLabel setText:[self.contact valueForKey:@"name"]];
     [self.companyLabel setText:[self.contact valueForKey:@"company"]];
     [self.avatarImageView setImageWithURL:[self.contact valueForKey:@"avatarUrl"] placeholderImage:nil];
@@ -47,7 +47,17 @@
     } else {
         [self.favoriteButton setSelected:NO];
     }
-
+    
+    // custom user interface
+    self.avatarImageView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.avatarImageView.layer.masksToBounds= NO;
+//    self.avatarImageView.layer.cornerRadius= 5.0f;
+    self.avatarImageView.layer.borderWidth = 2.0f;
+    
+    self.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.avatarImageView.layer.shadowOffset = CGSizeMake(3, 3);
+    self.avatarImageView.layer.shadowOpacity = 0.5;
+    self.avatarImageView.layer.shadowRadius = 2.0;
     
 }
 
