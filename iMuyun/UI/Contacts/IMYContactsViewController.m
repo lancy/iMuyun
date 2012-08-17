@@ -14,6 +14,7 @@
 #import "IMYMuyunViewController.h"
 #import "IMYVideoCallViewController.h"
 #import "IMYInterpreterVideoCallViewController.h"
+#import "MBProgressHUD.h"
 
 @interface IMYContactsViewController ()
 
@@ -173,7 +174,27 @@
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
             NSLog(@"Did write to user defaults buffer muyunContacts.");
         }
+    } else if ([[results valueForKey:@"requestType"] isEqualToString:@"addContact"]) {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"])
+        {
+            NSLog(@"Add contact success");
+            [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
+            [[MBProgressHUD HUDForView:self.view] setLabelText:@"Success"];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
+            // reload user contacts list
+            NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+            [[IMYHttpClient shareClient] requestContactsWithUsername:myUserName delegate:self];
+        }
+        else
+        {
+            NSLog(@"Add contact fail");
+            [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
+            [[MBProgressHUD HUDForView:self.view] setLabelText:@"Fail"];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
     }
+
     
 }
 
@@ -181,6 +202,7 @@
 {
     NSError *error = [request error];
     NSLog(@"Request failed, %@", error);
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 
@@ -395,8 +417,8 @@
     else if (indexPath.section == 0) {
         IMYInterpreterVideoCallViewController *interpreterVideoCallVC = [self.storyboard instantiateViewControllerWithIdentifier:@"interpreterVideoCallViewController"];
         
-        [interpreterVideoCallVC setMyLanguage:@"english"];
-        [interpreterVideoCallVC setTargetLanguage:@"chinese"];
+        [interpreterVideoCallVC setMyLanguage:@"Chinese"];
+        [interpreterVideoCallVC setTargetLanguage:@"1"];
         [interpreterVideoCallVC setVideoCallState:IMYVideoCallStateCallOut];
         
         [self presentViewController:interpreterVideoCallVC animated:YES completion:nil];
@@ -437,6 +459,7 @@
     
     
     UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(20.0, 45.0, 245.0, 25.0)];
+
     [nameField setBackgroundColor:[UIColor whiteColor]];
     [nameField setTag:101];
     [dialog addSubview:nameField];
@@ -448,10 +471,15 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag == 100) {
+    if (alertView.tag == 100 && buttonIndex == 1) {
         for (UITextField *nameField in alertView.subviews) {
             if (nameField.tag == 101) {
                 NSLog(@"User enter email:%@",nameField.text);
+                
+                NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+                [[IMYHttpClient shareClient] requestAddContactWithUsername:myUserName targetUsername:nameField.text delegate:self];
+                MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hub.labelText = @"processing...";
             }
         }
     }

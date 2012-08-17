@@ -44,8 +44,8 @@
 - (IBAction)tapVideoCallButton:(id)sender {
     IMYInterpreterVideoCallViewController *interpreterVideoCallVC = [self.storyboard instantiateViewControllerWithIdentifier:@"interpreterVideoCallViewController"];
     
-    [interpreterVideoCallVC setMyLanguage:@"english"];
-    [interpreterVideoCallVC setTargetLanguage:@"chinese"];
+    [interpreterVideoCallVC setMyLanguage:@"Chinese"];
+    [interpreterVideoCallVC setTargetLanguage:@"1"];
     [interpreterVideoCallVC setVideoCallState:IMYVideoCallStateCallOut];
     
     [self presentViewController:interpreterVideoCallVC animated:YES completion:nil];

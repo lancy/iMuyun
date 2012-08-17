@@ -32,7 +32,7 @@ static NSString* const kAddFavorite = @"setFavorite/";
 static NSString* const kDeleteRecent = @"deleteRecent/";
 static NSString* const kClearRecent = @"clearRecent/";
 static NSString* const kUpdateMyInfo = @"updateMyInfo/";
-static NSString* const kInterpreterVideoCall = @"interpreterVideoCall/";
+static NSString* const kInterpreterVideoCall = @"interpreterVideoCallTo/";
 static NSString* const kUploadPortrait = @"uploadPortrait/";
 static NSString* const kAddContact = @"addContact/";
 
@@ -71,7 +71,7 @@ static NSString* const kAddContact = @"addContact/";
 - (void)requestAddContactWithUsername:(NSString *)username targetUsername:(NSString *)targetUsername delegate:(id)delegate
 {
     NSLog(@"Begin request add contact with username: %@ and target usernmae: %@", username, targetUsername);
-    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kVideoCallTo]]];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kAddContact]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
     [request setPostValue:targetUsername forKey:@"targetUsername"];
