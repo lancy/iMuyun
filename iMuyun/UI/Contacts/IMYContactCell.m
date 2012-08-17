@@ -14,15 +14,23 @@
 @synthesize avatarImageView = _avatarImageView;
 @synthesize callButton = _callButton;
 
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
+        self.avatarImageView.layer.borderColor = [UIColor grayColor].CGColor;
+        self.avatarImageView.layer.masksToBounds= NO;
+        //    self.avatarImageView.layer.cornerRadius= 5.0f;
+        self.avatarImageView.layer.borderWidth = 2.0f;
+        
+        self.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.avatarImageView.layer.shadowOffset = CGSizeMake(3, 3);
+        self.avatarImageView.layer.shadowOpacity = 0.5;
+        self.avatarImageView.layer.shadowRadius = 2.0;
     }
     return self;
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
