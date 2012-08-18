@@ -148,6 +148,8 @@
 //        [tabView setSelectedIndex:0];
 //        
 //        UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_bg"]];
+//        
+//        
 //        UIImage *im = [UIImage imageNamed:@"tabbar_bg"];
 //        tabbarController.tabBar.layer.contents = (__bridge id)(im.CGImage);
 //        [tabbarController.tabBar insertSubview:img atIndex:1];

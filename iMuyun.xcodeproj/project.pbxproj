@@ -92,6 +92,11 @@
 		BFC893DA15B8F0630095F8BA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893C815B8F0630095F8BA /* libstdc++.dylib */; };
 		BFC893DB15B8F0630095F8BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893C915B8F0630095F8BA /* QuartzCore.framework */; };
 		BFC893DC15B8F0630095F8BA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CA15B8F0630095F8BA /* AVFoundation.framework */; };
+		BFD152AD15E0309E004F97D8 /* IMYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152AC15E0309E004F97D8 /* IMYTabBarController.m */; };
+		BFD152BC15E0349D004F97D8 /* CustomBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B515E0349D004F97D8 /* CustomBackgroundLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFD152BD15E0349D004F97D8 /* CustomNoiseBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B715E0349D004F97D8 /* CustomNoiseBackgroundView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFD152BE15E0349D004F97D8 /* CustomSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B915E0349D004F97D8 /* CustomSelectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFD152BF15E0349D004F97D8 /* CustomTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152BB15E0349D004F97D8 /* CustomTabItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFD9DC0415B322F30008A6D8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD9DC0315B322F30008A6D8 /* MessageUI.framework */; };
 		BFDD054E15BA609E005B30E4 /* IMYContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */; };
 		BFDD055415BA6109005B30E4 /* IMYContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055115BA6109005B30E4 /* IMYContactCell.m */; };
@@ -298,6 +303,16 @@
 		BFC893CA15B8F0630095F8BA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BFC893CC15B8F0630095F8BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BFC893CD15B8F0630095F8BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BFD152AB15E0309E004F97D8 /* IMYTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYTabBarController.h; path = Others/IMYTabBarController.h; sourceTree = "<group>"; };
+		BFD152AC15E0309E004F97D8 /* IMYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYTabBarController.m; path = Others/IMYTabBarController.m; sourceTree = "<group>"; };
+		BFD152B415E0349D004F97D8 /* CustomBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackgroundLayer.h; sourceTree = "<group>"; };
+		BFD152B515E0349D004F97D8 /* CustomBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackgroundLayer.m; sourceTree = "<group>"; };
+		BFD152B615E0349D004F97D8 /* CustomNoiseBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNoiseBackgroundView.h; sourceTree = "<group>"; };
+		BFD152B715E0349D004F97D8 /* CustomNoiseBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNoiseBackgroundView.m; sourceTree = "<group>"; };
+		BFD152B815E0349D004F97D8 /* CustomSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSelectionView.h; sourceTree = "<group>"; };
+		BFD152B915E0349D004F97D8 /* CustomSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSelectionView.m; sourceTree = "<group>"; };
+		BFD152BA15E0349D004F97D8 /* CustomTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabItem.h; sourceTree = "<group>"; };
+		BFD152BB15E0349D004F97D8 /* CustomTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabItem.m; sourceTree = "<group>"; };
 		BFD9DC0315B322F30008A6D8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BFDD054C15BA609E005B30E4 /* IMYContactDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYContactDetailViewController.h; path = UI/Contacts/IMYContactDetailViewController.h; sourceTree = "<group>"; };
 		BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactDetailViewController.m; path = UI/Contacts/IMYContactDetailViewController.m; sourceTree = "<group>"; };
@@ -762,8 +777,27 @@
 		BFD152A015E02A80004F97D8 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				BFD152B315E0349D004F97D8 /* Custom */,
+				BFD152AB15E0309E004F97D8 /* IMYTabBarController.h */,
+				BFD152AC15E0309E004F97D8 /* IMYTabBarController.m */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		BFD152B315E0349D004F97D8 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				BFD152B415E0349D004F97D8 /* CustomBackgroundLayer.h */,
+				BFD152B515E0349D004F97D8 /* CustomBackgroundLayer.m */,
+				BFD152B615E0349D004F97D8 /* CustomNoiseBackgroundView.h */,
+				BFD152B715E0349D004F97D8 /* CustomNoiseBackgroundView.m */,
+				BFD152B815E0349D004F97D8 /* CustomSelectionView.h */,
+				BFD152B915E0349D004F97D8 /* CustomSelectionView.m */,
+				BFD152BA15E0349D004F97D8 /* CustomTabItem.h */,
+				BFD152BB15E0349D004F97D8 /* CustomTabItem.m */,
+			);
+			name = Custom;
+			path = Others/Custom;
 			sourceTree = "<group>";
 		};
 		BFDD054F15BA60A8005B30E4 /* Contacts */ = {
@@ -1062,6 +1096,11 @@
 				BF22713415E024DA00614200 /* JMTabItem.m in Sources */,
 				BF22713515E024DA00614200 /* JMTabView.m in Sources */,
 				BF22713615E024DA00614200 /* BarBackgroundLayer.m in Sources */,
+				BFD152AD15E0309E004F97D8 /* IMYTabBarController.m in Sources */,
+				BFD152BC15E0349D004F97D8 /* CustomBackgroundLayer.m in Sources */,
+				BFD152BD15E0349D004F97D8 /* CustomNoiseBackgroundView.m in Sources */,
+				BFD152BE15E0349D004F97D8 /* CustomSelectionView.m in Sources */,
+				BFD152BF15E0349D004F97D8 /* CustomTabItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

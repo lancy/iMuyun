@@ -66,6 +66,8 @@
     
     UIImage *tabBackground = [[UIImage imageNamed:@"tabbar_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 0, 0, 0)];
     
+    
+    
 //    [[UITabBar appearance] setBackgroundImage:tabBackground];
     
 //    [[UITabBar appearance] setTintColor:[UIColor clearColor]];
@@ -201,13 +203,6 @@
     [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:1];
 
 }
-
-#pragma mark - JM Tabview delegate
--(void)tabView:(JMTabView *)tabView didSelectTabAtIndex:(NSUInteger)itemIndex;
-{
-    NSLog(@"Selected Tab Index: %d", itemIndex);
-}
-
 
 
 

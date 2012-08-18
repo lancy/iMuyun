@@ -162,7 +162,7 @@
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
-                <tabBarController id="4" sceneMemberID="viewController">
+                <tabBarController id="4" customClass="IMYTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -1281,6 +1281,9 @@
             <relationships>
                 <relationship kind="action" name="tapLogoutButton:" candidateClass="UIBarButtonItem"/>
             </relationships>
+        </class>
+        <class className="IMYTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYTabBarController.h"/>
         </class>
         <class className="IMYVideoCallViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYVideoCallViewController.h"/>
