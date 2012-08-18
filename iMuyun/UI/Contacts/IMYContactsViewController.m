@@ -96,7 +96,8 @@
 {
     [super viewWillAppear:animated];
     
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+#warning contacts can not reflesh, try to add a dirty property to handle this
+//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
 
     
 }

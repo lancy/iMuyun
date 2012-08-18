@@ -24,8 +24,9 @@
     // Customize uitableview
     UIImage *tableviewBg = [[UIImage imageNamed:@"bg_texture"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [[UITableView appearance] setBackgroundView:[[UIImageView alloc] initWithImage:tableviewBg]];
+    [[UITableView appearanceWhenContainedIn:[IMYSettingViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:tableviewBg]];
     
-    UIImage *navbarBg = [[UIImage imageNamed:@"navbar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *navbarBg = [UIImage imageNamed:@"navbar"];
     
     // Set the background image for *all* UINavigationBars
     [[UINavigationBar appearance] setBackgroundImage:navbarBg
@@ -208,8 +209,15 @@
 @end
 
 
-@implementation UINavigationBar (UINavigationBarCategory)
+@implementation UITabBar (UITabBarCategory)
 - (void)drawRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGColorRef redColor =
+    [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0].CGColor;
+    
+    CGContextSetFillColorWithColor(context, redColor);
+    CGContextFillRect(context, self.bounds);
     
 }
 @end
