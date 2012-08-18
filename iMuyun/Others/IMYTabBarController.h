@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "JMTabview.h"
 
-@interface IMYTabBarController : UITabBarController <JMTabViewDelegate>
+@interface IMYTabBarController : UITabBarController <JMTabViewDelegate, UINavigationControllerDelegate>
+
+@property (nonatomic, strong) JMTabView *jmTabview;
 
 @end

@@ -17,7 +17,7 @@
 #pragma Mark -
 #pragma Mark - JMTabView
 
-@interface JMTabView : UIView 
+@interface JMTabView : UIView
 
 - (void)setMomentary:(BOOL)momentary;
 - (void)didSelectItemAtIndex:(NSUInteger)itemIndex;
