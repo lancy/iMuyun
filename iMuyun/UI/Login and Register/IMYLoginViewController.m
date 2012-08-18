@@ -128,7 +128,10 @@
 {
     if ([[segue identifier] isEqualToString:@"login"]) {
         IMYAppDelegate *delegate =  (IMYAppDelegate *)[[UIApplication sharedApplication] delegate];
+        UITabBarController *tabbarController = segue.destinationViewController;
         delegate.tabBarController = segue.destinationViewController;
+        
+        
     }
 }
 
