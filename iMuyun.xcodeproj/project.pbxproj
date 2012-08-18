@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF22712E15E024DA00614200 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711915E024DA00614200 /* UIColor+Hex.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22712F15E024DA00614200 /* UIView+InnerShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711B15E024DA00614200 /* UIView+InnerShadow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22713015E024DA00614200 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711D15E024DA00614200 /* UIView+Positioning.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22713115E024DA00614200 /* UIView+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711F15E024DA00614200 /* UIView+Size.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22713215E024DA00614200 /* JMSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22712215E024DA00614200 /* JMSelectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22713315E024DA00614200 /* JMTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22712515E024DA00614200 /* JMTabContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22713415E024DA00614200 /* JMTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22712715E024DA00614200 /* JMTabItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22713515E024DA00614200 /* JMTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22712915E024DA00614200 /* JMTabView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF22713615E024DA00614200 /* BarBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22712C15E024DA00614200 /* BarBackgroundLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF25D20715B2AAEE00411924 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF25D20615B2AAEE00411924 /* UIKit.framework */; };
 		BF25D20915B2AAEE00411924 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF25D20815B2AAEE00411924 /* Foundation.framework */; };
 		BF25D21115B2AAEE00411924 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF25D20F15B2AAEE00411924 /* InfoPlist.strings */; };
@@ -151,6 +160,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF22711815E024DA00614200 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		BF22711915E024DA00614200 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		BF22711A15E024DA00614200 /* UIView+InnerShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+InnerShadow.h"; sourceTree = "<group>"; };
+		BF22711B15E024DA00614200 /* UIView+InnerShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+InnerShadow.m"; sourceTree = "<group>"; };
+		BF22711C15E024DA00614200 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
+		BF22711D15E024DA00614200 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
+		BF22711E15E024DA00614200 /* UIView+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Size.h"; sourceTree = "<group>"; };
+		BF22711F15E024DA00614200 /* UIView+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Size.m"; sourceTree = "<group>"; };
+		BF22712115E024DA00614200 /* JMSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMSelectionView.h; sourceTree = "<group>"; };
+		BF22712215E024DA00614200 /* JMSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSelectionView.m; sourceTree = "<group>"; };
+		BF22712315E024DA00614200 /* JMTabConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMTabConstants.h; sourceTree = "<group>"; };
+		BF22712415E024DA00614200 /* JMTabContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMTabContainer.h; sourceTree = "<group>"; };
+		BF22712515E024DA00614200 /* JMTabContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMTabContainer.m; sourceTree = "<group>"; };
+		BF22712615E024DA00614200 /* JMTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMTabItem.h; sourceTree = "<group>"; };
+		BF22712715E024DA00614200 /* JMTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMTabItem.m; sourceTree = "<group>"; };
+		BF22712815E024DA00614200 /* JMTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMTabView.h; sourceTree = "<group>"; };
+		BF22712915E024DA00614200 /* JMTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMTabView.m; sourceTree = "<group>"; };
+		BF22712B15E024DA00614200 /* BarBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarBackgroundLayer.h; sourceTree = "<group>"; };
+		BF22712C15E024DA00614200 /* BarBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarBackgroundLayer.m; sourceTree = "<group>"; };
+		BF22712D15E024DA00614200 /* JMTabView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JMTabView-Prefix.pch"; sourceTree = "<group>"; };
 		BF25D20215B2AAEE00411924 /* iMuyun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMuyun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF25D20615B2AAEE00411924 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BF25D20815B2AAEE00411924 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -375,6 +404,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF22711515E024DA00614200 /* JMTabView */ = {
+			isa = PBXGroup;
+			children = (
+				BF22711615E024DA00614200 /* Classes */,
+				BF22712D15E024DA00614200 /* JMTabView-Prefix.pch */,
+			);
+			path = JMTabView;
+			sourceTree = "<group>";
+		};
+		BF22711615E024DA00614200 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BF22711715E024DA00614200 /* Categories */,
+				BF22712015E024DA00614200 /* Subviews */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BF22711715E024DA00614200 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BF22711815E024DA00614200 /* UIColor+Hex.h */,
+				BF22711915E024DA00614200 /* UIColor+Hex.m */,
+				BF22711A15E024DA00614200 /* UIView+InnerShadow.h */,
+				BF22711B15E024DA00614200 /* UIView+InnerShadow.m */,
+				BF22711C15E024DA00614200 /* UIView+Positioning.h */,
+				BF22711D15E024DA00614200 /* UIView+Positioning.m */,
+				BF22711E15E024DA00614200 /* UIView+Size.h */,
+				BF22711F15E024DA00614200 /* UIView+Size.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		BF22712015E024DA00614200 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				BF22712115E024DA00614200 /* JMSelectionView.h */,
+				BF22712215E024DA00614200 /* JMSelectionView.m */,
+				BF22712315E024DA00614200 /* JMTabConstants.h */,
+				BF22712415E024DA00614200 /* JMTabContainer.h */,
+				BF22712515E024DA00614200 /* JMTabContainer.m */,
+				BF22712615E024DA00614200 /* JMTabItem.h */,
+				BF22712715E024DA00614200 /* JMTabItem.m */,
+				BF22712815E024DA00614200 /* JMTabView.h */,
+				BF22712915E024DA00614200 /* JMTabView.m */,
+				BF22712A15E024DA00614200 /* Layers */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		BF22712A15E024DA00614200 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				BF22712B15E024DA00614200 /* BarBackgroundLayer.h */,
+				BF22712C15E024DA00614200 /* BarBackgroundLayer.m */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
 		BF25D1F715B2AAEE00411924 = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +518,7 @@
 			children = (
 				BF25D21515B2AAEE00411924 /* IMYAppDelegate.h */,
 				BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */,
+				BFD152A015E02A80004F97D8 /* Others */,
 				BF25D21815B2AAEE00411924 /* MainStoryboard.storyboard */,
 				BF741AE815B3F5BF009C9E6F /* Muyun SDK */,
 				BFF1A58415D0F534003BC9E1 /* Login & Register */,
@@ -468,6 +557,7 @@
 		BF87F16915DE46D0004C5437 /* Third Party Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BF22711515E024DA00614200 /* JMTabView */,
 				BF87F16A15DE46D0004C5437 /* ASIHttpRequest */,
 				BF87F18115DE46D0004C5437 /* MBProgressHUD */,
 				BF87F18415DE46D0004C5437 /* opentok-ios-sdk */,
@@ -669,6 +759,13 @@
 			name = "Call View Controller";
 			sourceTree = "<group>";
 		};
+		BFD152A015E02A80004F97D8 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		BFDD054F15BA60A8005B30E4 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,10 +784,10 @@
 		BFF1A58415D0F534003BC9E1 /* Login & Register */ = {
 			isa = PBXGroup;
 			children = (
-				BF87F16615DE45EC004C5437 /* IMYLoginViewController.m */,
 				BF87F16715DE45EC004C5437 /* IMYLoginViewController.h */,
-				BF87F16315DE456B004C5437 /* IMYRegisterViewController.m */,
+				BF87F16615DE45EC004C5437 /* IMYLoginViewController.m */,
 				BF87F16415DE456B004C5437 /* IMYRegisterViewController.h */,
+				BF87F16315DE456B004C5437 /* IMYRegisterViewController.m */,
 			);
 			name = "Login & Register";
 			sourceTree = "<group>";
@@ -956,6 +1053,15 @@
 				BF87F1E015DE46D0004C5437 /* UIButton+WebCache.m in Sources */,
 				BF87F1E115DE46D0004C5437 /* UIImageView+WebCache.m in Sources */,
 				BF87F1E215DE46D0004C5437 /* SFHFKeychainUtils.m in Sources */,
+				BF22712E15E024DA00614200 /* UIColor+Hex.m in Sources */,
+				BF22712F15E024DA00614200 /* UIView+InnerShadow.m in Sources */,
+				BF22713015E024DA00614200 /* UIView+Positioning.m in Sources */,
+				BF22713115E024DA00614200 /* UIView+Size.m in Sources */,
+				BF22713215E024DA00614200 /* JMSelectionView.m in Sources */,
+				BF22713315E024DA00614200 /* JMTabContainer.m in Sources */,
+				BF22713415E024DA00614200 /* JMTabItem.m in Sources */,
+				BF22713515E024DA00614200 /* JMTabView.m in Sources */,
+				BF22713615E024DA00614200 /* BarBackgroundLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

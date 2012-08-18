@@ -66,9 +66,9 @@
     
     UIImage *tabBackground = [[UIImage imageNamed:@"tabbar_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 0, 0, 0)];
     
-    [[UITabBar appearance] setBackgroundImage:tabBackground];
+//    [[UITabBar appearance] setBackgroundImage:tabBackground];
     
-    [[UITabBar appearance] setTintColor:[UIColor clearColor]];
+//    [[UITabBar appearance] setTintColor:[UIColor clearColor]];
     
 //    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tab_select_indicator"]];
     
@@ -202,22 +202,16 @@
 
 }
 
-
-
-
-
-@end
-
-
-@implementation UITabBar (UITabBarCategory)
-- (void)drawRect:(CGRect)rect {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGColorRef redColor =
-    [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0].CGColor;
-    
-    CGContextSetFillColorWithColor(context, redColor);
-    CGContextFillRect(context, self.bounds);
-    
+#pragma mark - JM Tabview delegate
+-(void)tabView:(JMTabView *)tabView didSelectTabAtIndex:(NSUInteger)itemIndex;
+{
+    NSLog(@"Selected Tab Index: %d", itemIndex);
 }
+
+
+
+
+
 @end
+
+

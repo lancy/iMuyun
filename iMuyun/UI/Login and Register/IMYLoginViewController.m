@@ -10,6 +10,9 @@
 #import "MBProgressHUD.h"
 #import "SFHFKeychainUtils.h"
 #import "IMYAppDelegate.h"
+#import "JMTabView.h"
+
+
 
 @interface IMYLoginViewController ()
 
@@ -124,6 +127,8 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];    
 }
 
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"login"]) {
@@ -131,7 +136,40 @@
         UITabBarController *tabbarController = segue.destinationViewController;
         delegate.tabBarController = segue.destinationViewController;
         
+        // add custom tabbar to original
+//        JMTabView * tabView = [[JMTabView alloc] initWithFrame:tabbarController.tabBar.frame];
+//        
+//        [tabView setDelegate:delegate];
+//        
+//        [tabView addTabItemWithTitle:@"One" icon:[UIImage imageNamed:@"contacts_sel.png"]];
+//        [tabView addTabItemWithTitle:@"Two" icon:[UIImage imageNamed:@"icon2.png"]];
+//        [tabView addTabItemWithTitle:@"Three" icon:[UIImage imageNamed:@"icon3.png"]];
+//                
+//        [tabView setSelectedIndex:0];
+//        
+//        UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_bg"]];
+//        UIImage *im = [UIImage imageNamed:@"tabbar_bg"];
+//        tabbarController.tabBar.layer.contents = (__bridge id)(im.CGImage);
+//        [tabbarController.tabBar insertSubview:img atIndex:1];
+
         
+        // hide original uitabbar
+//        CGRect rect = tabbarController.tabBar.frame;
+//        rect.origin.y = 480;
+//        [tabbarController.tabBar setFrame:rect];
+//        
+//        for(UIView *view in tabbarController.view.subviews)
+//        {
+//            CGRect _rect = view.frame;
+//            if([view isKindOfClass:[UITabBar class]])
+//            {
+//                    _rect.origin.y = 480;
+//                    [view setFrame:_rect];
+//            } else {
+//                    _rect.size.height = 480;
+//                    [view setFrame:_rect];
+//            }
+//        }
     }
 }
 

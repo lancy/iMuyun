@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ASIHttpRequest.h"
 #import "IMYVideoCallViewController.h"
+#import "JMTabview.h"
 
-@interface IMYAppDelegate : UIResponder <ASIHTTPRequestDelegate ,UIApplicationDelegate>
+@interface IMYAppDelegate : UIResponder <ASIHTTPRequestDelegate ,UIApplicationDelegate, JMTabViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabBarController;
