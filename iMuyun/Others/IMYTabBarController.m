@@ -43,7 +43,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    JMTabView * tabView = [[JMTabView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 51., self.view.bounds.size.width, 51.)];
+    JMTabView * tabView = [[JMTabView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 49., self.view.bounds.size.width, 49.)];
     tabView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     
     [tabView setDelegate:self];
@@ -64,13 +64,18 @@
     [tabView addTabItem:tabItem2];
     [tabView addTabItem:tabItem3];
     
-//    [tabView setSelectionView:[CustomSelectionView createSelectionView]];
+    [tabView setSelectionView:[CustomSelectionView createSelectionView]];
     [tabView setSelectionView:nil];
     [tabView setItemSpacing:30.0];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_bg"]];
-    [tabView setBackgroundLayer:imageView.layer];
-//    [tabView setBackgroundLayer:[[CustomBackgroundLayer alloc] init]];
+    CALayer *tabbarBg = [[CALayer alloc] init];
+    [tabbarBg setFrame:CGRectMake(0, 0, 320, 49)];
+
     
+//    tabbarBg.contents = (id)[UIImage imageNamed:@"tabbar_bg"].CGImage;
+//    [tabView setBackgroundLayer:tabbarBg];
+
+    [tabView setBackgroundLayer:[[CustomBackgroundLayer alloc] init]];
+
     [tabView setSelectedIndex:0];
     
     self.jmTabview = tabView;

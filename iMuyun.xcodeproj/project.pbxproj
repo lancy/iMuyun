@@ -93,10 +93,12 @@
 		BFC893DB15B8F0630095F8BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893C915B8F0630095F8BA /* QuartzCore.framework */; };
 		BFC893DC15B8F0630095F8BA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CA15B8F0630095F8BA /* AVFoundation.framework */; };
 		BFD152AD15E0309E004F97D8 /* IMYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152AC15E0309E004F97D8 /* IMYTabBarController.m */; };
-		BFD152BC15E0349D004F97D8 /* CustomBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B515E0349D004F97D8 /* CustomBackgroundLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFD152BC15E0349D004F97D8 /* CustomBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B515E0349D004F97D8 /* CustomBackgroundLayer.m */; };
 		BFD152BD15E0349D004F97D8 /* CustomNoiseBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B715E0349D004F97D8 /* CustomNoiseBackgroundView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFD152BE15E0349D004F97D8 /* CustomSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B915E0349D004F97D8 /* CustomSelectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFD152BF15E0349D004F97D8 /* CustomTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152BB15E0349D004F97D8 /* CustomTabItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFD152C215E0A137004F97D8 /* tabbar_bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD152C015E0A12E004F97D8 /* tabbar_bg2@2x.png */; };
+		BFD152C315E0A137004F97D8 /* tabbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD152C115E0A132004F97D8 /* tabbar_bg2.png */; };
 		BFD9DC0415B322F30008A6D8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD9DC0315B322F30008A6D8 /* MessageUI.framework */; };
 		BFDD054E15BA609E005B30E4 /* IMYContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */; };
 		BFDD055415BA6109005B30E4 /* IMYContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055115BA6109005B30E4 /* IMYContactCell.m */; };
@@ -313,6 +315,8 @@
 		BFD152B915E0349D004F97D8 /* CustomSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSelectionView.m; sourceTree = "<group>"; };
 		BFD152BA15E0349D004F97D8 /* CustomTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabItem.h; sourceTree = "<group>"; };
 		BFD152BB15E0349D004F97D8 /* CustomTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabItem.m; sourceTree = "<group>"; };
+		BFD152C015E0A12E004F97D8 /* tabbar_bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar_bg2@2x.png"; path = "../tabbar_bg2@2x.png"; sourceTree = "<group>"; };
+		BFD152C115E0A132004F97D8 /* tabbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_bg2.png; sourceTree = "<group>"; };
 		BFD9DC0315B322F30008A6D8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BFDD054C15BA609E005B30E4 /* IMYContactDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYContactDetailViewController.h; path = UI/Contacts/IMYContactDetailViewController.h; sourceTree = "<group>"; };
 		BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactDetailViewController.m; path = UI/Contacts/IMYContactDetailViewController.m; sourceTree = "<group>"; };
@@ -839,6 +843,7 @@
 			children = (
 				BFF83AA815DFE115005BF1E3 /* @2x */,
 				BFF83B2715E00182005BF1E3 /* back.png */,
+				BFD152C115E0A132004F97D8 /* tabbar_bg2.png */,
 				BFF83B2815E00182005BF1E3 /* bordered.png */,
 				BFF83AC415DFE115005BF1E3 /* add_sel.png */,
 				BFF83AC515DFE115005BF1E3 /* add_uns.png */,
@@ -875,6 +880,7 @@
 		BFF83AA815DFE115005BF1E3 /* @2x */ = {
 			isa = PBXGroup;
 			children = (
+				BFD152C015E0A12E004F97D8 /* tabbar_bg2@2x.png */,
 				BFF83B2C15E00194005BF1E3 /* back@2x.png */,
 				BFF83B2D15E00194005BF1E3 /* bordered@2x.png */,
 				BFF83AA915DFE115005BF1E3 /* add_sel@2x.png */,
@@ -1042,6 +1048,8 @@
 				BFF83B2A15E00182005BF1E3 /* bordered.png in Resources */,
 				BFF83B2E15E00194005BF1E3 /* back@2x.png in Resources */,
 				BFF83B2F15E00194005BF1E3 /* bordered@2x.png in Resources */,
+				BFD152C215E0A137004F97D8 /* tabbar_bg2@2x.png in Resources */,
+				BFD152C315E0A137004F97D8 /* tabbar_bg2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
