@@ -31,6 +31,8 @@
 - (void)showAnswerButton:(BOOL)toggle;
 - (void)showEndButton:(BOOL)toogle;
 
+- (void)customUserInterface;
+
 
 @end
 
@@ -69,6 +71,8 @@ static NSString* const kUserName = @"lancy";
     NSLog(@"Video Call Controller did load");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self customUserInterface];
 
 }
 
@@ -148,6 +152,42 @@ static NSString* const kUserName = @"lancy";
 
 
 #pragma mark - UI methods
+
+- (void)customUserInterface
+{
+    // add border corner and shadow
+    self.myVideoView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.myVideoView.layer.masksToBounds= NO;
+//    self.myVideoView.layer.cornerRadius= 5.0f;
+    self.myVideoView.layer.borderWidth = 2.0f;
+    
+    self.myVideoView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.myVideoView.layer.shadowOffset = CGSizeMake(3, 3);
+    self.myVideoView.layer.shadowOpacity = 0.5;
+    self.myVideoView.layer.shadowRadius = 2.0;
+    
+    // add border corner and shadow
+    self.interpreterVideoView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.interpreterVideoView.layer.masksToBounds= NO;
+//    self.interpreterVideoView.layer.cornerRadius= 5.0f;
+    self.interpreterVideoView.layer.borderWidth = 2.0f;
+    
+    self.interpreterVideoView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.interpreterVideoView.layer.shadowOffset = CGSizeMake(3, 3);
+    self.interpreterVideoView.layer.shadowOpacity = 0.5;
+    self.interpreterVideoView.layer.shadowRadius = 2.0;
+    
+    // add border corner and shadow
+    self.targetVideoView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.targetVideoView.layer.masksToBounds= NO;
+//    self.targetVideoView.layer.cornerRadius= 5.0f;
+    self.targetVideoView.layer.borderWidth = 2.0f;
+    
+    self.targetVideoView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.targetVideoView.layer.shadowOffset = CGSizeMake(3, 3);
+    self.targetVideoView.layer.shadowOpacity = 0.5;
+    self.targetVideoView.layer.shadowRadius = 2.0;
+}
 
 - (void)updateUserInterface
 {

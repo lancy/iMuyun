@@ -361,7 +361,7 @@
                                                     <rect key="frame" x="88" y="0.0" width="212" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
                                                         <action selector="nameTextFieldEditingDidEnd:" destination="7cQ-Hk-nfl" eventType="editingDidEnd" id="NDz-lO-Ueq"/>
                                                         <action selector="textfieldDidEndOnExit:" destination="7cQ-Hk-nfl" eventType="editingDidEndOnExit" id="job-zJ-dJi"/>
@@ -390,7 +390,7 @@
                                                     <rect key="frame" x="88" y="0.0" width="212" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
                                                         <action selector="companyTextFieldEditingDidEnd:" destination="7cQ-Hk-nfl" eventType="editingDidEnd" id="cfz-gf-bMW"/>
                                                         <action selector="textfieldDidEndOnExit:" destination="7cQ-Hk-nfl" eventType="editingDidEndOnExit" id="qR7-OS-FKz"/>
