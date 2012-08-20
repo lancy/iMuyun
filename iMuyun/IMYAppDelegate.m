@@ -64,7 +64,7 @@
     
     
     
-    UIImage *tabBackground = [[UIImage imageNamed:@"tabbar_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 0, 0, 0)];
+//    UIImage *tabBackground = [[UIImage imageNamed:@"tabbar_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 0, 0, 0)];
     
     
     

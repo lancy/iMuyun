@@ -12,6 +12,7 @@
 #import "CustomBackgroundLayer.h"
 #import "CustomNoiseBackgroundView.h"
 #import "UIView+Positioning.h"
+#import "UINavigationBar+DropShadow.h"
 
 @interface IMYTabBarController ()
 
@@ -65,16 +66,16 @@
     [tabView addTabItem:tabItem3];
     
     [tabView setSelectionView:[CustomSelectionView createSelectionView]];
-    [tabView setSelectionView:nil];
+    
     [tabView setItemSpacing:30.0];
     CALayer *tabbarBg = [[CALayer alloc] init];
     [tabbarBg setFrame:CGRectMake(0, 0, 320, 49)];
 
     
-//    tabbarBg.contents = (id)[UIImage imageNamed:@"tabbar_bg"].CGImage;
-//    [tabView setBackgroundLayer:tabbarBg];
+    tabbarBg.contents = (id)[UIImage imageNamed:@"tabbar_bg"].CGImage;
+    [tabView setBackgroundLayer:tabbarBg];
 
-    [tabView setBackgroundLayer:[[CustomBackgroundLayer alloc] init]];
+//    [tabView setBackgroundLayer:[[CustomBackgroundLayer alloc] init]];
 
     [tabView setSelectedIndex:0];
     
@@ -83,9 +84,10 @@
     [self.view addSubview:tabView];
     
     
-    // observer push events
+    // observer push events and drop shadow
     for (UINavigationController *navi in self.viewControllers) {
         navi.delegate = self;
+        [navi.navigationBar dropShadowWithOffset:CGSizeMake(0, 2) radius:1 color:[UIColor lightGrayColor] opacity:.5];
     }
     
 //    [self.tabBar addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew context:NULL];
