@@ -442,12 +442,6 @@
                                                     <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="obM-gg-X7M">
-                                                    <rect key="frame" x="88" y="6" width="192" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Balance Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ROh-57-WA9">
                                                     <rect key="frame" x="88" y="11" width="192" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -720,23 +714,8 @@
                                     <action selector="tapFavoriteButton:" destination="0u0-7n-dyM" eventType="touchUpInside" id="Vua-F6-JuJ"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pPN-gx-S9L">
-                                <rect key="frame" x="20" y="298" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Audio Call">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapAudioCallButton:" destination="0u0-7n-dyM" eventType="touchUpInside" id="KDV-QI-wlG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4mG-Ad-xah">
-                                <rect key="frame" x="20" y="356" width="280" height="37"/>
+                                <rect key="frame" x="20" y="305" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Video Call" backgroundImage="blue2.png">
@@ -1233,6 +1212,7 @@
         <class className="IMYLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYLoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="didEndEditUsername:"/>
                 <relationship kind="action" name="tapTheLoginButton:"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
@@ -1259,6 +1239,7 @@
         <class className="IMYRecentsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecentsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="accessoryButtonTapped:forEvent:"/>
                 <relationship kind="action" name="changeRecentsTypeSegmentValue:"/>
                 <relationship kind="outlet" name="recentsTypeSegment" candidateClass="UISegmentedControl"/>
             </relationships>

@@ -12,6 +12,8 @@
 
 @interface IMYContactDetailViewController ()
 
+- (void)customUserInterface;
+
 @end
 
 @implementation IMYContactDetailViewController
@@ -49,16 +51,7 @@
     }
     
     // custom user interface
-    self.avatarImageView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.avatarImageView.layer.masksToBounds= NO;
-//    self.avatarImageView.layer.cornerRadius= 5.0f;
-    self.avatarImageView.layer.borderWidth = 2.0f;
-    
-    self.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.avatarImageView.layer.shadowOffset = CGSizeMake(3, 3);
-    self.avatarImageView.layer.shadowOpacity = 0.5;
-    self.avatarImageView.layer.shadowRadius = 2.0;
-    
+    [self customUserInterface];
 }
 
 - (void)viewDidUnload
@@ -78,6 +71,30 @@
 }
 
 #pragma mark - UI methods
+
+- (void)customUserInterface
+{
+    // custom avata image view
+    self.avatarImageView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.avatarImageView.layer.masksToBounds= NO;
+    //    self.avatarImageView.layer.cornerRadius= 5.0f;
+    self.avatarImageView.layer.borderWidth = 2.0f;
+    
+    self.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.avatarImageView.layer.shadowOffset = CGSizeMake(3, 3);
+    self.avatarImageView.layer.shadowOpacity = 0.5;
+    self.avatarImageView.layer.shadowRadius = 2.0;
+    
+    // custom button
+//    CAGradientLayer * gradientLayer = [[CAGradientLayer alloc] init];
+//    UIColor * startColor = [UIColor grayColor];
+//    UIColor * midColor = [UIColor grayColor];
+//    UIColor * endColor = [UIColor grayColor];
+//    gradientLayer.frame = CGRectMake(0, 0, self.favoriteButton.frame.size.width, self.favoriteButton.frame.size.height);
+//    gradientLayer.colors = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[midColor CGColor], (id)[endColor CGColor], nil];
+//    [self.favoriteButton.layer insertSublayer:gradientLayer atIndex:0];
+
+}
 
 - (IBAction)tapFavoriteButton:(id)sender {
     NSLog(@"tap favorite button");
