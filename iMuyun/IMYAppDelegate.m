@@ -63,17 +63,7 @@
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
     
     
-    
-//    UIImage *tabBackground = [[UIImage imageNamed:@"tabbar_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 0, 0, 0)];
-    
-    
-    
-//    [[UITabBar appearance] setBackgroundImage:tabBackground];
-    
-//    [[UITabBar appearance] setTintColor:[UIColor clearColor]];
-    
-//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tab_select_indicator"]];
-    
+        
 //    UIImage *minImage = [[UIImage imageNamed:@"slider_minimum.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
 //    UIImage *maxImage = [[UIImage imageNamed:@"slider_maximum.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
 //    UIImage *thumbImage = [UIImage imageNamed:@"thumb.png"];
@@ -99,6 +89,14 @@
     
     [[UISegmentedControl appearance] setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
     [[UISegmentedControl appearance] setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
+    
+    // custom uisearch bar
+    UIImage *searchImg = [[UIImage imageNamed:@"searchbar_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UISearchBar appearance] setBackgroundImage:searchImg];
+//    [[UISearchBar appearance] setScopeBarBackgroundImage:searchImg];
+//    [[UISearchBar appearance] setSearchFieldBackgroundImage:searchImg forState:UIControlStateNormal];
+    
+    
 
 }
 

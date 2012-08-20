@@ -18,15 +18,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.avatarImageView.layer.borderColor = [UIColor grayColor].CGColor;
-        self.avatarImageView.layer.masksToBounds= NO;
-        //    self.avatarImageView.layer.cornerRadius= 5.0f;
-        self.avatarImageView.layer.borderWidth = 2.0f;
-        
-        self.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.avatarImageView.layer.shadowOffset = CGSizeMake(3, 3);
-        self.avatarImageView.layer.shadowOpacity = 0.5;
-        self.avatarImageView.layer.shadowRadius = 2.0;
     }
     return self;
 }

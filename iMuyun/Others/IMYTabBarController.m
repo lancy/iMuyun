@@ -87,7 +87,7 @@
     // observer push events and drop shadow
     for (UINavigationController *navi in self.viewControllers) {
         navi.delegate = self;
-        [navi.navigationBar dropShadowWithOffset:CGSizeMake(0, 2) radius:1 color:[UIColor lightGrayColor] opacity:.5];
+//        [navi.navigationBar dropShadowWithOffset:CGSizeMake(0, 2) radius:1 color:[UIColor lightGrayColor] opacity:.5];
     }
     
 //    [self.tabBar addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew context:NULL];

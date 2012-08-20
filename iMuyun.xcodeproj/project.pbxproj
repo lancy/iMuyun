@@ -99,6 +99,7 @@
 		BFD152BF15E0349D004F97D8 /* CustomTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152BB15E0349D004F97D8 /* CustomTabItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFD152C215E0A137004F97D8 /* tabbar_bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD152C015E0A12E004F97D8 /* tabbar_bg2@2x.png */; };
 		BFD152C315E0A137004F97D8 /* tabbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD152C115E0A132004F97D8 /* tabbar_bg2.png */; };
+		BFD6A48615E2626800870DFE /* searchbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD6A48515E2626800870DFE /* searchbar_bg.png */; };
 		BFD9DC0415B322F30008A6D8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD9DC0315B322F30008A6D8 /* MessageUI.framework */; };
 		BFDD054E15BA609E005B30E4 /* IMYContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */; };
 		BFDD055415BA6109005B30E4 /* IMYContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055115BA6109005B30E4 /* IMYContactCell.m */; };
@@ -318,6 +319,7 @@
 		BFD152BB15E0349D004F97D8 /* CustomTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabItem.m; sourceTree = "<group>"; };
 		BFD152C015E0A12E004F97D8 /* tabbar_bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar_bg2@2x.png"; path = "../tabbar_bg2@2x.png"; sourceTree = "<group>"; };
 		BFD152C115E0A132004F97D8 /* tabbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_bg2.png; sourceTree = "<group>"; };
+		BFD6A48515E2626800870DFE /* searchbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbar_bg.png; sourceTree = "<group>"; };
 		BFD9DC0315B322F30008A6D8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BFDD054C15BA609E005B30E4 /* IMYContactDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYContactDetailViewController.h; path = UI/Contacts/IMYContactDetailViewController.h; sourceTree = "<group>"; };
 		BFDD054D15BA609E005B30E4 /* IMYContactDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYContactDetailViewController.m; path = UI/Contacts/IMYContactDetailViewController.m; sourceTree = "<group>"; };
@@ -846,6 +848,7 @@
 		BFF83AA715DFE115005BF1E3 /* contacts_page1 */ = {
 			isa = PBXGroup;
 			children = (
+				BFD6A48515E2626800870DFE /* searchbar_bg.png */,
 				BFF83AA815DFE115005BF1E3 /* @2x */,
 				BFF83B2715E00182005BF1E3 /* back.png */,
 				BFD152C115E0A132004F97D8 /* tabbar_bg2.png */,
@@ -1055,6 +1058,7 @@
 				BFF83B2F15E00194005BF1E3 /* bordered@2x.png in Resources */,
 				BFD152C215E0A137004F97D8 /* tabbar_bg2@2x.png in Resources */,
 				BFD152C315E0A137004F97D8 /* tabbar_bg2.png in Resources */,
+				BFD6A48615E2626800870DFE /* searchbar_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

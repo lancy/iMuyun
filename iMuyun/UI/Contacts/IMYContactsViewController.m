@@ -35,7 +35,6 @@
 
 - (void)handleSearchForTerm:(NSString *)searchTerm;
 
-- (void)initSearchBar;
 
 
 @end
@@ -67,6 +66,14 @@
     // init data
     self.muyunContacts = [[NSMutableArray alloc] initWithArray:[defaults valueForKey:@"muyunContacts"]];
     [self getFavoriteContactsFromMuyunContacts];
+    
+    // tring to remove header view black line
+//    [self.tableView setTableHeaderView:[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)]];
+//    [self.tableView.tableHeaderView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+//    [self.tableView.tableHeaderView.layer setBorderWidth:5.0];
+    [self.searchDisplayController.searchBar.layer setBorderColor:[UIColor grayColor].CGColor];
+    [self.searchDisplayController.searchBar.layer setBorderWidth:1.0];
+    
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -98,8 +105,11 @@
         
 #warning contacts can not reflesh, try to add a dirty property to handle this
 //    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 
-    
+- (void)viewDidAppear:(BOOL)animated
+{
+//    [self.tableView setContentOffset:CGPointMake(0, 44) animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -311,9 +321,20 @@
         [cell.companyLabel setText:[contact valueForKey:@"company"]];
         [cell.avatarImageView setImageWithURL:[NSURL URLWithString:[contact valueForKey:@"avatarUrl"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
         
-        
+        [cell.avatarImageView.layer setBorderWidth:2.0];
+        [cell.avatarImageView.layer setBorderColor:[UIColor grayColor].CGColor];
     }
     
+    // custom avatar
+    cell.avatarImageView.layer.borderColor = [UIColor grayColor].CGColor;
+//    cell.avatarImageView.layer.masksToBounds= YES;
+//    cell.avatarImageView.layer.cornerRadius= 5.0f;
+    cell.avatarImageView.layer.borderWidth = 1.0f;
+    //
+    cell.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
+    cell.avatarImageView.layer.shadowOffset = CGSizeMake(1, 1);
+    cell.avatarImageView.layer.shadowOpacity = 0.5;
+    cell.avatarImageView.layer.shadowRadius = 2.0;
     return cell;
 }
 
