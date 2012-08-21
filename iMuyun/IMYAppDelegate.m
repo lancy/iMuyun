@@ -91,10 +91,11 @@
     [[UISegmentedControl appearance] setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
     
     // custom uisearch bar
-    UIImage *searchImg = [[UIImage imageNamed:@"searchbar_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *searchImg = [[UIImage imageNamed:@"search_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *searchFieldBg = [UIImage imageNamed:@"search_frame"];
     [[UISearchBar appearance] setBackgroundImage:searchImg];
 //    [[UISearchBar appearance] setScopeBarBackgroundImage:searchImg];
-//    [[UISearchBar appearance] setSearchFieldBackgroundImage:searchImg forState:UIControlStateNormal];
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:searchFieldBg forState:UIControlStateNormal];
     
     
 

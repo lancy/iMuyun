@@ -81,19 +81,28 @@
     self.avatarImageView.layer.borderWidth = 2.0f;
     
     self.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.avatarImageView.layer.shadowOffset = CGSizeMake(3, 3);
+    self.avatarImageView.layer.shadowOffset = CGSizeMake(2, 2);
     self.avatarImageView.layer.shadowOpacity = 0.5;
     self.avatarImageView.layer.shadowRadius = 2.0;
     
-    // custom button
-//    CAGradientLayer * gradientLayer = [[CAGradientLayer alloc] init];
-//    UIColor * startColor = [UIColor grayColor];
-//    UIColor * midColor = [UIColor grayColor];
-//    UIColor * endColor = [UIColor grayColor];
-//    gradientLayer.frame = CGRectMake(0, 0, self.favoriteButton.frame.size.width, self.favoriteButton.frame.size.height);
-//    gradientLayer.colors = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[midColor CGColor], (id)[endColor CGColor], nil];
-//    [self.favoriteButton.layer insertSublayer:gradientLayer atIndex:0];
-
+    
+    // custom noteview
+    CGRect frame = self.noteTextView.frame;
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y - 5, frame.size.width, frame.size.height + 10)];
+    imgView.image = [[UIImage imageNamed: @"contacts_note"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [self.view insertSubview:imgView belowSubview:self.noteTextView];
+    
+    // add border corner and shadow
+//    imgView.layer.borderColor = [UIColor grayColor].CGColor;
+    imgView.layer.masksToBounds= NO;
+//    imgView.layer.cornerRadius= 5.0f;
+//    imgView.layer.borderWidth = 2.0f;
+    
+    imgView.layer.shadowColor = [UIColor blackColor].CGColor;
+    imgView.layer.shadowOffset = CGSizeMake(0, 2);
+    imgView.layer.shadowOpacity = 0.5;
+    imgView.layer.shadowRadius = 2.0;
+    
 }
 
 - (IBAction)tapFavoriteButton:(id)sender {

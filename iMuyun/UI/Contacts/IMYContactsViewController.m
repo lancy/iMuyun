@@ -71,7 +71,7 @@
 //    [self.tableView setTableHeaderView:[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)]];
 //    [self.tableView.tableHeaderView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
 //    [self.tableView.tableHeaderView.layer setBorderWidth:5.0];
-    [self.searchDisplayController.searchBar.layer setBorderColor:[UIColor grayColor].CGColor];
+    [self.searchDisplayController.searchBar.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [self.searchDisplayController.searchBar.layer setBorderWidth:1.0];
     
 
