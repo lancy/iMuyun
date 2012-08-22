@@ -41,7 +41,7 @@ static NSString* const kAddContact = @"addContact/";
     @synchronized(self) {
         if(!client) {
             client = [[IMYHttpClient alloc] init];
-            [ASIHTTPRequest setDefaultTimeOutSeconds:20];
+            [ASIHTTPRequest setDefaultTimeOutSeconds:5];
         }   
     }
     return client;
