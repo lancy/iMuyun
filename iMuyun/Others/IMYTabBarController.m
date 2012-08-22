@@ -73,21 +73,13 @@
 
     
     tabbarBg.contents = (id)[UIImage imageNamed:@"tabbar_bg"].CGImage;
-    [tabView setBackgroundLayer:tabbarBg];
+//    [tabView setBackgroundLayer:tabbarBg];
     
     
     [tabView.layer setMasksToBounds:NO];
-    CAGradientLayer * shadeLayer = [[CAGradientLayer alloc] init];
-    UIColor * startColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:0];
-    UIColor * midColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
-    UIColor * endColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
-    shadeLayer.frame = CGRectMake(0, -20, 320, 20);
-    shadeLayer.colors = [NSArray arrayWithObjects:(id)[startColor CGColor],(id)[midColor CGColor], (id)[endColor CGColor], nil];
-    [tabView.layer insertSublayer:shadeLayer atIndex:0];
-
     
 
-//    [tabView setBackgroundLayer:[[CustomBackgroundLayer alloc] init]];
+    [tabView setBackgroundLayer:[[CustomBackgroundLayer alloc] init]];
 
     [tabView setSelectedIndex:0];
     

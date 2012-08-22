@@ -40,14 +40,13 @@
         [self insertSublayer:grayLayer atIndex:1];
         
         
-//        [self setMasksToBounds:NO];
-//        CAGradientLayer * shadeLayer = [[CAGradientLayer alloc] init];
-//        UIColor * startColor = [UIColor colorWithHex:0x4a4b4a];
-//        UIColor * midColor = [UIColor colorWithHex:0x282928];
-//        UIColor * endColor = [UIColor colorWithHex:0x4a4b4a];
-//        shadeLayer.frame = CGRectMake(0, 0, 320, 30);
-//        shadeLayer.colors = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[midColor CGColor], (id)[endColor CGColor], nil];
-//        [self insertSublayer:shadeLayer atIndex:2];
+    CAGradientLayer * shadeLayer = [[CAGradientLayer alloc] init];
+    UIColor * startColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:0];
+    UIColor * midColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
+    UIColor * endColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
+    shadeLayer.frame = CGRectMake(0, -20, 320, 20);
+    shadeLayer.colors = [NSArray arrayWithObjects:(id)[startColor CGColor],(id)[midColor CGColor], (id)[endColor CGColor], nil];
+    [self insertSublayer:shadeLayer atIndex:2];
         
         
         
