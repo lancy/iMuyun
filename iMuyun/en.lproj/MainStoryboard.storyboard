@@ -40,7 +40,7 @@
                                 <rect key="frame" x="39" y="176" width="239" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login" backgroundImage="blue2.png">
+                                <state key="normal" title="Login" backgroundImage="button_grey.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -51,7 +51,7 @@
                                     <action selector="tapTheLoginButton:" destination="Xmu-Ig-htJ" eventType="touchUpInside" id="1Be-P3-iwB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="chj-QK-7B1">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="chj-QK-7B1">
                                 <rect key="frame" x="162" y="221" width="116" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -578,7 +578,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Spn-bn-z6r">
-                                            <rect key="frame" x="20" y="10" width="46" height="46"/>
+                                            <rect key="frame" x="20" y="9" width="46" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="29P-yV-feL">
@@ -611,7 +611,7 @@
                                                 <action selector="phoneButtonTapped:forEvent:" destination="7nA-km-y6A" eventType="touchUpInside" id="LON-de-8Qo"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="0su-Jf-CgA">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dotted_line.png" id="0su-Jf-CgA">
                                             <rect key="frame" x="0.0" y="63" width="320" height="3"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -842,11 +842,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Icz-KO-qcP">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Icz-KO-qcP">
                                 <rect key="frame" x="212" y="413" width="88" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="ACEPT" backgroundImage="green1.png">
+                                <state key="normal" title="ACEPT" backgroundImage="button_grey.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -857,11 +857,11 @@
                                     <action selector="tapAceptButton:" destination="QDl-xP-cGZ" eventType="touchUpInside" id="oTQ-ZJ-9Ws"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dkB-5W-AWU">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dkB-5W-AWU">
                                 <rect key="frame" x="20" y="413" width="88" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="REJECT" backgroundImage="red1.png">
+                                <state key="normal" title="REJECT" backgroundImage="button_grey.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -872,11 +872,11 @@
                                     <action selector="tapRejectButton:" destination="QDl-xP-cGZ" eventType="touchUpInside" id="n6Y-6X-h5g"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A5i-q0-TDO">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A5i-q0-TDO">
                                 <rect key="frame" x="124" y="413" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="End" backgroundImage="red1.png">
+                                <state key="normal" title="End" backgroundImage="button_grey.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -942,11 +942,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="32v-Fk-RUS">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="32v-Fk-RUS">
                                 <rect key="frame" x="124" y="413" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="End" backgroundImage="red1.png">
+                                <state key="normal" title="End" backgroundImage="button_grey.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1168,10 +1168,8 @@
         <image name="call_uns.png" width="35" height="36"/>
         <image name="contacts_sel.png" width="44" height="38"/>
         <image name="dotted_line.png" width="320" height="3"/>
-        <image name="green1.png" width="16" height="16"/>
         <image name="login.png" width="16" height="16"/>
         <image name="next.png" width="16" height="16"/>
-        <image name="red1.png" width="16" height="16"/>
     </resources>
     <classes>
         <class className="IMYContactCell" superclassName="UITableViewCell">
