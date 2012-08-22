@@ -14,34 +14,37 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="login.png" id="k1Y-z7-hoZ">
-                                <rect key="frame" x="33" y="63" width="254" height="93"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="shufa.png" id="k1Y-z7-hoZ">
+                                <rect key="frame" x="33" y="44" width="254" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="U6K-cd-MTJ">
-                                <rect key="frame" x="134" y="68" width="144" height="38"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email Address" minimumFontSize="17" id="U6K-cd-MTJ">
+                                <rect key="frame" x="48" y="153" width="239" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                 <connections>
                                     <action selector="didEndEditUsername:" destination="Xmu-Ig-htJ" eventType="editingDidEndOnExit" id="ZE4-5C-Obk"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="eGQ-CU-Dup">
-                                <rect key="frame" x="134" y="112" width="144" height="38"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" id="eGQ-CU-Dup">
+                                <rect key="frame" x="48" y="201" width="239" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="tapTheLoginButton:" destination="Xmu-Ig-htJ" eventType="editingDidEndOnExit" id="Lg4-iu-wbW"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3bI-PO-bFM">
-                                <rect key="frame" x="39" y="176" width="239" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3bI-PO-bFM">
+                                <rect key="frame" x="48" y="254" width="239" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login" backgroundImage="button_grey.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <color key="tintColor" red="0.0039215688589999999" green="0.69019609689999994" blue="0.18823531269999999" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.31764706970000001" green="0.69803923369999998" blue="0.2196078598" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -52,7 +55,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="chj-QK-7B1">
-                                <rect key="frame" x="162" y="221" width="116" height="37"/>
+                                <rect key="frame" x="162" y="299" width="116" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="New to iMuyun?">
@@ -67,7 +70,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.31764706969261169" green="0.69803923368453979" blue="0.21960785984992981" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="eGQ-CU-Dup" id="Nwj-Fs-DYS"/>
@@ -1168,8 +1171,8 @@
         <image name="call_uns.png" width="35" height="36"/>
         <image name="contacts_sel.png" width="44" height="38"/>
         <image name="dotted_line.png" width="320" height="3"/>
-        <image name="login.png" width="16" height="16"/>
         <image name="next.png" width="16" height="16"/>
+        <image name="shufa.png" width="299" height="136"/>
     </resources>
     <classes>
         <class className="IMYContactCell" superclassName="UITableViewCell">

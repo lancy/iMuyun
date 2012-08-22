@@ -138,7 +138,7 @@ static NSString* const kUserName = @"lancy";
 - (void)customUserInterface
 {
     // add border corner and shadow
-    self.myVideoView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.myVideoView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.myVideoView.layer.masksToBounds= NO;
     //    self.myVideoView.layer.cornerRadius= 5.0f;
     self.myVideoView.layer.borderWidth = 2.0f;
@@ -149,7 +149,7 @@ static NSString* const kUserName = @"lancy";
     self.myVideoView.layer.shadowRadius = 2.0;
     
     // add border corner and shadow
-    self.interpreterVideoView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.interpreterVideoView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.interpreterVideoView.layer.masksToBounds= NO;
     //    self.interpreterVideoView.layer.cornerRadius= 5.0f;
     self.interpreterVideoView.layer.borderWidth = 2.0f;

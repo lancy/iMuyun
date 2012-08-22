@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF162D5015E54D7E00A54B15 /* shufa.png in Resources */ = {isa = PBXBuildFile; fileRef = BF162D4F15E54D7E00A54B15 /* shufa.png */; };
 		BF22712E15E024DA00614200 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711915E024DA00614200 /* UIColor+Hex.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF22712F15E024DA00614200 /* UIView+InnerShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711B15E024DA00614200 /* UIView+InnerShadow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF22713015E024DA00614200 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711D15E024DA00614200 /* UIView+Positioning.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -179,6 +180,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF162D4F15E54D7E00A54B15 /* shufa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufa.png; sourceTree = "<group>"; };
 		BF22711815E024DA00614200 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		BF22711915E024DA00614200 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		BF22711A15E024DA00614200 /* UIView+InnerShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+InnerShadow.h"; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 		BF4042FC15E3F0BC00FFAC62 /* Slicing */ = {
 			isa = PBXGroup;
 			children = (
+				BF162D4F15E54D7E00A54B15 /* shufa.png */,
 				BF4042FD15E3F0BC00FFAC62 /* @2x */,
 				BF40432015E3F0BC00FFAC62 /* arrows_down.png */,
 				BF40432115E3F0BC00FFAC62 /* arrows_up.png */,
@@ -1091,6 +1094,7 @@
 				BF40438B15E3F0BC00FFAC62 /* setting_uns.png in Resources */,
 				BF40438C15E3F0BC00FFAC62 /* tabbar_bg.png in Resources */,
 				BF40438D15E3F0BC00FFAC62 /* tabbar_bg2.png in Resources */,
+				BF162D5015E54D7E00A54B15 /* shufa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

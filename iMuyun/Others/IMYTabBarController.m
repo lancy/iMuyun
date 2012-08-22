@@ -65,7 +65,14 @@
     [tabView addTabItem:tabItem2];
     [tabView addTabItem:tabItem3];
     
-    [tabView setSelectionView:[CustomSelectionView createSelectionView]];
+    CustomSelectionView *selectView = [CustomSelectionView createSelectionView];
+    [selectView.layer setShadowColor:[UIColor darkGrayColor].CGColor];
+    [selectView.layer setShadowOffset:CGSizeMake(0, 3)];
+    [selectView.layer setShadowOpacity:0.7];
+    [selectView.layer setShadowRadius:1.0];
+    
+    [tabView setSelectionView:selectView];
+    
     
     [tabView setItemSpacing:30.0];
     CALayer *tabbarBg = [[CALayer alloc] init];
