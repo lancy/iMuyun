@@ -74,6 +74,18 @@
     
     tabbarBg.contents = (id)[UIImage imageNamed:@"tabbar_bg"].CGImage;
     [tabView setBackgroundLayer:tabbarBg];
+    
+    
+    [tabView.layer setMasksToBounds:NO];
+    CAGradientLayer * shadeLayer = [[CAGradientLayer alloc] init];
+    UIColor * startColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:0];
+    UIColor * midColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
+    UIColor * endColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
+    shadeLayer.frame = CGRectMake(0, -20, 320, 20);
+    shadeLayer.colors = [NSArray arrayWithObjects:(id)[startColor CGColor],(id)[midColor CGColor], (id)[endColor CGColor], nil];
+    [tabView.layer insertSublayer:shadeLayer atIndex:0];
+
+    
 
 //    [tabView setBackgroundLayer:[[CustomBackgroundLayer alloc] init]];
 
@@ -89,10 +101,7 @@
         navi.delegate = self;
 //        [navi.navigationBar dropShadowWithOffset:CGSizeMake(0, 2) radius:1 color:[UIColor lightGrayColor] opacity:.5];
     }
-    
-//    [self.tabBar addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew context:NULL];
-//    [self.tabBar addObserver:self forKeyPath:@"hidesBottomBarWhenPushed" options:NSKeyValueObservingOptionNew context:nil];
-    
+
     
 }
 

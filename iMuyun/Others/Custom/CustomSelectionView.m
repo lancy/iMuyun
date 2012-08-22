@@ -4,13 +4,13 @@
 #import "UIView+InnerShadow.h"
 #import "UIColor+Hex.h"
 
-#define kTriangleHeight 7.
+#define kTriangleHeight 8.
 
 @implementation CustomSelectionView
 
 - (void)drawRect:(CGRect)rect
 {
-    [[UIColor grayColor] set];
+    [[UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1] set];
 //    CGRect squareRect = CGRectOffset(rect, 0, kTriangleHeight);
 //    squareRect.size.height -= kTriangleHeight;
 //    UIBezierPath * squarePath = [UIBezierPath bezierPathWithRoundedRect:squareRect cornerRadius:4.];
@@ -19,9 +19,9 @@
     
 //    [[UIColor grayColor] set];
     UIBezierPath *trianglePath = [UIBezierPath bezierPath];
-    [trianglePath moveToPoint:CGPointMake(rect.size.width / 2 - kTriangleHeight, kTriangleHeight)];
-    [trianglePath addLineToPoint:CGPointMake(rect.size.width / 2, kTriangleHeight * 2)];
-    [trianglePath addLineToPoint:CGPointMake(rect.size.width / 2 + kTriangleHeight, kTriangleHeight)];
+    [trianglePath moveToPoint:CGPointMake(rect.size.width / 2 - kTriangleHeight, 4)];
+    [trianglePath addLineToPoint:CGPointMake(rect.size.width / 2, kTriangleHeight + 4)];
+    [trianglePath addLineToPoint:CGPointMake(rect.size.width / 2 + kTriangleHeight, 4)];
     [trianglePath closePath];
     [trianglePath fill];
 }
