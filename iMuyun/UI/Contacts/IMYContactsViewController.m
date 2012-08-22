@@ -309,7 +309,7 @@
     if (indexPath.section == 0) {
         [cell.nameLabel setText:@"Muyun Interpreter"];
         [cell.companyLabel setText:@"Muyun Company"];
-        [cell.avatarImageView setImageWithURL:[NSURL URLWithString:@"http://www.imuyun.com/themes/classic/img/favicon.ico"] placeholderImage:[UIImage imageNamed:@"avatar"]];
+        [cell.avatarImageView setImageWithURL:[NSURL URLWithString:@"http://www.omegaga.net/imuyun/themes/classic/img/logoimg.jpg"] placeholderImage:[UIImage imageNamed:@"avatar"]];
     } else {
         NSDictionary *contact;
         if ([self.contactsTypeSegment selectedSegmentIndex] == 0) {
