@@ -482,6 +482,7 @@
     
     
     UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(20.0, 45.0, 245.0, 25.0)];
+    [nameField setKeyboardType:UIKeyboardTypeASCIICapable];
 
     [nameField setBackgroundColor:[UIColor whiteColor]];
     [nameField setTag:101];
