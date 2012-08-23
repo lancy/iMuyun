@@ -441,7 +441,7 @@
         IMYInterpreterVideoCallViewController *interpreterVideoCallVC = [self.storyboard instantiateViewControllerWithIdentifier:@"interpreterVideoCallViewController"];
         
         [interpreterVideoCallVC setMyLanguage:@"Chinese"];
-        [interpreterVideoCallVC setTargetLanguage:@"1"];
+        [interpreterVideoCallVC setTargetLanguage:@"English"];
         [interpreterVideoCallVC setVideoCallState:IMYVideoCallStateCallOut];
         
         [self presentViewController:interpreterVideoCallVC animated:YES completion:nil];
