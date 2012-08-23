@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>iMuyunTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>BF06C64915E5F50C00752711</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BF25D20115B2AAEE00411924</key>
 		<dict>
 			<key>primary</key>

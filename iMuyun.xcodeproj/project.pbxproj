@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF06C64C15E5F50C00752711 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF06C64B15E5F50C00752711 /* SenTestingKit.framework */; };
+		BF06C64D15E5F50C00752711 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF25D20615B2AAEE00411924 /* UIKit.framework */; };
+		BF06C64E15E5F50C00752711 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CC15B8F0630095F8BA /* Foundation.framework */; };
+		BF06C65415E5F50D00752711 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF06C65215E5F50D00752711 /* InfoPlist.strings */; };
+		BF06C65715E5F50D00752711 /* iMuyunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF06C65615E5F50D00752711 /* iMuyunTest.m */; };
 		BF162D5015E54D7E00A54B15 /* shufa.png in Resources */ = {isa = PBXBuildFile; fileRef = BF162D4F15E54D7E00A54B15 /* shufa.png */; };
 		BF22712E15E024DA00614200 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711915E024DA00614200 /* UIColor+Hex.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF22712F15E024DA00614200 /* UIView+InnerShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711B15E024DA00614200 /* UIView+InnerShadow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -179,7 +184,24 @@
 		BFE65E7815D78B1100355C07 /* IMYProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BF06C65D15E5F59800752711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF25D1F915B2AAEE00411924 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF25D20115B2AAEE00411924;
+			remoteInfo = iMuyun;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		BF06C64A15E5F50C00752711 /* iMuyunTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMuyunTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF06C64B15E5F50C00752711 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		BF06C65115E5F50C00752711 /* iMuyunTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iMuyunTest-Info.plist"; sourceTree = "<group>"; };
+		BF06C65315E5F50D00752711 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF06C65515E5F50D00752711 /* iMuyunTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iMuyunTest.h; sourceTree = "<group>"; };
+		BF06C65615E5F50D00752711 /* iMuyunTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iMuyunTest.m; sourceTree = "<group>"; };
+		BF06C65815E5F50D00752711 /* iMuyunTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMuyunTest-Prefix.pch"; sourceTree = "<group>"; };
 		BF162D4F15E54D7E00A54B15 /* shufa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufa.png; sourceTree = "<group>"; };
 		BF22711815E024DA00614200 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		BF22711915E024DA00614200 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -417,6 +439,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF06C64615E5F50C00752711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF06C64C15E5F50C00752711 /* SenTestingKit.framework in Frameworks */,
+				BF06C64D15E5F50C00752711 /* UIKit.framework in Frameworks */,
+				BF06C64E15E5F50C00752711 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF25D1FF15B2AAEE00411924 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,6 +482,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF06C64F15E5F50C00752711 /* iMuyunTest */ = {
+			isa = PBXGroup;
+			children = (
+				BF06C65515E5F50D00752711 /* iMuyunTest.h */,
+				BF06C65615E5F50D00752711 /* iMuyunTest.m */,
+				BF06C65015E5F50C00752711 /* Supporting Files */,
+			);
+			path = iMuyunTest;
+			sourceTree = "<group>";
+		};
+		BF06C65015E5F50C00752711 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF06C65115E5F50C00752711 /* iMuyunTest-Info.plist */,
+				BF06C65215E5F50D00752711 /* InfoPlist.strings */,
+				BF06C65815E5F50D00752711 /* iMuyunTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		BF22711515E024DA00614200 /* JMTabView */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +567,7 @@
 				BF8D4F2A15BE9BB900161E3C /* icon.png */,
 				BF87F16915DE46D0004C5437 /* Third Party Libraries */,
 				BF25D20C15B2AAEE00411924 /* iMuyun */,
+				BF06C64F15E5F50C00752711 /* iMuyunTest */,
 				BF25D20515B2AAEE00411924 /* Frameworks */,
 				BF25D20315B2AAEE00411924 /* Products */,
 			);
@@ -524,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				BF25D20215B2AAEE00411924 /* iMuyun.app */,
+				BF06C64A15E5F50C00752711 /* iMuyunTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -555,6 +609,7 @@
 				BF25D20615B2AAEE00411924 /* UIKit.framework */,
 				BF25D20815B2AAEE00411924 /* Foundation.framework */,
 				BF25D20A15B2AAEE00411924 /* CoreGraphics.framework */,
+				BF06C64B15E5F50C00752711 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -950,6 +1005,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF06C64915E5F50C00752711 /* iMuyunTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF06C65B15E5F50D00752711 /* Build configuration list for PBXNativeTarget "iMuyunTest" */;
+			buildPhases = (
+				BF06C64515E5F50C00752711 /* Sources */,
+				BF06C64615E5F50C00752711 /* Frameworks */,
+				BF06C64715E5F50C00752711 /* Resources */,
+				BF06C64815E5F50C00752711 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF06C65E15E5F59800752711 /* PBXTargetDependency */,
+			);
+			name = iMuyunTest;
+			productName = iMuyunTest;
+			productReference = BF06C64A15E5F50C00752711 /* iMuyunTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		BF25D20115B2AAEE00411924 /* iMuyun */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF25D22B15B2AAEE00411924 /* Build configuration list for PBXNativeTarget "iMuyun" */;
@@ -989,11 +1063,20 @@
 			projectRoot = "";
 			targets = (
 				BF25D20115B2AAEE00411924 /* iMuyun */,
+				BF06C64915E5F50C00752711 /* iMuyunTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF06C64715E5F50C00752711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF06C65415E5F50D00752711 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF25D20015B2AAEE00411924 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1100,7 +1183,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BF06C64815E5F50C00752711 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		BF06C64515E5F50C00752711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF06C65715E5F50D00752711 /* iMuyunTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF25D1FE15B2AAEE00411924 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1160,7 +1267,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BF06C65E15E5F59800752711 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF25D20115B2AAEE00411924 /* iMuyun */;
+			targetProxy = BF06C65D15E5F59800752711 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		BF06C65215E5F50D00752711 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF06C65315E5F50D00752711 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		BF25D20F15B2AAEE00411924 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1180,6 +1303,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BF06C65915E5F50D00752711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iMuyun.app/iMuyun";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iMuyunTest/iMuyunTest-Prefix.pch";
+				INFOPLIST_FILE = "iMuyunTest/iMuyunTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		BF06C65A15E5F50D00752711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iMuyun.app/iMuyun";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iMuyunTest/iMuyunTest-Prefix.pch";
+				INFOPLIST_FILE = "iMuyunTest/iMuyunTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		BF25D22915B2AAEE00411924 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1268,6 +1429,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF06C65B15E5F50D00752711 /* Build configuration list for PBXNativeTarget "iMuyunTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF06C65915E5F50D00752711 /* Debug */,
+				BF06C65A15E5F50D00752711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		BF25D1FC15B2AAEE00411924 /* Build configuration list for PBXProject "iMuyun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
