@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IMYMuyunViewController : UIViewController
+@interface IMYMuyunViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@property (strong, nonatomic) IBOutlet UIPickerView *languagePickerView;
+@property (strong, nonatomic) IBOutlet UIView *languageInputAccessoryView;
+@property (weak, nonatomic) IBOutlet UIButton *myLanguageButton;
+@property (weak, nonatomic) IBOutlet UIButton *targetLanguageButton;
+
+- (IBAction)tapLanguageDoneButton:(id)sender;
+- (IBAction)tapLanguageButton:(id)sender;
 
 - (IBAction)tapVideoCallButton:(id)sender;
 @end

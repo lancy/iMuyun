@@ -42,7 +42,7 @@
 	// Do any additional setup after loading the view.
     [self initMyProfile];
     
-    self.languageArray = [NSArray arrayWithObjects:@"Chinese", @"Engilish", nil];
+    self.languageArray = LANGUAGE_ARRAY;
 }
 
 - (void)viewDidUnload
@@ -57,6 +57,7 @@
     // Release any retained subviews of the main view.
     
     [self setMyInfo:nil];
+    [self setLanguageArray:nil];
 }
 
 
