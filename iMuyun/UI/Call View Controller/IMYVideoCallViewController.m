@@ -242,7 +242,7 @@ static NSString* const kUserName = @"lancy";
 }
 
 - (IBAction)tapEndButton:(id)sender {
-    [[IMYHttpClient shareClient] requestEndVideoCallWithUsername:self.username delegate:self];
+//    [[IMYHttpClient shareClient] requestEndVideoCallWithUsername:self.username delegate:self];
     [self.session disconnect];
     [self dismissModalViewControllerAnimated:YES];
 }
