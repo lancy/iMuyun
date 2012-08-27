@@ -61,7 +61,7 @@
     
     // add observer
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults addObserver:self forKeyPath:@"muyunContacts" options:NSKeyValueObservingOptionNew context:NULL];
+    [defaults addObserver:self forKeyPath:@"muyunContacts" options:NSKeyValueObservingOptionNew context:NULL];
     
     
     // init data
