@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *contactsTypeSegment;
 
 
+
 - (IBAction)changeContactTypeSegmentValue:(id)sender;
 - (IBAction)tapInvitedButton:(id)sender;
 - (IBAction)tapAddContactButton:(id)sender;

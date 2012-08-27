@@ -55,12 +55,13 @@
 {
     [super viewDidLoad];
     
+    
     NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient] requestContactsWithUsername:myUserName delegate:self];
     
     // add observer
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults addObserver:self forKeyPath:@"muyunContacts" options:NSKeyValueObservingOptionNew context:NULL];
+//    [defaults addObserver:self forKeyPath:@"muyunContacts" options:NSKeyValueObservingOptionNew context:NULL];
     
     
     // init data
@@ -102,9 +103,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([[defaults valueForKey:@"contactsNeedToReload"] isEqualToString:@"Yes"]) {
+        NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+        [[IMYHttpClient shareClient] requestContactsWithUsername:myUserName delegate:self];
         
-#warning contacts can not reflesh, try to add a dirty property to handle this
-//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [defaults setValue:@"No" forKey:@"contactsNeedToReload"];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -334,7 +341,7 @@
     cell.avatarImageView.layer.shadowColor = [UIColor blackColor].CGColor;
     cell.avatarImageView.layer.shadowOffset = CGSizeMake(1, 1);
     cell.avatarImageView.layer.shadowOpacity = 0.5;
-    cell.avatarImageView.layer.shadowRadius = 2.0;
+    cell.avatarImageView.layer.shadowRadius = 1.0;
     return cell;
 }
 
@@ -381,7 +388,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  
 {
-    return 66;
+    return 55;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

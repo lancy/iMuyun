@@ -45,7 +45,7 @@
     
     // add observer
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults addObserver:self forKeyPath:@"allRecents" options:NSKeyValueObservingOptionNew context:NULL];
+//    [defaults addObserver:self forKeyPath:@"allRecents" options:NSKeyValueObservingOptionNew context:NULL];
     
     // init data
     self.allRecents = [[NSMutableArray alloc] initWithArray:[defaults valueForKey:@"allRecents"]];
@@ -81,6 +81,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([[defaults valueForKey:@"rencentsNeedToReload"] isEqualToString:@"Yes"]) {
+        NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+        [[IMYHttpClient shareClient] requestRecentsWithUsername:myUserName delegate:self];
+        
+        [defaults setValue:@"No" forKey:@"rencentsNeedToReload"];
+    }
+
     
 }
 

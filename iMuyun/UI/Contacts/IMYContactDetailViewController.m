@@ -117,23 +117,28 @@
         stringToggle = @"Yes";
     }
     
+    
+    
     // set favorite to !toggle
-#warning a bug when add favorite via recents detail
-    NSMutableArray *contactsArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] valueForKey:@"muyunContacts"]];
-    for (NSInteger i = 0; i < [contactsArray count]; i++) {
-        if ([self.contact isEqualToDictionary:[contactsArray objectAtIndex:i]]) {
-            NSMutableDictionary *newContact = [NSMutableDictionary dictionaryWithDictionary:[contactsArray objectAtIndex:i]];
-            [newContact setValue:stringToggle forKey:@"isFavorite"];
-            [contactsArray replaceObjectAtIndex:i withObject:newContact];
-            
-            [[NSUserDefaults standardUserDefaults] setValue:contactsArray forKey:@"muyunContacts"];
-            break;
-        }
-
-    }
+//    NSMutableArray *contactsArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] valueForKey:@"muyunContacts"]];
+//    for (NSInteger i = 0; i < [contactsArray count]; i++) {
+//        if ([self.contact isEqualToDictionary:[contactsArray objectAtIndex:i]]) {
+//            NSMutableDictionary *newContact = [NSMutableDictionary dictionaryWithDictionary:[contactsArray objectAtIndex:i]];
+//            [newContact setValue:stringToggle forKey:@"isFavorite"];
+//            [contactsArray replaceObjectAtIndex:i withObject:newContact];
+//            
+//            [[NSUserDefaults standardUserDefaults] setValue:contactsArray forKey:@"muyunContacts"];
+//            break;
+//        }
+//    }
+    
     [self.favoriteButton setSelected:toggle];
     
-    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@"Yes" forKey:@"contactsNeedToReload"];
+
+    
+    NSString *myUserName = [[defaults valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient]requestSetFavoriteWithUsername:myUserName favoriteUsername:[self.contact valueForKey:@"username"] toggle:stringToggle delegate:self];
     
 }
