@@ -168,8 +168,8 @@ static NSString* const kAddContact = @"addContact/";
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
     NSError *error = nil;
-    NSData *info = [NSJSONSerialization JSONObjectWithData:(NSData *)myInfo  options:kNilOptions error:&error];
-    [request setPostValue:info forKey:@"myInfo"];
+    NSData *jsonInfo = [NSJSONSerialization dataWithJSONObject:myInfo  options:kNilOptions error:&error];
+    [request setPostValue:jsonInfo forKey:@"myInfo"];
     [request startAsynchronous];
 }
 

@@ -140,6 +140,9 @@
 		BF40438B15E3F0BC00FFAC62 /* setting_uns.png in Resources */ = {isa = PBXBuildFile; fileRef = BF40434315E3F0BC00FFAC62 /* setting_uns.png */; };
 		BF40438C15E3F0BC00FFAC62 /* tabbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BF40434415E3F0BC00FFAC62 /* tabbar_bg.png */; };
 		BF40438D15E3F0BC00FFAC62 /* tabbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = BF40434515E3F0BC00FFAC62 /* tabbar_bg2.png */; };
+		BF5BB21A15ED24C200127B65 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF5BB21715ED24C100127B65 /* bg2@2x.png */; };
+		BF5BB21B15ED24C200127B65 /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = BF5BB21815ED24C100127B65 /* bg2.png */; };
+		BF5BB21C15ED24C200127B65 /* bg2_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = BF5BB21915ED24C200127B65 /* bg2_texture.png */; };
 		BF741AE615B3F5BB009C9E6F /* IMYHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */; };
 		BF7BD54C15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BD54B15D10E7900B91150 /* IMYInterpreterVideoCallViewController.m */; };
 		BF87F16515DE456B004C5437 /* IMYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87F16315DE456B004C5437 /* IMYRegisterViewController.m */; };
@@ -385,6 +388,9 @@
 		BF40434315E3F0BC00FFAC62 /* setting_uns.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_uns.png; sourceTree = "<group>"; };
 		BF40434415E3F0BC00FFAC62 /* tabbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_bg.png; sourceTree = "<group>"; };
 		BF40434515E3F0BC00FFAC62 /* tabbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_bg2.png; sourceTree = "<group>"; };
+		BF5BB21715ED24C100127B65 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg2@2x.png"; sourceTree = "<group>"; };
+		BF5BB21815ED24C100127B65 /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2.png; sourceTree = "<group>"; };
+		BF5BB21915ED24C200127B65 /* bg2_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2_texture.png; sourceTree = "<group>"; };
 		BF741AE415B3F5BB009C9E6F /* IMYHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYHttpClient.h; path = "Muyun iOS SDK/IMYHttpClient.h"; sourceTree = "<group>"; };
 		BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYHttpClient.m; path = "Muyun iOS SDK/IMYHttpClient.m"; sourceTree = "<group>"; };
 		BF7BD54A15D10E7900B91150 /* IMYInterpreterVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYInterpreterVideoCallViewController.h; path = "UI/Call View Controller/IMYInterpreterVideoCallViewController.h"; sourceTree = "<group>"; };
@@ -809,6 +815,9 @@
 		BF4042FC15E3F0BC00FFAC62 /* Slicing */ = {
 			isa = PBXGroup;
 			children = (
+				BF5BB21715ED24C100127B65 /* bg2@2x.png */,
+				BF5BB21815ED24C100127B65 /* bg2.png */,
+				BF5BB21915ED24C200127B65 /* bg2_texture.png */,
 				BF162D4F15E54D7E00A54B15 /* shufa.png */,
 				BF4042FD15E3F0BC00FFAC62 /* @2x */,
 				BF40432215E3F0BC00FFAC62 /* back.png */,
@@ -1374,6 +1383,9 @@
 				BF05A5E715EB299D00DBA820 /* shadow_line.png in Resources */,
 				BF05A5E815EB299D00DBA820 /* shadow_line@2x.png in Resources */,
 				BF05A5ED15EB29F000DBA820 /* 57_57.png in Resources */,
+				BF5BB21A15ED24C200127B65 /* bg2@2x.png in Resources */,
+				BF5BB21B15ED24C200127B65 /* bg2.png in Resources */,
+				BF5BB21C15ED24C200127B65 /* bg2_texture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,7 +22,7 @@
 - (void)customizeAppearance
 {
     // Customize uitableview
-    UIImage *tableviewBg = [[UIImage imageNamed:@"bg2_texture"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *tableviewBg = [[UIImage imageNamed:@"bg2"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [[UITableView appearance] setBackgroundView:[[UIImageView alloc] initWithImage:tableviewBg]];
     [[UITableView appearanceWhenContainedIn:[IMYSettingViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:tableviewBg]];
     
