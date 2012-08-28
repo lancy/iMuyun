@@ -198,6 +198,7 @@ static NSString* const kAddContact = @"addContact/";
     NSLog(@"begin request upload avatar with username: %@", username);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUploadAvatar]]];
     [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
     NSData *imageDate = UIImagePNGRepresentation(avatarImage);
     [request setData:imageDate withFileName:@"avatar.png" andContentType:@"image/png" forKey:@"avatar"];
     [request startAsynchronous];
