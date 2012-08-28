@@ -16,8 +16,8 @@
 // http://omegaga.net:8000/
 
 //static NSString* const kHost = @"http://222.200.181.42/";
-static NSString* const kHost = @"http://omegaga.net:8000/";
-//static NSString* const kHost = @"http://omegaga.net/muyunvideo/";
+//static NSString* const kHost = @"http://omegaga.net:8000/";
+static NSString* const kHost = @"http://omegaga.net/muyunvideo/";
 static NSString* const kLogin = @"login/";
 static NSString* const kRegister = @"register/";
 static NSString* const kUserInfo = @"userInfo/";
@@ -167,7 +167,9 @@ static NSString* const kAddContact = @"addContact/";
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUpdateMyInfo]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
-    [request setPostValue:myInfo forKey:@"myInfo"];
+    NSError *error = nil;
+    NSData *info = [NSJSONSerialization JSONObjectWithData:(NSData *)myInfo  options:kNilOptions error:&error];
+    [request setPostValue:info forKey:@"myInfo"];
     [request startAsynchronous];
 }
 
@@ -204,5 +206,13 @@ static NSString* const kAddContact = @"addContact/";
     [request startAsynchronous];
 }
 
+- (NSData*)toJSON
+{NSError* error =nil;
+    id result =[NSJSONSerialization dataWithJSONObject:self
+                                               options:kNilOptions error:&error];
+    if(error !=nil)
+    return nil;
+    return result;    
+}
 
 @end

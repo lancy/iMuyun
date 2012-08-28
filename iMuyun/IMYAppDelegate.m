@@ -118,14 +118,32 @@
     
     if ([[userInfo valueForKey:@"callType"] isEqualToString:@"videoCall"] && ![self isInCall] ) {
         NSLog(@"Recieve video call");
+        [[IMYHttpClient shareClient] requestUserInfoWithUsername:[userInfo valueForKey:@"callInUsername"] delegate:self];
+    }
+}
+
+#pragma mark - http methods;
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"Request finished, results: %@", results);
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"userInfo"])
+    {
         IMYVideoCallViewController *videoCallVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
         [videoCallVC setVideoCallState:IMYVideoCallStateCallIn];
-        [videoCallVC setTargetContact:[userInfo valueForKey:@"callContact"]];
         
+        [videoCallVC setTargetContact:[results valueForKey:@"userInfo"]];
         
         [[self getCurrentViewController] presentModalViewController:videoCallVC animated:YES];
     }
+}
 
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request Failed, %@", error);
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -200,6 +218,8 @@
 {
     NSLog(@"Did receive remote notification, userInfo = %@", userInfo);
     [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:1];
+    
+    
 
 }
 

@@ -511,6 +511,11 @@
                 NSLog(@"User enter email:%@",nameField.text);
                 
                 NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+                if ([myUserName isEqualToString:nameField.text]) {
+                    NSLog(@"Can not add self");
+                    return;
+                }
+                
                 [[IMYHttpClient shareClient] requestAddContactWithUsername:myUserName targetUsername:nameField.text delegate:self];
                 MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 hub.labelText = @"processing...";
