@@ -109,7 +109,7 @@
     NSLog(@"tap favorite button");
     BOOL toggle;
     NSString *stringToggle;
-    if ([[self.contact valueForKey:@"isFavorite"] isEqualToString:@"Yes"]){
+    if ([self.favoriteButton isSelected]){
         toggle = NO;
         stringToggle = @"No";
     } else {
