@@ -21,6 +21,7 @@
 @implementation IMYLoginViewController
 //@synthesize usernameTextField;
 //@synthesize passwordTextField;
+@synthesize moveView;
 
 - (void)autoLogin
 {
@@ -59,6 +60,7 @@
 {
     [self setUsernameTextField:nil];
     [self setPasswordTextField:nil];
+    [self setMoveView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -66,6 +68,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.moveView setFrame:CGRectMake(0, 50, 320, 480)];
+    [self.moveView setAlpha:0];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.moveView setFrame:CGRectMake(0, 0, 320, 480)];
+        [self.moveView setAlpha:1];
+    }];
 
 }
 

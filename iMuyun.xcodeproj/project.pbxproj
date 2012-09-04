@@ -224,6 +224,10 @@
 		BFDD055815BA64E0005B30E4 /* IMYDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055715BA64E0005B30E4 /* IMYDataManager.m */; };
 		BFDDE9FC15E1EE77000BBB11 /* UINavigationBar+DropShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDDE9FB15E1EE77000BBB11 /* UINavigationBar+DropShadow.m */; };
 		BFE65E7815D78B1100355C07 /* IMYProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */; };
+		BFED5C4315F6446A00DE7DD5 /* icon_114_114.png in Resources */ = {isa = PBXBuildFile; fileRef = BFED5C4215F6446A00DE7DD5 /* icon_114_114.png */; };
+		BFED5C4615F6446E00DE7DD5 /* icon_57_57.png in Resources */ = {isa = PBXBuildFile; fileRef = BFED5C4515F6446E00DE7DD5 /* icon_57_57.png */; };
+		BFED5C4815F6492900DE7DD5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFED5C4715F6492900DE7DD5 /* Default@2x.png */; };
+		BFED5C4A15F6492D00DE7DD5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BFED5C4915F6492D00DE7DD5 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -520,6 +524,10 @@
 		BFDDE9FB15E1EE77000BBB11 /* UINavigationBar+DropShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+DropShadow.m"; path = "Others/UINavigationBar+DropShadow.m"; sourceTree = "<group>"; };
 		BFE65E7615D78B1100355C07 /* IMYProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYProfileViewController.h; path = UI/Setting/IMYProfileViewController.h; sourceTree = "<group>"; };
 		BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYProfileViewController.m; path = UI/Setting/IMYProfileViewController.m; sourceTree = "<group>"; };
+		BFED5C4215F6446A00DE7DD5 /* icon_114_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114_114.png; sourceTree = "<group>"; };
+		BFED5C4515F6446E00DE7DD5 /* icon_57_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57_57.png; sourceTree = "<group>"; };
+		BFED5C4715F6492900DE7DD5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		BFED5C4915F6492D00DE7DD5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -730,6 +738,10 @@
 		BF25D1F715B2AAEE00411924 = {
 			isa = PBXGroup;
 			children = (
+				BFED5C4915F6492D00DE7DD5 /* Default.png */,
+				BFED5C4715F6492900DE7DD5 /* Default@2x.png */,
+				BFED5C4515F6446E00DE7DD5 /* icon_57_57.png */,
+				BFED5C4215F6446A00DE7DD5 /* icon_114_114.png */,
 				BF05A5EC15EB29F000DBA820 /* 57_57.png */,
 				BF87F16915DE46D0004C5437 /* Third Party Libraries */,
 				BF25D20C15B2AAEE00411924 /* iMuyun */,
@@ -1386,6 +1398,10 @@
 				BF5BB21A15ED24C200127B65 /* bg2@2x.png in Resources */,
 				BF5BB21B15ED24C200127B65 /* bg2.png in Resources */,
 				BF5BB21C15ED24C200127B65 /* bg2_texture.png in Resources */,
+				BFED5C4315F6446A00DE7DD5 /* icon_114_114.png in Resources */,
+				BFED5C4615F6446E00DE7DD5 /* icon_57_57.png in Resources */,
+				BFED5C4815F6492900DE7DD5 /* Default@2x.png in Resources */,
+				BFED5C4A15F6492D00DE7DD5 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
