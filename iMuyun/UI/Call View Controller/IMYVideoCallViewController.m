@@ -248,6 +248,9 @@ static NSString* const kUserName = @"lancy";
 {
     NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient] answerVideoCallWithUsername:username answerMessage:@"accept" delegate:self];
+    self.videoCallState = IMYVideoCallStateNormal;
+    [self updateUserInterface];
+
 }
 
 
@@ -258,7 +261,11 @@ static NSString* const kUserName = @"lancy";
     if ([self presentingViewController] != nil) {
         [self dismissModalViewControllerAnimated:YES];
     } else {
-        [self.view removeFromSuperview];
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view setFrame:CGRectMake(0, 480, 320, 460)];
+        } completion:^(BOOL finished){
+            [self.view removeFromSuperview];
+        }];
     }
 
 }
@@ -270,7 +277,11 @@ static NSString* const kUserName = @"lancy";
     if ([self presentingViewController] != nil) {
         [self dismissModalViewControllerAnimated:YES];
     } else {
-        [self.view removeFromSuperview];
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view setFrame:CGRectMake(0, 480, 320, 460)];
+        } completion:^(BOOL finished){
+            [self.view removeFromSuperview];
+        }];
     }
 
 }
@@ -322,7 +333,7 @@ static NSString* const kUserName = @"lancy";
         [self setHiddenWithView:self.endButton toggle:YES animate:YES];
     }
     
-    if (self.session.connectionCount == 3) {
+    if (self.subscriber != nil && self.interpreterSubscriber != nil) {
         self.callTime += 1;
         [self.timerLabel setText:[NSString stringWithFormat:@"%02d:%02d", self.callTime / 60, self.callTime % 60]];
     }

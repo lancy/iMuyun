@@ -130,7 +130,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex  
 {
     if (buttonIndex == 1) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //        [defaults removePersistentDomainForName:appDomain];
         

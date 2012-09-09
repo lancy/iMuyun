@@ -71,7 +71,8 @@
     
     [self.moveView setFrame:CGRectMake(0, 50, 320, 480)];
     [self.moveView setAlpha:0];
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView animateWithDuration:1 animations:^{
         [self.moveView setFrame:CGRectMake(0, 0, 320, 480)];
         [self.moveView setAlpha:1];
     }];

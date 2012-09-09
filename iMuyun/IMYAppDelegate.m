@@ -137,6 +137,10 @@
         [videoCallVC setTargetContact:[results valueForKey:@"userInfo"]];
         
         [self.window addSubview:videoCallVC.view];
+        [videoCallVC.view setFrame:CGRectMake(0, 480, 320, 460)];
+        [UIView animateWithDuration:0.5 animations:^{
+            [videoCallVC.view setFrame:CGRectMake(0, 20, 320, 460)];
+        }];
         
 //        [[self getCurrentViewController] presentModalViewController:videoCallVC animated:YES];
     }
@@ -221,7 +225,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"Did receive remote notification, userInfo = %@", userInfo);
-    [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:3];
+    [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:0];
     
 
 }

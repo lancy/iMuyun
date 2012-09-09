@@ -206,7 +206,7 @@ static NSString* const kUserName = @"lancy";
 #pragma mark - timer
 - (void)updateTimeLabel
 {
-    if (self.session.connectionCount == 2) {
+    if (self.interpreterSubscriber != nil) {
         self.callTime += 1;
         [self.timerLabel setText:[NSString stringWithFormat:@"%02d:%02d", self.callTime / 60, self.callTime % 60]];
     }
