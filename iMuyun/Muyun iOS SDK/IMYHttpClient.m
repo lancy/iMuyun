@@ -190,13 +190,14 @@ static NSString* const kAddContact = @"addContact/";
     [request startAsynchronous];
 }
 
-- (void)requestRegisterWithUsername:(NSString *)username password:(NSString *)password delegate:(id)delegate
+- (void)requestRegisterWithUsername:(NSString *)username password:(NSString *)password language:(NSString *)language delegate:(id)delegate
 {
-    NSLog(@"Begin request register with username: %@ and password: %@", username, password);
+    NSLog(@"Begin request register with username: %@, password: %@ and language: %@", username, password, language);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kRegister]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
     [request setPostValue:password forKey:@"password"];
+    [request setPostValue:language forKey:@"language"];
     [request startAsynchronous];
 
 }
