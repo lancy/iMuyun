@@ -16,6 +16,8 @@
 #import "IMYInterpreterVideoCallViewController.h"
 #import "MBProgressHUD.h"
 
+
+
 @interface IMYContactsViewController ()
 
 // muyun contacts and favoirte contacts
@@ -207,9 +209,11 @@
         else
         {
             NSLog(@"Add contact fail");
-            [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
-            [[MBProgressHUD HUDForView:self.view] setLabelText:@"Fail"];
+//            [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
+//            [[MBProgressHUD HUDForView:self.view] setLabelText:@"Add Contact Fail"];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Something wrong" message:@"Add contact fail" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [alert show];
         }
     }
 
@@ -467,6 +471,7 @@
 
     [videoCallViewController setTargetContact:contact];
     [videoCallViewController setVideoCallState:IMYVideoCallStateCallOut];
+//    [self.view addSubview:videoCallViewController.view];
     [self presentModalViewController:videoCallViewController animated:YES];
 
     
@@ -477,7 +482,49 @@
 //    NSLog(@"accessory button tap");
 //}
 #pragma mark - add contact methods
-
+-(BOOL)validateEmail:(NSString*)email
+{
+    if((0 != [email rangeOfString:@"@"].length) &&
+       (0 != [email rangeOfString:@"."].length))
+    {
+        
+        NSCharacterSet* tmpInvalidCharSet = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+        NSMutableCharacterSet* tmpInvalidMutableCharSet = [tmpInvalidCharSet mutableCopy];
+        [tmpInvalidMutableCharSet removeCharactersInString:@"_-"];
+        
+        //使用compare option 来设定比较规则，如
+        //NSCaseInsensitiveSearch是不区分大小写
+        //NSLiteralSearch 进行完全比较,区分大小写
+        //NSNumericSearch 只比较定符串的个数，而不比较字符串的字面值
+        NSRange range1 = [email rangeOfString:@"@"
+                                      options:NSCaseInsensitiveSearch];
+        
+        //取得用户名部分
+        NSString* userNameString = [email substringToIndex:range1.location];
+        NSArray* userNameArray   = [userNameString componentsSeparatedByString:@"."];
+        
+        for(NSString* string in userNameArray)
+        {
+            NSRange rangeOfInavlidChars = [string rangeOfCharacterFromSet: tmpInvalidMutableCharSet];
+            if(rangeOfInavlidChars.length != 0 || [string isEqualToString:@""])
+                return NO;
+        }
+        
+        NSString *domainString = [email substringFromIndex:range1.location+1];
+        NSArray *domainArray   = [domainString componentsSeparatedByString:@"."];
+        
+        for(NSString *string in domainArray)
+        {
+            NSRange rangeOfInavlidChars=[string rangeOfCharacterFromSet:tmpInvalidMutableCharSet];
+            if(rangeOfInavlidChars.length !=0 || [string isEqualToString:@""])
+                return NO;
+        }
+        
+        return YES;
+    }
+    else // no ''@'' or ''.'' present
+        return NO;
+}
 - (IBAction)tapAddContactButton:(id)sender {
     NSLog(@"Tap add contact button.");
     UIAlertView* dialog = [[UIAlertView alloc] init];
@@ -513,6 +560,14 @@
                 NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
                 if ([myUserName isEqualToString:nameField.text]) {
                     NSLog(@"Can not add self");
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Something wrong" message:@"Can not add self" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert show];
+                    return;
+                } else if (![self validateEmail:nameField.text] ) {
+                    NSLog(@"Not validate email");
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Something wrong" message:@"Not validate email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert show];
+
                     return;
                 }
                 

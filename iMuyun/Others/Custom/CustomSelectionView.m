@@ -10,7 +10,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [[UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1] set];
+    [[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1] set];
 //    CGRect squareRect = CGRectOffset(rect, 0, kTriangleHeight);
 //    squareRect.size.height -= kTriangleHeight;
 //    UIBezierPath * squarePath = [UIBezierPath bezierPathWithRoundedRect:squareRect cornerRadius:4.];

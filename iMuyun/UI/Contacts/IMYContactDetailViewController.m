@@ -50,6 +50,12 @@
         [self.favoriteButton setSelected:NO];
     }
     
+    if ([self.contact valueForKey:@"note"])
+    {
+        self.noteTextView.text = [self.contact valueForKey:@"note"];
+    }
+    [self.noteTextView setDelegate:self];
+    
     // custom user interface
     [self customUserInterface];
 }
@@ -91,6 +97,7 @@
     UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y - 5, frame.size.width, frame.size.height + 10)];
     imgView.image = [[UIImage imageNamed: @"contacts_note"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     [self.view insertSubview:imgView belowSubview:self.noteTextView];
+    
     
     // add border corner and shadow
 //    imgView.layer.borderColor = [UIColor grayColor].CGColor;
@@ -159,6 +166,22 @@
     [self presentModalViewController:videoCallViewController animated:YES];
 }
 
+#pragma mark - UITextView delegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *myUserName = [[defaults valueForKey:@"myInfo"] valueForKey:@"username"];
+        
+        [[IMYHttpClient shareClient] requestUpdateNoteWithUsername:myUserName targetUsername:[self.contact valueForKey:@"username"] note:self.noteTextView.text delegate:self];        
+        return NO;
+    }
+    
+    return YES;
+}
+
 #pragma mark - Http methods
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -175,7 +198,17 @@
         {
             NSLog(@"Set favorite fail");
         }
+    } else if([[results valueForKey:@"requestType"] isEqualToString:@"updateNote"])
+    {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Update note success");
+        }
+        else
+        {
+            NSLog(@"Update note fail");
+        }
     }
+
 
 }
 

@@ -22,6 +22,9 @@
 
 @property (nonatomic, strong) NSString* username;
 
+@property NSInteger callTime;
+@property NSInteger hiddenTime;
+
 - (void)initSessionAndBeginConnecting;
 - (void)initPublisherAndBeginPublish;
 - (void)showAlert:(NSString*)string;
@@ -37,6 +40,7 @@
 @end
 
 @implementation IMYVideoCallViewController
+@synthesize timerLabel = _timerLabel;
 
 
 static double widgetHeight = 240;
@@ -73,7 +77,10 @@ static NSString* const kUserName = @"lancy";
 	// Do any additional setup after loading the view.
     
     [self customUserInterface];
-
+    
+    self.callTime = 0;
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
+    
 }
 
 - (void)viewDidUnload
@@ -88,6 +95,7 @@ static NSString* const kUserName = @"lancy";
     [self setMyVideoView:nil];
     [self setInterpreterVideoView:nil];
     [self setStateView:nil];
+    [self setTimerLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -195,7 +203,8 @@ static NSString* const kUserName = @"lancy";
         case IMYVideoCallStateNormal:
             [self showAnswerButton:NO];
             [self showEndButton:YES];
-            [self.stateLabel setText:[NSString stringWithFormat:@"Comunication with %@", [self.targetContact valueForKey:@"name"]]];    
+            self.hiddenTime = 0;
+            [self.stateLabel setText:[NSString stringWithFormat:@"Comunication with %@", [self.targetContact valueForKey:@"name"]]];
             break;
         case IMYVideoCallStateCallIn:
             [self showAnswerButton:YES];
@@ -228,6 +237,13 @@ static NSString* const kUserName = @"lancy";
     [self.endButton setHidden:!toogle];
 }
 
+- (IBAction)touchView:(id)sender {
+    self.hiddenTime = 0;
+    if (self.videoCallState == IMYVideoCallStateNormal && [self.endButton isHidden]) {
+        [self setHiddenWithView:self.endButton toggle:NO animate:YES];
+    }
+}
+
 - (IBAction)tapAceptButton:(id)toogle
 {
     NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
@@ -238,13 +254,25 @@ static NSString* const kUserName = @"lancy";
 - (IBAction)tapRejectButton:(id)sender {
     NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [[IMYHttpClient shareClient] answerVideoCallWithUsername:username answerMessage:@"reject" delegate:self];
-    [self dismissModalViewControllerAnimated:YES];
+    
+    if ([self presentingViewController] != nil) {
+        [self dismissModalViewControllerAnimated:YES];
+    } else {
+        [self.view removeFromSuperview];
+    }
+
 }
 
 - (IBAction)tapEndButton:(id)sender {
 //    [[IMYHttpClient shareClient] requestEndVideoCallWithUsername:self.username delegate:self];
+    NSLog(@"User tap end button");
     [self.session disconnect];
-    [self dismissModalViewControllerAnimated:YES];
+    if ([self presentingViewController] != nil) {
+        [self dismissModalViewControllerAnimated:YES];
+    } else {
+        [self.view removeFromSuperview];
+    }
+
 }
 
 #pragma mark - http methods
@@ -262,8 +290,6 @@ static NSString* const kUserName = @"lancy";
             self.token = [result valueForKey:@"token"];
             self.username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
 //            self.username = [NSString stringWithFormat:@"%d", arc4random()];
-            self.videoCallState = IMYVideoCallStateNormal;
-            [self updateUserInterface];
             [self initSessionAndBeginConnecting];
         } else {
             NSLog(@"Target reject video call.");
@@ -286,6 +312,21 @@ static NSString* const kUserName = @"lancy";
 {
     NSError *error = [request error];
     NSLog(@"Request failed, %@", error);
+}
+
+#pragma mark - timer
+- (void)updateTimeLabel
+{
+    self.hiddenTime += 1;
+    if (self.hiddenTime == 5 && self.videoCallState == IMYVideoCallStateNormal) {
+        [self setHiddenWithView:self.endButton toggle:YES animate:YES];
+    }
+    
+    if (self.session.connectionCount == 3) {
+        self.callTime += 1;
+        [self.timerLabel setText:[NSString stringWithFormat:@"%02d:%02d", self.callTime / 60, self.callTime % 60]];
+    }
+
 }
 
 
@@ -324,6 +365,7 @@ static NSString* const kUserName = @"lancy";
 - (void)session:(OTSession *)session didReceiveStream:(OTStream *)stream
 {
     NSLog(@"session didReceiveStream (%@)(%@)", stream.streamId, stream.name);
+    
     if ([[stream name] isEqualToString:@"interpreter"]) {
         if (!self.interpreterSubscriber) {
             self.interpreterSubscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
@@ -332,6 +374,9 @@ static NSString* const kUserName = @"lancy";
         if (!self.subscriber) {
             self.subscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
         }
+        self.videoCallState = IMYVideoCallStateNormal;
+        [self updateUserInterface];
+
     }
 }
 
@@ -361,6 +406,7 @@ static NSString* const kUserName = @"lancy";
         
     } else if (![[stream name] isEqualToString:[self.publisher name]]) {
         self.subscriber = nil;
+        [self tapEndButton:nil];
     }
 }
 
@@ -390,6 +436,21 @@ static NSString* const kUserName = @"lancy";
 - (void)session:(OTSession*)session didFailWithError:(OTError*)error {
     NSLog(@"sessionDidFail");
 //    [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
+}
+
+- (void)setHiddenWithView:(UIView *)view toggle:(BOOL)toggle animate:(BOOL)animate {    
+    if (toggle == YES) {
+        [view setAlpha:1];
+        [UIView animateWithDuration:0.5 animations:^{
+            [view setAlpha:0];
+        }completion:^(BOOL finish){
+            [view setAlpha:1];
+            [view setHidden:YES];
+        }];
+    } else {
+            [view setHidden:NO];
+    }
+
 }
 
 

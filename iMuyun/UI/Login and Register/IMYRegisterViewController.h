@@ -14,6 +14,12 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *repeatTextField;
+@property (weak, nonatomic) IBOutlet UITextField *languageTextField;
+
+@property (strong, nonatomic) IBOutlet UIPickerView *languagePickerView;
+@property (strong, nonatomic) IBOutlet UIView *languageInputAccessoryView;
+
 
 - (IBAction)tapSignUpButton:(id)sender;
 - (IBAction)tapBackButton:(id)sender;

@@ -22,6 +22,7 @@ static NSString* const kLogin = @"login/";
 static NSString* const kRegister = @"register/";
 static NSString* const kUserInfo = @"userInfo/";
 static NSString* const kContacts = @"contacts/";
+static NSString* const kUpdateNote = @"updateNote/";
 static NSString* const kFavoriteContacts = @"favoriteContacts/";
 static NSString* const kRecents = @"recents/";
 static NSString* const kMissed = @"missed/";
@@ -88,6 +89,19 @@ static NSString* const kAddContact = @"addContact/";
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
     [request startAsynchronous];
+}
+
+- (void)requestUpdateNoteWithUsername:(NSString *)username targetUsername:(NSString *)targetUsername note:(NSString *)note delegate:(id)delegate;
+{
+    NSLog(@"Begin request update note with username: %@, target usernmae: %@ and note: %@", username, targetUsername, note);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUpdateNote]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:targetUsername forKey:@"targetUsername"];
+    [request setPostValue:targetUsername forKey:@"note"];
+    [request startAsynchronous];
+
+    
 }
 
 
@@ -169,7 +183,10 @@ static NSString* const kAddContact = @"addContact/";
     [request setPostValue:username forKey:@"username"];
     NSError *error = nil;
     NSData *jsonInfo = [NSJSONSerialization dataWithJSONObject:myInfo  options:kNilOptions error:&error];
-    [request setPostValue:jsonInfo forKey:@"myInfo"];
+    NSString *str = [[NSString alloc] initWithData:jsonInfo
+                                             encoding:NSUTF8StringEncoding];
+    NSLog(@"json str = %@", str);
+    [request setPostValue:str forKey:@"myInfo"];
     [request startAsynchronous];
 }
 

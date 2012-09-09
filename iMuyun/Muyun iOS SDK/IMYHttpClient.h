@@ -25,6 +25,7 @@
 - (void)requestAddContactWithUsername:(NSString *)username targetUsername:(NSString *)targetUsername delegate:(id)delegate;
 
 - (void)requestContactsWithUsername:(NSString *)username delegate:(id)delegate;
+- (void)requestUpdateNoteWithUsername:(NSString *)username targetUsername:(NSString *)targetUsername note:(NSString *)note delegate:(id)delegate;
 - (void)requestRecentsWithUsername:(NSString *)username delegate:(id)delegate;
 
 - (void)requestVideoCallWithUsername:(NSString *)username callToUsername:(NSString *)callToUsername delegate:(id)delegate;

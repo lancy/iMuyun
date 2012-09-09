@@ -18,6 +18,8 @@
 @property (nonatomic, weak) NSString* token;
 @property (nonatomic, weak) NSString* sessionId;
 
+@property NSInteger callTime;
+
 @property (nonatomic, strong) NSString* username;
 
 - (void)initSessionAndBeginConnecting;
@@ -34,6 +36,7 @@
 @end
 
 @implementation IMYInterpreterVideoCallViewController
+@synthesize timerLabel = _timerLabel;
 
 
 
@@ -72,6 +75,10 @@ static NSString* const kUserName = @"lancy";
     self.username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
 
     [self customUserInterface];
+    
+    self.callTime = 0;
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
+
 }
 
 - (void)viewDidUnload
@@ -83,6 +90,7 @@ static NSString* const kUserName = @"lancy";
     [self setMyVideoView:nil];
     [self setInterpreterVideoView:nil];
     [self setStateView:nil];
+    [self setTimerLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -195,6 +203,16 @@ static NSString* const kUserName = @"lancy";
     [self dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark - timer
+- (void)updateTimeLabel
+{
+    if (self.session.connectionCount == 2) {
+        self.callTime += 1;
+        [self.timerLabel setText:[NSString stringWithFormat:@"%02d:%02d", self.callTime / 60, self.callTime % 60]];
+    }
+}
+
+
 #pragma mark - http methods
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -258,6 +276,7 @@ static NSString* const kUserName = @"lancy";
 - (void)session:(OTSession *)session didReceiveStream:(OTStream *)stream
 {
     NSLog(@"session didReceiveStream (%@)(%@)", stream.streamId, stream.name);
+    
     if ([[stream name] isEqualToString:@"interpreter"]) {
         if (!self.interpreterSubscriber) {
             self.interpreterSubscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];

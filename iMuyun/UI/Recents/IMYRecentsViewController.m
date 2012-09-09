@@ -408,7 +408,7 @@
         if ([self.recentsTypeSegment selectedSegmentIndex] == 0) {
             // request to delete recent
             NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-            NSString *recentUid = [[self.allRecents objectAtIndex:indexPath.row] valueForKey:@"Uid"];
+            NSString *recentUid = [[self.allRecents objectAtIndex:indexPath.row] valueForKey:@"uid"];
             [[IMYHttpClient shareClient] requestDeleteRecentWithUsername:myUserName recentUid:recentUid delegate:self];
             
             // delete recent local
@@ -420,7 +420,7 @@
             // request to delete recent
             NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
             NSDictionary *recent = [self.missedRecents objectAtIndex:indexPath.row];
-            NSString *recentUid = [recent valueForKey:@"Uid"];
+            NSString *recentUid = [recent valueForKey:@"uid"];
             [[IMYHttpClient shareClient] requestDeleteRecentWithUsername:myUserName recentUid:recentUid delegate:self];
 
             // delete recent local

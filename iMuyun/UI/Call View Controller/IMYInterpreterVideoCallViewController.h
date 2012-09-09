@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UIView *stateView;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *myVideoView;
 @property (weak, nonatomic) IBOutlet UIView *interpreterVideoView;

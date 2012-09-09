@@ -22,11 +22,11 @@
 - (void)customizeAppearance
 {
     // Customize uitableview
-    UIImage *tableviewBg = [[UIImage imageNamed:@"bg2"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *tableviewBg = [[UIImage imageNamed:@"bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [[UITableView appearance] setBackgroundView:[[UIImageView alloc] initWithImage:tableviewBg]];
     [[UITableView appearanceWhenContainedIn:[IMYSettingViewController class], nil] setBackgroundView:[[UIImageView alloc] initWithImage:tableviewBg]];
     
-    UIImage *navbarBg = [UIImage imageNamed:@"navbar"];
+    UIImage *navbarBg = [[UIImage imageNamed:@"navbar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     // Set the background image for *all* UINavigationBars
     [[UINavigationBar appearance] setBackgroundImage:navbarBg
@@ -136,7 +136,9 @@
         
         [videoCallVC setTargetContact:[results valueForKey:@"userInfo"]];
         
-        [[self getCurrentViewController] presentModalViewController:videoCallVC animated:YES];
+        [self.window addSubview:videoCallVC.view];
+        
+//        [[self getCurrentViewController] presentModalViewController:videoCallVC animated:YES];
     }
 }
 
@@ -155,6 +157,8 @@
     [self setIsInCall:NO];
     
     [self customizeAppearance];
+    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     
     if ([launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] != nil) {
@@ -217,8 +221,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"Did receive remote notification, userInfo = %@", userInfo);
-    [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:1];
-    
+    [self performSelector:@selector(handleRemoteNotificaton:) withObject:userInfo afterDelay:3];
     
 
 }
