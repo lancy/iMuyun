@@ -66,7 +66,8 @@
     if ([self.passwordTextField.text isEqualToString:self.repeatTextField.text]) {
         MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hub.labelText = @"Sign up...";
-        [[IMYHttpClient shareClient]requestRegisterWithUsername:self.usernameTextField.text password:self.passwordTextField.text delegate:self];
+        
+        [[IMYHttpClient shareClient] requestRegisterWithUsername:self.usernameTextField.text password:self.passwordTextField.text language:self.languageTextField.text delegate:self];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Something wrong" message:@"Password repeat incorrect" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
