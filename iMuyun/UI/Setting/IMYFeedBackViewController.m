@@ -7,6 +7,8 @@
 //
 
 #import "IMYFeedBackViewController.h"
+#import "MBProgressHUD.h"
+#import "IMYHttpClient.h"
 
 @interface IMYFeedBackViewController()
 
@@ -87,7 +89,55 @@
 - (IBAction)tapSendButton:(id)sender
 {
     NSLog(@"User tap send button");
+    [self.feedBackTextView resignFirstResponder];
+    MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hub setLabelText:@"Sending"];
+    
+    NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+
+    [[IMYHttpClient shareClient] requestSendFeedBackWithUsername:username message:self.feedBackTextView.text deleagte:self];
+}
+
+#pragma mark - Http request methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"Request finished, results: %@", results);
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"sendFeedBack"]) {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"])
+        {
+            NSLog(@"Send feedback success");
+            [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
+            [[MBProgressHUD HUDForView:self.view] setLabelText:@"Success"];
+            [[MBProgressHUD HUDForView:self.view] hide:YES afterDelay:1.0];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else
+        {
+            NSLog(@"Send feedback fail");
+            [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
+            [[MBProgressHUD HUDForView:self.view] setLabelText:@"Fail"];
+            [[MBProgressHUD HUDForView:self.view] hide:YES afterDelay:1.0];
+//            [MBProgressHUD hideHUDForView:self.view animated:];
+        }
+    }
     
 }
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request failed, %@", error);
+//    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
+    [[MBProgressHUD HUDForView:self.view] setLabelText:@"Network Error"];
+    [[MBProgressHUD HUDForView:self.view] hide:YES afterDelay:1.0];
+
+}
+
+
+
 
 @end

@@ -36,6 +36,7 @@ static NSString* const kUpdateMyInfo = @"updateMyInfo/";
 static NSString* const kInterpreterVideoCall = @"interpreterVideoCallTo/";
 static NSString* const kUploadAvatar = @"uploadAvatar/";
 static NSString* const kAddContact = @"addContact/";
+static NSString* const kSendFeedBack = @"sendFeedBack/";
 
 + (IMYHttpClient *)shareClient
 {
@@ -222,6 +223,17 @@ static NSString* const kAddContact = @"addContact/";
     NSData *imageDate = UIImagePNGRepresentation(avatarImage);
     [request setData:imageDate withFileName:@"avatar.png" andContentType:@"image/png" forKey:@"avatar"];
     [request startAsynchronous];
+}
+
+- (void)requestSendFeedBackWithUsername:(NSString *)username message:(NSString *)message deleagte:(id)delegate
+{
+    NSLog(@"begin send feedback with username: %@, message: %@", username, message);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kSendFeedBack]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:message forKey:@"message"];
+    [request startAsynchronous];
+    
 }
 
 - (NSData*)toJSON
