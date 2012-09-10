@@ -19,6 +19,8 @@
 @property (nonatomic, weak) NSString* sessionId;
 
 @property NSInteger callTime;
+@property NSInteger hiddenTime;
+
 
 @property (nonatomic, strong) NSString* username;
 
@@ -203,9 +205,22 @@ static NSString* const kUserName = @"lancy";
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (IBAction)touchView:(id)sender {
+    self.hiddenTime = 0;
+    if (self.videoCallState == IMYVideoCallStateNormal && [self.endButton isHidden]) {
+        [self setHiddenWithView:self.endButton toggle:NO animate:YES];
+    }
+}
+
+
 #pragma mark - timer
 - (void)updateTimeLabel
 {
+    self.hiddenTime += 1;
+    if (self.hiddenTime == 5 && self.videoCallState == IMYVideoCallStateNormal) {
+        [self setHiddenWithView:self.endButton toggle:YES animate:YES];
+    }
+
     if (self.interpreterSubscriber != nil) {
         self.callTime += 1;
         [self.timerLabel setText:[NSString stringWithFormat:@"%02d:%02d", self.callTime / 60, self.callTime % 60]];
@@ -335,6 +350,22 @@ static NSString* const kUserName = @"lancy";
     NSLog(@"sessionDidFail");
     //    [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
 }
+
+- (void)setHiddenWithView:(UIView *)view toggle:(BOOL)toggle animate:(BOOL)animate {
+    if (toggle == YES) {
+        [view setAlpha:1];
+        [UIView animateWithDuration:0.5 animations:^{
+            [view setAlpha:0];
+        }completion:^(BOOL finish){
+            [view setAlpha:1];
+            [view setHidden:YES];
+        }];
+    } else {
+        [view setHidden:NO];
+    }
+    
+}
+
 
 
 
