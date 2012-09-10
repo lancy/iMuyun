@@ -117,6 +117,9 @@
 {
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self performSegueWithIdentifier:@"profile" sender:self];
+    } else if (indexPath.section == 1 && indexPath.row == 0)
+    {
+        [self performSegueWithIdentifier:@"feedback" sender:self];
     }
 }
 

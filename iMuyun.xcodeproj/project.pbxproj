@@ -226,6 +226,7 @@
 		BFDD055815BA64E0005B30E4 /* IMYDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDD055715BA64E0005B30E4 /* IMYDataManager.m */; };
 		BFDDE9FC15E1EE77000BBB11 /* UINavigationBar+DropShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDDE9FB15E1EE77000BBB11 /* UINavigationBar+DropShadow.m */; };
 		BFE6466615FC8C2E00A6CD89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFE6466515FC8C2E00A6CD89 /* Localizable.strings */; };
+		BFE6471515FDB4E900A6CD89 /* IMYFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE6471415FDB4E900A6CD89 /* IMYFeedBackViewController.m */; };
 		BFE65E7815D78B1100355C07 /* IMYProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */; };
 		BFED5C4315F6446A00DE7DD5 /* icon_114_114.png in Resources */ = {isa = PBXBuildFile; fileRef = BFED5C4215F6446A00DE7DD5 /* icon_114_114.png */; };
 		BFED5C4615F6446E00DE7DD5 /* icon_57_57.png in Resources */ = {isa = PBXBuildFile; fileRef = BFED5C4515F6446E00DE7DD5 /* icon_57_57.png */; };
@@ -528,6 +529,8 @@
 		BFDDE9FA15E1EE77000BBB11 /* UINavigationBar+DropShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+DropShadow.h"; path = "Others/UINavigationBar+DropShadow.h"; sourceTree = "<group>"; };
 		BFDDE9FB15E1EE77000BBB11 /* UINavigationBar+DropShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+DropShadow.m"; path = "Others/UINavigationBar+DropShadow.m"; sourceTree = "<group>"; };
 		BFE6466515FC8C2E00A6CD89 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		BFE6471315FDB4E900A6CD89 /* IMYFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYFeedBackViewController.h; path = UI/Setting/IMYFeedBackViewController.h; sourceTree = "<group>"; };
+		BFE6471415FDB4E900A6CD89 /* IMYFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYFeedBackViewController.m; path = UI/Setting/IMYFeedBackViewController.m; sourceTree = "<group>"; };
 		BFE65E7615D78B1100355C07 /* IMYProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYProfileViewController.h; path = UI/Setting/IMYProfileViewController.h; sourceTree = "<group>"; };
 		BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYProfileViewController.m; path = UI/Setting/IMYProfileViewController.m; sourceTree = "<group>"; };
 		BFED5C4215F6446A00DE7DD5 /* icon_114_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114_114.png; sourceTree = "<group>"; };
@@ -1109,6 +1112,8 @@
 				BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */,
 				BFE65E7615D78B1100355C07 /* IMYProfileViewController.h */,
 				BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */,
+				BFE6471315FDB4E900A6CD89 /* IMYFeedBackViewController.h */,
+				BFE6471415FDB4E900A6CD89 /* IMYFeedBackViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -1498,6 +1503,7 @@
 				BFD152BE15E0349D004F97D8 /* CustomSelectionView.m in Sources */,
 				BFD152BF15E0349D004F97D8 /* CustomTabItem.m in Sources */,
 				BFDDE9FC15E1EE77000BBB11 /* UINavigationBar+DropShadow.m in Sources */,
+				BFE6471515FDB4E900A6CD89 /* IMYFeedBackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
