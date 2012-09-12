@@ -202,6 +202,12 @@ static NSString* const kUserName = @"lancy";
 
 - (IBAction)tapEndButton:(id)sender {
     [self.session disconnect];
+    
+    // recents need to reload
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@"No" forKey:@"rencentsNeedToReload"];
+
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
