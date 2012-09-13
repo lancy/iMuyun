@@ -536,8 +536,8 @@
     
     
     UITextField *nameField = [[UITextField alloc] initWithFrame:CGRectMake(20.0, 45.0, 245.0, 25.0)];
-//    [nameField setKeyboardType:UIKeyboardTypeASCIICapable];
-    [nameField setKeyboardType:UIKeyboardTypeEmailAddress];
+    [nameField setKeyboardType:UIKeyboardTypeASCIICapable];
+//    [nameField setKeyboardType:UIKeyboardTypeEmailAddress];
     [nameField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     [nameField setAutocorrectionType:UITextAutocorrectionTypeNo];
     

@@ -202,6 +202,8 @@
     {
         if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
             NSLog(@"Update note success");
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:@"Yes" forKey:@"contactsNeedToReload"];
         }
         else
         {

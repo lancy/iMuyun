@@ -21,8 +21,8 @@
     [self registIapObservers];
     [IAPHandler initECPurchaseWithHandler];
     //iap产品编号集合，这里你需要替换为你自己的iap列表
-    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.imuyun.item1",
-                           @"com.imuyun.imuyun.item2", nil];
+    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.item1",
+                           @"com.imuyun.item2", nil];
     //从AppStore上获取产品信息
     [[ECPurchase shared]requestProductData:productIds];
 }
@@ -111,9 +111,6 @@
         [alert show];
     }
     
-    if (products_) {
-        products_ = nil;
-    }
     [self.tableView reloadData];
 }
 

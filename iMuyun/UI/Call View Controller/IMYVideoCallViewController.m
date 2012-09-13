@@ -75,6 +75,7 @@ static NSString* const kUserName = @"lancy";
     NSLog(@"Video Call Controller did load");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.apiKey = kApiKey;
     
     [self customUserInterface];
     
