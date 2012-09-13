@@ -7,13 +7,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iMuyun/UI/Setting/IMYPurchaseViewController.m"
-         timestampString = "369216167.05374"
+         filePath = "iMuyun/Muyun iOS SDK/IAPHandler.m"
+         timestampString = "369216479.859017"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
+         landmarkName = "-didReceivedProducts:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
