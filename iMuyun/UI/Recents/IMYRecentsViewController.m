@@ -254,6 +254,30 @@
     return [dayFormatter stringFromDate:date];
 }
 
+- (NSString *)minutsStringFromTimeInterval:(NSTimeInterval)theTimeInterval
+{
+    NSDateComponents *dateComponets = [self dateComponetsFromTimeInterval:theTimeInterval];
+    NSString *results = [NSString stringWithFormat:@"%02d:%02d", [dateComponets minute], [dateComponets second]];
+    return results;
+}
+
+- (NSDateComponents *)dateComponetsFromTimeInterval:(NSTimeInterval)theTimeInterval
+{
+    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+    
+    // Create the NSDates
+    NSDate *date1 = [[NSDate alloc] init];
+    NSDate *date2 = [[NSDate alloc] initWithTimeInterval:theTimeInterval sinceDate:date1];
+    
+    // Get conversion to months, days, hours, minutes
+    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit;
+    
+    NSDateComponents *conversionInfo = [sysCalendar components:unitFlags fromDate:date1  toDate:date2  options:0];
+//    
+//    NSLog(@"Conversion: %dmin %dhours %ddays %dmoths",[conversionInfo minute], [conversionInfo hour], [conversionInfo day], [conversionInfo month]);
+    return conversionInfo;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -293,7 +317,10 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     
     NSDate *date = [dateFormat dateFromString:[record valueForKey:@"startTime"]];
-    [cell.infoLabel setText:[self timeStringFromNSDate:date]];
+    NSTimeInterval duration = [[record valueForKey:@"duration"] doubleValue];
+    
+    NSString *infoString = [NSString stringWithFormat:@"%@ ---- %@", [self minutsStringFromTimeInterval:duration], [self timeStringFromNSDate:date]];
+    [cell.infoLabel setText:infoString];
         
     return cell;
 }

@@ -369,6 +369,7 @@
                     <connections>
                         <segue destination="7cQ-Hk-nfl" kind="push" identifier="profile" id="7Tb-31-INN"/>
                         <segue destination="uin-pj-ggo" kind="push" identifier="feedback" id="Adz-XB-ORB"/>
+                        <segue destination="Lji-jr-35r" kind="push" identifier="purchase" id="jav-GJ-I0Y"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -571,6 +572,37 @@
             </objects>
             <point key="canvasLocation" x="1696" y="1415"/>
         </scene>
+        <!--Purchase View Controller-->
+        <scene sceneID="exG-w9-Drj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gms-Og-8U7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="Lji-jr-35r" customClass="IMYPurchaseViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="o9l-bv-l8a">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CJk-ih-k80">
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Lji-jr-35r" id="2dA-K1-I4U"/>
+                            <outlet property="delegate" destination="Lji-jr-35r" id="zFv-st-goy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ij0-jZ-eNG"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1696" y="1985"/>
+        </scene>
         <!--Feed Back View Controller-->
         <scene sceneID="SQP-cn-J83">
             <objects>
@@ -584,7 +616,7 @@
                     <navigationItem key="navigationItem" id="gfy-4X-uqd"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1696" y="1995"/>
+            <point key="canvasLocation" x="1696" y="2601"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fLD-UL-ch8">
@@ -1385,6 +1417,9 @@
         </class>
         <class className="IMYFeedBackViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYFeedBackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tapSendButton:"/>
+            </relationships>
         </class>
         <class className="IMYInterpreterVideoCallViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYInterpreterVideoCallViewController.h"/>
@@ -1431,6 +1466,9 @@
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="photoImageView" candidateClass="UIImageView"/>
             </relationships>
+        </class>
+        <class className="IMYPurchaseViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYPurchaseViewController.h"/>
         </class>
         <class className="IMYRecentsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IMYRecentsViewController.h"/>

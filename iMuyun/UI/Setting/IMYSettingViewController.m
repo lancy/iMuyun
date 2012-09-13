@@ -121,6 +121,11 @@
     {
         [self performSegueWithIdentifier:@"feedback" sender:self];
     }
+    else if (indexPath.section == 0 && indexPath.row == 1)
+    {
+        [self performSegueWithIdentifier:@"purchase" sender:self];
+    }
+    
 }
 
 #pragma mark - View methods
