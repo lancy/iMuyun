@@ -559,7 +559,7 @@
                             </items>
                         </toolbar>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <pickerView contentMode="scaleToFill" id="0pU-Jo-FUk">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
@@ -1324,7 +1324,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Language Your Friend Speaking:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="8iI-Qr-dvy">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Language Your Target Speaking:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="8iI-Qr-dvy">
                                 <rect key="frame" x="20" y="140" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1367,7 +1367,7 @@
                             </items>
                         </toolbar>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <pickerView contentMode="scaleToFill" id="5cY-zf-WCo">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>

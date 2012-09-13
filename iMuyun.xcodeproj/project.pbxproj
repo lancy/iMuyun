@@ -336,7 +336,6 @@
 		BF25D21515B2AAEE00411924 /* IMYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMYAppDelegate.h; sourceTree = "<group>"; };
 		BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMYAppDelegate.m; sourceTree = "<group>"; };
 		BF25D21915B2AAEE00411924 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		BF2EE1B91601B8EE00CC98E7 /* iMuyun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iMuyun.entitlements; sourceTree = "<group>"; };
 		BF2EE6AE1601AE7F00A50DC5 /* IMYPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYPurchaseViewController.h; path = UI/Setting/IMYPurchaseViewController.h; sourceTree = "<group>"; };
 		BF2EE6AF1601AE7F00A50DC5 /* IMYPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYPurchaseViewController.m; path = UI/Setting/IMYPurchaseViewController.m; sourceTree = "<group>"; };
 		BF2EE6BE1601AFC100A50DC5 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
@@ -829,7 +828,6 @@
 		BF25D20C15B2AAEE00411924 /* iMuyun */ = {
 			isa = PBXGroup;
 			children = (
-				BF2EE1B91601B8EE00CC98E7 /* iMuyun.entitlements */,
 				BF25D21515B2AAEE00411924 /* IMYAppDelegate.h */,
 				BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */,
 				BFD152A015E02A80004F97D8 /* Others */,
@@ -1689,7 +1687,6 @@
 		BF25D22C15B2AAEE00411924 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = iMuyun/iMuyun.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sile Ma (ANMPALXU8Z)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1702,7 +1699,7 @@
 				INFOPLIST_FILE = "iMuyun/iMuyun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1354E71-4A7F-49A8-ABE6-757A0A0B981A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "916A127B-B7C7-4FE8-B838-C4B9B4EF9965";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1710,7 +1707,6 @@
 		BF25D22D15B2AAEE00411924 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = iMuyun/iMuyun.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sile Ma";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
