@@ -1,9 +1,9 @@
 //
 //  IAPHandler.h
-//  iMuyun
+//  IAPDemo
 //
-//  Created by Lancy on 13/9/12.
-//
+//  Created by luoyl on 12-3-24.
+//  Copyright (c) 2012年 http://luoyl.info. All rights reserved.
 //
 
 #define IAPDidReceivedProducts                      @"IAPDidReceivedProducts"

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "ECPurchase.h"
 
 @interface IMYPurchaseViewController : UITableViewController

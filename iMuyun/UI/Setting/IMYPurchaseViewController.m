@@ -6,6 +6,14 @@
 //
 //
 
+//
+//  ProductsViewController.m
+//  IAPDemo
+//
+//  Created by luoyl on 12-3-24.
+//  Copyright (c) 2012年 http://luoyl.info. All rights reserved.
+//
+
 #import "IMYPurchaseViewController.h"
 #import "IAPHandler.h"
 
@@ -23,7 +31,7 @@
     [IAPHandler initECPurchaseWithHandler];
     //iap产品编号集合，这里你需要替换为你自己的iap列表
     NSArray *productIds = [NSArray arrayWithObjects:@"yingbox.p1",
-                                                    @"yingbox.p2",  nil];
+                           @"yingbox.p2", nil];
     //从AppStore上获取产品信息
     [[ECPurchase shared]requestProductData:productIds];
 }
@@ -31,6 +39,11 @@
 - (void)viewWillUnload
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -82,7 +95,7 @@
 {
     SKProduct *product = [products_ objectAtIndex:sender.tag];
     NSLog(@"购买商品：%@", product.productIdentifier);
-    [[ECPurchase shared] addPayment:product.productIdentifier];
+    [[ECPurchase shared]addPaymentWithProduct:product];
 }
 
 
@@ -93,17 +106,23 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 //接收从app store抓取回来的产品，显示在表格上
 -(void) receivedProducts:(NSNotification*)notification
 {
+    products_ = [[NSArray alloc]initWithArray:[notification object]];
+    NSLog(@"Products = %@", products_);
+    
+    if (!products_ || [products_ count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"IPA Demo" message:@"获取不到产品列表，请确定已经在itunes connect注册了产品，并且配置无误！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] ;
+        [alert show];
+    }
+    
     if (products_) {
         products_ = nil;
     }
-    products_ = [[NSArray alloc]initWithArray:[notification object]];
-    NSLog(@"products = %@", products_);
     [self.tableView reloadData];
 }
 

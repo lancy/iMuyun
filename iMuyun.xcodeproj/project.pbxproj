@@ -73,6 +73,17 @@
 		BF25D21315B2AAEE00411924 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF25D21215B2AAEE00411924 /* main.m */; };
 		BF25D21715B2AAEE00411924 /* IMYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */; };
 		BF25D21A15B2AAEE00411924 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF25D21815B2AAEE00411924 /* MainStoryboard.storyboard */; };
+		BF2EE6B01601AE8000A50DC5 /* IMYPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6AF1601AE7F00A50DC5 /* IMYPurchaseViewController.m */; };
+		BF2EE6D31601AFC100A50DC5 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6BF1601AFC100A50DC5 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF2EE6D41601AFC100A50DC5 /* ECPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6C21601AFC100A50DC5 /* ECPurchase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF2EE6D51601AFC100A50DC5 /* ECStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6C41601AFC100A50DC5 /* ECStoreObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF2EE6D61601AFC100A50DC5 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6C71601AFC100A50DC5 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF2EE6D71601AFC100A50DC5 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6C91601AFC100A50DC5 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF2EE6D81601AFC100A50DC5 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6CB1601AFC100A50DC5 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF2EE6D91601AFC100A50DC5 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6CD1601AFC100A50DC5 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BF2EE6DC1601B02700A50DC5 /* IAPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2EE6DB1601B02700A50DC5 /* IAPHandler.m */; };
+		BF2EE6DE1601B06500A50DC5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2EE6DD1601B06500A50DC5 /* StoreKit.framework */; };
+		BF2EE6E71601B23000A50DC5 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2EE6E61601B23000A50DC5 /* libz.1.2.5.dylib */; };
 		BF3DABDF15E6914200137DA2 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF3DABDE15E6914200137DA2 /* opentok.bundle */; };
 		BF40434815E3F0BC00FFAC62 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF40430015E3F0BC00FFAC62 /* back@2x.png */; };
 		BF40434915E3F0BC00FFAC62 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF40430115E3F0BC00FFAC62 /* bg@2x.png */; };
@@ -329,6 +340,27 @@
 		BF25D21515B2AAEE00411924 /* IMYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMYAppDelegate.h; sourceTree = "<group>"; };
 		BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMYAppDelegate.m; sourceTree = "<group>"; };
 		BF25D21915B2AAEE00411924 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		BF2EE6AE1601AE7F00A50DC5 /* IMYPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYPurchaseViewController.h; path = UI/Setting/IMYPurchaseViewController.h; sourceTree = "<group>"; };
+		BF2EE6AF1601AE7F00A50DC5 /* IMYPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYPurchaseViewController.m; path = UI/Setting/IMYPurchaseViewController.m; sourceTree = "<group>"; };
+		BF2EE6BE1601AFC100A50DC5 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		BF2EE6BF1601AFC100A50DC5 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		BF2EE6C01601AFC100A50DC5 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		BF2EE6C11601AFC100A50DC5 /* ECPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPurchase.h; sourceTree = "<group>"; };
+		BF2EE6C21601AFC100A50DC5 /* ECPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPurchase.m; sourceTree = "<group>"; };
+		BF2EE6C31601AFC100A50DC5 /* ECStoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECStoreObserver.h; sourceTree = "<group>"; };
+		BF2EE6C41601AFC100A50DC5 /* ECStoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECStoreObserver.m; sourceTree = "<group>"; };
+		BF2EE6C61601AFC100A50DC5 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		BF2EE6C71601AFC100A50DC5 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		BF2EE6C81601AFC100A50DC5 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		BF2EE6C91601AFC100A50DC5 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		BF2EE6CA1601AFC100A50DC5 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		BF2EE6CB1601AFC100A50DC5 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		BF2EE6CC1601AFC100A50DC5 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		BF2EE6CD1601AFC100A50DC5 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		BF2EE6DA1601B02700A50DC5 /* IAPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPHandler.h; path = "Muyun iOS SDK/IAPHandler.h"; sourceTree = "<group>"; };
+		BF2EE6DB1601B02700A50DC5 /* IAPHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IAPHandler.m; path = "Muyun iOS SDK/IAPHandler.m"; sourceTree = "<group>"; };
+		BF2EE6DD1601B06500A50DC5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		BF2EE6E61601B23000A50DC5 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		BF3DABDE15E6914200137DA2 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = opentok.bundle; path = Opentok.framework/Versions/A/Resources/opentok.bundle; sourceTree = "<group>"; };
 		BF40430015E3F0BC00FFAC62 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		BF40430115E3F0BC00FFAC62 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
@@ -554,6 +586,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2EE6E71601B23000A50DC5 /* libz.1.2.5.dylib in Frameworks */,
+				BFC893D215B8F0630095F8BA /* SystemConfiguration.framework in Frameworks */,
+				BF2EE6DE1601B06500A50DC5 /* StoreKit.framework in Frameworks */,
 				BFC893D415B8F0630095F8BA /* Security.framework in Frameworks */,
 				BF8D4F1F15BE895400161E3C /* MapKit.framework in Frameworks */,
 				BF8D4F1D15BE893E00161E3C /* ImageIO.framework in Frameworks */,
@@ -566,7 +601,6 @@
 				BFC893CF15B8F0630095F8BA /* CoreTelephony.framework in Frameworks */,
 				BFC893D015B8F0630095F8BA /* MobileCoreServices.framework in Frameworks */,
 				BFC893D115B8F0630095F8BA /* CFNetwork.framework in Frameworks */,
-				BFC893D215B8F0630095F8BA /* SystemConfiguration.framework in Frameworks */,
 				BFC893D315B8F0630095F8BA /* CoreMedia.framework in Frameworks */,
 				BFC893D515B8F0630095F8BA /* AudioToolbox.framework in Frameworks */,
 				BFC893D615B8F0630095F8BA /* CoreAudio.framework in Frameworks */,
@@ -772,6 +806,7 @@
 		BF25D20515B2AAEE00411924 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF2EE6DD1601B06500A50DC5 /* StoreKit.framework */,
 				BF8D4F1E15BE895300161E3C /* MapKit.framework */,
 				BF8D4F1C15BE893E00161E3C /* ImageIO.framework */,
 				BFA9D02515B30A0400D1083F /* AddressBook.framework */,
@@ -786,6 +821,7 @@
 				BFC893C515B8F0630095F8BA /* CoreVideo.framework */,
 				BFC893CC15B8F0630095F8BA /* Foundation.framework */,
 				BFC893C815B8F0630095F8BA /* libstdc++.dylib */,
+				BF2EE6E61601B23000A50DC5 /* libz.1.2.5.dylib */,
 				BFC893C715B8F0630095F8BA /* libz.dylib */,
 				BFD9DC0315B322F30008A6D8 /* MessageUI.framework */,
 				BFC893BE15B8F0630095F8BA /* MobileCoreServices.framework */,
@@ -832,6 +868,44 @@
 				BFE6466515FC8C2E00A6CD89 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF2EE6B11601AFC100A50DC5 /* ECPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				BF2EE6BD1601AFC100A50DC5 /* based64 */,
+				BF2EE6C11601AFC100A50DC5 /* ECPurchase.h */,
+				BF2EE6C21601AFC100A50DC5 /* ECPurchase.m */,
+				BF2EE6C31601AFC100A50DC5 /* ECStoreObserver.h */,
+				BF2EE6C41601AFC100A50DC5 /* ECStoreObserver.m */,
+				BF2EE6C51601AFC100A50DC5 /* json-framework */,
+			);
+			path = ECPurchase;
+			sourceTree = "<group>";
+		};
+		BF2EE6BD1601AFC100A50DC5 /* based64 */ = {
+			isa = PBXGroup;
+			children = (
+				BF2EE6BE1601AFC100A50DC5 /* GTMBase64.h */,
+				BF2EE6BF1601AFC100A50DC5 /* GTMBase64.m */,
+				BF2EE6C01601AFC100A50DC5 /* GTMDefines.h */,
+			);
+			path = based64;
+			sourceTree = "<group>";
+		};
+		BF2EE6C51601AFC100A50DC5 /* json-framework */ = {
+			isa = PBXGroup;
+			children = (
+				BF2EE6C61601AFC100A50DC5 /* SBJSON.h */,
+				BF2EE6C71601AFC100A50DC5 /* SBJSON.m */,
+				BF2EE6C81601AFC100A50DC5 /* SBJsonBase.h */,
+				BF2EE6C91601AFC100A50DC5 /* SBJsonBase.m */,
+				BF2EE6CA1601AFC100A50DC5 /* SBJsonParser.h */,
+				BF2EE6CB1601AFC100A50DC5 /* SBJsonParser.m */,
+				BF2EE6CC1601AFC100A50DC5 /* SBJsonWriter.h */,
+				BF2EE6CD1601AFC100A50DC5 /* SBJsonWriter.m */,
+			);
+			path = "json-framework";
 			sourceTree = "<group>";
 		};
 		BF4042FC15E3F0BC00FFAC62 /* Slicing */ = {
@@ -924,6 +998,8 @@
 		BF741AE815B3F5BF009C9E6F /* Muyun SDK */ = {
 			isa = PBXGroup;
 			children = (
+				BF2EE6DA1601B02700A50DC5 /* IAPHandler.h */,
+				BF2EE6DB1601B02700A50DC5 /* IAPHandler.m */,
 				BF741AE415B3F5BB009C9E6F /* IMYHttpClient.h */,
 				BF741AE515B3F5BB009C9E6F /* IMYHttpClient.m */,
 				BFDD055615BA64E0005B30E4 /* IMYDataManager.h */,
@@ -935,6 +1011,7 @@
 		BF87F16915DE46D0004C5437 /* Third Party Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BF2EE6B11601AFC100A50DC5 /* ECPurchase */,
 				BF22711515E024DA00614200 /* JMTabView */,
 				BF87F16A15DE46D0004C5437 /* ASIHttpRequest */,
 				BF87F18115DE46D0004C5437 /* MBProgressHUD */,
@@ -1114,6 +1191,8 @@
 				BFE65E7715D78B1100355C07 /* IMYProfileViewController.m */,
 				BFE6471315FDB4E900A6CD89 /* IMYFeedBackViewController.h */,
 				BFE6471415FDB4E900A6CD89 /* IMYFeedBackViewController.m */,
+				BF2EE6AE1601AE7F00A50DC5 /* IMYPurchaseViewController.h */,
+				BF2EE6AF1601AE7F00A50DC5 /* IMYPurchaseViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -1504,6 +1583,15 @@
 				BFD152BF15E0349D004F97D8 /* CustomTabItem.m in Sources */,
 				BFDDE9FC15E1EE77000BBB11 /* UINavigationBar+DropShadow.m in Sources */,
 				BFE6471515FDB4E900A6CD89 /* IMYFeedBackViewController.m in Sources */,
+				BF2EE6B01601AE8000A50DC5 /* IMYPurchaseViewController.m in Sources */,
+				BF2EE6D31601AFC100A50DC5 /* GTMBase64.m in Sources */,
+				BF2EE6D41601AFC100A50DC5 /* ECPurchase.m in Sources */,
+				BF2EE6D51601AFC100A50DC5 /* ECStoreObserver.m in Sources */,
+				BF2EE6D61601AFC100A50DC5 /* SBJSON.m in Sources */,
+				BF2EE6D71601AFC100A50DC5 /* SBJsonBase.m in Sources */,
+				BF2EE6D81601AFC100A50DC5 /* SBJsonParser.m in Sources */,
+				BF2EE6D91601AFC100A50DC5 /* SBJsonWriter.m in Sources */,
+				BF2EE6DC1601B02700A50DC5 /* IAPHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1631,7 +1719,7 @@
 		BF25D22C15B2AAEE00411924 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ZHANG XIN NAN (7KTY256XRX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Apple Team (UTRG3JBVUC)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1643,7 +1731,7 @@
 				INFOPLIST_FILE = "iMuyun/iMuyun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D90DE20-D652-4703-95ED-8497ABB2171A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "41C02A60-0E13-4870-A255-4E2C12A4526B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1651,7 +1739,7 @@
 		BF25D22D15B2AAEE00411924 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ZHANG XIN NAN (7KTY256XRX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Apple Team (UTRG3JBVUC)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1663,7 +1751,7 @@
 				INFOPLIST_FILE = "iMuyun/iMuyun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D90DE20-D652-4703-95ED-8497ABB2171A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "41C02A60-0E13-4870-A255-4E2C12A4526B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

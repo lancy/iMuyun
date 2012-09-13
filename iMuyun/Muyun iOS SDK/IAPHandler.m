@@ -1,9 +1,9 @@
 //
 //  IAPHandler.m
-//  iMuyun
+//  IAPDemo
 //
-//  Created by Lancy on 13/9/12.
-//
+//  Created by luoyl on 12-3-24.
+//  Copyright (c) 2012年 http://luoyl.info. All rights reserved.
 //
 
 #import "IAPHandler.h"
@@ -17,11 +17,11 @@ static IAPHandler *DefaultHandle_ = nil;
 
 + (void)initECPurchaseWithHandler
 {
-    @synchronized(self)     {
+	@synchronized(self)     {
         if (!DefaultHandle_) {
             DefaultHandle_ = [[IAPHandler alloc]init];
         }
-    }
+    }    
 }
 
 - (id)init
@@ -47,7 +47,7 @@ static IAPHandler *DefaultHandle_ = nil;
 // 即 ECVerifyRecepitModeNone 模式下
 -(void)didFailedTransaction:(NSString *)proIdentifier
 {
-    //   NSLog(@"交易取消");
+//   NSLog(@"交易取消");
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPDidFailedTransaction object:proIdentifier];
 }
 
@@ -59,7 +59,7 @@ static IAPHandler *DefaultHandle_ = nil;
 
 -(void)didCompleteTransaction:(NSString *)proIdentifier
 {
-    //  NSLog(@" 交易成功 ");
+//  NSLog(@" 交易成功 ");
     [self afterProductBuyed:proIdentifier];
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPDidCompleteTransaction object:proIdentifier];
 }
@@ -75,7 +75,7 @@ static IAPHandler *DefaultHandle_ = nil;
 -(void)didCompleteTransactionAndVerifyFailed:(NSString *)proIdentifier withError:(NSString *)error
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPDidCompleteTransactionAndVerifyFailed object:proIdentifier];
-    
+
 }
 
 //用户购买某件商品成功后的处理逻辑
