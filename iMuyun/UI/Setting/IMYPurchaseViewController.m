@@ -30,8 +30,8 @@
     [self registIapObservers];
     [IAPHandler initECPurchaseWithHandler];
     //iap产品编号集合，这里你需要替换为你自己的iap列表
-    NSArray *productIds = [NSArray arrayWithObjects:@"yingbox.p1",
-                           @"yingbox.p2", nil];
+    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.iMuyun.item1",
+                           @"com.imuyun.iMuyun.item2", nil];
     //从AppStore上获取产品信息
     [[ECPurchase shared]requestProductData:productIds];
 }
