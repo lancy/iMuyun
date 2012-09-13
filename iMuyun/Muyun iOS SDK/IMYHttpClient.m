@@ -53,7 +53,7 @@ static NSString* const kSendFeedBack = @"sendFeedBack/";
 
 - (void)requestLoginWithUsername:(NSString *) username password:(NSString*) password delegate:(id)delegate
 {
-    NSLog(@"Begin request login with username: %@ password: %@ and push token: %@", username, password, [[NSUserDefaults standardUserDefaults] valueForKey:@"myToken"]);
+    NSLog(@"Begin request login with username: %@ and push token: %@", username, [[NSUserDefaults standardUserDefaults] valueForKey:@"myToken"]);
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingString:kLogin]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
