@@ -4,15 +4,6 @@
 //
 //  Created by Lancy on 13/9/12.
 //
-//
-
-//
-//  ProductsViewController.m
-//  IAPDemo
-//
-//  Created by luoyl on 12-3-24.
-//  Copyright (c) 2012年 http://luoyl.info. All rights reserved.
-//
 
 #import "IMYPurchaseViewController.h"
 #import "IAPHandler.h"
@@ -30,8 +21,8 @@
     [self registIapObservers];
     [IAPHandler initECPurchaseWithHandler];
     //iap产品编号集合，这里你需要替换为你自己的iap列表
-    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.iMuyun.item1",
-                           @"com.imuyun.iMuyun.item2", nil];
+    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.imuyun.item1",
+                           @"com.imuyun.imuyun.item2", nil];
     //从AppStore上获取产品信息
     [[ECPurchase shared]requestProductData:productIds];
 }
