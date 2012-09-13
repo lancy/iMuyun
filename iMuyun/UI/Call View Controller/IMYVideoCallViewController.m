@@ -273,11 +273,6 @@ static NSString* const kUserName = @"lancy";
 - (IBAction)tapEndButton:(id)sender {
 //    [[IMYHttpClient shareClient] requestEndVideoCallWithUsername:self.username delegate:self];
     NSLog(@"User tap end button");
-    
-    // recents need to reload
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:@"No" forKey:@"rencentsNeedToReload"];
-
     [self.session disconnect];
     if ([self presentingViewController] != nil) {
         [self dismissModalViewControllerAnimated:YES];
