@@ -21,6 +21,7 @@
 @property NSInteger callTime;
 @property NSInteger hiddenTime;
 
+@property BOOL isCallOut;
 
 @property (nonatomic, strong) NSString* username;
 
@@ -79,6 +80,7 @@ static NSString* const kUserName = @"lancy";
     [self customUserInterface];
     
     self.callTime = 0;
+    self.isCallOut = NO;
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
 
 }
@@ -181,6 +183,7 @@ static NSString* const kUserName = @"lancy";
             break;
         case IMYVideoCallStateCallOut:
             [self.stateLabel setText:[NSString stringWithFormat:@"Calling Muyun Interpreter"]];
+            self.isCallOut = YES;
             
             // request video call
 //            [[IMYHttpClient shareClient] requestInterpreterVideoCallWithUsername:self.username myLanguage:self.myLanguage targetLanguage:self.targetLanguage delegate:self];

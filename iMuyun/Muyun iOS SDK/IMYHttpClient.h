@@ -45,4 +45,6 @@
 
 - (void)requestUserBalanceWithUsername:(NSString *)username delegate:(id)delegate;
 
+- (void)requestaddBalanceWithUsername:(NSString *)username addBalance:(NSString *)addBalance delegate:(id)delegate;
+
 @end

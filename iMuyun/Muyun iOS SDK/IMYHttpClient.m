@@ -39,6 +39,8 @@ static NSString* const kUploadAvatar = @"uploadAvatar/";
 static NSString* const kAddContact = @"addContact/";
 static NSString* const kSendFeedBack = @"sendFeedBack/";
 static NSString* const kUserBalance = @"userBalance/";
+static NSString* const kAddBalance = @"addBalance/";
+
 
 + (IMYHttpClient *)shareClient
 {
@@ -244,6 +246,16 @@ static NSString* const kUserBalance = @"userBalance/";
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUserBalance]]];
     [request setDelegate:delegate];
     [request setPostValue:username forKey:@"username"];
+    [request startAsynchronous];
+}
+
+- (void)requestaddBalanceWithUsername:(NSString *)username addBalance:(NSString *)addBalance delegate:(id)delegate
+{
+    NSLog(@"begin request add balance with username: %@, balance: %@", username, addBalance);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kAddBalance]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request setPostValue:addBalance forKey:@"addBalance"];
     [request startAsynchronous];
 }
 

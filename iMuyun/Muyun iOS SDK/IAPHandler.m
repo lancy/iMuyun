@@ -83,5 +83,37 @@ static IAPHandler *DefaultHandle_ = nil;
 -(void)afterProductBuyed:(NSString*)proIdentifier
 {
     //写下你的逻辑， 加金币 or 解锁 or ...
+    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    NSLog(@"handle %@", proIdentifier);
+    NSString *addBalance = [[proIdentifier componentsSeparatedByString:@"."] lastObject];
+    [[IMYHttpClient shareClient] requestaddBalanceWithUsername:myUserName addBalance:addBalance delegate:self];
+    
 }
+
+#pragma mark - http request methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"Request finished, results: %@", results);
+    if ([results isKindOfClass:[NSNull class]]) {
+        NSLog(@"Add balance fail");
+    }
+    
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"addBalance"]) {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Add balance success");
+        } else {
+            NSLog(@"Add balance fail");
+        }
+    }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request Failed, %@", error);
+}
+
 @end

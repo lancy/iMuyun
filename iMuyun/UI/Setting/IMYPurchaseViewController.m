@@ -22,9 +22,7 @@
     [self registIapObservers];
     [IAPHandler initECPurchaseWithHandler];
     //iap产品编号集合，这里你需要替换为你自己的iap列表
-    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.iMuyun.item1",
-                           @"com.imuyun.iMuyun.item2",
-                           @"com.imuyun.iMuyun.item3", nil];
+    NSArray *productIds = [NSArray arrayWithObjects:@"imuyun.12", nil];
     
     //从AppStore上获取产品信息
     [[ECPurchase shared]requestProductData:productIds];
@@ -102,18 +100,19 @@
         }
         SKProduct *product = [products_ objectAtIndex:indexPath.row];
         //产品名称
-        UILabel *localizedTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 130, 20)];
+        UILabel *localizedTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, 7, 130, 30)];
         localizedTitle.text = product.localizedTitle;
         [localizedTitle setBackgroundColor:[UIColor clearColor]];
         //产品价格
-        UILabel *localizedPrice = [[UILabel alloc]initWithFrame:CGRectMake(150, 10, 100, 20)];
+        UILabel *localizedPrice = [[UILabel alloc]initWithFrame:CGRectMake(150, 7, 100, 30)];
         localizedPrice.text = product.localizedPrice;
         [localizedPrice setBackgroundColor:[UIColor clearColor]];
         //购买按钮
         UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         buyButton.tag = indexPath.row;
-        buyButton.frame = CGRectMake(250, 10, 50, 20);
+        buyButton.frame = CGRectMake(240, 7, 50, 30);
         [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
+        [buyButton setTintColor:[UIColor lightGrayColor]];
         [buyButton addTarget:self action:@selector(buy:) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.contentView addSubview:localizedTitle];
@@ -227,6 +226,14 @@
 {
     NSString *proIdentifier = [notification object];
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易成功，产品编号：%@",proIdentifier]];
+    
+    // handle purchase
+    NSString *addBalance = [[proIdentifier componentsSeparatedByString:@"."] lastObject];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSInteger bal = [[defaults valueForKey:@"balance"] intValue] + [addBalance intValue];
+    NSString *newBalance = [NSString stringWithFormat:@"%d", bal];
+    [defaults setValue:newBalance forKey:@"balance"];
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [self.view setUserInteractionEnabled:YES];
