@@ -203,6 +203,10 @@
 		BFA9A82D15C6EE0200E4D43E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CD15B8F0630095F8BA /* CoreGraphics.framework */; };
 		BFA9D02615B30A0400D1083F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02515B30A0400D1083F /* AddressBook.framework */; };
 		BFA9D02815B30A0900D1083F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9D02715B30A0900D1083F /* AddressBookUI.framework */; };
+		BFABAF98160460F400711B59 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABAF91160460F400711B59 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFABAF99160460F400711B59 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABAF93160460F400711B59 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFABAF9A160460F400711B59 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABAF95160460F400711B59 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BFABAF9B160460F400711B59 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABAF97160460F400711B59 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BFABD99615BFBC240096C911 /* IMYRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99515BFBC240096C911 /* IMYRecordCell.m */; };
 		BFABD99A15BFBC7E0096C911 /* IMYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99915BFBC7E0096C911 /* IMYSettingViewController.m */; };
 		BFABD99D15BFBC860096C911 /* IMYRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABD99C15BFBC860096C911 /* IMYRecentsViewController.m */; };
@@ -503,6 +507,14 @@
 		BF8D4F2815BE953700161E3C /* IMYMuyunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYMuyunViewController.m; path = UI/Contacts/IMYMuyunViewController.m; sourceTree = "<group>"; };
 		BFA9D02515B30A0400D1083F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BFA9D02715B30A0900D1083F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		BFABAF90160460F400711B59 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		BFABAF91160460F400711B59 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		BFABAF92160460F400711B59 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		BFABAF93160460F400711B59 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		BFABAF94160460F400711B59 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		BFABAF95160460F400711B59 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		BFABAF96160460F400711B59 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		BFABAF97160460F400711B59 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		BFABD99415BFBC240096C911 /* IMYRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYRecordCell.h; path = UI/Recents/IMYRecordCell.h; sourceTree = "<group>"; };
 		BFABD99515BFBC240096C911 /* IMYRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYRecordCell.m; path = UI/Recents/IMYRecordCell.m; sourceTree = "<group>"; };
 		BFABD99815BFBC7E0096C911 /* IMYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYSettingViewController.h; path = UI/Setting/IMYSettingViewController.h; sourceTree = "<group>"; };
@@ -828,6 +840,7 @@
 		BF25D20C15B2AAEE00411924 /* iMuyun */ = {
 			isa = PBXGroup;
 			children = (
+				BFABAF8F160460F400711B59 /* json-framework */,
 				BF25D21515B2AAEE00411924 /* IMYAppDelegate.h */,
 				BF25D21615B2AAEE00411924 /* IMYAppDelegate.m */,
 				BFD152A015E02A80004F97D8 /* Others */,
@@ -1167,6 +1180,21 @@
 				BF2EE6AF1601AE7F00A50DC5 /* IMYPurchaseViewController.m */,
 			);
 			name = Setting;
+			sourceTree = "<group>";
+		};
+		BFABAF8F160460F400711B59 /* json-framework */ = {
+			isa = PBXGroup;
+			children = (
+				BFABAF90160460F400711B59 /* SBJSON.h */,
+				BFABAF91160460F400711B59 /* SBJSON.m */,
+				BFABAF92160460F400711B59 /* SBJsonBase.h */,
+				BFABAF93160460F400711B59 /* SBJsonBase.m */,
+				BFABAF94160460F400711B59 /* SBJsonParser.h */,
+				BFABAF95160460F400711B59 /* SBJsonParser.m */,
+				BFABAF96160460F400711B59 /* SBJsonWriter.h */,
+				BFABAF97160460F400711B59 /* SBJsonWriter.m */,
+			);
+			path = "json-framework";
 			sourceTree = "<group>";
 		};
 		BFABD99715BFBC370096C911 /* Recents */ = {
@@ -1560,6 +1588,10 @@
 				BF2EE6D41601AFC100A50DC5 /* ECPurchase.m in Sources */,
 				BF2EE6D51601AFC100A50DC5 /* ECStoreObserver.m in Sources */,
 				BF2EE6DC1601B02700A50DC5 /* IAPHandler.m in Sources */,
+				BFABAF98160460F400711B59 /* SBJSON.m in Sources */,
+				BFABAF99160460F400711B59 /* SBJsonBase.m in Sources */,
+				BFABAF9A160460F400711B59 /* SBJsonParser.m in Sources */,
+				BFABAF9B160460F400711B59 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1699,7 +1731,7 @@
 				INFOPLIST_FILE = "iMuyun/iMuyun-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "916A127B-B7C7-4FE8-B838-C4B9B4EF9965";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8F637347-3C5C-4939-A831-FD078BB3A15A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

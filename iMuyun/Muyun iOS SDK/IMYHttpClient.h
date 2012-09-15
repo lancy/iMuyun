@@ -41,6 +41,8 @@
 
 - (void)requestUploadAvatarWithUsername:(NSString *)username avatarImage:(UIImage *)avatarImage delegate:(id)delegate;
 
-- (void)requestSendFeedBackWithUsername:(NSString *)username message:(NSString *)message deleagte:(id)delegate; 
+- (void)requestSendFeedBackWithUsername:(NSString *)username message:(NSString *)message deleagte:(id)delegate;
+
+- (void)requestUserBalanceWithUsername:(NSString *)username delegate:(id)delegate;
 
 @end

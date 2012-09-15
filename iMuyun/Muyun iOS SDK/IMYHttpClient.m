@@ -15,10 +15,10 @@
 // http://222.200.181.42/
 // http://omegaga.net:8000/
 
-//static NSString* const kHost = @"http://222.200.181.42/";
+static NSString* const kHost = @"http://222.200.181.42/";
 //static NSString* const kHost = @"http://omegaga.net:8000/";
 //static NSString* const kHost = @"http://omegaga.net/muyunvideo/";
-static NSString* const kHost = @"http://imuyun.com:8000/";
+//static NSString* const kHost = @"http://imuyun.com:8000/";
 static NSString* const kLogin = @"login/";
 static NSString* const kRegister = @"register/";
 static NSString* const kUserInfo = @"userInfo/";
@@ -38,6 +38,7 @@ static NSString* const kInterpreterVideoCall = @"interpreterVideoCallTo/";
 static NSString* const kUploadAvatar = @"uploadAvatar/";
 static NSString* const kAddContact = @"addContact/";
 static NSString* const kSendFeedBack = @"sendFeedBack/";
+static NSString* const kUserBalance = @"userBalance/";
 
 + (IMYHttpClient *)shareClient
 {
@@ -235,6 +236,15 @@ static NSString* const kSendFeedBack = @"sendFeedBack/";
     [request setPostValue:message forKey:@"message"];
     [request startAsynchronous];
     
+}
+
+- (void)requestUserBalanceWithUsername:(NSString *)username delegate:(id)delegate
+{
+    NSLog(@"begin request user balance with username: %@", username);
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[kHost stringByAppendingFormat:kUserBalance]]];
+    [request setDelegate:delegate];
+    [request setPostValue:username forKey:@"username"];
+    [request startAsynchronous];
 }
 
 - (NSData*)toJSON

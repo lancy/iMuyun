@@ -7,6 +7,7 @@
 //
 
 #import "IAPHandler.h"
+#import "IMYHttpClient.h"
 
 @interface IAPHandler()
 -(void)afterProductBuyed:(NSString*)proIdentifier;

@@ -122,8 +122,7 @@
             [SFHFKeychainUtils storeUsername:username andPassword:password forServiceName:@"iMuyun" updateExisting:TRUE error:&error];
             NSLog(@"Did store username: %@ and password: %@", username, password);
             
-            [[IMYHttpClient shareClient] requestUserInfoWithUsername:username delegate:self];
-            
+            [[IMYHttpClient shareClient] requestUserBalanceWithUsername:username delegate:self];
             
         } else {
 //            [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -131,6 +130,13 @@
             [[MBProgressHUD HUDForView:self.view] setLabelText:@"Username or password error"];
             [[MBProgressHUD HUDForView:self.view] hide:YES afterDelay:1.0];
         }
+    }
+    else if ([[results valueForKey:@"requestType"] isEqualToString:@"userBalance"])
+    {
+        [[NSUserDefaults standardUserDefaults] setValue:[results valueForKey:@"balance"] forKey:@"balance"];
+        
+        NSString *username = self.usernameTextField.text;
+        [[IMYHttpClient shareClient] requestUserInfoWithUsername:username delegate:self];
     }
     else if ([[results valueForKey:@"requestType"] isEqualToString:@"userInfo"])
     {

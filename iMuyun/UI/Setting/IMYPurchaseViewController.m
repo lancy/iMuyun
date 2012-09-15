@@ -1,4 +1,4 @@
-//
+
 //  IMYPurchaseViewController.m
 //  iMuyun
 //
@@ -6,6 +6,7 @@
 //
 
 #import "IMYPurchaseViewController.h"
+#import "MBProgressHUD.h"
 #import "IAPHandler.h"
 
 @interface IMYPurchaseViewController ()
@@ -21,10 +22,18 @@
     [self registIapObservers];
     [IAPHandler initECPurchaseWithHandler];
     //iap产品编号集合，这里你需要替换为你自己的iap列表
-    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.item1",
-                           @"com.imuyun.item2", nil];
+    NSArray *productIds = [NSArray arrayWithObjects:@"com.imuyun.iMuyun.item1",
+                           @"com.imuyun.iMuyun.item2",
+                           @"com.imuyun.iMuyun.item3", nil];
+    
     //从AppStore上获取产品信息
     [[ECPurchase shared]requestProductData:productIds];
+    
+    // Make user interation no
+    MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hub setLabelText:@"Request Purchase List..."];
+    [self.view setUserInteractionEnabled:NO];
+    
 }
 
 - (void)viewWillUnload
@@ -32,48 +41,86 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+#pragma mark - Table View Methods
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return products_ ? [products_ count] : 0;
+    if (section == 0) {
+        return 1;
+    } else {
+        return products_ ? [products_ count] : 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType =  UITableViewCellAccessoryNone;
-    } else {
-        for (UIView *view in [cell.contentView subviews]) {
-            [view removeFromSuperview];
+    if (indexPath.section == 0) {
+        static NSString *CellIdentifier = @"balanceCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.accessoryType =  UITableViewCellAccessoryNone;
         }
+        
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [cell.textLabel setText:@"My Balances:"];
+        [cell.detailTextLabel setText:[defaults valueForKey:@"balance"]];
+        
+        return cell;
+    } else
+    {
+        static NSString *CellIdentifier = @"Cell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.accessoryType =  UITableViewCellAccessoryNone;
+        } else {
+            for (UIView *view in [cell.contentView subviews]) {
+                [view removeFromSuperview];
+            }
+        }
+        SKProduct *product = [products_ objectAtIndex:indexPath.row];
+        //产品名称
+        UILabel *localizedTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 130, 20)];
+        localizedTitle.text = product.localizedTitle;
+        [localizedTitle setBackgroundColor:[UIColor clearColor]];
+        //产品价格
+        UILabel *localizedPrice = [[UILabel alloc]initWithFrame:CGRectMake(150, 10, 100, 20)];
+        localizedPrice.text = product.localizedPrice;
+        [localizedPrice setBackgroundColor:[UIColor clearColor]];
+        //购买按钮
+        UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        buyButton.tag = indexPath.row;
+        buyButton.frame = CGRectMake(250, 10, 50, 20);
+        [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
+        [buyButton addTarget:self action:@selector(buy:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.contentView addSubview:localizedTitle];
+        [cell.contentView addSubview:localizedPrice];
+        [cell.contentView addSubview:buyButton];
+        return cell;
     }
-    SKProduct *product = [products_ objectAtIndex:indexPath.row];
-    //产品名称
-    UILabel *localizedTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 130, 20)];
-    localizedTitle.text = product.localizedTitle;
-    //产品价格
-    UILabel *localizedPrice = [[UILabel alloc]initWithFrame:CGRectMake(150, 10, 100, 20)];
-    localizedPrice.text = product.localizedPrice;
-    //购买按钮
-    UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    buyButton.tag = indexPath.row;
-    buyButton.frame = CGRectMake(250, 10, 50, 20);
-    [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
-    [buyButton addTarget:self action:@selector(buy:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [cell.contentView addSubview:localizedTitle];
-    [cell.contentView addSubview:localizedPrice];
-    [cell.contentView addSubview:buyButton];
-    return cell;
 }
 
 - (void)getedProds:(NSNotification*)notification
@@ -87,27 +134,24 @@
     SKProduct *product = [products_ objectAtIndex:sender.tag];
     NSLog(@"购买商品：%@", product.productIdentifier);
     [[ECPurchase shared]addPaymentWithProduct:product];
-}
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.view setUserInteractionEnabled:NO];
+    
 }
 
 //接收从app store抓取回来的产品，显示在表格上
 -(void) receivedProducts:(NSNotification*)notification
 {
+    // Make user interation no
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.view setUserInteractionEnabled:YES];
+
     products_ = [[NSArray alloc]initWithArray:[notification object]];
     NSLog(@"Products = %@", products_);
     
     if (!products_ || [products_ count] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"IPA Demo" message:@"获取不到产品列表，请确定已经在itunes connect注册了产品，并且配置无误！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] ;
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Purchase" message:@"获取不到产品列表，请确定已经在itunes connect注册了产品，并且配置无误！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] ;
         [alert show];
     }
     
@@ -149,7 +193,7 @@
 
 -(void)showAlertWithMsg:(NSString*)message
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"IAP反馈"
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"iMuyun"
                                                    message:message
                                                   delegate:nil
                                          cancelButtonTitle:@"OK"
@@ -160,28 +204,43 @@
 -(void) failedTransaction:(NSNotification*)notification
 {
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易取消(%@)",[notification name]]];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.view setUserInteractionEnabled:YES];
+
 }
 
 -(void) restoreTransaction:(NSNotification*)notification
 {
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易恢复(%@)",[notification name]]];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.view setUserInteractionEnabled:YES];
 }
 
 -(void )completeTransaction:(NSNotification*)notification
 {
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易成功(%@)",[notification name]]];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.view setUserInteractionEnabled:YES];
 }
 
 -(void) completeTransactionAndVerifySucceed:(NSNotification*)notification
 {
     NSString *proIdentifier = [notification object];
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易成功，产品编号：%@",proIdentifier]];
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.view setUserInteractionEnabled:YES];
+    [self.tableView reloadData];
+
 }
 
 -(void) completeTransactionAndVerifyFailed:(NSNotification*)notification
 {
     NSString *proIdentifier = [notification object];
     [self showAlertWithMsg:[NSString stringWithFormat:@"产品%@交易失败",proIdentifier]];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self.view setUserInteractionEnabled:YES];
+
 }
 
 @end
