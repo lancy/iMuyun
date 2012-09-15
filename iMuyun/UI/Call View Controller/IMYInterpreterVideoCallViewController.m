@@ -205,6 +205,7 @@ static NSString* const kUserName = @"lancy";
 
 - (IBAction)tapEndButton:(id)sender {
     [self.session disconnect];
+    [self setIsCallOut:NO];
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -228,6 +229,26 @@ static NSString* const kUserName = @"lancy";
         self.callTime += 1;
         [self.timerLabel setText:[NSString stringWithFormat:@"%02d:%02d", self.callTime / 60, self.callTime % 60]];
     }
+    
+    if (self.isCallOut) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSInteger balance = [[defaults valueForKey:@"balance"] intValue];
+        NSInteger useOut = self.callTime / 60;
+        
+        if (useOut * 3 >= balance) {
+            NSLog(@"User use out balance");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Your balance has reached 0." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [self tapEndButton:self];
+        }
+        //        } else if ((useOut + 1) * 3 >= balance) {
+        //            NSLog(@"User balance is going to be 0 in 1 mins.");
+        //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notice" message:@"Your balance is going to reach 0 in 1 min." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        //            [alert show];
+        //        }
+        
+    }
+
 }
 
 

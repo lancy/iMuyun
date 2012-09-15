@@ -55,6 +55,8 @@
 #pragma mark - UI Methods
 - (void)creatUserinterface
 {
+    [self setTitle:@"Feedback"];
+    
     // feedback TextView
     UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg2"]];
     [background setFrame:CGRectMake(0, 0, 320, 460)];

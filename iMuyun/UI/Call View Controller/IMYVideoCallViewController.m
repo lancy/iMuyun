@@ -277,6 +277,8 @@ static NSString* const kUserName = @"lancy";
 //    [[IMYHttpClient shareClient] requestEndVideoCallWithUsername:self.username delegate:self];
     NSLog(@"User tap end button");
     [self.session disconnect];
+    self.isCallOut = NO;
+    
     if ([self presentingViewController] != nil) {
         [self dismissModalViewControllerAnimated:YES];
     } else {
@@ -357,7 +359,6 @@ static NSString* const kUserName = @"lancy";
 //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notice" message:@"Your balance is going to reach 0 in 1 min." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //            [alert show];
 //        }
-        
     }
 
 }
