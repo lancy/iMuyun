@@ -32,6 +32,7 @@ static IAPHandler *DefaultHandle_ = nil;
         [[ECPurchase shared] setProductDelegate:self];
         [[ECPurchase shared] setTransactionDelegate:self];
         [[ECPurchase shared] setVerifyRecepitMode:ECVerifyRecepitModeiPhone];
+//        [[ECPurchase shared] setVerifyRecepitMode:ECVerifyRecepitModeServer];
     }
     return self;
 }
@@ -83,37 +84,15 @@ static IAPHandler *DefaultHandle_ = nil;
 -(void)afterProductBuyed:(NSString*)proIdentifier
 {
     //写下你的逻辑， 加金币 or 解锁 or ...
-    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
-    NSLog(@"handle %@", proIdentifier);
+    // handle purchase
     NSString *addBalance = [[proIdentifier componentsSeparatedByString:@"."] lastObject];
-    [[IMYHttpClient shareClient] requestaddBalanceWithUsername:myUserName addBalance:addBalance delegate:self];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    NSInteger bal = [[defaults valueForKey:@"balance"] intValue] + [addBalance intValue];
+    NSString *newBalance = [NSString stringWithFormat:@"%d", bal];
+    [defaults setValue:newBalance forKey:@"balance"];
+
 }
 
-#pragma mark - http request methods
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    NSError *error;
-    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
-    NSLog(@"Request finished, results: %@", results);
-    if ([results isKindOfClass:[NSNull class]]) {
-        NSLog(@"Add balance fail");
-    }
-    
-    if ([[results valueForKey:@"requestType"] isEqualToString:@"addBalance"]) {
-        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
-            NSLog(@"Add balance success");
-        } else {
-            NSLog(@"Add balance fail");
-        }
-    }
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-    NSError *error = [request error];
-    NSLog(@"Request Failed, %@", error);
-}
 
 @end

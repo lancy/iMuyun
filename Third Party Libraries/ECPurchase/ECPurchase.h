@@ -23,6 +23,7 @@
 #else
 #define VAILDATING_RECEIPTS_URL @"https://sandbox.itunes.apple.com/verifyReceipt"
 //#define VAILDATING_RECEIPTS_URL @"https://buy.itunes.apple.com/verifyReceipt"
+#define IMUYUN_VAILDATING_URL @"http://imuyun.com:8000/addBalance"
 #endif
 
 #ifndef SINGLETON_INTERFACE(CLASSNAME)

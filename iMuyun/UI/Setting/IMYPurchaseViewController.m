@@ -30,8 +30,13 @@
     // Make user interation no
     MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [hub setLabelText:@"Request Purchase List..."];
-    [self.view setUserInteractionEnabled:NO];
+    [self.navigationController.view setUserInteractionEnabled:NO];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewWillUnload
@@ -81,7 +86,7 @@
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [cell.textLabel setText:@"My Balances:"];
-        [cell.detailTextLabel setText:[defaults valueForKey:@"balance"]];
+        [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@",[defaults valueForKey:@"balance"]]];
         
         return cell;
     } else
@@ -135,7 +140,7 @@
     [[ECPurchase shared]addPaymentWithProduct:product];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.view setUserInteractionEnabled:NO];
+    [self.navigationController.view setUserInteractionEnabled:NO];
     
 }
 
@@ -144,7 +149,7 @@
 {
     // Make user interation no
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.view setUserInteractionEnabled:YES];
+    [self.navigationController.view setUserInteractionEnabled:YES];
 
     products_ = [[NSArray alloc]initWithArray:[notification object]];
     NSLog(@"Products = %@", products_);
@@ -204,7 +209,7 @@
 {
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易取消(%@)",[notification name]]];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.view setUserInteractionEnabled:YES];
+    [self.navigationController.view setUserInteractionEnabled:YES];
 
 }
 
@@ -212,31 +217,23 @@
 {
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易恢复(%@)",[notification name]]];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.view setUserInteractionEnabled:YES];
+    [self.navigationController.view setUserInteractionEnabled:YES];
 }
 
 -(void )completeTransaction:(NSNotification*)notification
 {
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易成功(%@)",[notification name]]];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.view setUserInteractionEnabled:YES];
+    [self.navigationController.view setUserInteractionEnabled:YES];
 }
 
 -(void) completeTransactionAndVerifySucceed:(NSNotification*)notification
 {
     NSString *proIdentifier = [notification object];
     [self showAlertWithMsg:[NSString stringWithFormat:@"交易成功，产品编号：%@",proIdentifier]];
-    
-    // handle purchase
-    NSString *addBalance = [[proIdentifier componentsSeparatedByString:@"."] lastObject];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSInteger bal = [[defaults valueForKey:@"balance"] intValue] + [addBalance intValue];
-    NSString *newBalance = [NSString stringWithFormat:@"%d", bal];
-    [defaults setValue:newBalance forKey:@"balance"];
-    
+        
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.view setUserInteractionEnabled:YES];
+    [self.navigationController.view setUserInteractionEnabled:YES];
     [self.tableView reloadData];
 
 }
@@ -246,8 +243,7 @@
     NSString *proIdentifier = [notification object];
     [self showAlertWithMsg:[NSString stringWithFormat:@"产品%@交易失败",proIdentifier]];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self.view setUserInteractionEnabled:YES];
-
+    [self.navigationController.view setUserInteractionEnabled:YES];
 }
 
 @end

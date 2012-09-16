@@ -107,7 +107,7 @@
     NSError *error;
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
     NSLog(@"Request finished, results: %@", results);
-    if ([results isKindOfClass:[NSNull class]]) {
+    if (!results) {
         [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
         [[MBProgressHUD HUDForView:self.view] setLabelText:@"Server Error"];
         [[MBProgressHUD HUDForView:self.view] hide:YES afterDelay:1.0];

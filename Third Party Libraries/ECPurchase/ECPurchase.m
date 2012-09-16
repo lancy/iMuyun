@@ -141,6 +141,7 @@ SINGLETON_IMPLEMENTATION(ECPurchase);
 
 -(void)verifyReceipt:(SKPaymentTransaction *)transaction
 {
+//    NSLog(@"productIdentifier = %@", transaction.payment.productIdentifier);
 	_networkQueue = [ASINetworkQueue queue];
 	[_networkQueue retain];
 	NSURL *verifyURL = [NSURL URLWithString:VAILDATING_RECEIPTS_URL];
