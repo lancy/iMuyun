@@ -7,7 +7,7 @@
 //
 
 #import "ECPurchase.h"
-#import "SBJSON.h"
+//#import "SBJSON.h"
 #import "GTMBase64.h"
 
 /******************************
@@ -163,19 +163,31 @@ SINGLETON_IMPLEMENTATION(ECPurchase);
 //																				   kCFStringEncodingUTF8 );
 //	NSString * encodedString =  [recepit stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];  
 	NSDictionary* data = [NSDictionary dictionaryWithObjectsAndKeys:recepit, @"receipt-data", nil];
-	SBJsonWriter *writer = [SBJsonWriter new];
-	[request appendPostData: [[writer stringWithObject:data] dataUsingEncoding: NSUTF8StringEncoding]];
-	[writer release];
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data  options:kNilOptions error:&error];
+//    NSString *jsonString = [[NSString alloc] initWithData: encoding:NSUTF8StringEncoding];
+    
+    [request appendPostData:jsonData];
+
+//	SBJsonWriter *writer = [SBJsonWriter new];
+//	[request appendPostData: [[writer stringWithObject:data] dataUsingEncoding: NSUTF8StringEncoding]];
+//	[writer release];
+    
+    
 	[_networkQueue addOperation: request];
 	[_networkQueue go];
 }
 
 -(void)didFinishVerify:(ECPurchaseHTTPRequest *)request
 {
-	NSString *response = [request responseString];
-	SBJsonParser *parser = [SBJsonParser new];
-	NSDictionary* jsonData = [parser objectWithString: response];
-	[parser release];
+    NSError *error;
+    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+
+    
+//	NSString *response = [request responseString];
+//	SBJsonParser *parser = [SBJsonParser new];
+//	NSDictionary* jsonData = [parser objectWithString: response];
+//	[parser release];
 	NSString *status = [jsonData objectForKey: @"status"];
 	if ([status intValue] == 0) {
 		NSDictionary *receipt = [jsonData objectForKey: @"receipt"];

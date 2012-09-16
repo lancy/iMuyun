@@ -12,10 +12,10 @@
 @implementation IMYHttpClient
 //@synthesize delegate = _delegate;
  
-//static NSString* const kHost = @"http://222.200.181.42/";
+static NSString* const kHost = @"http://222.200.181.42/";
 //static NSString* const kHost = @"http://omegaga.net:8000/";
 //static NSString* const kHost = @"http://omegaga.net/muyunvideo/";
-static NSString* const kHost = @"http://imuyun.com/muyunvideo/";
+//static NSString* const kHost = @"http://imuyun.com/muyunvideo/";
 static NSString* const kLogin = @"login/";
 static NSString* const kRegister = @"register/";
 static NSString* const kUserInfo = @"userInfo/";
@@ -187,7 +187,6 @@ static NSString* const kAddBalance = @"addBalance/";
     NSData *jsonInfo = [NSJSONSerialization dataWithJSONObject:myInfo  options:kNilOptions error:&error];
     NSString *str = [[NSString alloc] initWithData:jsonInfo
                                              encoding:NSUTF8StringEncoding];
-    NSLog(@"json str = %@", str);
     [request setPostValue:str forKey:@"myInfo"];
     [request startAsynchronous];
 }
