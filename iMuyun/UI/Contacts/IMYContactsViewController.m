@@ -434,6 +434,13 @@
 
 - (IBAction)phoneButtonTapped:(id)sender forEvent:(UIEvent *)event
 {
+    NSUserDefaults *defautls = [NSUserDefaults standardUserDefaults];
+    if ([[defautls valueForKey:@"balance"] isEqualToNumber:@0]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Your balance has reached 0." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
     UITableView *tableView;
     if ([self.searchDisplayController isActive]) {
         tableView = self.searchDisplayController.searchResultsTableView;

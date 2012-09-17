@@ -160,6 +160,13 @@
 
 - (IBAction)tapVideoCallButton:(id)sender {
     NSLog(@"tap video call button");
+    NSUserDefaults *defautls = [NSUserDefaults standardUserDefaults];
+    if ([[defautls valueForKey:@"balance"] isEqualToNumber:@0]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Your balance has reached 0." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
     IMYVideoCallViewController *videoCallViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"videoCallViewController"];
     [videoCallViewController setTargetContact:self.contact];
     [videoCallViewController setVideoCallState:IMYVideoCallStateCallOut];
