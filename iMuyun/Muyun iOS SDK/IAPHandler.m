@@ -91,7 +91,38 @@ static IAPHandler *DefaultHandle_ = nil;
     NSInteger bal = [[defaults valueForKey:@"balance"] intValue] + [addBalance intValue];
     NSString *newBalance = [NSString stringWithFormat:@"%d", bal];
     [defaults setValue:newBalance forKey:@"balance"];
+    
+    NSString *myUserName = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
+    NSLog(@"handle %@", proIdentifier);
+    [[IMYHttpClient shareClient] requestaddBalanceWithUsername:myUserName addBalance:addBalance delegate:self];
 
+
+}
+
+#pragma mark - http request methods
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSError *error;
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
+    NSLog(@"Request finished, results: %@", results);
+    if ([results isKindOfClass:[NSNull class]]) {
+        NSLog(@"Add balance fail");
+    }
+    
+    if ([[results valueForKey:@"requestType"] isEqualToString:@"addBalance"]) {
+        if ([[results valueForKey:@"message"] isEqualToString:@"success"]) {
+            NSLog(@"Add balance success");
+        } else {
+            NSLog(@"Add balance fail");
+        }
+    }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Request Failed, %@", error);
 }
 
 

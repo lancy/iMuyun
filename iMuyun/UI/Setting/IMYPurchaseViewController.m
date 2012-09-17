@@ -22,7 +22,8 @@
     [self registIapObservers];
     [IAPHandler initECPurchaseWithHandler];
     //iap产品编号集合，这里你需要替换为你自己的iap列表
-    NSArray *productIds = [NSArray arrayWithObjects:@"imuyun.12", nil];
+    NSArray *productIds = [NSArray arrayWithObjects:@"imuyun.12", @"imuyun.25", @"imuyun.50", @"imuyun.100", @"imuyun.250", @"imuyun.500",
+                                                    nil];
     
     //从AppStore上获取产品信息
     [[ECPurchase shared]requestProductData:productIds];
@@ -150,8 +151,9 @@
     // Make user interation no
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [self.navigationController.view setUserInteractionEnabled:YES];
-
-    products_ = [[NSArray alloc]initWithArray:[notification object]];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"price" ascending:YES];
+//    products_ = [[NSArray alloc]initWithArray:[notification object]];
+    products_ = [[notification object] sortedArrayUsingDescriptors:@[ sortDescriptor ]];
     NSLog(@"Products = %@", products_);
     
     if (!products_ || [products_ count] == 0) {
