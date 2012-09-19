@@ -251,6 +251,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             
         } else {
             NSLog(@"Upload avatar fail");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Upload photo fail, Please try again later" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [alert show];
         }
 
     } else if ([[results valueForKey:@"requestType"] isEqualToString:@"updateMyInfo"])
@@ -259,6 +261,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             NSLog(@"update my info success");
         } else {
             NSLog(@"Update my info fail");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Upload user infomation fail, Please try again later" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [alert show];
+
         }
     }
 
