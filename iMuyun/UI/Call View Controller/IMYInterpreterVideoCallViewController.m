@@ -186,8 +186,7 @@ static NSString* const kUserName = @"lancy";
             self.isCallOut = YES;
             
             // request video call
-//            [[IMYHttpClient shareClient] requestInterpreterVideoCallWithUsername:self.username myLanguage:self.myLanguage targetLanguage:self.targetLanguage delegate:self];
-            [[IMYHttpClient shareClient] requestInterpreterVideoCallWithUsername:@"lancy1014@gmail.com" myLanguage:self.myLanguage targetLanguage:self.targetLanguage delegate:self];
+            [[IMYHttpClient shareClient] requestInterpreterVideoCallWithUsername:self.username myLanguage:self.myLanguage targetLanguage:self.targetLanguage delegate:self];
             
             break;
         default:
