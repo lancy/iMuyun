@@ -49,8 +49,8 @@
     
     [tabView setDelegate:self];
     
-    UIImage * contactsUns = [UIImage imageNamed:@"contacts_uns"];
-    UIImage * contactsSel = [UIImage imageNamed:@"contacts_sel"];
+    UIImage * contactsUns = [UIImage imageNamed:@"contact_uns"];
+    UIImage * contactsSel = [UIImage imageNamed:@"contact_sel"];
     UIImage * recentsUns = [UIImage imageNamed:@"recent_uns"];
     UIImage * recentsSel = [UIImage imageNamed:@"recent_sel"];
     UIImage * settingUns = [UIImage imageNamed:@"setting_uns"];

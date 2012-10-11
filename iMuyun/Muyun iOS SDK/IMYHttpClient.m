@@ -15,7 +15,7 @@
 //static NSString* const kHost = @"http://222.200.181.42/";
 //static NSString* const kHost = @"http://omegaga.net:8000/";
 //static NSString* const kHost = @"http://imuyun.com/muyunvideo/";
-static NSString* const kHost = @"http://imuyun.com:8000/";
+static NSString* const kHost = @"http://imuyun.com:8001/";
 
 static NSString* const kLogin = @"login/";
 static NSString* const kRegister = @"register/";

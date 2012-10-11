@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIView *languageInputAccessoryView;
 @property (weak, nonatomic) IBOutlet UIButton *myLanguageButton;
 @property (weak, nonatomic) IBOutlet UIButton *targetLanguageButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoCallButton;
 
 - (IBAction)tapLanguageDoneButton:(id)sender;
 - (IBAction)tapLanguageButton:(id)sender;

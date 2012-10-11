@@ -29,38 +29,38 @@
     UIImage *navbarBg = [[UIImage imageNamed:@"navbar"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     // Set the background image for *all* UINavigationBars
-    [[UINavigationBar appearance] setBackgroundImage:navbarBg
-                                       forBarMetrics:UIBarMetricsDefault];
-        
+//    [[UINavigationBar appearance] setBackgroundImage:navbarBg forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:86.0/255 green:156.0/255 blue:45.0/255 alpha:0.8]];
     // Customize the title text for *all* UINavigationBars
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor darkGrayColor],
-      UITextAttributeTextColor,
-      [UIColor whiteColor],
-      UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
-      UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Arial-Bold" size:32.0],
-      UITextAttributeFont,
-      nil]];
+//    [[UINavigationBar appearance] setTitleTextAttributes:
+//     [NSDictionary dictionaryWithObjectsAndKeys:
+//      [UIColor darkGrayColor],
+//      UITextAttributeTextColor,
+//      [UIColor whiteColor],
+//      UITextAttributeTextShadowColor,
+//      [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
+//      UITextAttributeTextShadowOffset,
+//      [UIFont fontWithName:@"Arial-Bold" size:32.0],
+//      UITextAttributeFont,
+//      nil]];
     
     // Customize UIBarButtonItems
 
     
     UIImage *button = [[UIImage imageNamed:@"bordered"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
     
-    [[UIBarButtonItem appearance] setBackgroundImage:button forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [[UIBarButtonItem appearance] setBackgroundImage:button forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 //    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:220.0/255.0 green:104.0/255.0 blue:1.0/255.0 alpha:1.0], UITextAttributeTextColor, [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0], UITextAttributeTextShadowColor, [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset, [UIFont fontWithName:@"AmericanTypewriter" size:0.0], UITextAttributeFont, nil] forState:UIControlStateNormal];
     
     
+//    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:51.0/255 green:153.0/255 blue:51.0/255 alpha:0.8]];
     
     // Customize back button items differently
     UIImage *back = [[UIImage imageNamed:@"back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 5)];
     
     
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:back forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
     
     
         

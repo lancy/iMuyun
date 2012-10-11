@@ -39,6 +39,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self.videoCallButton setBackgroundImage:[[UIImage imageNamed:@"green_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)]  forState:UIControlStateNormal  ];
+    
     self.languageArray = LANGUAGE_ARRAY;
 }
 
@@ -48,6 +50,7 @@
     [self setLanguageInputAccessoryView:nil];
     [self setMyLanguageButton:nil];
     [self setTargetLanguageButton:nil];
+    [self setVideoCallButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
@@ -155,13 +158,23 @@
 }
 
 - (IBAction)tapVideoCallButton:(id)sender {
-    IMYInterpreterVideoCallViewController *interpreterVideoCallVC = [self.storyboard instantiateViewControllerWithIdentifier:@"interpreterVideoCallViewController"];
-    
-    [interpreterVideoCallVC setMyLanguage:self.myLanguageButton.titleLabel.text];
-    [interpreterVideoCallVC setTargetLanguage:self.targetLanguageButton.titleLabel.text];
-    [interpreterVideoCallVC setVideoCallState:IMYVideoCallStateCallOut];
-    
-    [self presentViewController:interpreterVideoCallVC animated:YES completion:nil];
+    if ([self.myLanguageButton.titleLabel.text isEqualToString:@"Select First Language"] ||
+        [self.targetLanguageButton.titleLabel.text isEqualToString:@"Select Second Language"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You must select the languages." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else if ([self.myLanguageButton.titleLabel.text isEqualToString:self.targetLanguageButton.titleLabel.text]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You should select different languages" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+    } else {    
+        IMYInterpreterVideoCallViewController *interpreterVideoCallVC = [self.storyboard instantiateViewControllerWithIdentifier:@"interpreterVideoCallViewController"];
+        
+        [interpreterVideoCallVC setMyLanguage:self.myLanguageButton.titleLabel.text];
+        [interpreterVideoCallVC setTargetLanguage:self.targetLanguageButton.titleLabel.text];
+        [interpreterVideoCallVC setVideoCallState:IMYVideoCallStateCallOut];
+        
+        [self presentViewController:interpreterVideoCallVC animated:YES completion:nil];
+    }
 
 }
 @end

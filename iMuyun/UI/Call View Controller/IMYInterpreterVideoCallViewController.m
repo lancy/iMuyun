@@ -10,6 +10,7 @@
 #import "IMYAppDelegate.h"
 
 @interface IMYInterpreterVideoCallViewController ()
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) OTSession *session;
 @property (nonatomic, strong) OTPublisher *publisher;
 @property (nonatomic, strong) OTSubscriber *interpreterSubscriber;
@@ -175,15 +176,27 @@ static NSString* const kUserName = @"lancy";
 
 - (void)updateUserInterface
 {
+    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"ct-call-waiting" ofType:@"caf"];
+    NSURL *soundUrl = [[NSURL alloc] initFileURLWithPath:soundPath];
+
+    
     switch (self.videoCallState) {
         case IMYVideoCallStateNormal:
             [self.stateLabel setText:[NSString stringWithFormat:@"Comunication with Muyun Interperter"]];
+            [self.audioPlayer stop];
+
             break;
         case IMYVideoCallStateCallIn:
             break;
         case IMYVideoCallStateCallOut:
             [self.stateLabel setText:[NSString stringWithFormat:@"Calling Muyun Interpreter"]];
             self.isCallOut = YES;
+            
+            // play ring
+            self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+            self.audioPlayer.numberOfLoops = -1;
+            [self.audioPlayer play];
+
             
             // request video call
             [[IMYHttpClient shareClient] requestInterpreterVideoCallWithUsername:self.username myLanguage:self.myLanguage targetLanguage:self.targetLanguage delegate:self];
@@ -205,6 +218,7 @@ static NSString* const kUserName = @"lancy";
 - (IBAction)tapEndButton:(id)sender {
     [self.session disconnect];
     [self setIsCallOut:NO];
+    [self.audioPlayer stop];
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -268,6 +282,10 @@ static NSString* const kUserName = @"lancy";
             [self initSessionAndBeginConnecting];
         } else {
             NSLog(@"Interpreter reject video call.");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Our interpreter is busy now, please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [self tapEndButton:nil];
+
         }
     }
 }
@@ -276,6 +294,11 @@ static NSString* const kUserName = @"lancy";
 {
     NSError *error = [request error];
     NSLog(@"Request failed, %@", error);
+    NSLog(@"Network Error.");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"There is something wrong with our server, please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    [self tapEndButton:nil];
+
 }
 
 
