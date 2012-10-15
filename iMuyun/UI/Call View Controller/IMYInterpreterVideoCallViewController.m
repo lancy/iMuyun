@@ -176,14 +176,16 @@ static NSString* const kUserName = @"lancy";
 
 - (void)updateUserInterface
 {
-    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"ct-call-waiting" ofType:@"caf"];
-    NSURL *soundUrl = [[NSURL alloc] initFileURLWithPath:soundPath];
+//    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"ring" ofType:@"caf"];
+//    NSURL *soundUrl = [[NSURL alloc] initFileURLWithPath:soundPath];
 
     
     switch (self.videoCallState) {
         case IMYVideoCallStateNormal:
             [self.stateLabel setText:[NSString stringWithFormat:@"Comunication with Muyun Interperter"]];
-            [self.audioPlayer stop];
+//            [self.audioPlayer stop];
+            
+            [self.myVideoView setHidden:NO];
 
             break;
         case IMYVideoCallStateCallIn:
@@ -193,9 +195,12 @@ static NSString* const kUserName = @"lancy";
             self.isCallOut = YES;
             
             // play ring
-            self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
-            self.audioPlayer.numberOfLoops = -1;
-            [self.audioPlayer play];
+//            self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+//            self.audioPlayer.numberOfLoops = -1;
+//            [self.audioPlayer play];
+            
+            [self.myVideoView setHidden:YES];
+            
 
             
             // request video call
@@ -216,6 +221,7 @@ static NSString* const kUserName = @"lancy";
 
 
 - (IBAction)tapEndButton:(id)sender {
+    [self updateBalance];
     [self.session disconnect];
     [self setIsCallOut:NO];
     [self.audioPlayer stop];
@@ -272,20 +278,22 @@ static NSString* const kUserName = @"lancy";
     NSError *error;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[request responseData] options:kNilOptions error:&error];
     NSLog(@"Request finished, results: %@", result);
-    if ([[result valueForKey:@"requestType"] isEqualToString:@"interpreterVideoCall"]) {
-        if ([[result valueForKey:@"message"] isEqualToString:@"accept"]) {
-            NSLog(@"Interpreter accept video call.");
-            self.sessionId = [result valueForKey:@"sessionId"];
-            self.token = [result valueForKey:@"token"];
-            self.videoCallState = IMYVideoCallStateNormal;
-            [self updateUserInterface];
-            [self initSessionAndBeginConnecting];
-        } else {
-            NSLog(@"Interpreter reject video call.");
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Our interpreter is busy now, please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-            [self tapEndButton:nil];
+    if ([self isVisible]) {
+        if ([[result valueForKey:@"requestType"] isEqualToString:@"interpreterVideoCall"]) {
+            if ([[result valueForKey:@"message"] isEqualToString:@"accept"]) {
+                NSLog(@"Interpreter accept video call.");
+                self.sessionId = [result valueForKey:@"sessionId"];
+                self.token = [result valueForKey:@"token"];
+                self.videoCallState = IMYVideoCallStateNormal;
+                [self updateUserInterface];
+                [self initSessionAndBeginConnecting];
+            } else {
+                NSLog(@"Interpreter reject video call.");
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Our interpreter is busy now, please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                [self tapEndButton:nil];
 
+            }
         }
     }
 }
@@ -412,7 +420,18 @@ static NSString* const kUserName = @"lancy";
     
 }
 
+- (void)updateBalance
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger balance = [[defaults valueForKey:@"balance"] intValue];
+    NSInteger useOut = self.callTime / 60;
+    NSInteger new = balance - useOut * 3;
+    [defaults setValue:[NSString stringWithFormat:@"%d", new] forKey:@"balance"];
+}
 
+- (BOOL)isVisible {
+    return [self isViewLoaded] && self.view.window;
+}
 
 
 @end

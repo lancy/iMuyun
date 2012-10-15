@@ -37,7 +37,7 @@
 		BF06C64E15E5F50C00752711 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CC15B8F0630095F8BA /* Foundation.framework */; };
 		BF06C65415E5F50D00752711 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF06C65215E5F50D00752711 /* InfoPlist.strings */; };
 		BF06C65715E5F50D00752711 /* iMuyunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF06C65615E5F50D00752711 /* iMuyunTest.m */; };
-		BF14398D1626F6380078ACB6 /* ct-call-waiting.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF14398C1626F6380078ACB6 /* ct-call-waiting.caf */; };
+		BF14398D1626F6380078ACB6 /* ring.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF14398C1626F6380078ACB6 /* ring.caf */; };
 		BF162D5015E54D7E00A54B15 /* shufa.png in Resources */ = {isa = PBXBuildFile; fileRef = BF162D4F15E54D7E00A54B15 /* shufa.png */; };
 		BF22712E15E024DA00614200 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711915E024DA00614200 /* UIColor+Hex.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF22712F15E024DA00614200 /* UIView+InnerShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711B15E024DA00614200 /* UIView+InnerShadow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -229,6 +229,16 @@
 		BFC893DA15B8F0630095F8BA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893C815B8F0630095F8BA /* libstdc++.dylib */; };
 		BFC893DB15B8F0630095F8BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893C915B8F0630095F8BA /* QuartzCore.framework */; };
 		BFC893DC15B8F0630095F8BA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC893CA15B8F0630095F8BA /* AVFoundation.framework */; };
+		BFCCF354162A9A500075E046 /* IMYWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCCF353162A9A500075E046 /* IMYWelcomeViewController.m */; };
+		BFCCF360162AA6CE0075E046 /* icondraw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF357162AA6CE0075E046 /* icondraw@2x.png */; };
+		BFCCF361162AA6CE0075E046 /* tutorial1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF358162AA6CE0075E046 /* tutorial1@2x.png */; };
+		BFCCF362162AA6CE0075E046 /* tutorial2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF359162AA6CE0075E046 /* tutorial2@2x.png */; };
+		BFCCF363162AA6CE0075E046 /* icondraw.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF35A162AA6CE0075E046 /* icondraw.png */; };
+		BFCCF364162AA6CE0075E046 /* tutorial overview1.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF35B162AA6CE0075E046 /* tutorial overview1.png */; };
+		BFCCF365162AA6CE0075E046 /* tutorial overview2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF35C162AA6CE0075E046 /* tutorial overview2.png */; };
+		BFCCF366162AA6CE0075E046 /* tutorial overview3.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF35D162AA6CE0075E046 /* tutorial overview3.png */; };
+		BFCCF367162AA6CE0075E046 /* tutorial1.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF35E162AA6CE0075E046 /* tutorial1.png */; };
+		BFCCF368162AA6CE0075E046 /* tutorial2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCCF35F162AA6CE0075E046 /* tutorial2.png */; };
 		BFD152AD15E0309E004F97D8 /* IMYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152AC15E0309E004F97D8 /* IMYTabBarController.m */; };
 		BFD152BC15E0349D004F97D8 /* CustomBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B515E0349D004F97D8 /* CustomBackgroundLayer.m */; };
 		BFD152BD15E0349D004F97D8 /* CustomNoiseBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD152B715E0349D004F97D8 /* CustomNoiseBackgroundView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -292,7 +302,7 @@
 		BF06C65515E5F50D00752711 /* iMuyunTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iMuyunTest.h; sourceTree = "<group>"; };
 		BF06C65615E5F50D00752711 /* iMuyunTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iMuyunTest.m; sourceTree = "<group>"; };
 		BF06C65815E5F50D00752711 /* iMuyunTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMuyunTest-Prefix.pch"; sourceTree = "<group>"; };
-		BF14398C1626F6380078ACB6 /* ct-call-waiting.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ct-call-waiting.caf"; sourceTree = "<group>"; };
+		BF14398C1626F6380078ACB6 /* ring.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ring.caf; sourceTree = "<group>"; };
 		BF162D4F15E54D7E00A54B15 /* shufa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufa.png; sourceTree = "<group>"; };
 		BF22711815E024DA00614200 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		BF22711915E024DA00614200 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -545,6 +555,17 @@
 		BFC893CA15B8F0630095F8BA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BFC893CC15B8F0630095F8BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BFC893CD15B8F0630095F8BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BFCCF352162A9A500075E046 /* IMYWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMYWelcomeViewController.h; sourceTree = "<group>"; };
+		BFCCF353162A9A500075E046 /* IMYWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMYWelcomeViewController.m; sourceTree = "<group>"; };
+		BFCCF357162AA6CE0075E046 /* icondraw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icondraw@2x.png"; sourceTree = "<group>"; };
+		BFCCF358162AA6CE0075E046 /* tutorial1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial1@2x.png"; sourceTree = "<group>"; };
+		BFCCF359162AA6CE0075E046 /* tutorial2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial2@2x.png"; sourceTree = "<group>"; };
+		BFCCF35A162AA6CE0075E046 /* icondraw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icondraw.png; sourceTree = "<group>"; };
+		BFCCF35B162AA6CE0075E046 /* tutorial overview1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial overview1.png"; sourceTree = "<group>"; };
+		BFCCF35C162AA6CE0075E046 /* tutorial overview2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial overview2.png"; sourceTree = "<group>"; };
+		BFCCF35D162AA6CE0075E046 /* tutorial overview3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial overview3.png"; sourceTree = "<group>"; };
+		BFCCF35E162AA6CE0075E046 /* tutorial1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial1.png; sourceTree = "<group>"; };
+		BFCCF35F162AA6CE0075E046 /* tutorial2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial2.png; sourceTree = "<group>"; };
 		BFD152AB15E0309E004F97D8 /* IMYTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMYTabBarController.h; path = Others/IMYTabBarController.h; sourceTree = "<group>"; };
 		BFD152AC15E0309E004F97D8 /* IMYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMYTabBarController.m; path = Others/IMYTabBarController.m; sourceTree = "<group>"; };
 		BFD152B415E0349D004F97D8 /* CustomBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackgroundLayer.h; sourceTree = "<group>"; };
@@ -865,7 +886,8 @@
 		BF25D20D15B2AAEE00411924 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF14398C1626F6380078ACB6 /* ct-call-waiting.caf */,
+				BF14398C1626F6380078ACB6 /* ring.caf */,
+				BFCCF355162AA6CE0075E046 /* tutorial pic */,
 				BF9B698B1626C321006AED86 /* test */,
 				BF45B00B1609E05A00D05B43 /* help.html */,
 				BF45B00C1609E05A00D05B43 /* about.html */,
@@ -1227,6 +1249,30 @@
 			name = "Call View Controller";
 			sourceTree = "<group>";
 		};
+		BFCCF355162AA6CE0075E046 /* tutorial pic */ = {
+			isa = PBXGroup;
+			children = (
+				BFCCF356162AA6CE0075E046 /* @2x */,
+				BFCCF35A162AA6CE0075E046 /* icondraw.png */,
+				BFCCF35B162AA6CE0075E046 /* tutorial overview1.png */,
+				BFCCF35C162AA6CE0075E046 /* tutorial overview2.png */,
+				BFCCF35D162AA6CE0075E046 /* tutorial overview3.png */,
+				BFCCF35E162AA6CE0075E046 /* tutorial1.png */,
+				BFCCF35F162AA6CE0075E046 /* tutorial2.png */,
+			);
+			path = "tutorial pic";
+			sourceTree = "<group>";
+		};
+		BFCCF356162AA6CE0075E046 /* @2x */ = {
+			isa = PBXGroup;
+			children = (
+				BFCCF357162AA6CE0075E046 /* icondraw@2x.png */,
+				BFCCF358162AA6CE0075E046 /* tutorial1@2x.png */,
+				BFCCF359162AA6CE0075E046 /* tutorial2@2x.png */,
+			);
+			path = "@2x";
+			sourceTree = "<group>";
+		};
 		BFD152A015E02A80004F97D8 /* Others */ = {
 			isa = PBXGroup;
 			children = (
@@ -1277,6 +1323,8 @@
 				BF87F16615DE45EC004C5437 /* IMYLoginViewController.m */,
 				BF87F16415DE456B004C5437 /* IMYRegisterViewController.h */,
 				BF87F16315DE456B004C5437 /* IMYRegisterViewController.m */,
+				BFCCF352162A9A500075E046 /* IMYWelcomeViewController.h */,
+				BFCCF353162A9A500075E046 /* IMYWelcomeViewController.m */,
 			);
 			name = "Login & Register";
 			sourceTree = "<group>";
@@ -1353,7 +1401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF06C65415E5F50D00752711 /* InfoPlist.strings in Resources */,
-				BF14398D1626F6380078ACB6 /* ct-call-waiting.caf in Resources */,
+				BF14398D1626F6380078ACB6 /* ring.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1512,6 +1560,15 @@
 				BF9B69901626C339006AED86 /* settings.png in Resources */,
 				BF9B69931626C799006AED86 /* green_button.png in Resources */,
 				BF9B69941626C799006AED86 /* green_button@2x.png in Resources */,
+				BFCCF360162AA6CE0075E046 /* icondraw@2x.png in Resources */,
+				BFCCF361162AA6CE0075E046 /* tutorial1@2x.png in Resources */,
+				BFCCF362162AA6CE0075E046 /* tutorial2@2x.png in Resources */,
+				BFCCF363162AA6CE0075E046 /* icondraw.png in Resources */,
+				BFCCF364162AA6CE0075E046 /* tutorial overview1.png in Resources */,
+				BFCCF365162AA6CE0075E046 /* tutorial overview2.png in Resources */,
+				BFCCF366162AA6CE0075E046 /* tutorial overview3.png in Resources */,
+				BFCCF367162AA6CE0075E046 /* tutorial1.png in Resources */,
+				BFCCF368162AA6CE0075E046 /* tutorial2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1604,6 +1661,7 @@
 				BF2EE6DC1601B02700A50DC5 /* IAPHandler.m in Sources */,
 				BF45B0071609DF9500D05B43 /* IMYAboutViewController.m in Sources */,
 				BF45B00A1609DFA200D05B43 /* IMYHelpViewController.m in Sources */,
+				BFCCF354162A9A500075E046 /* IMYWelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,6 +49,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
     NSString *username = [[[NSUserDefaults standardUserDefaults] valueForKey:@"myInfo"] valueForKey:@"username"];
     [self.usernameTextField setText:username];
 
@@ -77,6 +80,15 @@
         [self.moveView setAlpha:1];
     }];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"firstEnter"]) {
+        [self performSegueWithIdentifier:@"welcome" sender:self];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

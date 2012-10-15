@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IMYAboutViewController : UIViewController
+@interface IMYAboutViewController : UIViewController <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *contentWebView;
 
 @end

@@ -46,7 +46,7 @@ static NSString* const kAddBalance = @"addBalance/";
     @synchronized(self) {
         if(!client) {
             client = [[IMYHttpClient alloc] init];
-            [ASIHTTPRequest setDefaultTimeOutSeconds:5];
+            [ASIHTTPRequest setDefaultTimeOutSeconds:40];
         }   
     }
     return client;
