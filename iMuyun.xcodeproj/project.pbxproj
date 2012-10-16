@@ -39,6 +39,8 @@
 		BF06C65715E5F50D00752711 /* iMuyunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF06C65615E5F50D00752711 /* iMuyunTest.m */; };
 		BF14398D1626F6380078ACB6 /* ring.caf in Resources */ = {isa = PBXBuildFile; fileRef = BF14398C1626F6380078ACB6 /* ring.caf */; };
 		BF162D5015E54D7E00A54B15 /* shufa.png in Resources */ = {isa = PBXBuildFile; fileRef = BF162D4F15E54D7E00A54B15 /* shufa.png */; };
+		BF1B4CE4162D7C5100D65DFE /* icon_72_72.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1B4CE3162D7C5100D65DFE /* icon_72_72.png */; };
+		BF1B4CE7162D7D2400D65DFE /* icon_144_144.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1B4CE6162D7D2400D65DFE /* icon_144_144.png */; };
 		BF22712E15E024DA00614200 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711915E024DA00614200 /* UIColor+Hex.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF22712F15E024DA00614200 /* UIView+InnerShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711B15E024DA00614200 /* UIView+InnerShadow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF22713015E024DA00614200 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = BF22711D15E024DA00614200 /* UIView+Positioning.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -304,6 +306,8 @@
 		BF06C65815E5F50D00752711 /* iMuyunTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMuyunTest-Prefix.pch"; sourceTree = "<group>"; };
 		BF14398C1626F6380078ACB6 /* ring.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ring.caf; sourceTree = "<group>"; };
 		BF162D4F15E54D7E00A54B15 /* shufa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufa.png; sourceTree = "<group>"; };
+		BF1B4CE3162D7C5100D65DFE /* icon_72_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72_72.png; sourceTree = "<group>"; };
+		BF1B4CE6162D7D2400D65DFE /* icon_144_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144_144.png; sourceTree = "<group>"; };
 		BF22711815E024DA00614200 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		BF22711915E024DA00614200 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		BF22711A15E024DA00614200 /* UIView+InnerShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+InnerShadow.h"; sourceTree = "<group>"; };
@@ -811,8 +815,10 @@
 				BF84A25A1621A5030051B116 /* second.storyboard */,
 				BFED5C4915F6492D00DE7DD5 /* Default.png */,
 				BFED5C4715F6492900DE7DD5 /* Default@2x.png */,
+				BF1B4CE3162D7C5100D65DFE /* icon_72_72.png */,
 				BFED5C4515F6446E00DE7DD5 /* icon_57_57.png */,
 				BFED5C4215F6446A00DE7DD5 /* icon_114_114.png */,
+				BF1B4CE6162D7D2400D65DFE /* icon_144_144.png */,
 				BF05A5EC15EB29F000DBA820 /* 57_57.png */,
 				BF87F16915DE46D0004C5437 /* Third Party Libraries */,
 				BF25D20C15B2AAEE00411924 /* iMuyun */,
@@ -1569,6 +1575,8 @@
 				BFCCF366162AA6CE0075E046 /* tutorial overview3.png in Resources */,
 				BFCCF367162AA6CE0075E046 /* tutorial1.png in Resources */,
 				BFCCF368162AA6CE0075E046 /* tutorial2.png in Resources */,
+				BF1B4CE4162D7C5100D65DFE /* icon_72_72.png in Resources */,
+				BF1B4CE7162D7D2400D65DFE /* icon_144_144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

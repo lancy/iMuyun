@@ -157,7 +157,7 @@
     // Override point for customization after application launch.
     NSLog(@"iMuyun did finish launching. launch Options = %@", launchOptions);
 
-    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"firstEnter"];
     [self setIsInCall:NO];
     
     [self customizeAppearance];

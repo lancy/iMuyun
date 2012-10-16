@@ -153,7 +153,9 @@
 {
     NSError *error = [request error];
     NSLog(@"Request Failed, %@", error);
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [[MBProgressHUD HUDForView:self.view] setMode:MBProgressHUDModeText];
+    [[MBProgressHUD HUDForView:self.view] setLabelText:@"Network Error"];
+    [[MBProgressHUD HUDForView:self.view] hide:YES afterDelay:1.0];
 }
 
 @end

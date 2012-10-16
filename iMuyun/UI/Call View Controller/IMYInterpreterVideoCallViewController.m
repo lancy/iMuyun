@@ -370,6 +370,7 @@ static NSString* const kUserName = @"lancy";
     NSLog(@"_subscriber.stream.streamId (%@)", _interpreterSubscriber.stream.streamId);
     if ([[stream name] isEqualToString:@"interpreter"]) {
         self.interpreterSubscriber = nil;
+        [self tapEndButton:self];
         
     }
 //    else if (![[stream name] isEqualToString:[self.publisher name]]) {

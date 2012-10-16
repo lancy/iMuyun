@@ -28,6 +28,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    NSString *s1 = @"Accompanied Interpreting, expensive and inconvenient.";
+    NSString *s2 = @"Remote Video Interpreting, affordable and efficient.";
+    NSString *s3 = @"iMuyun\n Let the world in your touch!";
+    
     [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"firstEnter"];
     
     [self.scrollView setDelegate:self];
@@ -40,7 +44,7 @@
     
     UIView *firstView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
     UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, viewSize.width - 40, 60)];
-    [firstLabel setText:@"It's expensive and inconvenient with personal interpreter before."];
+    [firstLabel setText:s1];
     [firstLabel setNumberOfLines:2];
     [firstLabel setTextAlignment:NSTextAlignmentCenter];
     [firstLabel setTextColor:[UIColor whiteColor]];
@@ -57,7 +61,7 @@
     
     UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
     UILabel *secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, viewSize.width - 40, 60)];
-    [secondLabel setText:@"But it's efficient and simple with remote video interpreter now."];
+    [secondLabel setText:s2];
     [secondLabel setNumberOfLines:2];
     [secondLabel setTextColor:[UIColor whiteColor]];
     [secondLabel setBackgroundColor:[UIColor clearColor]];
@@ -74,7 +78,7 @@
     
     UIView *thirdView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewSize.width, viewSize.height)];
     UILabel *thirdLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, viewSize.width - 40, 60)];
-    [thirdLabel setText:@"iMuyun Remote Video Interpreter\n make translation readily available."];
+    [thirdLabel setText:s3];
     [thirdLabel setTextAlignment:NSTextAlignmentCenter];
     [thirdLabel setNumberOfLines:2];
     [thirdLabel setTextColor:[UIColor whiteColor]];
